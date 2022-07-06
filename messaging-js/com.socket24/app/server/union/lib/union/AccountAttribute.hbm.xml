@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="net.user1.union.persistence.union.AccountAttribute" table="ACCOUNT_ATTRIBUTE">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        
+        <property name="createdAt" column="CREATED_AT"/>
+        <property name="updatedAt" column="UPDATED_AT"/>
+        <property name="holder"  column="CLIENT"/>
+        <property name="name"  column="NAME"/>
+        <property name="scope"  column="SCOPE"/>
+        <property name="value" column="VALUE" length="768"/>        
+        <property name="flags" column="FLAGS"/>
+     </class>
+</hibernate-mapping>

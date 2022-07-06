@@ -1,0 +1,87 @@
+.section {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	position: relative;
+}
+.section-title {
+	text-align: center;
+	margin-bottom: 80px;
+	padding: 0 300px;
+	position: relative;
+	z-index: 5;
+	span {
+		text-transform: uppercase;
+		background: $color_persian_blue_approx;
+		display: inline-block;
+		margin-bottom: 10px;
+		font-size: 12px;
+		color: $white;
+		padding: 5px 18px;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 4px;
+		line-height: 22px;
+	}
+	h2 {
+		font-size: 35px;
+		margin-bottom: 18px;
+		line-height: 45px;
+		text-transform: capitalize;
+		position: relative;
+		font-weight: 700;
+		padding-bottom: 14px;
+		&:before {
+			position: absolute;
+			left: 50%;
+			margin-left: -25px;
+			bottom: -1px;
+			height: 2px;
+			width: 50px;
+			background: $color_persian_blue_approx;
+			content: "";
+		}
+	}
+	p {
+		font-size: 14px;
+		line-height: 24px;
+	}
+	&.white-text {
+		h2 {
+			color: $white;
+		}
+		h2::before {
+			background-color: $white;
+		}
+		span {
+			color: $white;
+		}
+		p {
+			color: $white;
+		}
+	}
+	&.align-right {
+		padding: 0;
+		padding-left: 600px;
+		h2 {
+			&:before {
+				display: none;
+			}
+			&:after {
+				position: absolute;
+				right: 0;
+				bottom: -1px;
+				height: 2px;
+				width: 50px;
+				background: $color_persian_blue_approx;
+				content: "";
+			}
+		}
+	}
+	&.align-left {
+		padding: 0;
+		padding-right: 600px;
+		h2:before {
+			left: 0;
+			margin-left: 0;
+		}
+	}
+}

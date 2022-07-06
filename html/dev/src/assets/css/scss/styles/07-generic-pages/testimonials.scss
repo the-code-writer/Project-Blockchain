@@ -1,0 +1,116 @@
+.testimonials {
+	background-color: $color_black_pearl_approx;
+	padding-top: 100px;
+	position: relative;
+	z-index: 5;
+	overflow: hidden;
+	.patern1 {
+		position: absolute;
+		top: 245px;
+		right: 8%;
+		width: 174px;
+		height: 174px;
+		background-repeat: no-repeat;
+		z-index: -1;
+		opacity: 0.6;
+	}
+	.patern2 {
+		position: absolute;
+		top: -49px;
+		left: -75px;
+		width: 174px;
+		height: 174px;
+		background-repeat: no-repeat;
+		z-index: -1;
+		opacity: 0.6;
+	}
+	.section-title {
+		padding: 0;
+		h2 {
+			color: $white;
+		}
+		p {
+			color: $white;
+		}
+	}
+	.testimonial-inner-head {
+		padding-bottom: 100px;
+	}
+	.testimonial-inner {
+		position: relative;
+	}
+	.testimonial-right {
+		text-align: right;
+	}
+	.single-testimonial {
+		height: 100%;
+		width: 100%;
+		position: relative;
+		p {
+			font-size: 15px;
+			color: $white;
+		}
+		.bottom {
+			position: relative;
+			margin-top: 40px;
+			.clien-image {
+				margin-right: 20px;
+				img {
+					height: 85px;
+					width: 85px;
+					//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+					border-radius: 100%;
+					margin-right: 22px;
+					float: left;
+					border: 6px solid #ffffff21;
+				}
+			}
+			.name {
+				font-size: 17px;
+				position: relative;
+				top: 20px;
+				color: $white;
+				span {
+					font-size: 13px;
+					display: block;
+					margin-top: 5px;
+					color: $color_gray_approx;
+					font-weight: 400;
+				}
+			}
+		}
+		.quote i {
+			font-size: 30px;
+			color: $white;
+		}
+	}
+	.tns-controls {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: 9;
+		button {
+			width: 45px;
+			height: 45px;
+			cursor: pointer;
+			z-index: 2;
+			color: $white;
+			font-size: 20px;
+			background: $white;
+			border: 1px solid $color_white_lilac_approx;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 50%;
+			-webkit-transition: all .3s ease-out 0s;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all .3s ease-out 0s;
+			background: transparent;
+			margin: 0 5px;
+			line-height: 45px;
+			&:hover {
+				background-color: $white;
+				border-color: transparent;
+				color: $color_persian_blue_approx;
+			}
+		}
+	}
+}

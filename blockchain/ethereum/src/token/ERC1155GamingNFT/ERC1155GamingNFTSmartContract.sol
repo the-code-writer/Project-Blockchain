@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: MIT OR Apache-2.0
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+
+contract ERC1155GamingNFTSmartContract is ERC721URIStorage {
+    using Counters for Counters.Counter;
+    Counters.Counter private _tokenIds;
+    address contractAddress;
+
+    constructor(
+        string memory name,
+        string memory symbol,
+        address marketplaceAddress) ERC721(name, symbol) {
+        contractAddress = marketplaceAddress;
+    }
+
+    function createToken(string memory tokenURI) public returns (uint) {
+        _tokenIds.increment();
+        uint256 newItemId = _tokenIds.current();
+
+        _mint(msg.sender, newItemId);
+        _setTokenURI(newItemId, tokenURI);
+        setApprovalForAll(contractAddress, true);
+        return newItemId;
+    }
+}

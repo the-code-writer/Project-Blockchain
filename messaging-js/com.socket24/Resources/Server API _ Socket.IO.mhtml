@@ -1,0 +1,2824 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://socket.io/docs/server-api/#Server
+Subject: Server API | Socket.IO
+Date: Mon, 28 Sep 2020 16:18:12 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--HhPgynnUcBEJ7sCFEL2JAe45ApsWhirQDC6hqLSvnO----"
+
+
+------MultipartBoundary--HhPgynnUcBEJ7sCFEL2JAe45ApsWhirQDC6hqLSvnO----
+Content-Type: text/html
+Content-ID: <frame-EAE0FB1A90FB6D3530CA2D556BCB01D5@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://socket.io/docs/server-api/#Server
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"tex=
+t/html; charset=3DUTF-8"><meta name=3D"generator" content=3D"Hexo 3.9.0">
+ =20
+ =20
+<!-- Google Analytics -->
+
+<!-- End Google Analytics -->
+
+
+ =20
+  <title>Server API | Socket.IO</title>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1, maximum-scale=3D1">
+  <meta name=3D"description" content=3D"ServerExposed by require(&amp;#39;s=
+ocket.io&amp;#39;). new Server(httpServer[, options]) httpServer (http.Serv=
+er) the server to bind to. options (Object)  Works with and without new: co=
+nst io =3D require('socke">
+<meta property=3D"og:type" content=3D"website">
+<meta property=3D"og:title" content=3D"Server API">
+<meta property=3D"og:url" content=3D"https://socket.io/docs/server-api/inde=
+x.html">
+<meta property=3D"og:site_name" content=3D"Socket.IO">
+<meta property=3D"og:description" content=3D"ServerExposed by require(&amp;=
+#39;socket.io&amp;#39;). new Server(httpServer[, options]) httpServer (http=
+.Server) the server to bind to. options (Object)  Works with and without ne=
+w: const io =3D require('socke">
+<meta property=3D"og:locale" content=3D"default">
+<meta property=3D"og:updated_time" content=3D"2020-09-15T06:05:50.987Z">
+<meta name=3D"twitter:card" content=3D"summary">
+<meta name=3D"twitter:title" content=3D"Server API">
+<meta name=3D"twitter:description" content=3D"ServerExposed by require(&amp=
+;#39;socket.io&amp;#39;). new Server(httpServer[, options]) httpServer (htt=
+p.Server) the server to bind to. options (Object)  Works with and without n=
+ew: const io =3D require('socke">
+ =20
+ =20
+    <link rel=3D"icon" href=3D"https://socket.io/images/favicon.png">
+ =20
+ =20
+    <link href=3D"https://fonts.googleapis.com/css?family=3DSource+Code+Pro=
+" rel=3D"stylesheet" type=3D"text/css">
+ =20
+
+  <link rel=3D"stylesheet" href=3D"https://socket.io/css/style.css">
+
+  <link href=3D"https://fonts.googleapis.com/css?family=3DOpen+Sans:300ital=
+ic,400italic,600italic,700italic,400,300,600,700" rel=3D"stylesheet" type=
+=3D"text/css">
+
+  <link rel=3D"stylesheet" href=3D"https://cdn.jsdelivr.net/npm/docsearch.j=
+s@2/dist/cdn/docsearch.min.css">
+</head>
+<body style=3D"">
+
+  <div id=3D"container">
+    <div id=3D"wrap">
+      <header id=3D"header">
+  <a id=3D"logo" href=3D"https://socket.io/"></a>
+  <nav class=3D"main-nav">
+    <ul class=3D"nav-items">
+      <li>
+        <span class=3D"algolia-autocomplete" style=3D"position: relative; d=
+isplay: inline-block; direction: ltr;"><input id=3D"docsearch-input" type=
+=3D"text" placeholder=3D"Search..." class=3D"ds-input" autocomplete=3D"off"=
+ spellcheck=3D"false" role=3D"combobox" aria-autocomplete=3D"list" aria-exp=
+anded=3D"false" aria-label=3D"search input" aria-owns=3D"algolia-autocomple=
+te-listbox-0" dir=3D"auto" style=3D"position: relative; vertical-align: top=
+;"><pre aria-hidden=3D"true" style=3D"position: absolute; visibility: hidde=
+n; white-space: pre; font-family: &quot;Open Sans&quot;, sans-serif; font-s=
+ize: 12px; font-style: normal; font-variant: normal; font-weight: 400; word=
+-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: au=
+to; text-transform: none;"></pre><span class=3D"ds-dropdown-menu" role=3D"l=
+istbox" id=3D"algolia-autocomplete-listbox-0" style=3D"position: absolute; =
+top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class=
+=3D"ds-dataset-1"></div></span></span>
+      </li>
+      <li>
+        <div class=3D"dropdown">
+          <span class=3D"dropdown-toggle nav-item">Learn</span>
+          <ul class=3D"dropdown-content">
+            <li>
+              <a href=3D"https://socket.io/get-started/chat/" class=3D"nav-=
+link">Get started</a>
+            </li>
+            <li>
+              <a href=3D"https://socket.io/docs/" class=3D"nav-link">Docume=
+ntation</a>
+            </li>
+            <li>
+              <a href=3D"https://socket.io/demos/chat/" class=3D"nav-link">=
+Demos</a>
+            </li>
+            <li class=3D"anchor"></li>
+            <li>
+              <a href=3D"https://socket.io/docs/server-api/" class=3D"nav-l=
+ink">Server API</a>
+            </li>
+            <li>
+              <a href=3D"https://socket.io/docs/client-api/" class=3D"nav-l=
+ink">Client API</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class=3D"dropdown">
+          <span class=3D"dropdown-toggle nav-item">Resources</span>
+          <ul class=3D"dropdown-content">
+            <li>
+              <span class=3D"nav-links-header">Getting help</span>
+              <ul>
+                <li>
+                  <a href=3D"https://socketio-slackin.herokuapp.com/" targe=
+t=3D"_blank" class=3D"nav-link">Slack</a>
+                </li>
+                <li>
+                  <a href=3D"https://stackoverflow.com/questions/tagged/soc=
+ket.io" target=3D"_blank" class=3D"nav-link">Stack Overflow</a>
+                </li>
+              </ul>
+            </li>
+            <li class=3D"anchor"></li>
+            <li>
+              <span class=3D"nav-links-header">News</span>
+              <ul>
+                <li>
+                  <a href=3D"https://socket.io/blog/" class=3D"nav-link">Bl=
+og</a>
+                </li>
+                <li>
+                  <a href=3D"https://twitter.com/SocketIO" target=3D"_blank=
+" class=3D"nav-link">Twitter</a>
+                </li>
+              </ul>
+            </li>
+            <li class=3D"anchor"></li>
+            <li>
+              <span class=3D"nav-links-header">Links</span>
+              <ul>
+                <li>
+                  <a href=3D"https://github.com/socketio/socket.io" target=
+=3D"_blank" class=3D"nav-link">GitHub</a>
+                </li>
+                <li>
+                  <a href=3D"https://cdnjs.com/libraries/socket.io" target=
+=3D"_blank" class=3D"nav-link">CDN</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href=3D"https://opencollective.com/socketio" target=3D"_blank" c=
+lass=3D"nav-item">Support Socket.IO</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+     =20
+      <aside id=3D"sidebar">
+ =20
+    <h3>Server API</h3>
+    <ol class=3D"toc"><li class=3D"toc-item toc-level-1"><a class=3D"toc-li=
+nk" href=3D"https://socket.io/docs/server-api/#Server"><span class=3D"toc-t=
+ext">Server</span></a><ol class=3D"toc-child"><li class=3D"toc-item toc-lev=
+el-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#new-=
+Server-httpServer-options"><span class=3D"toc-text">new Server(httpServer[,=
+ options])</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"to=
+c-link" href=3D"https://socket.io/docs/server-api/#new-Server-port-options"=
+><span class=3D"toc-text">new Server(port[, options])</span></a></li><li cl=
+ass=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.i=
+o/docs/server-api/#new-Server-options"><span class=3D"toc-text">new Server(=
+options)</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-=
+link" href=3D"https://socket.io/docs/server-api/#server-sockets"><span clas=
+s=3D"toc-text">server.sockets</span></a></li><li class=3D"toc-item toc-leve=
+l-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#serve=
+r-serveClient-value"><span class=3D"toc-text">server.serveClient([value])</=
+span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=
+=3D"https://socket.io/docs/server-api/#server-path-value"><span class=3D"to=
+c-text">server.path([value])</span></a></li><li class=3D"toc-item toc-level=
+-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#server=
+-adapter-value"><span class=3D"toc-text">server.adapter([value])</span></a>=
+</li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https=
+://socket.io/docs/server-api/#server-origins-value"><span class=3D"toc-text=
+">server.origins([value])</span></a></li><li class=3D"toc-item toc-level-2"=
+><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#server-or=
+igins-fn"><span class=3D"toc-text">server.origins(fn)</span></a></li><li cl=
+ass=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.i=
+o/docs/server-api/#server-attach-httpServer-options"><span class=3D"toc-tex=
+t">server.attach(httpServer[, options])</span></a></li><li class=3D"toc-ite=
+m toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-=
+api/#server-attach-port-options"><span class=3D"toc-text">server.attach(por=
+t[, options])</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D=
+"toc-link" href=3D"https://socket.io/docs/server-api/#server-listen-httpSer=
+ver-options"><span class=3D"toc-text">server.listen(httpServer[, options])<=
+/span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" hre=
+f=3D"https://socket.io/docs/server-api/#server-listen-port-options"><span c=
+lass=3D"toc-text">server.listen(port[, options])</span></a></li><li class=
+=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/d=
+ocs/server-api/#server-bind-engine"><span class=3D"toc-text">server.bind(en=
+gine)</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-lin=
+k" href=3D"https://socket.io/docs/server-api/#server-onconnection-socket"><=
+span class=3D"toc-text">server.onconnection(socket)</span></a></li><li clas=
+s=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/=
+docs/server-api/#server-of-nsp"><span class=3D"toc-text">server.of(nsp)</sp=
+an></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=
+=3D"https://socket.io/docs/server-api/#server-close-callback"><span class=
+=3D"toc-text">server.close([callback])</span></a></li><li class=3D"toc-item=
+ toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-a=
+pi/#server-engine-generateId"><span class=3D"toc-text">server.engine.genera=
+teId</span></a></li></ol></li><li class=3D"toc-item toc-level-1"><a class=
+=3D"toc-link" href=3D"https://socket.io/docs/server-api/#Namespace"><span c=
+lass=3D"toc-text">Namespace</span></a><ol class=3D"toc-child"><li class=3D"=
+toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/=
+server-api/#namespace-name"><span class=3D"toc-text">namespace.name</span><=
+/a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"ht=
+tps://socket.io/docs/server-api/#namespace-connected"><span class=3D"toc-te=
+xt">namespace.connected</span></a></li><li class=3D"toc-item toc-level-2"><=
+a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#namespace-a=
+dapter"><span class=3D"toc-text">namespace.adapter</span></a></li><li class=
+=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/d=
+ocs/server-api/#namespace-to-room"><span class=3D"toc-text">namespace.to(ro=
+om)</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link"=
+ href=3D"https://socket.io/docs/server-api/#namespace-in-room"><span class=
+=3D"toc-text">namespace.in(room)</span></a></li><li class=3D"toc-item toc-l=
+evel-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#na=
+mespace-emit-eventName-%E2%80%A6args"><span class=3D"toc-text">namespace.em=
+it(eventName[, =E2=80=A6args])</span></a></li><li class=3D"toc-item toc-lev=
+el-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#name=
+space-clients-callback"><span class=3D"toc-text">namespace.clients(callback=
+)</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" h=
+ref=3D"https://socket.io/docs/server-api/#namespace-use-fn"><span class=3D"=
+toc-text">namespace.use(fn)</span></a></li><li class=3D"toc-item toc-level-=
+2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#Event-%=
+E2%80%98connect%E2%80%99"><span class=3D"toc-text">Event: =E2=80=98connect=
+=E2=80=99</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc=
+-link" href=3D"https://socket.io/docs/server-api/#Event-%E2%80%98connection=
+%E2%80%99"><span class=3D"toc-text">Event: =E2=80=98connection=E2=80=99</sp=
+an></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=
+=3D"https://socket.io/docs/server-api/#Flag-%E2%80%98volatile%E2%80%99"><sp=
+an class=3D"toc-text">Flag: =E2=80=98volatile=E2=80=99</span></a></li><li c=
+lass=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.=
+io/docs/server-api/#Flag-%E2%80%98binary%E2%80%99"><span class=3D"toc-text"=
+>Flag: =E2=80=98binary=E2=80=99</span></a></li><li class=3D"toc-item toc-le=
+vel-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#Fla=
+g-%E2%80%98local%E2%80%99"><span class=3D"toc-text">Flag: =E2=80=98local=E2=
+=80=99</span></a></li></ol></li><li class=3D"toc-item toc-level-1"><a class=
+=3D"toc-link" href=3D"https://socket.io/docs/server-api/#Socket"><span clas=
+s=3D"toc-text">Socket</span></a><ol class=3D"toc-child"><li class=3D"toc-it=
+em toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server=
+-api/#socket-id"><span class=3D"toc-text">socket.id</span></a></li><li clas=
+s=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/=
+docs/server-api/#socket-rooms"><span class=3D"toc-text">socket.rooms</span>=
+</a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"h=
+ttps://socket.io/docs/server-api/#socket-client"><span class=3D"toc-text">s=
+ocket.client</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"=
+toc-link" href=3D"https://socket.io/docs/server-api/#socket-conn"><span cla=
+ss=3D"toc-text">socket.conn</span></a></li><li class=3D"toc-item toc-level-=
+2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#socket-=
+request"><span class=3D"toc-text">socket.request</span></a></li><li class=
+=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/d=
+ocs/server-api/#socket-handshake"><span class=3D"toc-text">socket.handshake=
+</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" hr=
+ef=3D"https://socket.io/docs/server-api/#socket-use-fn"><span class=3D"toc-=
+text">socket.use(fn)</span></a></li><li class=3D"toc-item toc-level-2"><a c=
+lass=3D"toc-link" href=3D"https://socket.io/docs/server-api/#socket-send-%E=
+2%80%A6args-ack"><span class=3D"toc-text">socket.send([=E2=80=A6args][, ack=
+])</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" =
+href=3D"https://socket.io/docs/server-api/#socket-emit-eventName-%E2%80%A6a=
+rgs-ack"><span class=3D"toc-text">socket.emit(eventName[, =E2=80=A6args][, =
+ack])</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-lin=
+k" href=3D"https://socket.io/docs/server-api/#socket-on-eventName-callback"=
+><span class=3D"toc-text">socket.on(eventName, callback)</span></a></li><li=
+ class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socke=
+t.io/docs/server-api/#socket-once-eventName-listener"><span class=3D"toc-te=
+xt">socket.once(eventName, listener)</span></a></li><li class=3D"toc-item t=
+oc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api=
+/#socket-removeListener-eventName-listener"><span class=3D"toc-text">socket=
+.removeListener(eventName, listener)</span></a></li><li class=3D"toc-item t=
+oc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api=
+/#socket-removeAllListeners-eventName"><span class=3D"toc-text">socket.remo=
+veAllListeners([eventName])</span></a></li><li class=3D"toc-item toc-level-=
+2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#socket-=
+eventNames"><span class=3D"toc-text">socket.eventNames()</span></a></li><li=
+ class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socke=
+t.io/docs/server-api/#socket-join-room-callback"><span class=3D"toc-text">s=
+ocket.join(room[, callback])</span></a></li><li class=3D"toc-item toc-level=
+-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#socket=
+-join-rooms-callback"><span class=3D"toc-text">socket.join(rooms[, callback=
+])</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" =
+href=3D"https://socket.io/docs/server-api/#socket-leave-room-callback"><spa=
+n class=3D"toc-text">socket.leave(room[, callback])</span></a></li><li clas=
+s=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/=
+docs/server-api/#socket-to-room"><span class=3D"toc-text">socket.to(room)</=
+span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=
+=3D"https://socket.io/docs/server-api/#socket-in-room"><span class=3D"toc-t=
+ext">socket.in(room)</span></a></li><li class=3D"toc-item toc-level-2"><a c=
+lass=3D"toc-link" href=3D"https://socket.io/docs/server-api/#socket-compres=
+s-value"><span class=3D"toc-text">socket.compress(value)</span></a></li><li=
+ class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socke=
+t.io/docs/server-api/#socket-disconnect-close"><span class=3D"toc-text">soc=
+ket.disconnect(close)</span></a></li><li class=3D"toc-item toc-level-2"><a =
+class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#Flag-%E2%80%9=
+8broadcast%E2%80%99"><span class=3D"toc-text">Flag: =E2=80=98broadcast=E2=
+=80=99</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-li=
+nk" href=3D"https://socket.io/docs/server-api/#Flag-%E2%80%98volatile%E2%80=
+%99-1"><span class=3D"toc-text">Flag: =E2=80=98volatile=E2=80=99</span></a>=
+</li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https=
+://socket.io/docs/server-api/#Flag-%E2%80%98binary%E2%80%99-1"><span class=
+=3D"toc-text">Flag: =E2=80=98binary=E2=80=99</span></a></li><li class=3D"to=
+c-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/se=
+rver-api/#Event-%E2%80%98disconnect%E2%80%99"><span class=3D"toc-text">Even=
+t: =E2=80=98disconnect=E2=80=99</span></a></li><li class=3D"toc-item toc-le=
+vel-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-api/#Eve=
+nt-%E2%80%98error%E2%80%99"><span class=3D"toc-text">Event: =E2=80=98error=
+=E2=80=99</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc=
+-link" href=3D"https://socket.io/docs/server-api/#Event-%E2%80%98disconnect=
+ing%E2%80%99"><span class=3D"toc-text">Event: =E2=80=98disconnecting=E2=80=
+=99</span></a></li></ol></li><li class=3D"toc-item toc-level-1"><a class=3D=
+"toc-link" href=3D"https://socket.io/docs/server-api/#Client"><span class=
+=3D"toc-text">Client</span></a><ol class=3D"toc-child"><li class=3D"toc-ite=
+m toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/server-=
+api/#client-conn"><span class=3D"toc-text">client.conn</span></a></li><li c=
+lass=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.=
+io/docs/server-api/#client-request"><span class=3D"toc-text">client.request=
+</span></a></li></ol></li></ol>
+ =20
+
+</aside>
+
+     =20
+      <div id=3D"carbonads"><span><span class=3D"carbon-wrap"><a href=3D"ht=
+tps://srv.carbonads.net/ads/click/x/GTND42JEC67IC2JWCKB4YKQNCTYIV2JJCESI4Z3=
+JCYYD423YF67I42JKC6BD4K7JCTYDC53ECASDT2QJF6BI5537HEYIKK3JCKYDE53ECTNCYBZ52K=
+?segment=3Dplacement:socketio;" class=3D"carbon-img" target=3D"_blank" rel=
+=3D"noopener sponsored"><img src=3D"https://cdn4.buysellads.net/uu/5/73755/=
+1600703632-podium-inbox-260x200.png" alt=3D"ads via Carbon" border=3D"0" st=
+yle=3D"max-width: 130px;"></a><a href=3D"https://srv.carbonads.net/ads/clic=
+k/x/GTND42JEC67IC2JWCKB4YKQNCTYIV2JJCESI4Z3JCYYD423YF67I42JKC6BD4K7JCTYDC53=
+ECASDT2QJF6BI5537HEYIKK3JCKYDE53ECTNCYBZ52K?segment=3Dplacement:socketio;" =
+class=3D"carbon-text" target=3D"_blank" rel=3D"noopener sponsored">Your cus=
+tomers are messaging you from Facebook, Google, phone and text. Podium make=
+s that easier to manage.</a></span><a href=3D"http://carbonads.net/?utm_sou=
+rce=3Dsocketio&amp;utm_medium=3Dad_via_link&amp;utm_campaign=3Din_unit&amp;=
+utm_term=3Dcarbon" class=3D"carbon-poweredby" target=3D"_blank" rel=3D"noop=
+ener sponsored">ads via Carbon</a></span></div>
+     =20
+
+<article id=3D"page-" class=3D"article">
+  <h1 id=3D"Server"><a href=3D"https://socket.io/docs/server-api/#Server" c=
+lass=3D"headerlink" title=3D"Server"></a>Server</h1><p>Exposed by <code>req=
+uire('socket.io')</code>.</p>
+<h2 id=3D"new-Server-httpServer-options"><a href=3D"https://socket.io/docs/=
+server-api/#new-Server-httpServer-options" class=3D"headerlink" title=3D"ne=
+w Server(httpServer[, options])"></a>new Server(httpServer[, options])</h2>=
+<ul>
+<li><code>httpServer</code> <em>(http.Server)</em> the server to bind to.</=
+li>
+<li><code>options</code> <em>(Object)</em></li>
+</ul>
+<p>Works with and without <code>new</code>:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> io =3D <span class=
+=3D"built_in">require</span>(<span class=3D"string">'socket.io'</span>)();<=
+/span><br><span class=3D"line"><span class=3D"comment">// or</span></span><=
+br><span class=3D"line"><span class=3D"keyword">const</span> Server =3D <sp=
+an class=3D"built_in">require</span>(<span class=3D"string">'socket.io'</sp=
+an>);</span><br><span class=3D"line"><span class=3D"keyword">const</span> i=
+o =3D <span class=3D"keyword">new</span> Server();</span><br></pre></td></t=
+r></tbody></table></figure>
+<p>Available options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>/socket.io</code></td>
+<td>name of the path to capture</td>
+</tr>
+<tr>
+<td><code>serveClient</code></td>
+<td><code>true</code></td>
+<td>whether to serve the client files</td>
+</tr>
+<tr>
+<td><code>adapter</code></td>
+<td>-</td>
+<td>the adapter to use. Defaults to an instance of the <code>Adapter</code>=
+ that ships with socket.io which is memory based. See <a href=3D"https://gi=
+thub.com/socketio/socket.io-adapter" target=3D"_blank" rel=3D"noopener">soc=
+ket.io-adapter</a></td>
+</tr>
+<tr>
+<td><code>origins</code></td>
+<td><code>*</code></td>
+<td>the allowed origins</td>
+</tr>
+<tr>
+<td><code>parser</code></td>
+<td>-</td>
+<td>the parser to use. Defaults to an instance of the <code>Parser</code> t=
+hat ships with socket.io. See <a href=3D"https://github.com/socketio/socket=
+.io-parser" target=3D"_blank" rel=3D"noopener">socket.io-parser</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Available options for the underlying Engine.IO server:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pingTimeout</code></td>
+<td><code>5000</code></td>
+<td>how many ms without a pong packet to consider the connection closed</td=
+>
+</tr>
+<tr>
+<td><code>pingInterval</code></td>
+<td><code>25000</code></td>
+<td>how many ms before sending a new ping packet</td>
+</tr>
+<tr>
+<td><code>upgradeTimeout</code></td>
+<td><code>10000</code></td>
+<td>how many ms before an uncompleted transport upgrade is cancelled</td>
+</tr>
+<tr>
+<td><code>maxHttpBufferSize</code></td>
+<td><code>10e7</code></td>
+<td>how many bytes or characters a message can be, before closing the sessi=
+on (to avoid DoS).</td>
+</tr>
+<tr>
+<td><code>allowRequest</code></td>
+<td></td>
+<td>A function that receives a given handshake or upgrade request as its fi=
+rst parameter, and can decide whether to continue or not. The second argume=
+nt is a function that needs to be called with the decided information: <cod=
+e>fn(err, success)</code>, where <code>success</code> is a boolean value wh=
+ere false means that the request is rejected, and err is an error code.</td=
+>
+</tr>
+<tr>
+<td><code>transports</code></td>
+<td><code>['polling', 'websocket']</code></td>
+<td>transports to allow connections to</td>
+</tr>
+<tr>
+<td><code>allowUpgrades</code></td>
+<td><code>true</code></td>
+<td>whether to allow transport upgrades</td>
+</tr>
+<tr>
+<td><code>perMessageDeflate</code></td>
+<td><code>true</code></td>
+<td>parameters of the WebSocket permessage-deflate extension (see <a href=
+=3D"https://github.com/einaros/ws" target=3D"_blank" rel=3D"noopener">ws mo=
+dule</a> api docs). Set to <code>false</code> to disable.</td>
+</tr>
+<tr>
+<td><code>httpCompression</code></td>
+<td><code>true</code></td>
+<td>parameters of the http compression for the polling transports (see <a h=
+ref=3D"http://nodejs.org/api/zlib.html#zlib_options" target=3D"_blank" rel=
+=3D"noopener">zlib</a> api docs). Set to <code>false</code> to disable.</td=
+>
+</tr>
+<tr>
+<td><code>cookie</code></td>
+<td><code>io</code></td>
+<td>name of the HTTP cookie that contains the client sid to send as part of=
+ handshake response headers. Set to <code>false</code> to not send one.</td=
+>
+</tr>
+<tr>
+<td><code>cookiePath</code></td>
+<td><code>/</code></td>
+<td>path of the above <code>cookie</code> option. If false, no path will be=
+ sent, which means browsers will only send the cookie on the engine.io atta=
+ched path (<code>/engine.io</code>). Set false to not save io cookie on all=
+ requests.</td>
+</tr>
+<tr>
+<td><code>cookieHttpOnly</code></td>
+<td><code>true</code></td>
+<td>if <code>true</code> HttpOnly io cookie cannot be accessed by client-si=
+de APIs, such as JavaScript. <em>This option has no effect if <code>cookie<=
+/code> or <code>cookiePath</code> is set to <code>false</code>.</em></td>
+</tr>
+<tr>
+<td><code>wsEngine</code></td>
+<td><code>ws</code></td>
+<td>what WebSocket server implementation to use. Specified module must conf=
+orm to the <code>ws</code> interface (see <a href=3D"https://github.com/web=
+sockets/ws/blob/master/doc/ws.md" target=3D"_blank" rel=3D"noopener">ws mod=
+ule api docs</a>). Default value is <code>ws</code>. An alternative c++ add=
+on is also available by installing the <a href=3D"https://www.npmjs.com/pac=
+kage/eiows" target=3D"_blank" rel=3D"noopener">eiows</a> module.</td>
+</tr>
+</tbody>
+</table>
+<p>Among those options:</p>
+<ul>
+<li><p>The <code>pingTimeout</code> and <code>pingInterval</code> parameter=
+s will impact the delay before a client knows the server is not available a=
+nymore. For example, if the underlying TCP connection is not closed properl=
+y due to a network issue, a client may have to wait up to <code>pingTimeout=
+ + pingInterval</code> ms before getting a <code>disconnect</code> event.</=
+p>
+</li>
+<li><p>The order of the <code>transports</code> array is important. By defa=
+ult, a long-polling connection is established first, and then upgraded to W=
+ebSocket if possible. Using <code>['websocket']</code> means there will be =
+no fallback if a WebSocket connection cannot be opened.</p>
+</li>
+</ul>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> server =3D <span cl=
+ass=3D"built_in">require</span>(<span class=3D"string">'http'</span>).creat=
+eServer();</span><br><span class=3D"line"></span><br><span class=3D"line"><=
+span class=3D"keyword">const</span> io =3D <span class=3D"built_in">require=
+</span>(<span class=3D"string">'socket.io'</span>)(server, {</span><br><spa=
+n class=3D"line">  path: <span class=3D"string">'/test'</span>,</span><br><=
+span class=3D"line">  serveClient: <span class=3D"literal">false</span>,</s=
+pan><br><span class=3D"line">  <span class=3D"comment">// below are engine.=
+IO options</span></span><br><span class=3D"line">  pingInterval: <span clas=
+s=3D"number">10000</span>,</span><br><span class=3D"line">  pingTimeout: <s=
+pan class=3D"number">5000</span>,</span><br><span class=3D"line">  cookie: =
+<span class=3D"literal">false</span></span><br><span class=3D"line">});</sp=
+an><br><span class=3D"line"></span><br><span class=3D"line">server.listen(<=
+span class=3D"number">3000</span>);</span><br></pre></td></tr></tbody></tab=
+le></figure>
+<h2 id=3D"new-Server-port-options"><a href=3D"https://socket.io/docs/server=
+-api/#new-Server-port-options" class=3D"headerlink" title=3D"new Server(por=
+t[, options])"></a>new Server(port[, options])</h2><ul>
+<li><code>port</code> <em>(Number)</em> a port to listen to (a new <code>ht=
+tp.Server</code> will be created)</li>
+<li><code>options</code> <em>(Object)</em></li>
+</ul>
+<p>See <a href=3D"https://socket.io/docs/server-api/#new-Server-httpServer-=
+options">above</a> for the list of available <code>options</code>.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> io =3D <span class=
+=3D"built_in">require</span>(<span class=3D"string">'socket.io'</span>)(<sp=
+an class=3D"number">3000</span>, {</span><br><span class=3D"line">  path: <=
+span class=3D"string">'/test'</span>,</span><br><span class=3D"line">  serv=
+eClient: <span class=3D"literal">false</span>,</span><br><span class=3D"lin=
+e">  <span class=3D"comment">// below are engine.IO options</span></span><b=
+r><span class=3D"line">  pingInterval: <span class=3D"number">10000</span>,=
+</span><br><span class=3D"line">  pingTimeout: <span class=3D"number">5000<=
+/span>,</span><br><span class=3D"line">  cookie: <span class=3D"literal">fa=
+lse</span></span><br><span class=3D"line">});</span><br></pre></td></tr></t=
+body></table></figure>
+<h2 id=3D"new-Server-options"><a href=3D"https://socket.io/docs/server-api/=
+#new-Server-options" class=3D"headerlink" title=3D"new Server(options)"></a=
+>new Server(options)</h2><ul>
+<li><code>options</code> <em>(Object)</em></li>
+</ul>
+<p>See <a href=3D"https://socket.io/docs/server-api/#new-Server-httpServer-=
+options">above</a> for the list of available <code>options</code>.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> io =3D <span class=
+=3D"built_in">require</span>(<span class=3D"string">'socket.io'</span>)({</=
+span><br><span class=3D"line">  path: <span class=3D"string">'/test'</span>=
+,</span><br><span class=3D"line">  serveClient: <span class=3D"literal">fal=
+se</span>,</span><br><span class=3D"line">});</span><br><span class=3D"line=
+"></span><br><span class=3D"line"><span class=3D"comment">// either</span><=
+/span><br><span class=3D"line"><span class=3D"keyword">const</span> server =
+=3D <span class=3D"built_in">require</span>(<span class=3D"string">'http'</=
+span>).createServer();</span><br><span class=3D"line"></span><br><span clas=
+s=3D"line">io.attach(server, {</span><br><span class=3D"line">  pingInterva=
+l: <span class=3D"number">10000</span>,</span><br><span class=3D"line">  pi=
+ngTimeout: <span class=3D"number">5000</span>,</span><br><span class=3D"lin=
+e">  cookie: <span class=3D"literal">false</span></span><br><span class=3D"=
+line">});</span><br><span class=3D"line"></span><br><span class=3D"line">se=
+rver.listen(<span class=3D"number">3000</span>);</span><br><span class=3D"l=
+ine"></span><br><span class=3D"line"><span class=3D"comment">// or</span></=
+span><br><span class=3D"line">io.attach(<span class=3D"number">3000</span>,=
+ {</span><br><span class=3D"line">  pingInterval: <span class=3D"number">10=
+000</span>,</span><br><span class=3D"line">  pingTimeout: <span class=3D"nu=
+mber">5000</span>,</span><br><span class=3D"line">  cookie: <span class=3D"=
+literal">false</span></span><br><span class=3D"line">});</span><br></pre></=
+td></tr></tbody></table></figure>
+<h2 id=3D"server-sockets"><a href=3D"https://socket.io/docs/server-api/#ser=
+ver-sockets" class=3D"headerlink" title=3D"server.sockets"></a>server.socke=
+ts</h2><ul>
+<li><em>(Namespace)</em></li>
+</ul>
+<p>An alias for the default (<code>/</code>) namespace.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.sockets.emit(<span class=3D"string">'hi'</span>, <spa=
+n class=3D"string">'everyone'</span>);</span><br><span class=3D"line"><span=
+ class=3D"comment">// is equivalent to</span></span><br><span class=3D"line=
+">io.of(<span class=3D"string">'/'</span>).emit(<span class=3D"string">'hi'=
+</span>, <span class=3D"string">'everyone'</span>);</span><br></pre></td></=
+tr></tbody></table></figure>
+<h2 id=3D"server-serveClient-value"><a href=3D"https://socket.io/docs/serve=
+r-api/#server-serveClient-value" class=3D"headerlink" title=3D"server.serve=
+Client([value])"></a>server.serveClient([value])</h2><ul>
+<li><code>value</code> <em>(Boolean)</em></li>
+<li><strong>Returns</strong> <code>Server|Boolean</code></li>
+</ul>
+<p>If <code>value</code> is <code>true</code> the attached server (see <cod=
+e>Server#attach</code>) will serve the client files. Defaults to <code>true=
+</code>. This method has no effect after <code>attach</code> is called. If =
+no arguments are supplied this method returns the current value.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"comment">// pass a server and the `serveC=
+lient` option</span></span><br><span class=3D"line"><span class=3D"keyword"=
+>const</span> io =3D <span class=3D"built_in">require</span>(<span class=3D=
+"string">'socket.io'</span>)(http, { <span class=3D"attr">serveClient</span=
+>: <span class=3D"literal">false</span> });</span><br><span class=3D"line">=
+</span><br><span class=3D"line"><span class=3D"comment">// or pass no serve=
+r and then you can call the method</span></span><br><span class=3D"line"><s=
+pan class=3D"keyword">const</span> io =3D <span class=3D"built_in">require<=
+/span>(<span class=3D"string">'socket.io'</span>)();</span><br><span class=
+=3D"line">io.serveClient(<span class=3D"literal">false</span>);</span><br><=
+span class=3D"line">io.attach(http);</span><br></pre></td></tr></tbody></ta=
+ble></figure>
+<h2 id=3D"server-path-value"><a href=3D"https://socket.io/docs/server-api/#=
+server-path-value" class=3D"headerlink" title=3D"server.path([value])"></a>=
+server.path([value])</h2><ul>
+<li><code>value</code> <em>(String)</em></li>
+<li><strong>Returns</strong> <code>Server|String</code></li>
+</ul>
+<p>Sets the path <code>value</code> under which <code>engine.io</code> and =
+the static files will be served. Defaults to <code>/socket.io</code>. If no=
+ arguments are supplied this method returns the current value.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> io =3D <span class=
+=3D"built_in">require</span>(<span class=3D"string">'socket.io'</span>)();<=
+/span><br><span class=3D"line">io.path(<span class=3D"string">'/myownpath'<=
+/span>);</span><br><span class=3D"line"></span><br><span class=3D"line"><sp=
+an class=3D"comment">// client-side</span></span><br><span class=3D"line"><=
+span class=3D"keyword">const</span> socket =3D io({</span><br><span class=
+=3D"line">  path: <span class=3D"string">'/myownpath'</span></span><br><spa=
+n class=3D"line">});</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"server-adapter-value"><a href=3D"https://socket.io/docs/server-ap=
+i/#server-adapter-value" class=3D"headerlink" title=3D"server.adapter([valu=
+e])"></a>server.adapter([value])</h2><ul>
+<li><code>value</code> <em>(Adapter)</em></li>
+<li><strong>Returns</strong> <code>Server|Adapter</code></li>
+</ul>
+<p>Sets the adapter <code>value</code>. Defaults to an instance of the <cod=
+e>Adapter</code> that ships with socket.io which is memory based. See <a hr=
+ef=3D"https://github.com/socketio/socket.io-adapter" target=3D"_blank" rel=
+=3D"noopener">socket.io-adapter</a>. If no arguments are supplied this meth=
+od returns the current value.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> io =3D <span class=
+=3D"built_in">require</span>(<span class=3D"string">'socket.io'</span>)(<sp=
+an class=3D"number">3000</span>);</span><br><span class=3D"line"><span clas=
+s=3D"keyword">const</span> redis =3D <span class=3D"built_in">require</span=
+>(<span class=3D"string">'socket.io-redis'</span>);</span><br><span class=
+=3D"line">io.adapter(redis({ <span class=3D"attr">host</span>: <span class=
+=3D"string">'localhost'</span>, <span class=3D"attr">port</span>: <span cla=
+ss=3D"number">6379</span> }));</span><br></pre></td></tr></tbody></table></=
+figure>
+<h2 id=3D"server-origins-value"><a href=3D"https://socket.io/docs/server-ap=
+i/#server-origins-value" class=3D"headerlink" title=3D"server.origins([valu=
+e])"></a>server.origins([value])</h2><ul>
+<li><code>value</code> <em>(String|String[])</em></li>
+<li><strong>Returns</strong> <code>Server|String</code></li>
+</ul>
+<p>Sets the allowed origins <code>value</code>. Defaults to any origins bei=
+ng allowed. If no arguments are supplied this method returns the current va=
+lue.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.origins([<span class=3D"string">'https://foo.example.=
+com:443'</span>]);</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"server-origins-fn"><a href=3D"https://socket.io/docs/server-api/#=
+server-origins-fn" class=3D"headerlink" title=3D"server.origins(fn)"></a>se=
+rver.origins(fn)</h2><ul>
+<li><code>fn</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Server</code></li>
+</ul>
+<p>Provides a function taking two arguments <code>origin:String</code> and =
+<code>callback(error, success)</code>, where <code>success</code> is a bool=
+ean value indicating whether origin is allowed or not.  If <code>success</c=
+ode> is set to <code>false</code>, <code>error</code> must be provided as a=
+ string value that will be appended to the server response, e.g. =E2=80=9CO=
+rigin not allowed=E2=80=9D.</p>
+<p><strong>Potential drawbacks</strong>:</p>
+<ul>
+<li>in some situations, when it is not possible to determine <code>origin</=
+code> it may have value of <code>*</code></li>
+<li>As this function will be executed for every request, it is advised to m=
+ake this function work as fast as possible</li>
+<li>If <code>socket.io</code> is used together with <code>Express</code>, t=
+he CORS headers will be affected only for <code>socket.io</code> requests. =
+For Express you can use <a href=3D"https://github.com/expressjs/cors" targe=
+t=3D"_blank" rel=3D"noopener">cors</a>.</li>
+</ul>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.origins(<span class=3D"function">(<span class=3D"para=
+ms">origin, callback</span>) =3D&gt;</span> {</span><br><span class=3D"line=
+">  <span class=3D"keyword">if</span> (origin !=3D=3D <span class=3D"string=
+">'https://foo.example.com'</span>) {</span><br><span class=3D"line">    <s=
+pan class=3D"keyword">return</span> callback(<span class=3D"string">'origin=
+ not allowed'</span>, <span class=3D"literal">false</span>);</span><br><spa=
+n class=3D"line">  }</span><br><span class=3D"line">  callback(<span class=
+=3D"literal">null</span>, <span class=3D"literal">true</span>);</span><br><=
+span class=3D"line">});</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"server-attach-httpServer-options"><a href=3D"https://socket.io/do=
+cs/server-api/#server-attach-httpServer-options" class=3D"headerlink" title=
+=3D"server.attach(httpServer[, options])"></a>server.attach(httpServer[, op=
+tions])</h2><ul>
+<li><code>httpServer</code> <em>(http.Server)</em> the server to attach to<=
+/li>
+<li><code>options</code> <em>(Object)</em></li>
+</ul>
+<p>Attaches the <code>Server</code> to an engine.io instance on <code>httpS=
+erver</code> with the supplied <code>options</code> (optionally).</p>
+<h2 id=3D"server-attach-port-options"><a href=3D"https://socket.io/docs/ser=
+ver-api/#server-attach-port-options" class=3D"headerlink" title=3D"server.a=
+ttach(port[, options])"></a>server.attach(port[, options])</h2><ul>
+<li><code>port</code> <em>(Number)</em> the port to listen on</li>
+<li><code>options</code> <em>(Object)</em></li>
+</ul>
+<p>Attaches the <code>Server</code> to an engine.io instance on a new http.=
+Server with the supplied <code>options</code> (optionally).</p>
+<h2 id=3D"server-listen-httpServer-options"><a href=3D"https://socket.io/do=
+cs/server-api/#server-listen-httpServer-options" class=3D"headerlink" title=
+=3D"server.listen(httpServer[, options])"></a>server.listen(httpServer[, op=
+tions])</h2><p>Synonym of <a href=3D"https://socket.io/docs/server-api/#ser=
+ver-attach-httpServer-options">server.attach(httpServer[, options])</a>.</p=
+>
+<h2 id=3D"server-listen-port-options"><a href=3D"https://socket.io/docs/ser=
+ver-api/#server-listen-port-options" class=3D"headerlink" title=3D"server.l=
+isten(port[, options])"></a>server.listen(port[, options])</h2><p>Synonym o=
+f <a href=3D"https://socket.io/docs/server-api/#server-attach-port-options"=
+>server.attach(port[, options])</a>.</p>
+<h2 id=3D"server-bind-engine"><a href=3D"https://socket.io/docs/server-api/=
+#server-bind-engine" class=3D"headerlink" title=3D"server.bind(engine)"></a=
+>server.bind(engine)</h2><ul>
+<li><code>engine</code> <em>(engine.Server)</em></li>
+<li><strong>Returns</strong> <code>Server</code></li>
+</ul>
+<p>Advanced use only. Binds the server to a specific engine.io <code>Server=
+</code> (or compatible API) instance.</p>
+<h2 id=3D"server-onconnection-socket"><a href=3D"https://socket.io/docs/ser=
+ver-api/#server-onconnection-socket" class=3D"headerlink" title=3D"server.o=
+nconnection(socket)"></a>server.onconnection(socket)</h2><ul>
+<li><code>socket</code> <em>(engine.Socket)</em></li>
+<li><strong>Returns</strong> <code>Server</code></li>
+</ul>
+<p>Advanced use only. Creates a new <code>socket.io</code> client from the =
+incoming engine.io (or compatible API) <code>Socket</code>.</p>
+<h2 id=3D"server-of-nsp"><a href=3D"https://socket.io/docs/server-api/#serv=
+er-of-nsp" class=3D"headerlink" title=3D"server.of(nsp)"></a>server.of(nsp)=
+</h2><ul>
+<li><code>nsp</code> <em>(String|RegExp|Function)</em></li>
+<li><strong>Returns</strong> <code>Namespace</code></li>
+</ul>
+<p>Initializes and retrieves the given <code>Namespace</code> by its pathna=
+me identifier <code>nsp</code>. If the namespace was already initialized it=
+ returns it immediately.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> adminNamespace =3D =
+io.of(<span class=3D"string">'/admin'</span>);</span><br></pre></td></tr></=
+tbody></table></figure>
+<p>A regex or a function can also be provided, in order to create namespace=
+ in a dynamic way:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> dynamicNsp =3D io.o=
+f(<span class=3D"regexp">/^\/dynamic-\d+$/</span>).on(<span class=3D"string=
+">'connect'</span>, (socket) =3D&gt; {</span><br><span class=3D"line">  <sp=
+an class=3D"keyword">const</span> newNamespace =3D socket.nsp; <span class=
+=3D"comment">// newNamespace.name =3D=3D=3D '/dynamic-101'</span></span><br=
+><span class=3D"line"></span><br><span class=3D"line">  <span class=3D"comm=
+ent">// broadcast to all clients in the given sub-namespace</span></span><b=
+r><span class=3D"line">  newNamespace.emit(<span class=3D"string">'hello'</=
+span>);</span><br><span class=3D"line">});</span><br><span class=3D"line"><=
+/span><br><span class=3D"line"><span class=3D"comment">// client-side</span=
+></span><br><span class=3D"line"><span class=3D"keyword">const</span> socke=
+t =3D io(<span class=3D"string">'/dynamic-101'</span>);</span><br><span cla=
+ss=3D"line"></span><br><span class=3D"line"><span class=3D"comment">// broa=
+dcast to all clients in each sub-namespace</span></span><br><span class=3D"=
+line">dynamicNsp.emit(<span class=3D"string">'hello'</span>);</span><br><sp=
+an class=3D"line"></span><br><span class=3D"line"><span class=3D"comment">/=
+/ use a middleware for each sub-namespace</span></span><br><span class=3D"l=
+ine">dynamicNsp.use(<span class=3D"function">(<span class=3D"params">socket=
+, next</span>) =3D&gt;</span> { <span class=3D"comment">/* ... */</span> })=
+;</span><br></pre></td></tr></tbody></table></figure>
+<p>With a function:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.of(<span class=3D"function">(<span class=3D"params">n=
+ame, query, next</span>) =3D&gt;</span> {</span><br><span class=3D"line">  =
+<span class=3D"comment">// the checkToken method must return a boolean, ind=
+icating whether the client is able to connect or not.</span></span><br><spa=
+n class=3D"line">  next(<span class=3D"literal">null</span>, checkToken(que=
+ry.token));</span><br><span class=3D"line">}).on(<span class=3D"string">'co=
+nnect'</span>, (socket) =3D&gt; { <span class=3D"comment">/* ... */</span> =
+});</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"server-close-callback"><a href=3D"https://socket.io/docs/server-a=
+pi/#server-close-callback" class=3D"headerlink" title=3D"server.close([call=
+back])"></a>server.close([callback])</h2><ul>
+<li><code>callback</code> <em>(Function)</em></li>
+</ul>
+<p>Closes the socket.io server. The <code>callback</code> argument is optio=
+nal and will be called when all connections are closed.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> Server =3D <span cl=
+ass=3D"built_in">require</span>(<span class=3D"string">'socket.io'</span>);=
+</span><br><span class=3D"line"><span class=3D"keyword">const</span> PORT  =
+ =3D <span class=3D"number">3030</span>;</span><br><span class=3D"line"><sp=
+an class=3D"keyword">const</span> server =3D <span class=3D"built_in">requi=
+re</span>(<span class=3D"string">'http'</span>).Server();</span><br><span c=
+lass=3D"line"></span><br><span class=3D"line"><span class=3D"keyword">const=
+</span> io =3D Server(PORT);</span><br><span class=3D"line"></span><br><spa=
+n class=3D"line">io.close(); <span class=3D"comment">// Close current serve=
+r</span></span><br><span class=3D"line"></span><br><span class=3D"line">ser=
+ver.listen(PORT); <span class=3D"comment">// PORT is free to use</span></sp=
+an><br><span class=3D"line"></span><br><span class=3D"line">io =3D Server(s=
+erver);</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"server-engine-generateId"><a href=3D"https://socket.io/docs/serve=
+r-api/#server-engine-generateId" class=3D"headerlink" title=3D"server.engin=
+e.generateId"></a>server.engine.generateId</h2><p>Overwrites the default me=
+thod to generate your custom socket id.</p>
+<p>The function is called with a node request object (<code>http.IncomingMe=
+ssage</code>) as first parameter.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.engine.generateId =3D <span class=3D"function">(<span=
+ class=3D"params">req</span>) =3D&gt;</span> {</span><br><span class=3D"lin=
+e">  <span class=3D"keyword">return</span> <span class=3D"string">"custom:i=
+d:"</span> + custom_id++; <span class=3D"comment">// custom id must be uniq=
+ue</span></span><br><span class=3D"line">}</span><br></pre></td></tr></tbod=
+y></table></figure>
+<h1 id=3D"Namespace"><a href=3D"https://socket.io/docs/server-api/#Namespac=
+e" class=3D"headerlink" title=3D"Namespace"></a>Namespace</h1><p>Represents=
+ a pool of sockets connected under a given scope identified by a pathname (=
+eg: <code>/chat</code>).</p>
+<p>A client always connects to <code>/</code> (the main namespace), then po=
+tentially connect to other namespaces (while using the same underlying conn=
+ection).</p>
+<p>For the how and why, please take a look at: <a href=3D"https://socket.io=
+/docs/rooms-and-namespaces/">Rooms and Namespaces</a>.</p>
+<h2 id=3D"namespace-name"><a href=3D"https://socket.io/docs/server-api/#nam=
+espace-name" class=3D"headerlink" title=3D"namespace.name"></a>namespace.na=
+me</h2><ul>
+<li><em>(String)</em></li>
+</ul>
+<p>The namespace identifier property.</p>
+<h2 id=3D"namespace-connected"><a href=3D"https://socket.io/docs/server-api=
+/#namespace-connected" class=3D"headerlink" title=3D"namespace.connected"><=
+/a>namespace.connected</h2><ul>
+<li><em>(Object<socket>)</socket></em></li>
+</ul>
+<p>The hash of <code>Socket</code> objects that are connected to this names=
+pace, indexed by <code>id</code>.</p>
+<h2 id=3D"namespace-adapter"><a href=3D"https://socket.io/docs/server-api/#=
+namespace-adapter" class=3D"headerlink" title=3D"namespace.adapter"></a>nam=
+espace.adapter</h2><ul>
+<li><em>(Adapter)</em></li>
+</ul>
+<p>The <code>Adapter</code> used for the namespace. Useful when using the <=
+code>Adapter</code> based on <a href=3D"https://github.com/socketio/socket.=
+io-redis" target=3D"_blank" rel=3D"noopener">Redis</a>, as it exposes metho=
+ds to manage sockets and rooms across your cluster.</p>
+<p><strong>Note:</strong> the adapter of the main namespace can be accessed=
+ with <code>io.of('/').adapter</code>.</p>
+<h2 id=3D"namespace-to-room"><a href=3D"https://socket.io/docs/server-api/#=
+namespace-to-room" class=3D"headerlink" title=3D"namespace.to(room)"></a>na=
+mespace.to(room)</h2><ul>
+<li><code>room</code> <em>(String)</em></li>
+<li><strong>Returns</strong> <code>Namespace</code> for chaining</li>
+</ul>
+<p>Sets a modifier for a subsequent event emission that the event will only=
+ be <em>broadcasted</em> to clients that have joined the given <code>room</=
+code>.</p>
+<p>To emit to multiple rooms, you can call <code>to</code> several times.</=
+p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> io =3D <span class=
+=3D"built_in">require</span>(<span class=3D"string">'socket.io'</span>)();<=
+/span><br><span class=3D"line"><span class=3D"keyword">const</span> adminNa=
+mespace =3D io.of(<span class=3D"string">'/admin'</span>);</span><br><span =
+class=3D"line"></span><br><span class=3D"line">adminNamespace.to(<span clas=
+s=3D"string">'level1'</span>).emit(<span class=3D"string">'an event'</span>=
+, { <span class=3D"attr">some</span>: <span class=3D"string">'data'</span> =
+});</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"namespace-in-room"><a href=3D"https://socket.io/docs/server-api/#=
+namespace-in-room" class=3D"headerlink" title=3D"namespace.in(room)"></a>na=
+mespace.in(room)</h2><p>Synonym of <a href=3D"https://socket.io/docs/server=
+-api/#namespace-to-room">namespace.to(room)</a>.</p>
+<h2 id=3D"namespace-emit-eventName-=E2=80=A6args"><a href=3D"https://socket=
+.io/docs/server-api/#namespace-emit-eventName-%E2%80%A6args" class=3D"heade=
+rlink" title=3D"namespace.emit(eventName[, =E2=80=A6args])"></a>namespace.e=
+mit(eventName[, =E2=80=A6args])</h2><ul>
+<li><code>eventName</code> <em>(String)</em></li>
+<li><code>args</code></li>
+</ul>
+<p>Emits an event to all connected clients. The following two are equivalen=
+t:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> io =3D <span class=
+=3D"built_in">require</span>(<span class=3D"string">'socket.io'</span>)();<=
+/span><br><span class=3D"line">io.emit(<span class=3D"string">'an event sen=
+t to all connected clients'</span>); <span class=3D"comment">// main namesp=
+ace</span></span><br><span class=3D"line"></span><br><span class=3D"line"><=
+span class=3D"keyword">const</span> chat =3D io.of(<span class=3D"string">'=
+/chat'</span>);</span><br><span class=3D"line">chat.emit(<span class=3D"str=
+ing">'an event sent to all connected clients in chat namespace'</span>);</s=
+pan><br></pre></td></tr></tbody></table></figure>
+<p><strong>Note:</strong> acknowledgements are not supported when emitting =
+from namespace.</p>
+<h2 id=3D"namespace-clients-callback"><a href=3D"https://socket.io/docs/ser=
+ver-api/#namespace-clients-callback" class=3D"headerlink" title=3D"namespac=
+e.clients(callback)"></a>namespace.clients(callback)</h2><ul>
+<li><code>callback</code> <em>(Function)</em></li>
+</ul>
+<p>Gets a list of client IDs connected to this namespace (across all nodes =
+if applicable).</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> io =3D <span class=
+=3D"built_in">require</span>(<span class=3D"string">'socket.io'</span>)();<=
+/span><br><span class=3D"line">io.of(<span class=3D"string">'/chat'</span>)=
+.clients(<span class=3D"function">(<span class=3D"params">error, clients</s=
+pan>) =3D&gt;</span> {</span><br><span class=3D"line">  <span class=3D"keyw=
+ord">if</span> (error) <span class=3D"keyword">throw</span> error;</span><b=
+r><span class=3D"line">  <span class=3D"built_in">console</span>.log(client=
+s); <span class=3D"comment">// =3D&gt; [PZDoMHjiu8PYfRiKAAAF, Anw2LatarvGVV=
+XEIAAAD]</span></span><br><span class=3D"line">});</span><br></pre></td></t=
+r></tbody></table></figure>
+<p>An example to get all clients in namespace=E2=80=99s room:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.of(<span class=3D"string">'/chat'</span>).in(<span cl=
+ass=3D"string">'general'</span>).clients(<span class=3D"function">(<span cl=
+ass=3D"params">error, clients</span>) =3D&gt;</span> {</span><br><span clas=
+s=3D"line">  <span class=3D"keyword">if</span> (error) <span class=3D"keywo=
+rd">throw</span> error;</span><br><span class=3D"line">  <span class=3D"bui=
+lt_in">console</span>.log(clients); <span class=3D"comment">// =3D&gt; [Anw=
+2LatarvGVVXEIAAAD]</span></span><br><span class=3D"line">});</span><br></pr=
+e></td></tr></tbody></table></figure>
+<p>As with broadcasting, the default is all clients from the default namesp=
+ace (=E2=80=98/=E2=80=98):</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.clients(<span class=3D"function">(<span class=3D"para=
+ms">error, clients</span>) =3D&gt;</span> {</span><br><span class=3D"line">=
+  <span class=3D"keyword">if</span> (error) <span class=3D"keyword">throw</=
+span> error;</span><br><span class=3D"line">  <span class=3D"built_in">cons=
+ole</span>.log(clients); <span class=3D"comment">// =3D&gt; [6em3d4TJP8Et9E=
+MNAAAA, G5p55dHhGgUnLUctAAAB]</span></span><br><span class=3D"line">});</sp=
+an><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"namespace-use-fn"><a href=3D"https://socket.io/docs/server-api/#n=
+amespace-use-fn" class=3D"headerlink" title=3D"namespace.use(fn)"></a>names=
+pace.use(fn)</h2><ul>
+<li><code>fn</code> <em>(Function)</em></li>
+</ul>
+<p>Registers a middleware, which is a function that gets executed for every=
+ incoming <code>Socket</code>, and receives as parameters the socket and a =
+function to optionally defer execution to the next registered middleware.</=
+p>
+<p>Errors passed to middleware callbacks are sent as special <code>error</c=
+ode> packets to clients.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.use(<span class=3D"function">(<span class=3D"params">=
+socket, next</span>) =3D&gt;</span> {</span><br><span class=3D"line">  <spa=
+n class=3D"keyword">if</span> (socket.request.headers.cookie) <span class=
+=3D"keyword">return</span> next();</span><br><span class=3D"line">  next(<s=
+pan class=3D"keyword">new</span> <span class=3D"built_in">Error</span>(<spa=
+n class=3D"string">'Authentication error'</span>));</span><br><span class=
+=3D"line">});</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98connect=E2=80=99"><a href=3D"https://socket.io/doc=
+s/server-api/#Event-%E2%80%98connect%E2%80%99" class=3D"headerlink" title=
+=3D"Event: =E2=80=98connect=E2=80=99"></a>Event: =E2=80=98connect=E2=80=99<=
+/h2><ul>
+<li><code>socket</code> <em>(Socket)</em> socket connection with client</li=
+>
+</ul>
+<p>Fired upon a connection from client.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connect'</span>, (socket) =
+=3D&gt; {</span><br><span class=3D"line">  <span class=3D"comment">// ...</=
+span></span><br><span class=3D"line">});</span><br><span class=3D"line"></s=
+pan><br><span class=3D"line">io.of(<span class=3D"string">'/admin'</span>).=
+on(<span class=3D"string">'connect'</span>, (socket) =3D&gt; {</span><br><s=
+pan class=3D"line">  <span class=3D"comment">// ...</span></span><br><span =
+class=3D"line">});</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98connection=E2=80=99"><a href=3D"https://socket.io/=
+docs/server-api/#Event-%E2%80%98connection%E2%80%99" class=3D"headerlink" t=
+itle=3D"Event: =E2=80=98connection=E2=80=99"></a>Event: =E2=80=98connection=
+=E2=80=99</h2><p>Synonym of <a href=3D"https://socket.io/docs/server-api/#E=
+vent-%E2%80%98connect%E2%80%99">Event: =E2=80=98connect=E2=80=99</a>.</p>
+<h2 id=3D"Flag-=E2=80=98volatile=E2=80=99"><a href=3D"https://socket.io/doc=
+s/server-api/#Flag-%E2%80%98volatile%E2%80%99" class=3D"headerlink" title=
+=3D"Flag: =E2=80=98volatile=E2=80=99"></a>Flag: =E2=80=98volatile=E2=80=99<=
+/h2><p>Sets a modifier for a subsequent event emission that the event data =
+may be lost if the clients are not ready to receive messages (because of ne=
+twork slowness or other issues, or because they=E2=80=99re connected throug=
+h long polling and is in the middle of a request-response cycle).</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.volatile.emit(<span class=3D"string">'an event'</span=
+>, { <span class=3D"attr">some</span>: <span class=3D"string">'data'</span>=
+ }); <span class=3D"comment">// the clients may or may not receive it</span=
+></span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"Flag-=E2=80=98binary=E2=80=99"><a href=3D"https://socket.io/docs/=
+server-api/#Flag-%E2%80%98binary%E2%80%99" class=3D"headerlink" title=3D"Fl=
+ag: =E2=80=98binary=E2=80=99"></a>Flag: =E2=80=98binary=E2=80=99</h2><p>Spe=
+cifies whether there is binary data in the emitted data. Increases performa=
+nce when specified. Can be <code>true</code> or <code>false</code>.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.binary(<span class=3D"literal">false</span>).emit(<sp=
+an class=3D"string">'an event'</span>, { <span class=3D"attr">some</span>: =
+<span class=3D"string">'data'</span> });</span><br></pre></td></tr></tbody>=
+</table></figure>
+<h2 id=3D"Flag-=E2=80=98local=E2=80=99"><a href=3D"https://socket.io/docs/s=
+erver-api/#Flag-%E2%80%98local%E2%80%99" class=3D"headerlink" title=3D"Flag=
+: =E2=80=98local=E2=80=99"></a>Flag: =E2=80=98local=E2=80=99</h2><p>Sets a =
+modifier for a subsequent event emission that the event data will only be <=
+em>broadcast</em> to the current node (when the <a href=3D"https://github.c=
+om/socketio/socket.io-redis" target=3D"_blank" rel=3D"noopener">Redis adapt=
+er</a> is used).</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.local.emit(<span class=3D"string">'an event'</span>, =
+{ <span class=3D"attr">some</span>: <span class=3D"string">'data'</span> })=
+;</span><br></pre></td></tr></tbody></table></figure>
+<h1 id=3D"Socket"><a href=3D"https://socket.io/docs/server-api/#Socket" cla=
+ss=3D"headerlink" title=3D"Socket"></a>Socket</h1><p>A <code>Socket</code> =
+is the fundamental class for interacting with browser clients. A <code>Sock=
+et</code> belongs to a certain <code>Namespace</code> (by default <code>/</=
+code>) and uses an underlying <code>Client</code> to communicate.</p>
+<p>It should be noted the <code>Socket</code> doesn=E2=80=99t relate direct=
+ly to the actual underlying TCP/IP <code>socket</code> and it is only the n=
+ame of the class.</p>
+<p>Within each <code>Namespace</code>, you can also define arbitrary channe=
+ls (called <code>room</code>) that the <code>Socket</code> can join and lea=
+ve. That provides a convenient way to broadcast to a group of <code>Socket<=
+/code>s (see <code>Socket#to</code> below).</p>
+<p>The <code>Socket</code> class inherits from <a href=3D"https://nodejs.or=
+g/api/events.html#events_class_eventemitter" target=3D"_blank" rel=3D"noope=
+ner">EventEmitter</a>. The <code>Socket</code> class overrides the <code>em=
+it</code> method, and does not modify any other <code>EventEmitter</code> m=
+ethod. All methods documented here which also appear as <code>EventEmitter<=
+/code> methods (apart from <code>emit</code>) are implemented by <code>Even=
+tEmitter</code>, and documentation for <code>EventEmitter</code> applies.</=
+p>
+<h2 id=3D"socket-id"><a href=3D"https://socket.io/docs/server-api/#socket-i=
+d" class=3D"headerlink" title=3D"socket.id"></a>socket.id</h2><ul>
+<li><em>(String)</em></li>
+</ul>
+<p>A unique identifier for the session, that comes from the underlying <cod=
+e>Client</code>.</p>
+<h2 id=3D"socket-rooms"><a href=3D"https://socket.io/docs/server-api/#socke=
+t-rooms" class=3D"headerlink" title=3D"socket.rooms"></a>socket.rooms</h2><=
+ul>
+<li><em>(Object)</em></li>
+</ul>
+<p>A hash of strings identifying the rooms this client is in, indexed by ro=
+om name.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.join(<span class=3D"st=
+ring">'room 237'</span>, () =3D&gt; {</span><br><span class=3D"line">    <s=
+pan class=3D"keyword">let</span> rooms =3D <span class=3D"built_in">Object<=
+/span>.keys(socket.rooms);</span><br><span class=3D"line">    <span class=
+=3D"built_in">console</span>.log(rooms); <span class=3D"comment">// [ &lt;s=
+ocket.id&gt;, 'room 237' ]</span></span><br><span class=3D"line">  });</spa=
+n><br><span class=3D"line">});</span><br></pre></td></tr></tbody></table></=
+figure>
+<h2 id=3D"socket-client"><a href=3D"https://socket.io/docs/server-api/#sock=
+et-client" class=3D"headerlink" title=3D"socket.client"></a>socket.client</=
+h2><ul>
+<li><em>(Client)</em></li>
+</ul>
+<p>A reference to the underlying <code>Client</code> object.</p>
+<h2 id=3D"socket-conn"><a href=3D"https://socket.io/docs/server-api/#socket=
+-conn" class=3D"headerlink" title=3D"socket.conn"></a>socket.conn</h2><ul>
+<li><em>(engine.Socket)</em></li>
+</ul>
+<p>A reference to the underlying <code>Client</code> transport connection (=
+engine.io <code>Socket</code> object). This allows access to the IO transpo=
+rt layer, which still (mostly) abstracts the actual TCP/IP socket.</p>
+<h2 id=3D"socket-request"><a href=3D"https://socket.io/docs/server-api/#soc=
+ket-request" class=3D"headerlink" title=3D"socket.request"></a>socket.reque=
+st</h2><ul>
+<li><em>(Request)</em></li>
+</ul>
+<p>A getter proxy that returns the reference to the <code>request</code> th=
+at originated the underlying engine.io <code>Client</code>. Useful for acce=
+ssing request headers such as <code>Cookie</code> or <code>User-Agent</code=
+>.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> cookie =3D <span cl=
+ass=3D"built_in">require</span>(<span class=3D"string">'cookie'</span>);</s=
+pan><br><span class=3D"line"></span><br><span class=3D"line">io.on(<span cl=
+ass=3D"string">'connection'</span>, (socket) =3D&gt; {</span><br><span clas=
+s=3D"line">  <span class=3D"keyword">const</span> cookies =3D cookie.parse(=
+socket.request.headers.cookie || <span class=3D"string">''</span>);</span><=
+br><span class=3D"line">});</span><br></pre></td></tr></tbody></table></fig=
+ure>
+<h2 id=3D"socket-handshake"><a href=3D"https://socket.io/docs/server-api/#s=
+ocket-handshake" class=3D"headerlink" title=3D"socket.handshake"></a>socket=
+.handshake</h2><ul>
+<li><em>(Object)</em></li>
+</ul>
+<p>The handshake details:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">{</span><br><span class=3D"line">  headers: <span class=
+=3D"comment">/* the headers sent as part of the handshake */</span>,</span>=
+<br><span class=3D"line">  time: <span class=3D"comment">/* the date of cre=
+ation (as string) */</span>,</span><br><span class=3D"line">  address: <spa=
+n class=3D"comment">/* the ip of the client */</span>,</span><br><span clas=
+s=3D"line">  xdomain: <span class=3D"comment">/* whether the connection is =
+cross-domain */</span>,</span><br><span class=3D"line">  secure: <span clas=
+s=3D"comment">/* whether the connection is secure */</span>,</span><br><spa=
+n class=3D"line">  issued: <span class=3D"comment">/* the date of creation =
+(as unix timestamp) */</span>,</span><br><span class=3D"line">  url: <span =
+class=3D"comment">/* the request URL string */</span>,</span><br><span clas=
+s=3D"line">  query: <span class=3D"comment">/* the query object */</span></=
+span><br><span class=3D"line">}</span><br></pre></td></tr></tbody></table><=
+/figure>
+<p>Usage:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.use(<span class=3D"function">(<span class=3D"params">=
+socket, next</span>) =3D&gt;</span> {</span><br><span class=3D"line">  <spa=
+n class=3D"keyword">let</span> handshake =3D socket.handshake;</span><br><s=
+pan class=3D"line">  <span class=3D"comment">// ...</span></span><br><span =
+class=3D"line">});</span><br><span class=3D"line"></span><br><span class=3D=
+"line">io.on(<span class=3D"string">'connection'</span>, (socket) =3D&gt; {=
+</span><br><span class=3D"line">  <span class=3D"keyword">let</span> handsh=
+ake =3D socket.handshake;</span><br><span class=3D"line">  <span class=3D"c=
+omment">// ...</span></span><br><span class=3D"line">});</span><br></pre></=
+td></tr></tbody></table></figure>
+<h2 id=3D"socket-use-fn"><a href=3D"https://socket.io/docs/server-api/#sock=
+et-use-fn" class=3D"headerlink" title=3D"socket.use(fn)"></a>socket.use(fn)=
+</h2><ul>
+<li><code>fn</code> <em>(Function)</em></li>
+</ul>
+<p>Registers a middleware, which is a function that gets executed for every=
+ incoming <code>Packet</code> and receives as parameter the packet and a fu=
+nction to optionally defer execution to the next registered middleware.</p>
+<p>Errors passed to middleware callbacks are sent as special <code>error</c=
+ode> packets to clients.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.use(<span class=3D"fun=
+ction">(<span class=3D"params">packet, next</span>) =3D&gt;</span> {</span>=
+<br><span class=3D"line">    <span class=3D"keyword">if</span> (packet.doge=
+ =3D=3D=3D <span class=3D"literal">true</span>) <span class=3D"keyword">ret=
+urn</span> next();</span><br><span class=3D"line">    next(<span class=3D"k=
+eyword">new</span> <span class=3D"built_in">Error</span>(<span class=3D"str=
+ing">'Not a doge error'</span>));</span><br><span class=3D"line">  });</spa=
+n><br><span class=3D"line">});</span><br></pre></td></tr></tbody></table></=
+figure>
+<h2 id=3D"socket-send-=E2=80=A6args-ack"><a href=3D"https://socket.io/docs/=
+server-api/#socket-send-%E2%80%A6args-ack" class=3D"headerlink" title=3D"so=
+cket.send([=E2=80=A6args][, ack])"></a>socket.send([=E2=80=A6args][, ack])<=
+/h2><ul>
+<li><code>args</code></li>
+<li><code>ack</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Sends a <code>message</code> event. See <a href=3D"https://socket.io/doc=
+s/server-api/#socketemiteventname-args-ack">socket.emit(eventName[, =E2=80=
+=A6args][, ack])</a>.</p>
+<h2 id=3D"socket-emit-eventName-=E2=80=A6args-ack"><a href=3D"https://socke=
+t.io/docs/server-api/#socket-emit-eventName-%E2%80%A6args-ack" class=3D"hea=
+derlink" title=3D"socket.emit(eventName[, =E2=80=A6args][, ack])"></a>socke=
+t.emit(eventName[, =E2=80=A6args][, ack])</h2><p><em>(overrides <code>Event=
+Emitter.emit</code>)</em></p>
+<ul>
+<li><code>eventName</code> <em>(String)</em></li>
+<li><code>args</code></li>
+<li><code>ack</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Emits an event to the socket identified by the string name. Any other pa=
+rameters can be included. All serializable datastructures are supported, in=
+cluding <code>Buffer</code>.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.emit(<span class=3D"string">'hello'</span>, <span=
+ class=3D"string">'world'</span>);</span><br><span class=3D"line">socket.em=
+it(<span class=3D"string">'with-binary'</span>, <span class=3D"number">1</s=
+pan>, <span class=3D"string">'2'</span>, { <span class=3D"number">3</span>:=
+ <span class=3D"string">'4'</span>, <span class=3D"number">5</span>: <span =
+class=3D"keyword">new</span> Buffer(<span class=3D"number">6</span>) });</s=
+pan><br></pre></td></tr></tbody></table></figure>
+<p>The <code>ack</code> argument is optional and will be called with the cl=
+ient=E2=80=99s answer.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.emit(<span class=3D"st=
+ring">'an event'</span>, { <span class=3D"attr">some</span>: <span class=3D=
+"string">'data'</span> });</span><br><span class=3D"line"></span><br><span =
+class=3D"line">  socket.emit(<span class=3D"string">'ferret'</span>, <span =
+class=3D"string">'tobi'</span>, (data) =3D&gt; {</span><br><span class=3D"l=
+ine">    <span class=3D"built_in">console</span>.log(data); <span class=3D"=
+comment">// data will be 'woot'</span></span><br><span class=3D"line">  });=
+</span><br><span class=3D"line"></span><br><span class=3D"line">  <span cla=
+ss=3D"comment">// the client code</span></span><br><span class=3D"line">  <=
+span class=3D"comment">// client.on('ferret', (name, fn) =3D&gt; {</span></=
+span><br><span class=3D"line">  <span class=3D"comment">//   fn('woot');</s=
+pan></span><br><span class=3D"line">  <span class=3D"comment">// });</span>=
+</span><br><span class=3D"line"></span><br><span class=3D"line">});</span><=
+br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"socket-on-eventName-callback"><a href=3D"https://socket.io/docs/s=
+erver-api/#socket-on-eventName-callback" class=3D"headerlink" title=3D"sock=
+et.on(eventName, callback)"></a>socket.on(eventName, callback)</h2><p><em>(=
+inherited from <code>EventEmitter</code>)</em></p>
+<ul>
+<li><code>eventName</code> <em>(String)</em></li>
+<li><code>callback</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Register a new handler for the given event.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'news'</span>, (data) =
+=3D&gt; {</span><br><span class=3D"line">  <span class=3D"built_in">console=
+</span>.log(data);</span><br><span class=3D"line">});</span><br><span class=
+=3D"line"><span class=3D"comment">// with several arguments</span></span><b=
+r><span class=3D"line">socket.on(<span class=3D"string">'news'</span>, (arg=
+1, arg2, arg3) =3D&gt; {</span><br><span class=3D"line">  <span class=3D"co=
+mment">// ...</span></span><br><span class=3D"line">});</span><br><span cla=
+ss=3D"line"><span class=3D"comment">// or with acknowledgement</span></span=
+><br><span class=3D"line">socket.on(<span class=3D"string">'news'</span>, (=
+data, callback) =3D&gt; {</span><br><span class=3D"line">  callback(<span c=
+lass=3D"number">0</span>);</span><br><span class=3D"line">});</span><br></p=
+re></td></tr></tbody></table></figure>
+<h2 id=3D"socket-once-eventName-listener"><a href=3D"https://socket.io/docs=
+/server-api/#socket-once-eventName-listener" class=3D"headerlink" title=3D"=
+socket.once(eventName, listener)"></a>socket.once(eventName, listener)</h2>=
+<h2 id=3D"socket-removeListener-eventName-listener"><a href=3D"https://sock=
+et.io/docs/server-api/#socket-removeListener-eventName-listener" class=3D"h=
+eaderlink" title=3D"socket.removeListener(eventName, listener)"></a>socket.=
+removeListener(eventName, listener)</h2><h2 id=3D"socket-removeAllListeners=
+-eventName"><a href=3D"https://socket.io/docs/server-api/#socket-removeAllL=
+isteners-eventName" class=3D"headerlink" title=3D"socket.removeAllListeners=
+([eventName])"></a>socket.removeAllListeners([eventName])</h2><h2 id=3D"soc=
+ket-eventNames"><a href=3D"https://socket.io/docs/server-api/#socket-eventN=
+ames" class=3D"headerlink" title=3D"socket.eventNames()"></a>socket.eventNa=
+mes()</h2><p>Inherited from <code>EventEmitter</code> (along with other met=
+hods not mentioned here). See the Node.js documentation for the <a href=3D"=
+https://nodejs.org/docs/latest/api/events.html" target=3D"_blank" rel=3D"no=
+opener">events</a> module.</p>
+<h2 id=3D"socket-join-room-callback"><a href=3D"https://socket.io/docs/serv=
+er-api/#socket-join-room-callback" class=3D"headerlink" title=3D"socket.joi=
+n(room[, callback])"></a>socket.join(room[, callback])</h2><ul>
+<li><code>room</code> <em>(String)</em></li>
+<li><code>callback</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Socket</code> for chaining</li>
+</ul>
+<p>Adds the client to the <code>room</code>, and fires optionally a callbac=
+k with <code>err</code> signature (if any).</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.join(<span class=3D"st=
+ring">'room 237'</span>, () =3D&gt; {</span><br><span class=3D"line">    <s=
+pan class=3D"keyword">let</span> rooms =3D <span class=3D"built_in">Object<=
+/span>.keys(socket.rooms);</span><br><span class=3D"line">    <span class=
+=3D"built_in">console</span>.log(rooms); <span class=3D"comment">// [ &lt;s=
+ocket.id&gt;, 'room 237' ]</span></span><br><span class=3D"line">    io.to(=
+<span class=3D"string">'room 237'</span>).emit(<span class=3D"string">'a ne=
+w user has joined the room'</span>); <span class=3D"comment">// broadcast t=
+o everyone in the room</span></span><br><span class=3D"line">  });</span><b=
+r><span class=3D"line">});</span><br></pre></td></tr></tbody></table></figu=
+re>
+<p>The mechanics of joining rooms are handled by the <code>Adapter</code> t=
+hat has been configured (see <code>Server#adapter</code> above), defaulting=
+ to <a href=3D"https://github.com/socketio/socket.io-adapter" target=3D"_bl=
+ank" rel=3D"noopener">socket.io-adapter</a>.</p>
+<p>For your convenience, each socket automatically joins a room identified =
+by its id (see <code>Socket#id</code>). This makes it easy to broadcast mes=
+sages to other sockets:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.on(<span class=3D"stri=
+ng">'say to someone'</span>, (id, msg) =3D&gt; {</span><br><span class=3D"l=
+ine">    <span class=3D"comment">// send a private message to the socket wi=
+th the given id</span></span><br><span class=3D"line">    socket.to(id).emi=
+t(<span class=3D"string">'my message'</span>, msg);</span><br><span class=
+=3D"line">  });</span><br><span class=3D"line">});</span><br></pre></td></t=
+r></tbody></table></figure>
+<h2 id=3D"socket-join-rooms-callback"><a href=3D"https://socket.io/docs/ser=
+ver-api/#socket-join-rooms-callback" class=3D"headerlink" title=3D"socket.j=
+oin(rooms[, callback])"></a>socket.join(rooms[, callback])</h2><ul>
+<li><code>rooms</code> <em>(Array)</em></li>
+<li><code>callback</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Socket</code> for chaining</li>
+</ul>
+<p>Adds the client to the list of room, and fires optionally a callback wit=
+h <code>err</code> signature (if any).</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.join([<span class=3D"s=
+tring">'room 237'</span>, <span class=3D"string">'room 238'</span>], () =3D=
+&gt; {</span><br><span class=3D"line">    <span class=3D"keyword">const</sp=
+an> rooms =3D <span class=3D"built_in">Object</span>.keys(socket.rooms);</s=
+pan><br><span class=3D"line">    <span class=3D"built_in">console</span>.lo=
+g(rooms); <span class=3D"comment">// [ &lt;socket.id&gt;, 'room 237', 'room=
+ 238' ]</span></span><br><span class=3D"line">    io.to(<span class=3D"stri=
+ng">'room 237'</span>).to(<span class=3D"string">'room 238'</span>).emit(<s=
+pan class=3D"string">'a new user has joined the room'</span>); <span class=
+=3D"comment">// broadcast to everyone in both rooms</span></span><br><span =
+class=3D"line">  });</span><br><span class=3D"line">});</span><br></pre></t=
+d></tr></tbody></table></figure>
+<h2 id=3D"socket-leave-room-callback"><a href=3D"https://socket.io/docs/ser=
+ver-api/#socket-leave-room-callback" class=3D"headerlink" title=3D"socket.l=
+eave(room[, callback])"></a>socket.leave(room[, callback])</h2><ul>
+<li><code>room</code> <em>(String)</em></li>
+<li><code>callback</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Socket</code> for chaining</li>
+</ul>
+<p>Removes the client from <code>room</code>, and fires optionally a callba=
+ck with <code>err</code> signature (if any).</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.leave(<span class=3D"s=
+tring">'room 237'</span>, () =3D&gt; {</span><br><span class=3D"line">    i=
+o.to(<span class=3D"string">'room 237'</span>).emit(<span class=3D"string">=
+`user <span class=3D"subst">${socket.id}</span> has left the room`</span>);=
+</span><br><span class=3D"line">  });</span><br><span class=3D"line">});</s=
+pan><br></pre></td></tr></tbody></table></figure>
+<p><strong>Rooms are left automatically upon disconnection</strong>.</p>
+<h2 id=3D"socket-to-room"><a href=3D"https://socket.io/docs/server-api/#soc=
+ket-to-room" class=3D"headerlink" title=3D"socket.to(room)"></a>socket.to(r=
+oom)</h2><ul>
+<li><code>room</code> <em>(String)</em></li>
+<li><strong>Returns</strong> <code>Socket</code> for chaining</li>
+</ul>
+<p>Sets a modifier for a subsequent event emission that the event will only=
+ be <em>broadcasted</em> to clients that have joined the given <code>room</=
+code> (the socket itself being excluded).</p>
+<p>To emit to multiple rooms, you can call <code>to</code> several times.</=
+p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line"></span><br><span class=3D"line"=
+>  <span class=3D"comment">// to one room</span></span><br><span class=3D"l=
+ine">  socket.to(<span class=3D"string">'others'</span>).emit(<span class=
+=3D"string">'an event'</span>, { <span class=3D"attr">some</span>: <span cl=
+ass=3D"string">'data'</span> });</span><br><span class=3D"line"></span><br>=
+<span class=3D"line">  <span class=3D"comment">// to multiple rooms</span><=
+/span><br><span class=3D"line">  socket.to(<span class=3D"string">'room1'</=
+span>).to(<span class=3D"string">'room2'</span>).emit(<span class=3D"string=
+">'hello'</span>);</span><br><span class=3D"line"></span><br><span class=3D=
+"line">  <span class=3D"comment">// a private message to another socket</sp=
+an></span><br><span class=3D"line">  socket.to(<span class=3D"comment">/* a=
+nother socket id */</span>).emit(<span class=3D"string">'hey'</span>);</spa=
+n><br><span class=3D"line"></span><br><span class=3D"line">  <span class=3D=
+"comment">// WARNING: `socket.to(socket.id).emit()` will NOT work, as it wi=
+ll send to everyone in the room</span></span><br><span class=3D"line">  <sp=
+an class=3D"comment">// named `socket.id` but the sender. Please use the cl=
+assic `socket.emit()` instead.</span></span><br><span class=3D"line">});</s=
+pan><br></pre></td></tr></tbody></table></figure>
+<p><strong>Note:</strong> acknowledgements are not supported when broadcast=
+ing.</p>
+<h2 id=3D"socket-in-room"><a href=3D"https://socket.io/docs/server-api/#soc=
+ket-in-room" class=3D"headerlink" title=3D"socket.in(room)"></a>socket.in(r=
+oom)</h2><p>Synonym of <a href=3D"https://socket.io/docs/server-api/#socket=
+-to-room">socket.to(room)</a>.</p>
+<h2 id=3D"socket-compress-value"><a href=3D"https://socket.io/docs/server-a=
+pi/#socket-compress-value" class=3D"headerlink" title=3D"socket.compress(va=
+lue)"></a>socket.compress(value)</h2><ul>
+<li><code>value</code> <em>(Boolean)</em> whether to following packet will =
+be compressed</li>
+<li><strong>Returns</strong> <code>Socket</code> for chaining</li>
+</ul>
+<p>Sets a modifier for a subsequent event emission that the event data will=
+ only be <em>compressed</em> if the value is <code>true</code>. Defaults to=
+ <code>true</code> when you don=E2=80=99t call the method.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.compress(<span class=
+=3D"literal">false</span>).emit(<span class=3D"string">'uncompressed'</span=
+>, <span class=3D"string">"that's rough"</span>);</span><br><span class=3D"=
+line">});</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"socket-disconnect-close"><a href=3D"https://socket.io/docs/server=
+-api/#socket-disconnect-close" class=3D"headerlink" title=3D"socket.disconn=
+ect(close)"></a>socket.disconnect(close)</h2><ul>
+<li><code>close</code> <em>(Boolean)</em> whether to close the underlying c=
+onnection</li>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Disconnects this client. If value of close is <code>true</code>, closes =
+the underlying connection. Otherwise, it just disconnects the namespace.</p=
+>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  setTimeout(<span class=3D"fun=
+ction"><span class=3D"params">()</span> =3D&gt;</span> socket.disconnect(<s=
+pan class=3D"literal">true</span>), <span class=3D"number">5000</span>);</s=
+pan><br><span class=3D"line">});</span><br></pre></td></tr></tbody></table>=
+</figure>
+<h2 id=3D"Flag-=E2=80=98broadcast=E2=80=99"><a href=3D"https://socket.io/do=
+cs/server-api/#Flag-%E2%80%98broadcast%E2%80%99" class=3D"headerlink" title=
+=3D"Flag: =E2=80=98broadcast=E2=80=99"></a>Flag: =E2=80=98broadcast=E2=80=
+=99</h2><p>Sets a modifier for a subsequent event emission that the event d=
+ata will only be <em>broadcast</em> to every sockets but the sender.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.broadcast.emit(<span c=
+lass=3D"string">'an event'</span>, { <span class=3D"attr">some</span>: <spa=
+n class=3D"string">'data'</span> }); <span class=3D"comment">// everyone ge=
+ts it but the sender</span></span><br><span class=3D"line">});</span><br></=
+pre></td></tr></tbody></table></figure>
+<h2 id=3D"Flag-=E2=80=98volatile=E2=80=99-1"><a href=3D"https://socket.io/d=
+ocs/server-api/#Flag-%E2%80%98volatile%E2%80%99-1" class=3D"headerlink" tit=
+le=3D"Flag: =E2=80=98volatile=E2=80=99"></a>Flag: =E2=80=98volatile=E2=80=
+=99</h2><p>Sets a modifier for a subsequent event emission that the event d=
+ata may be lost if the client is not ready to receive messages (because of =
+network slowness or other issues, or because they=E2=80=99re connected thro=
+ugh long polling and is in the middle of a request-response cycle).</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.volatile.emit(<span cl=
+ass=3D"string">'an event'</span>, { <span class=3D"attr">some</span>: <span=
+ class=3D"string">'data'</span> }); <span class=3D"comment">// the client m=
+ay or may not receive it</span></span><br><span class=3D"line">});</span><b=
+r></pre></td></tr></tbody></table></figure>
+<h2 id=3D"Flag-=E2=80=98binary=E2=80=99-1"><a href=3D"https://socket.io/doc=
+s/server-api/#Flag-%E2%80%98binary%E2%80%99-1" class=3D"headerlink" title=
+=3D"Flag: =E2=80=98binary=E2=80=99"></a>Flag: =E2=80=98binary=E2=80=99</h2>=
+<p>Specifies whether there is binary data in the emitted data. Increases pe=
+rformance when specified. Can be <code>true</code> or <code>false</code>.</=
+p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> io =3D <span class=
+=3D"built_in">require</span>(<span class=3D"string">'socket.io'</span>)();<=
+/span><br><span class=3D"line">io.on(<span class=3D"string">'connection'</s=
+pan>, (socket) =3D&gt; {</span><br><span class=3D"line">  socket.binary(<sp=
+an class=3D"literal">false</span>).emit(<span class=3D"string">'an event'</=
+span>, { <span class=3D"attr">some</span>: <span class=3D"string">'data'</s=
+pan> }); <span class=3D"comment">// The data to send has no binary data</sp=
+an></span><br><span class=3D"line">});</span><br></pre></td></tr></tbody></=
+table></figure>
+<h2 id=3D"Event-=E2=80=98disconnect=E2=80=99"><a href=3D"https://socket.io/=
+docs/server-api/#Event-%E2%80%98disconnect%E2%80%99" class=3D"headerlink" t=
+itle=3D"Event: =E2=80=98disconnect=E2=80=99"></a>Event: =E2=80=98disconnect=
+=E2=80=99</h2><ul>
+<li><code>reason</code> <em>(String)</em> the reason of the disconnection (=
+either client or server-side)</li>
+</ul>
+<p>Fired upon disconnection.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.on(<span class=3D"stri=
+ng">'disconnect'</span>, (reason) =3D&gt; {</span><br><span class=3D"line">=
+    <span class=3D"comment">// ...</span></span><br><span class=3D"line">  =
+});</span><br><span class=3D"line">});</span><br></pre></td></tr></tbody></=
+table></figure>
+<p>Possible reasons:</p>
+<table>
+<thead>
+<tr>
+<th>Reason</th>
+<th>Side</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>transport error</code></td>
+<td>Server Side</td>
+<td>Transport error</td>
+</tr>
+<tr>
+<td><code>server namespace disconnect</code></td>
+<td>Server Side</td>
+<td>Server performs a <code>socket.disconnect()</code></td>
+</tr>
+<tr>
+<td><code>client namespace disconnect</code></td>
+<td>Client Side</td>
+<td>Got disconnect packet from client</td>
+</tr>
+<tr>
+<td><code>ping timeout</code></td>
+<td>Client Side</td>
+<td>Client stopped responding to pings in the allowed amount of time (per t=
+he <code>pingTimeout</code> config setting)</td>
+</tr>
+<tr>
+<td><code>transport close</code></td>
+<td>Client Side</td>
+<td>Client stopped sending data</td>
+</tr>
+</tbody>
+</table>
+<h2 id=3D"Event-=E2=80=98error=E2=80=99"><a href=3D"https://socket.io/docs/=
+server-api/#Event-%E2%80%98error%E2%80%99" class=3D"headerlink" title=3D"Ev=
+ent: =E2=80=98error=E2=80=99"></a>Event: =E2=80=98error=E2=80=99</h2><ul>
+<li><code>error</code> <em>(Object)</em> error object</li>
+</ul>
+<p>Fired when an error occurs.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.on(<span class=3D"stri=
+ng">'error'</span>, (error) =3D&gt; {</span><br><span class=3D"line">    <s=
+pan class=3D"comment">// ...</span></span><br><span class=3D"line">  });</s=
+pan><br><span class=3D"line">});</span><br></pre></td></tr></tbody></table>=
+</figure>
+<h2 id=3D"Event-=E2=80=98disconnecting=E2=80=99"><a href=3D"https://socket.=
+io/docs/server-api/#Event-%E2%80%98disconnecting%E2%80%99" class=3D"headerl=
+ink" title=3D"Event: =E2=80=98disconnecting=E2=80=99"></a>Event: =E2=80=98d=
+isconnecting=E2=80=99</h2><ul>
+<li><code>reason</code> <em>(String)</em> the reason of the disconnection (=
+either client or server-side)</li>
+</ul>
+<p>Fired when the client is going to be disconnected (but hasn=E2=80=99t le=
+ft its <code>rooms</code> yet).</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">io.on(<span class=3D"string">'connection'</span>, (socke=
+t) =3D&gt; {</span><br><span class=3D"line">  socket.on(<span class=3D"stri=
+ng">'disconnecting'</span>, (reason) =3D&gt; {</span><br><span class=3D"lin=
+e">    <span class=3D"keyword">let</span> rooms =3D <span class=3D"built_in=
+">Object</span>.keys(socket.rooms);</span><br><span class=3D"line">    <spa=
+n class=3D"comment">// ...</span></span><br><span class=3D"line">  });</spa=
+n><br><span class=3D"line">});</span><br></pre></td></tr></tbody></table></=
+figure>
+<p>These are reserved events (along with <code>connect</code>, <code>newLis=
+tener</code> and <code>removeListener</code>) which cannot be used as event=
+ names.</p>
+<h1 id=3D"Client"><a href=3D"https://socket.io/docs/server-api/#Client" cla=
+ss=3D"headerlink" title=3D"Client"></a>Client</h1><p>The <code>Client</code=
+> class represents an incoming transport (engine.io) connection. A <code>Cl=
+ient</code> can be associated with many multiplexed <code>Socket</code>s th=
+at belong to different <code>Namespace</code>s.</p>
+<h2 id=3D"client-conn"><a href=3D"https://socket.io/docs/server-api/#client=
+-conn" class=3D"headerlink" title=3D"client.conn"></a>client.conn</h2><ul>
+<li><em>(engine.Socket)</em></li>
+</ul>
+<p>A reference to the underlying <code>engine.io</code> <code>Socket</code>=
+ connection.</p>
+<h2 id=3D"client-request"><a href=3D"https://socket.io/docs/server-api/#cli=
+ent-request" class=3D"headerlink" title=3D"client.request"></a>client.reque=
+st</h2><ul>
+<li><em>(Request)</em></li>
+</ul>
+<p>A getter proxy that returns the reference to the <code>request</code> th=
+at originated the engine.io connection. Useful for accessing request header=
+s such as <code>Cookie</code> or <code>User-Agent</code>.</p>
+
+
+ =20
+  <footer class=3D"article-footer">
+    Caught a mistake? Edit this page on <a href=3D"https://github.com/socke=
+tio/socket.io-website/blob/master/source/docs/server-api.md" target=3D"_bla=
+nk" class=3D"link">GitHub</a>
+  </footer>
+ =20
+</article>
+
+    </div>
+    <nav id=3D"mobile-nav">
+ =20
+</nav>
+   =20
+
+
+
+<!-- Algolia DocSearch -->
+
+
+
+
+
+  </div>
+
+</body></html>
+------MultipartBoundary--HhPgynnUcBEJ7sCFEL2JAe45ApsWhirQDC6hqLSvnO----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css?family=Source+Code+Pro
+
+@charset "utf-8";
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlMOvWjMY.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1=
+C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlOevWjMY.woff2") format("woff2"); unicode-range: U+400-45F, U+490-49=
+1, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlPuvWjMY.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlMuvWjMY.woff2") format("woff2"); unicode-range: U+102-103, U+110-11=
+1, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlM-vWjMY.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U=
++1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A=
+7FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlPevW.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-1=
+53, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+=
+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+------MultipartBoundary--HhPgynnUcBEJ7sCFEL2JAe45ApsWhirQDC6hqLSvnO----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://socket.io/css/style.css
+
+@charset "utf-8";
+
+html { line-height: 1.15; text-size-adjust: 100%; }
+
+body { margin: 0px; }
+
+h1 { font-size: 2em; margin: 0.67em 0px; }
+
+hr { box-sizing: content-box; height: 0px; overflow: visible; }
+
+pre { font-family: monospace, monospace; font-size: 1em; }
+
+a { background-color: transparent; }
+
+abbr[title] { border-bottom: none; text-decoration: underline dotted; }
+
+b, strong { font-weight: bolder; }
+
+code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }
+
+small { font-size: 80%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-ali=
+gn: baseline; }
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+img { border-style: none; }
+
+button, input, optgroup, select, textarea { font-family: inherit; font-size=
+: 100%; line-height: 1.15; margin: 0px; }
+
+button, input { overflow: visible; }
+
+button, select { text-transform: none; }
+
+button, [type=3D"button"], [type=3D"reset"], [type=3D"submit"] { appearance=
+: button; }
+
+fieldset { padding: 0.35em 0.75em 0.625em; }
+
+legend { box-sizing: border-box; color: inherit; display: table; max-width:=
+ 100%; padding: 0px; white-space: normal; }
+
+progress { vertical-align: baseline; }
+
+textarea { overflow: auto; }
+
+[type=3D"checkbox"], [type=3D"radio"] { box-sizing: border-box; padding: 0p=
+x; }
+
+[type=3D"number"]::-webkit-inner-spin-button, [type=3D"number"]::-webkit-ou=
+ter-spin-button { height: auto; }
+
+[type=3D"search"] { appearance: textfield; outline-offset: -2px; }
+
+[type=3D"search"]::-webkit-search-decoration { appearance: none; }
+
+::-webkit-file-upload-button { appearance: button; font: inherit; }
+
+details { display: block; }
+
+summary { display: list-item; }
+
+template { display: none; }
+
+[hidden] { display: none; }
+
+#header { padding: 10px; z-index: 10; position: relative; background-color:=
+ rgb(255, 255, 255); }
+
+@media screen and (min-width: 900px) {
+  #header { position: fixed; left: 0px; right: 0px; padding: 10px 40px; bac=
+kground-color: rgba(255, 255, 255, 0.9); }
+}
+
+#header #logo { background-image: url("images/logo.svg"); background-size: =
+cover; display: block; width: 136px; height: 40px; margin: 0px auto; }
+
+@media screen and (min-width: 900px) {
+  #header #logo { margin: 0px; display: inline-block; }
+}
+
+#header #docsearch-input { border: 1px solid rgb(227, 227, 227); border-rad=
+ius: 15px; padding: 0px 10px 0px 30px; outline: none; height: 30px; font-si=
+ze: 1.2rem; margin-top: 5px; }
+
+#header .main-nav { float: right; display: none; }
+
+@media screen and (min-width: 900px) {
+  #header .main-nav { display: block; }
+}
+
+#header .nav-items { padding: 0px; margin: 0px; height: 40px; line-height: =
+40px; }
+
+#header .nav-items > li { padding: 0px; margin: 0px 10px; }
+
+#header .nav-item { font-size: 1.4rem; }
+
+#header nav li { display: inline-block; }
+
+#header .nav-link { color: rgb(155, 155, 155); font-size: 1.2rem; }
+
+#header .nav-links-header { font-weight: bold; font-size: 1.2rem; }
+
+#header .dropdown-toggle { cursor: pointer; }
+
+#header .dropdown-content { display: none; position: absolute; background-c=
+olor: rgb(255, 255, 255); padding: 0px 20px 10px; border: 1px solid rgb(238=
+, 238, 238); }
+
+#header .dropdown:hover .dropdown-content { display: block; }
+
+#header .dropdown-content li { display: block; margin-top: 10px; line-heigh=
+t: 20px; }
+
+#header ul { padding-left: 1rem; }
+
+#footer { background: rgb(38, 42, 48); padding: 50px 0px; border-top: 1px s=
+olid rgb(221, 221, 221); color: rgb(153, 153, 153); }
+
+#footer a { color: rgb(37, 143, 184); text-decoration: none; }
+
+#footer a:hover { text-decoration: underline; }
+
+#footer-info { line-height: 1.6em; font-size: 0.85em; }
+
+#sidebar { display: none; width: 200px; position: fixed; top: 0px; left: 0p=
+x; bottom: 0px; overflow: hidden auto; margin-top: 80px; padding: 0px 20px =
+20px; }
+
+@media screen and (min-width: 900px) {
+  #sidebar { display: block; }
+}
+
+#sidebar .items { padding: 0px; }
+
+#sidebar .toc, #sidebar .toc-child { padding-left: 0.6em; }
+
+#sidebar li { list-style-type: none; }
+
+#sidebar li.selected > a { font-weight: bold; }
+
+#sidebar .sidebar-link { color: rgb(155, 155, 155); font-size: 1.4rem; }
+
+#sidebar .sidebar-link.selected { font-weight: bold; }
+
+#sidebar .toc-text { color: rgb(155, 155, 155); font-size: 1.2rem; }
+
+#sidebar .toc-item.toc-level-1 > a { font-weight: bold; }
+
+.article { margin: 40px; padding-top: 60px; }
+
+@media screen and (min-width: 900px) {
+  .article { margin-left: 320px; }
+}
+
+@media screen and (min-width: 1280px) {
+  .article { margin-right: 240px; }
+}
+
+.article .highlight figure { margin: 0px; }
+
+.article code { margin: 0px 2px; color: rgb(102, 102, 102); }
+
+.article .article-footer { margin: 60px 0px 30px; }
+
+.article .article-footer .link { text-decoration: underline; }
+
+.article :target { padding-top: 80px; margin-top: -60px; }
+
+.article li { margin-top: 10px; }
+
+.article a { text-decoration: underline; }
+
+.article img { display: block; margin-left: auto; margin-right: auto; max-w=
+idth: 100%; }
+
+.article table { width: 100%; border-collapse: collapse; }
+
+.article td { border-top: 1px solid rgb(153, 153, 153); padding: 1rem; }
+
+.article pre, .article .highlight { background: rgb(45, 45, 45); margin: 0p=
+x -20px; padding: 15px 20px; border-style: solid; border-color: rgb(221, 22=
+1, 221); border-width: 1px 0px; overflow: auto; color: rgb(204, 204, 204); =
+line-height: 22.4px; }
+
+.article .highlight .gutter pre, .article .gist .gist-file .gist-data .line=
+-numbers { color: rgb(102, 102, 102); font-size: 0.85em; }
+
+.article pre, .article code { font-family: "Source Code Pro", Consolas, Mon=
+aco, Menlo, Consolas, monospace; }
+
+.article code { background: rgb(238, 238, 238); text-shadow: rgb(255, 255, =
+255) 0px 1px; padding: 0px 0.3em; }
+
+.article pre code { background: none; text-shadow: none; padding: 0px; }
+
+.article .highlight pre { border: none; margin: 0px; padding: 0px; }
+
+.article .highlight table { margin: 0px; width: auto; }
+
+.article .highlight td { border: none; padding: 0px; }
+
+.article .highlight figcaption { font-size: 0.85em; color: rgb(153, 153, 15=
+3); line-height: 1em; margin-bottom: 1em; }
+
+.article .highlight figcaption a { float: right; }
+
+.article .highlight .gutter pre { text-align: right; padding-right: 20px; }
+
+.article .highlight .line { height: 22.4px; }
+
+.article .highlight .line.marked { background: rgb(81, 81, 81); }
+
+.article .gist { margin: 0px -20px; border-style: solid; border-color: rgb(=
+221, 221, 221); border-width: 1px 0px; background: rgb(45, 45, 45); padding=
+: 15px 20px 15px 0px; }
+
+.article .gist .gist-file { border: none; font-family: "Source Code Pro", C=
+onsolas, Monaco, Menlo, Consolas, monospace; margin: 0px; }
+
+.article .gist .gist-file .gist-data { background: none; border: none; }
+
+.article .gist .gist-file .gist-data .line-numbers { background: none; bord=
+er: none; padding: 0px 20px 0px 0px; }
+
+.article .gist .gist-file .gist-data .line-data { padding: 0px !important; =
+}
+
+.article .gist .gist-file .highlight { margin: 0px; padding: 0px; border: n=
+one; }
+
+.article .gist .gist-file .gist-meta { background: rgb(45, 45, 45); color: =
+rgb(153, 153, 153); font: 0.85em -apple-system, BlinkMacSystemFont, "Segoe =
+UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helveti=
+ca Neue", sans-serif; text-shadow: 0px 0px; padding: 0px; margin-top: 1em; =
+margin-left: 20px; }
+
+.article .gist .gist-file .gist-meta a { color: rgb(37, 143, 184); font-wei=
+ght: normal; }
+
+.article .gist .gist-file .gist-meta a:hover { text-decoration: underline; =
+}
+
+pre .comment, pre .title { color: rgb(153, 153, 153); }
+
+pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, =
+pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, =
+pre .css .id, pre .css .class, pre .css .pseudo { color: rgb(242, 119, 122)=
+; }
+
+pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, p=
+re .constant { color: rgb(249, 145, 87); }
+
+pre .class, pre .ruby .class .title, pre .css .rules .attribute { color: rg=
+b(153, 204, 153); }
+
+pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, =
+pre .xml .cdata { color: rgb(153, 204, 153); }
+
+pre .css .hexcolor { color: rgb(102, 204, 204); }
+
+pre .function, pre .python .decorator, pre .python .title, pre .ruby .funct=
+ion .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .tit=
+le, pre .coffeescript .title { color: rgb(102, 153, 204); }
+
+pre .keyword, pre .javascript .function { color: rgb(204, 153, 204); }
+
+@media mq-mobile {
+  #mobile-nav { position: absolute; top: 0px; left: 0px; width: 280px; heig=
+ht: 100%; background: rgb(25, 25, 25); border-right: 1px solid rgb(255, 255=
+, 255); }
+}
+
+@media mq-mobile {
+  .mobile-nav-link { display: block; color: rgb(153, 153, 153); text-decora=
+tion: none; padding: 15px 20px; font-weight: bold; }
+  .mobile-nav-link:hover { color: rgb(255, 255, 255); }
+}
+
+#sponsors .sponsor { display: inline-block; width: 100%; height: 100px; lin=
+e-height: 100px; margin-top: 1.5rem; margin-bottom: 1.5rem; text-align: cen=
+ter; }
+
+@media screen and (min-width: 900px) {
+  #sponsors .sponsor { width: 32%; }
+}
+
+#sponsors .sponsor img { display: inline-block; max-width: 80%; max-height:=
+ 100%; vertical-align: middle; }
+
+#carbonads { width: 130px; display: block; overflow: hidden; line-height: 1=
+.5; position: relative; float: right; margin: 20px; }
+
+@media screen and (min-width: 900px) {
+  #carbonads { margin-top: 60px; }
+}
+
+@media screen and (min-width: 1280px) {
+  #carbonads { float: none; position: fixed; right: 0px; top: 6rem; }
+}
+
+#carbonads a { color: rgb(155, 155, 155); }
+
+#carbonads span { display: block; overflow: hidden; }
+
+#carbonads .carbon-img { display: block; margin: 0px auto 8px; line-height:=
+ 0; }
+
+#carbonads .carbon-text { display: block; color: rgb(155, 155, 155); font-s=
+ize: 1.2rem; margin-bottom: 20px; }
+
+#carbonads .carbon-poweredby { display: block; text-transform: uppercase; l=
+etter-spacing: 1px; font-size: 1rem; line-height: 1; }
+
+.post .metadata { margin-top: 60px; margin-bottom: 60px; }
+
+.post .metadata .metadata-title { text-align: center; font-size: 40px; font=
+-weight: lighter; line-height: 1.2; margin-bottom: 4px; }
+
+.post .metadata .metadata-author { text-align: center; font-weight: lighter=
+; background: rgb(255, 255, 255); color: rgb(119, 119, 119); margin-top: 0p=
+x; }
+
+.post .links { margin-top: 40px; }
+
+html { font-size: 62.5%; }
+
+html, body, #container { height: 100%; }
+
+#wrap { height: 100%; width: 100%; position: absolute; top: 0px; left: 0px;=
+ }
+
+body, button, input, select, textarea { color: rgb(85, 85, 85); font-family=
+: "Open Sans", sans-serif; font-size: 1.6rem; line-height: 1.6; }
+
+a { text-decoration: none; color: rgb(85, 85, 85); }
+------MultipartBoundary--HhPgynnUcBEJ7sCFEL2JAe45ApsWhirQDC6hqLSvnO----
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://socket.io/css/images/logo.svg
+
+<?xml version=3D"1.0" encoding=3D"UTF-8" standalone=3D"no"?>
+<svg width=3D"143px" height=3D"43px" viewBox=3D"0 0 143 43" version=3D"1.1"=
+ xmlns=3D"http://www.w3.org/2000/svg" xmlns:xlink=3D"http://www.w3.org/1999=
+/xlink" xmlns:sketch=3D"http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.2 (7799) - http://www.bohemiancoding.com/ske=
+tch -->
+    <title>logo full</title>
+    <description>Created with Sketch.</description>
+    <defs></defs>
+    <g id=3D"Page-1" stroke=3D"none" stroke-width=3D"1" fill=3D"none" fill-=
+rule=3D"evenodd" sketch:type=3D"MSPage">
+        <g id=3D"logo" sketch:type=3D"MSLayerGroup">
+            <path d=3D"M0,0 L43,0 L43,43 L0,43 L0,0 L0,0 Z" id=3D"Shape" fi=
+ll=3D"#FFFFFF" sketch:type=3D"MSShapeGroup"></path>
+            <path d=3D"M16.2,1.24 C21.62,-0.15 27.61,0.66 32.39,3.61 C38.41=
+,7.21 42.34,14.02 42.44,21.03 C42.66,28.11 38.97,35.13 33.04,38.98 C26.44,4=
+3.42 17.31,43.59 10.57,39.37 C3.7,35.27 -0.31,27 0.72,19.06 C1.55,10.67 8.0=
+3,3.27 16.2,1.24 L16.2,1.24 Z" id=3D"Shape" fill=3D"#010101" sketch:type=3D=
+"MSShapeGroup"></path>
+            <path d=3D"M15.37,4.67 C25.61,0.57 38.17,8.14 39.23,19.12 C40.8=
+8,29 32.68,39.04 22.67,39.33 C13.15,40.28 3.95,32.21 3.68,22.65 C2.97,14.91=
+ 8.07,7.23 15.37,4.67 L15.37,4.67 Z" id=3D"Shape" fill=3D"#FFFFFF" sketch:t=
+ype=3D"MSShapeGroup"></path>
+            <path d=3D"M16.4,20.44 C20.99,16.69 25.48,12.81 30.17,9.17 C27.=
+71,12.95 25.18,16.68 22.72,20.46 C20.61,20.47 18.5,20.47 16.4,20.44 L16.4,2=
+0.44 Z" id=3D"Shape" fill=3D"#010101" sketch:type=3D"MSShapeGroup"></path>
+            <path d=3D"M20.28,22.53 C22.4,22.53 24.51,22.53 26.62,22.56 C22=
+,26.29 17.53,30.2 12.83,33.83 C15.29,30.05 17.82,26.31 20.28,22.53 L20.28,2=
+2.53 Z" id=3D"Shape" fill=3D"#010101" sketch:type=3D"MSShapeGroup"></path>
+        </g>
+        <path d=3D"M59.864,28.424 C60.728,28.904 62,29.24 63.416,29.24 C66.=
+512,29.24 68.168,27.704 68.168,25.592 C68.144,23.864 67.16,22.784 65.048,22=
+.016 C63.56,21.488 63.008,21.128 63.008,20.384 C63.008,19.664 63.584,19.16 =
+64.64,19.16 C65.672,19.16 66.608,19.544 67.112,19.832 L67.688,17.744 C67.01=
+6,17.384 65.888,17.048 64.592,17.048 C61.88,17.048 60.176,18.656 60.176,20.=
+72 C60.152,22.088 61.112,23.336 63.392,24.128 C64.832,24.632 65.312,25.04 6=
+5.312,25.832 C65.312,26.6 64.736,27.128 63.44,27.128 C62.384,27.128 61.112,=
+26.696 60.44,26.288 L59.864,28.424 Z M74.896,17.048 C71.368,17.048 68.848,1=
+9.4 68.848,23.24 C68.848,26.984 71.392,29.264 74.704,29.264 C77.68,29.264 8=
+0.704,27.344 80.704,23.048 C80.704,19.496 78.376,17.048 74.896,17.048 Z M74=
+.824,19.208 C76.84,19.208 77.656,21.296 77.656,23.12 C77.656,25.472 76.48,2=
+7.128 74.8,27.128 C73,27.128 71.896,25.424 71.896,23.168 C71.896,21.224 72.=
+736,19.208 74.824,19.208 Z M90.312,26.456 C89.736,26.696 89.016,26.912 87.9=
+84,26.912 C85.968,26.912 84.408,25.544 84.408,23.144 C84.384,21.008 85.728,=
+19.352 87.984,19.352 C89.04,19.352 89.736,19.592 90.216,19.808 L90.744,17.6=
+ C90.072,17.288 88.968,17.048 87.888,17.048 C83.784,17.048 81.384,19.784 81=
+.384,23.288 C81.384,26.912 83.76,29.24 87.408,29.24 C88.872,29.24 90.096,28=
+.928 90.72,28.64 L90.312,26.456 Z M94.856,11.96 L91.904,11.96 L91.904,29 L9=
+4.856,29 L94.856,25.016 L95.864,23.84 L99.224,29 L102.848,29 L97.904,22.088=
+ L102.224,17.312 L98.672,17.312 L95.84,21.08 C95.528,21.488 95.192,21.992 9=
+4.904,22.448 L94.856,22.448 L94.856,11.96 Z M112.864,23.984 C112.912,23.72 =
+112.96,23.288 112.96,22.736 C112.96,20.168 111.712,17.048 107.92,17.048 C10=
+4.176,17.048 102.208,20.096 102.208,23.336 C102.208,26.912 104.44,29.24 108=
+.232,29.24 C109.912,29.24 111.304,28.928 112.312,28.52 L111.88,26.48 C110.9=
+92,26.816 110.008,27.008 108.64,27.008 C106.768,27.008 105.112,26.096 105.0=
+4,23.984 L112.864,23.984 Z M105.04,21.92 C105.16,20.72 105.928,19.064 107.7=
+52,19.064 C109.72,19.064 110.2,20.84 110.176,21.92 L105.04,21.92 Z M114.84,=
+14.672 L114.84,17.312 L113.16,17.312 L113.16,19.52 L114.84,19.52 L114.84,25=
+.016 C114.84,26.552 115.128,27.608 115.752,28.28 C116.304,28.88 117.216,29.=
+24 118.296,29.24 C119.232,29.24 120,29.12 120.432,28.952 L120.384,26.696 C1=
+20.12,26.768 119.736,26.84 119.232,26.84 C118.104,26.84 117.72,26.096 117.7=
+2,24.68 L117.72,19.52 L120.528,19.52 L120.528,17.312 L117.72,17.312 L117.72=
+,13.976 L114.84,14.672 Z M123.08,29.264 C124.184,29.264 124.904,28.448 124.=
+904,27.368 C124.904,26.24 124.16,25.472 123.08,25.472 C122.024,25.472 121.2=
+56,26.264 121.256,27.368 C121.256,28.448 122,29.264 123.08,29.264 Z M129.25=
+6,29 L129.256,17.312 L126.28,17.312 L126.28,29 L129.256,29 Z M127.768,12.44=
+ C126.784,12.44 126.112,13.136 126.112,14.048 C126.112,14.936 126.76,15.632=
+ 127.744,15.632 C128.776,15.632 129.424,14.936 129.424,14.048 C129.4,13.136=
+ 128.776,12.44 127.768,12.44 Z M136.728,17.048 C133.2,17.048 130.68,19.4 13=
+0.68,23.24 C130.68,26.984 133.224,29.264 136.536,29.264 C139.512,29.264 142=
+.536,27.344 142.536,23.048 C142.536,19.496 140.208,17.048 136.728,17.048 Z =
+M136.656,19.208 C138.672,19.208 139.488,21.296 139.488,23.12 C139.488,25.47=
+2 138.312,27.128 136.632,27.128 C134.832,27.128 133.728,25.424 133.728,23.1=
+68 C133.728,21.224 134.568,19.208 136.656,19.208 Z" id=3D"socket.io" fill=
+=3D"#000000" sketch:type=3D"MSShapeGroup"></path>
+    </g>
+</svg>
+------MultipartBoundary--HhPgynnUcBEJ7sCFEL2JAe45ApsWhirQDC6hqLSvnO----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700
+
+@charset "utf-8";
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hmIqOjj=
+g.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U=
++2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hvIqOjj=
+g.woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, =
+U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hnIqOjj=
+g.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hoIqOjj=
+g.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hkIqOjj=
+g.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, =
+U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hlIqOjj=
+g.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+=
+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hrIqM.w=
+off2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC,=
+ U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, =
+U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Udc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A=
+640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0ddc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Vdc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0adc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Wdc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A=
+0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Xdc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20=
+AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Zdc0.woff2") format("=
+woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, =
+U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,=
+ U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+mIqOjjg.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+2=
+0B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+vIqOjjg.woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0=
+-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+nIqOjjg.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+oIqOjjg.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+kIqOjjg.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128=
+-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+lIqOjjg.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1E=
+FF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+rIqM.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2B=
+B-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+=
+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhmIqOjjg.=
+woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2=
+DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhvIqOjjg.=
+woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+=
+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhnIqOjjg.=
+woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhoIqOjjg.=
+woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhkIqOjjg.=
+woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+=
+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhlIqOjjg.=
+woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+20=
+20, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhrIqM.wof=
+f2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U=
++2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+=
+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OX-hpOqc.woff2") format=
+("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A6=
+40-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OVuhpOqc.woff2") format=
+("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXuhpOqc.woff2") format=
+("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OUehpOqc.woff2") format=
+("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXehpOqc.woff2") format=
+("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0=
+-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXOhpOqc.woff2") format=
+("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20A=
+B, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OUuhp.woff2") format("w=
+off2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U=
++2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, =
+U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWJ0bbck.woff2") format=
+("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A6=
+40-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFUZ0bbck.woff2") format=
+("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWZ0bbck.woff2") format=
+("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFVp0bbck.woff2") format=
+("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWp0bbck.woff2") format=
+("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0=
+-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFW50bbck.woff2") format=
+("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20A=
+B, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFVZ0b.woff2") format("w=
+off2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U=
++2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, =
+U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOX-hpOqc.woff2") =
+format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF=
+, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOVuhpOqc.woff2") =
+format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXuhpOqc.woff2") =
+format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOUehpOqc.woff2") =
+format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXehpOqc.woff2") =
+format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169,=
+ U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXOhpOqc.woff2") =
+format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20=
+A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOUuhp.woff2") for=
+mat("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+=
+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+=
+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOX-hpOqc.woff2") format("=
+woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640=
+-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOVuhpOqc.woff2") format("=
+woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOXuhpOqc.woff2") format("=
+woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOUehpOqc.woff2") format("=
+woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOXehpOqc.woff2") format("=
+woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1=
+A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOXOhpOqc.woff2") format("=
+woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB,=
+ U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOUuhp.woff2") format("wof=
+f2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2=
+DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+=
+FEFF, U+FFFD; }
+------MultipartBoundary--HhPgynnUcBEJ7sCFEL2JAe45ApsWhirQDC6hqLSvnO----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css
+
+@charset "utf-8";
+
+.searchbox { display: inline-block; position: relative; width: 200px; white=
+-space: nowrap; box-sizing: border-box; height: 32px !important; visibility=
+: visible !important; }
+
+.searchbox .algolia-autocomplete { display: block; width: 100%; height: 100=
+%; }
+
+.searchbox__wrapper { width: 100%; height: 100%; z-index: 999; position: re=
+lative; }
+
+.searchbox__input { display: inline-block; box-sizing: border-box; transiti=
+on: box-shadow 0.4s ease 0s, background 0.4s ease 0s; border: 0px; border-r=
+adius: 16px; box-shadow: rgb(204, 204, 204) 0px 0px 0px 1px inset; padding:=
+ 0px 26px 0px 32px; width: 100%; height: 100%; vertical-align: middle; whit=
+e-space: normal; font-size: 12px; appearance: none; background: rgb(255, 25=
+5, 255) !important; }
+
+.searchbox__input::-webkit-search-cancel-button, .searchbox__input::-webkit=
+-search-decoration, .searchbox__input::-webkit-search-results-button, .sear=
+chbox__input::-webkit-search-results-decoration { display: none; }
+
+.searchbox__input:hover { box-shadow: rgb(179, 179, 179) 0px 0px 0px 1px in=
+set; }
+
+.searchbox__input:active, .searchbox__input:focus { outline: 0px; box-shado=
+w: rgb(170, 170, 170) 0px 0px 0px 1px inset; background: rgb(255, 255, 255)=
+; }
+
+.searchbox__input::-webkit-input-placeholder { color: rgb(170, 170, 170); }
+
+.searchbox__input::placeholder { color: rgb(170, 170, 170); }
+
+.searchbox__submit { position: absolute; top: 0px; margin: 0px; border: 0px=
+; border-radius: 16px 0px 0px 16px; background-color: rgba(69, 142, 225, 0)=
+; padding: 0px; width: 32px; height: 100%; vertical-align: middle; text-ali=
+gn: center; font-size: inherit; user-select: none; right: inherit; left: 0p=
+x; }
+
+.searchbox__submit::before { display: inline-block; margin-right: -4px; hei=
+ght: 100%; vertical-align: middle; content: ""; }
+
+.searchbox__submit:active, .searchbox__submit:hover { cursor: pointer; }
+
+.searchbox__submit:focus { outline: 0px; }
+
+.searchbox__submit svg { width: 14px; height: 14px; vertical-align: middle;=
+ fill: rgb(109, 126, 150); }
+
+.searchbox__reset { display: block; position: absolute; top: 8px; right: 8p=
+x; margin: 0px; border: 0px; background: none; cursor: pointer; padding: 0p=
+x; font-size: inherit; user-select: none; fill: rgba(0, 0, 0, 0.5); }
+
+.searchbox__reset.hide { display: none; }
+
+.searchbox__reset:focus { outline: 0px; }
+
+.searchbox__reset svg { display: block; margin: 4px; width: 8px; height: 8p=
+x; }
+
+.searchbox__input:valid ~ .searchbox__reset { display: block; animation-nam=
+e: sbx-reset-in; animation-duration: 0.15s; }
+
+@-webkit-keyframes sbx-reset-in {=20
+  0% { transform: translate3d(-20%, 0px, 0px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+@keyframes sbx-reset-in {=20
+  0% { transform: translate3d(-20%, 0px, 0px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+.algolia-autocomplete.algolia-autocomplete-right .ds-dropdown-menu { right:=
+ 0px !important; left: inherit !important; }
+
+.algolia-autocomplete.algolia-autocomplete-right .ds-dropdown-menu::before =
+{ right: 48px; }
+
+.algolia-autocomplete.algolia-autocomplete-left .ds-dropdown-menu { left: 0=
+px !important; right: inherit !important; }
+
+.algolia-autocomplete.algolia-autocomplete-left .ds-dropdown-menu::before {=
+ left: 48px; }
+
+.algolia-autocomplete .ds-dropdown-menu { top: -6px; border-radius: 4px; ma=
+rgin: 6px 0px 0px; padding: 0px; text-align: left; height: auto; position: =
+relative; background: transparent; border: none; z-index: 999; max-width: 6=
+00px; min-width: 500px; box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px 0px, rgb=
+a(0, 0, 0, 0.1) 0px 2px 3px 0px; }
+
+.algolia-autocomplete .ds-dropdown-menu::before { display: block; position:=
+ absolute; content: ""; width: 14px; height: 14px; background: rgb(255, 255=
+, 255); z-index: 1000; top: -7px; border-top: 1px solid rgb(217, 217, 217);=
+ border-right: 1px solid rgb(217, 217, 217); transform: rotate(-45deg); bor=
+der-radius: 2px; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions { position: relativ=
+e; z-index: 1000; margin-top: 8px; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions a:hover { text-deco=
+ration: none; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion { cursor: pointer; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-d=
+ocsearch-suggestion.suggestion-layout-simple, .algolia-autocomplete .ds-dro=
+pdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.sugg=
+estion-layout-simple) .algolia-docsearch-suggestion--content { background-c=
+olor: rgba(69, 142, 225, 0.05); }
+
+.algolia-autocomplete .ds-dropdown-menu [class^=3D"ds-dataset-"] { position=
+: relative; border: 1px solid rgb(217, 217, 217); background: rgb(255, 255,=
+ 255); border-radius: 4px; overflow: auto; padding: 0px 8px 8px; }
+
+.algolia-autocomplete .ds-dropdown-menu * { box-sizing: border-box; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion { display: block; posit=
+ion: relative; padding: 0px 8px; background: rgb(255, 255, 255); color: rgb=
+(2, 6, 12); overflow: hidden; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight { color: rgb=
+(23, 77, 140); background: rgba(143, 187, 237, 0.1); padding: 0.1em 0.05em;=
+ }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header .algol=
+ia-docsearch-suggestion--category-header-lvl0 .algolia-docsearch-suggestion=
+--highlight, .algolia-autocomplete .algolia-docsearch-suggestion--category-=
+header .algolia-docsearch-suggestion--category-header-lvl1 .algolia-docsear=
+ch-suggestion--highlight, .algolia-autocomplete .algolia-docsearch-suggesti=
+on--text .algolia-docsearch-suggestion--highlight { padding: 0px 0px 1px; b=
+ackground: inherit; box-shadow: rgba(69, 142, 225, 0.8) 0px -2px 0px 0px in=
+set; color: inherit; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--content { display: blo=
+ck; float: right; width: 70%; position: relative; padding: 5.33333px 0px 5.=
+33333px 10.6667px; cursor: pointer; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--content::before { cont=
+ent: ""; position: absolute; display: block; top: 0px; height: 100%; width:=
+ 1px; background: rgb(221, 221, 221); left: -1px; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header { posi=
+tion: relative; border-bottom: 1px solid rgb(221, 221, 221); display: none;=
+ margin-top: 8px; padding: 4px 0px; font-size: 1em; color: rgb(51, 54, 61);=
+ }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--wrapper { width: 100%;=
+ float: left; padding: 8px 0px 0px; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column { f=
+loat: left; width: 30%; text-align: right; position: relative; padding: 5.3=
+3333px 10.6667px; color: rgb(164, 167, 174); font-size: 0.9em; overflow-wra=
+p: break-word; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column::be=
+fore { content: ""; position: absolute; display: block; top: 0px; height: 1=
+00%; width: 1px; background: rgb(221, 221, 221); right: 0px; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-inline { d=
+isplay: none; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--title { margin-bottom:=
+ 4px; color: rgb(2, 6, 12); font-size: 0.9em; font-weight: 700; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--text { display: block;=
+ line-height: 1.2em; font-size: 0.85em; color: rgb(99, 103, 109); }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--no-results { width: 10=
+0%; padding: 8px 0px; text-align: center; font-size: 1.2em; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--no-results::before { d=
+isplay: none; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion code { padding: 1px 5px=
+; font-size: 90%; border: none; color: rgb(34, 34, 34); background-color: r=
+gb(235, 235, 235); border-radius: 3px; font-family: Menlo, Monaco, Consolas=
+, "Courier New", monospace; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion code .algolia-docsearch=
+-suggestion--highlight { background: none; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion.algolia-docsearch-sugge=
+stion__main .algolia-docsearch-suggestion--category-header, .algolia-autoco=
+mplete .algolia-docsearch-suggestion.algolia-docsearch-suggestion__secondar=
+y { display: block; }
+
+@media (min-width: 768px) {
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column { display: block; }
+}
+
+@media (max-width: 768px) {
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column { display: inline-block; width: auto; float: l=
+eft; padding: 0px; color: rgb(2, 6, 12); font-size: 0.9em; font-weight: 700=
+; text-align: left; opacity: 0.5; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column::before { display: none; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column::after { content: "|"; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--content { display: inline-block; width: auto; text-align: left; f=
+loat: left; padding: 0px; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--content::before { display: none; }
+}
+
+.algolia-autocomplete .suggestion-layout-simple.algolia-docsearch-suggestio=
+n { border-bottom: 1px solid rgb(238, 238, 238); padding: 8px; margin: 0px;=
+ }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--content { width: 100%; padding: 0px; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--content::before { display: none; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--category-header { margin: 0px; padding: 0px; display: block; width: 100=
+%; border: none; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--category-header-lvl0, .algolia-autocomplete .suggestion-layout-simple .=
+algolia-docsearch-suggestion--category-header-lvl1 { opacity: 0.6; font-siz=
+e: 0.85em; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--category-header-lvl1::before { background-image: url("data:image/svg+xm=
+l;utf8,<svg width=3D\"10\" height=3D\"10\" viewBox=3D\"0 0 20 38\" xmlns=3D=
+\"http://www.w3.org/2000/svg\"><path d=3D\"M1.49 4.31l14 16.126.002-2.624-1=
+4 16.074-1.314 1.51 3.017 2.626 1.313-1.508 14-16.075 1.142-1.313-1.14-1.31=
+3-14-16.125L3.2.18.18 2.8l1.31 1.51z\" fill-rule=3D\"evenodd\" fill=3D\"%23=
+1D3657\" /></svg>"); content: ""; width: 10px; height: 10px; display: inlin=
+e-block; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--wrapper { width: 100%; float: left; margin: 0px; padding: 0px; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--duplicate-content, .algolia-autocomplete .suggestion-layout-simple .alg=
+olia-docsearch-suggestion--subcategory-inline { display: none !important; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--title { margin: 0px; color: rgb(69, 142, 225); font-size: 0.9em; font-w=
+eight: 400; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--title::before { content: "#"; font-weight: 700; color: rgb(69, 142, 225=
+); display: inline-block; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--text { margin: 4px 0px 0px; display: block; line-height: 1.4em; padding=
+: 5.33333px 8px; background: rgb(248, 248, 248); font-size: 0.85em; opacity=
+: 0.8; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--text .algolia-docsearch-suggestion--highlight { color: rgb(63, 65, 69);=
+ font-weight: 700; box-shadow: none; }
+
+.algolia-autocomplete .algolia-docsearch-footer { width: 134px; height: 20p=
+x; z-index: 2000; margin-top: 10.6667px; float: right; font-size: 0px; line=
+-height: 0; }
+
+.algolia-autocomplete .algolia-docsearch-footer--logo { background-image: u=
+rl("data:image/svg+xml;charset=3Dutf-8,%3Csvg width=3D'168' height=3D'24' x=
+mlns=3D'http://www.w3.org/2000/svg'%3E%3Cg fill=3D'none' fill-rule=3D'eveno=
+dd'%3E%3Cpath d=3D'M78.988.938h16.594a2.968 2.968 0 0 1 2.966 2.966V20.5a2.=
+967 2.967 0 0 1-2.966 2.964H78.988a2.967 2.967 0 0 1-2.966-2.964V3.897A2.96=
+1 2.961 0 0 1 78.988.938zm41.937 17.866c-4.386.02-4.386-3.54-4.386-4.106l-.=
+007-13.336 2.675-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-10.846-2.18=
+c.821 0 1.43-.047 1.855-.129v-2.719a6.334 6.334 0 0 0-1.574-.199 5.7 5.7 0 =
+0 0-.897.069 2.699 2.699 0 0 0-.814.24c-.24.116-.439.28-.582.491-.15.212-.2=
+19.335-.219.656 0 .628.219.991.616 1.23s.938.362 1.615.362zm-.233-9.7c.883 =
+0 1.629.109 2.231.328.602.218 1.088.525 1.444.915.363.396.609.922.76 1.483.=
+157.56.232 1.175.232 1.85v6.874a32.5 32.5 0 0 1-1.868.314c-.834.123-1.772.1=
+85-2.813.185-.69 0-1.327-.069-1.895-.198a4.001 4.001 0 0 1-1.471-.636 3.085=
+ 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.803 0-.656.13-1.073.384=
+-1.525a3.24 3.24 0 0 1 1.047-1.106c.445-.287.95-.492 1.532-.615a8.8 8.8 0 0=
+ 1 1.82-.185 8.404 8.404 0 0 1 1.972.24v-.438c0-.307-.035-.6-.11-.874a1.88 =
+1.88 0 0 0-.384-.73 1.784 1.784 0 0 0-.724-.493 3.164 3.164 0 0 0-1.143-.20=
+5c-.616 0-1.177.075-1.69.164a7.735 7.735 0 0 0-1.26.307l-.321-2.192c.335-.1=
+17.834-.233 1.478-.349a10.98 10.98 0 0 1 2.073-.178zm52.842 9.626c.822 0 1.=
+43-.048 1.854-.13V13.7a6.347 6.347 0 0 0-1.574-.199c-.294 0-.595.021-.896.0=
+69a2.7 2.7 0 0 0-.814.24 1.46 1.46 0 0 0-.582.491c-.15.212-.218.335-.218.65=
+6 0 .628.218.991.615 1.23.404.245.938.362 1.615.362zm-.226-9.694c.883 0 1.6=
+29.108 2.231.327.602.219 1.088.526 1.444.915.355.39.609.923.759 1.483a6.8 6=
+.8 0 0 1 .233 1.852v6.873c-.41.088-1.034.19-1.868.314-.834.123-1.772.184-2.=
+813.184-.69 0-1.327-.068-1.895-.198a4.001 4.001 0 0 1-1.471-.635 3.085 3.08=
+5 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.804 0-.656.13-1.073.384-1.52=
+4.26-.45.608-.82 1.047-1.107.445-.286.95-.491 1.532-.614a8.803 8.803 0 0 1 =
+2.751-.13c.329.034.671.096 1.04.185v-.437a3.3 3.3 0 0 0-.109-.875 1.873 1.8=
+73 0 0 0-.384-.731 1.784 1.784 0 0 0-.724-.492 3.165 3.165 0 0 0-1.143-.205=
+c-.616 0-1.177.075-1.69.164a7.75 7.75 0 0 0-1.26.307l-.321-2.193c.335-.116.=
+834-.232 1.478-.348a11.633 11.633 0 0 1 2.073-.177zm-8.034-1.271a1.626 1.62=
+6 0 0 1-1.628-1.62c0-.895.725-1.62 1.628-1.62.904 0 1.63.725 1.63 1.62 0 .8=
+95-.733 1.62-1.63 1.62zm1.348 13.22h-2.689V7.27l2.69-.423v11.956zm-4.714 0c=
+-4.386.02-4.386-3.54-4.386-4.107l-.008-13.336 2.676-.424v13.254c0 .322 0 2.=
+358 1.718 2.364v2.248zm-8.698-5.903c0-1.156-.253-2.119-.746-2.788-.493-.677=
+-1.183-1.01-2.067-1.01-.882 0-1.574.333-2.065 1.01-.493.676-.733 1.632-.733=
+ 2.788 0 1.168.246 1.953.74 2.63.492.683 1.183 1.018 2.066 1.018.882 0 1.57=
+4-.342 2.067-1.019.492-.683.738-1.46.738-2.63zm2.737-.007c0 .902-.13 1.584-=
+.397 2.33a5.52 5.52 0 0 1-1.128 1.906 4.986 4.986 0 0 1-1.752 1.223c-.685.2=
+86-1.739.45-2.265.45-.528-.006-1.574-.157-2.252-.45a5.096 5.096 0 0 1-1.744=
+-1.223c-.487-.527-.863-1.162-1.137-1.906a6.345 6.345 0 0 1-.41-2.33c0-.902.=
+123-1.77.397-2.508a5.554 5.554 0 0 1 1.15-1.892 5.133 5.133 0 0 1 1.75-1.21=
+6c.679-.287 1.425-.423 2.232-.423.808 0 1.553.142 2.237.423a4.88 4.88 0 0 1=
+ 1.753 1.216 5.644 5.644 0 0 1 1.135 1.892c.287.738.431 1.606.431 2.508zm-2=
+0.138 0c0 1.12.246 2.363.738 2.882.493.52 1.13.78 1.91.78.424 0 .828-.062 1=
+.204-.178.377-.116.677-.253.917-.417V9.33a10.476 10.476 0 0 0-1.766-.226c-.=
+971-.028-1.71.37-2.23 1.004-.513.636-.773 1.75-.773 2.788zm7.438 5.274c0 1.=
+824-.466 3.156-1.404 4.004-.936.846-2.367 1.27-4.296 1.27-.705 0-2.17-.137-=
+3.34-.396l.431-2.118c.98.205 2.272.26 2.95.26 1.074 0 1.84-.219 2.299-.656.=
+459-.437.684-1.086.684-1.948v-.437a8.07 8.07 0 0 1-1.047.397c-.43.13-.93.19=
+8-1.492.198-.739 0-1.41-.116-2.018-.349a4.206 4.206 0 0 1-1.567-1.025c-.431=
+-.45-.774-1.017-1.013-1.694-.24-.677-.363-1.885-.363-2.773 0-.834.13-1.88.3=
+84-2.577.26-.696.629-1.298 1.129-1.796.493-.498 1.095-.881 1.8-1.162a6.605 =
+6.605 0 0 1 2.428-.457c.87 0 1.67.109 2.45.24.78.129 1.444.265 1.985.415V18=
+.17z' fill=3D'%235468FF'/%3E%3Cpath d=3D'M6.972 6.677v1.627c-.712-.446-1.52=
+-.67-2.425-.67-.585 0-1.045.13-1.38.391a1.24 1.24 0 0 0-.502 1.03c0 .425.16=
+4.765.494 1.02.33.256.835.532 1.516.83.447.192.795.356 1.045.495.25.138.537=
+.332.862.582.324.25.563.548.718.894.154.345.23.741.23 1.188 0 .947-.334 1.6=
+91-1.004 2.234-.67.542-1.537.814-2.601.814-1.18 0-2.16-.229-2.936-.686v-1.7=
+08c.84.628 1.814.942 2.92.942.585 0 1.048-.136 1.388-.407.34-.271.51-.646.5=
+1-1.125 0-.287-.1-.55-.302-.79-.203-.24-.42-.42-.655-.542-.234-.123-.585-.2=
+9-1.053-.503a61.27 61.27 0 0 1-.582-.271 13.67 13.67 0 0 1-.55-.287 4.275 4=
+.275 0 0 1-.567-.351 6.92 6.92 0 0 1-.455-.4c-.18-.17-.31-.34-.39-.51-.08-.=
+17-.155-.37-.224-.598a2.553 2.553 0 0 1-.104-.742c0-.915.333-1.638.998-2.17=
+.664-.532 1.523-.798 2.576-.798.968 0 1.793.17 2.473.51zm7.468 5.696v-.287c=
+-.022-.607-.187-1.088-.495-1.444-.309-.357-.75-.535-1.324-.535-.532 0-.99.1=
+94-1.373.583-.382.388-.622.949-.717 1.683h3.909zm1.005 2.792v1.404c-.596.34=
+-1.383.51-2.362.51-1.255 0-2.255-.377-3-1.132-.744-.755-1.116-1.744-1.116-2=
+.968 0-1.297.34-2.316 1.021-3.055.68-.74 1.548-1.11 2.6-1.11 1.033 0 1.852.=
+323 2.458.966.606.644.91 1.572.91 2.784 0 .33-.033.676-.096 1.038h-5.314c.1=
+07.702.405 1.239.894 1.611.49.372 1.106.558 1.85.558.862 0 1.58-.202 2.155-=
+.606zm6.605-1.77h-1.212c-.596 0-1.045.116-1.349.35-.303.234-.454.532-.454.8=
+94 0 .372.117.664.35.877.235.213.575.32 1.022.32.51 0 .912-.142 1.204-.424.=
+293-.281.44-.651.44-1.108v-.91zm-4.068-2.554V9.325c.627-.361 1.457-.542 2.4=
+89-.542 2.116 0 3.175 1.026 3.175 3.08V17h-1.548v-.957c-.415.68-1.143 1.02-=
+2.186 1.02-.766 0-1.38-.22-1.843-.661-.462-.442-.694-1.003-.694-1.684 0-.77=
+6.293-1.38.878-1.81.585-.431 1.404-.647 2.457-.647h1.34V11.8c0-.554-.133-.9=
+71-.399-1.253-.266-.282-.707-.423-1.324-.423a4.07 4.07 0 0 0-2.345.718zm9.3=
+33-1.93v1.42c.394-1 1.101-1.5 2.123-1.5.148 0 .313.016.494.048v1.531a1.885 =
+1.885 0 0 0-.75-.143c-.542 0-.989.24-1.34.718-.351.479-.527 1.048-.527 1.70=
+7V17h-1.563V8.91h1.563zm5.01 4.084c.022.82.272 1.492.75 2.019.479.526 1.15.=
+79 2.01.79.639 0 1.235-.176 1.788-.527v1.404c-.521.319-1.186.479-1.995.479-=
+1.265 0-2.276-.4-3.031-1.197-.755-.798-1.133-1.792-1.133-2.984 0-1.16.38-2.=
+151 1.14-2.975.761-.825 1.79-1.237 3.088-1.237.702 0 1.346.149 1.93.447v1.4=
+36a3.242 3.242 0 0 0-1.77-.495c-.84 0-1.513.266-2.019.798-.505.532-.758 1.2=
+13-.758 2.042zM40.24 5.72v4.579c.458-1 1.293-1.5 2.505-1.5.787 0 1.42.245 1=
+.899.734.479.49.718 1.17.718 2.042V17h-1.564v-5.106c0-.553-.14-.98-.422-1.2=
+84-.282-.303-.652-.455-1.11-.455-.531 0-1.002.202-1.411.606-.41.405-.615 1.=
+022-.615 1.851V17h-1.563V5.72h1.563zm14.966 10.02c.596 0 1.096-.253 1.5-.75=
+8.404-.506.606-1.157.606-1.955 0-.915-.202-1.62-.606-2.114-.404-.495-.92-.7=
+42-1.548-.742-.553 0-1.05.224-1.491.67-.442.447-.662 1.133-.662 2.058 0 .95=
+8.212 1.67.638 2.138.425.469.946.703 1.563.703zM53.004 5.72v4.42c.574-.894 =
+1.388-1.341 2.44-1.341 1.022 0 1.857.383 2.506 1.149.649.766.973 1.781.973 =
+3.047 0 1.138-.309 2.109-.925 2.912-.617.803-1.463 1.205-2.537 1.205-1.075 =
+0-1.894-.447-2.457-1.34V17h-1.58V5.72h1.58zm9.908 11.104l-3.223-7.913h1.739=
+l1.005 2.632 1.26 3.415c.096-.32.48-1.458 1.15-3.415l.909-2.632h1.66l-2.92 =
+7.866c-.777 2.074-1.963 3.11-3.559 3.11a2.92 2.92 0 0 1-.734-.079v-1.34c.17=
+.042.351.064.543.064 1.032 0 1.755-.57 2.17-1.708z' fill=3D'%235D6494'/%3E%=
+3Cpath d=3D'M89.632 5.967v-.772a.978.978 0 0 0-.978-.977h-2.28a.978.978 0 0=
+ 0-.978.977v.793c0 .088.082.15.171.13a7.127 7.127 0 0 1 1.984-.28c.65 0 1.2=
+95.088 1.917.259.082.02.164-.04.164-.13m-6.248 1.01l-.39-.389a.977.977 0 0 =
+0-1.382 0l-.465.465a.973.973 0 0 0 0 1.38l.383.383c.062.061.15.047.205-.014=
+.226-.307.472-.601.746-.874.281-.28.568-.526.883-.751.068-.042.075-.137.02-=
+.2m4.16 2.453v3.341c0 .096.104.165.192.117l2.97-1.537c.068-.034.089-.117.05=
+5-.184a3.695 3.695 0 0 0-3.08-1.866c-.068 0-.136.054-.136.13m0 8.048a4.489 =
+4.489 0 0 1-4.49-4.482 4.488 4.488 0 0 1 4.49-4.482 4.488 4.488 0 0 1 4.489=
+ 4.482 4.484 4.484 0 0 1-4.49 4.482m0-10.85a6.363 6.363 0 1 0 0 12.729 6.37=
+ 6.37 0 0 0 6.372-6.368 6.358 6.358 0 0 0-6.371-6.36' fill=3D'%23FFF'/%3E%3=
+C/g%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 50% =
+center; background-size: 100%; overflow: hidden; text-indent: -9000px; widt=
+h: 100%; height: 100%; display: block; padding: 0px !important; }
+------MultipartBoundary--HhPgynnUcBEJ7sCFEL2JAe45ApsWhirQDC6hqLSvnO----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://cdn4.buysellads.net/uu/5/73755/1600703632-podium-inbox-260x200.png
+
+iVBORw0KGgoAAAANSUhEUgAAAQQAAADICAMAAAA5i29DAAAACXBIWXMAAAsSAAALEgHS3X78AAAC
+H1BMVEUAAAAPDw8fHh4sRYIuLS0zT540UJ80UZc1UaE1UqI2U6M2VKQ3VqI3VqY4VqY4V6c5WKg5
+Wak6Wqo6Wqs7W6w7XK09PTxAWqRHZrJNTEtNX4tNZapPNuBZcLBaQ+JcW1pge7xlT+Rme7Zmfrpr
+amlshcJteJVue4NvfIRwXOZwfoZxf4dxh71ygIhzgYpzhrx0got1g412hY53hpB4h5F4j8d7aOh7
+eXh8j8CAkcKFmcyGdeqKiIeMnMiNncmRgeySoceZl5aZp8+cju6crdWdrtafn5+gnZqioZ6lsdSm
+stWnm/CopqWpt9qpuNuurKivraqvr6+yp/GyutCzvdu0wN61tLK2wuC3trS4trS7urm8vLu9tPO9
+ura9w9O+vr2/v7+/yOHCzOXHxcPHxcTIwPXIy9bK0eTLyMTM0+fO1uvPz8/S1NrTzffW1NLW19jX
+3OvZ3u3a19La4PDd3N3e2fnf39/gZTbib0Pj5u/keE/l5eXmglzm4+Hm6fPn5+fn6/XojGjo5eDp
+5vvp5+LqlXXq6urr6OTr6unsn4Hs6ubs7Ozt7e3t7fHuqI7u7Oju7vLv7erv7+/wspvw8PDxvKfx
+7+zy7+zy8O7y8vLy9PnzxbTz9fr08vD08v309PT1z8D18vD19PH28/H29PL29fP32c339PP49fT4
+9vX54tn5+ff5+fn6+vr77Ob7+vn8/Pz99fL9/f3+/f3////8lA45AAAHWUlEQVR42u2d/18URRjH
+F2QrKy2Eu6tcoPxWlgccokRBIGlfzi8kWXoGBpF2l2KB2V54oIcggQoVXaVEQtZZCMTB/oHN3u7h
+ee7dHjPL7ezs8/lh3VleL+Dezjwzz3zmWbhqpN275Wt1VXVWDeWqPlOuFhdXDQIIAAEgpEDIEP6y
+bDAAobw8fv9ydVLjlfi1Umm8Gr96kr9S5U76CgwHgAAQAAJAYBDCQ7ODR2NCeE2ZENI2WF0naDWU
+fzzJDUigICYABIDAdAK1upyJ0QTqoZxJo+Fxp2vAcAAIAAEgAAQGIXgqk5IhrYYyE1SlbTCeQGnk
+TBoNGA4AASAABIDAIITKykdzJmXDsdINCRQMB4AAEACCbRMoT1IyBAlU9jkTJFAQEwACQGAdwle2
+VEoCNWNLpfQEe3zoe4EDBz76Vw+Cj5M1M9PpO6886DzvY4fBX4cdRYWOF29mCcHJcYfiD5x1TnYg
+fOco4vmNjv13s4RQV1CWz+0r47garqbGWcPl5XPbLA/hsKOQ5zc4tv+TGUInx+U5nXJPyH++oM7J
+7StQIdRxDHSJ/Y6neP6JTdoQUAKVeLyN4+Ro4PTNHOLyywryUU+oy8ur4Xycz/oQvn6GR1qvPRxQ
+MpR43Kd0+84+OTjO9Pl8KDDKlz5fX6f1J4e3ZAglP+hOked9nTPM6t4XtRXv37T5OgHpbobF0q+2
+VAqEAVsKIKRAcLsBAvQEgPAIhMH/JAIt/5L47s00q00Hwvi37SQ66U9AoPn/3+/XgXCUpCdI95ut
+AOHBb5eSQCUgtEvSZ1cAguTYTh8EvxGxwJ8RQtJwQBCOU9gTmkfvk+vkaPYQaIwJzVMSudqnyCB0
+NKWo2x4QFsbC4aFJtcGnqskWECaDoqzQbLzlYh/CgwRqBUJUVBWKyc3+QIpumwJhDlNLeD2hV4xE
+JpAiYoSewDh3CVNzWBBmRXEyGhRHIlExLLfv3NLREoMQ0GiYCEUnJkV0I7ez/DG0DgcJG4LYGxYR
+hF65fVkPwjyDs0MMDYdwWJ4jxSH7LpZGRDksTowExSg9EBZvXMfSjUU8CLGQOkWOSbYNjIjCkIwg
+qE6QdATG+cuYEOaxc4eF6Ug0pt7bMjBCFgkQaIYwfynnMYE+CDmaHUbJIPy9thCWbmFqdeuEgffG
+STTIREwg9Y562IBg8M4+QLAohMFloh8zxQSE8bNkhmzbGkFoO9FOrneyhUCrIfvjsgFdYRWLpSMX
+bGnIPgzBsQcgSBd+BwhGxgS/sadrTIbgxTNkm89sJdcLH5oHITrSK4YmYkSGbHOjg1zrtpoGYVLZ
+Zw2mMWS9TEBQXobiTgdhOmHIBmMEMYF2COrbRdMbspNRpIVpcYJhCLqGbGQhRGzIqhCKHuPxVGgq
+hLghOxshNWRVCIWYDFDlmtkQxGBoxZC9huc7qBCKn1yPpyJzZwfVkEWHNEYYjglVmQPjmBiOSxRn
+GYagvDimXNeQVc6v/axn/C5mhFCIqWKTF0uxMfn4Wu80kSGrQtiEGxg3mgxBjo7RlaFAFhgLLQyB
+PIu0+nAwFIJVEyhbQNCZHewBQTuBGjbWkPXvWEeup1/P8XAY+IDIkB1I3WM8d8oA5Xp7jdSQXSsH
+KscQ6PQiAQJSjxHb1j3ZBkYyt+vPNTNkB6fIdWIwyymSUkMWTq+ZAeHIlwCBSkM25xCuwHBg8kRr
+usOcq0ug6rekqIOJE606DpQknd4pCKUNV2mqkMU+0YpZFyk1CHGVXoy3SvAMWYvHhBahpUvW3tKr
+9g2MpUJrvCN0CW/TA2HpDt5ouIM3HC4KwsHTLadb3+wSdsrtG3i+g7UDYxeC0IIwIAgCPYVgc7md
+ItFnTwwHinpCjsuEUUxAg0EOjEKDfQPjQUFoic+Sdp4dEusEoVWiZzgsXsfUIm7u0PISQrD3Ik0V
+sjkvE0b6o2vllo6eMI/bE+YNSaAYjQkevQQK9hMAgt0hDH9KVl/DRnHouz1kRpG1IGgnUKjuzJD6
+DMO9yI8NqIY7+wgE7VPu9Bqy4wZoOMvhMEpWMM6EKz0sEZmRnzMBYfzoTySh5/uUwNhj6KtVcwbB
+4INb3zSSa8cZEyDsOU7Z6bVdawYhfQL13Bu2OcKnJFBVcKIVjvXqQ+gPrNxW4BmyFi//QZXBm5Hl
+uCVgRIWsRQvBJKlW/T2OGdATLFoSKDUh47nbG6jg+X6GY4JOmbCL96K+4Oou4WttGxgDPB/gm2q7
+O7x8CcFus/UhHJMCt0s6eJ68EKwINzA+azqE2/VNJfX1Sk8gKwm06uzg4iu8W1z1CEY9eUwo3oAp
+k9cJXn5zv7dJjo0szw7u+Gev1FsnuLoNqIu0bgLVgU6suWr7jaiQZSSBwgyMbUYUgj2+ixIIuA7U
+KQN2lhrPWRyCNTdaAYLtIGgnUIOfEEH4LfHt/X6KGfS06ThQRr0sjuo/GDmgA8FeAggAASAMZE6g
+bCbtBAqGA0AACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgrBbC/6MM7YSYjvmDAAAAAElF
+TkSuQmCC
+
+------MultipartBoundary--HhPgynnUcBEJ7sCFEL2JAe45ApsWhirQDC6hqLSvnO------

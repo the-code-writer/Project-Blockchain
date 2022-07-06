@@ -1,0 +1,4062 @@
+{
+    "0": "",
+    "CONNECTION_START": {
+        "name": "CONNECTION_START",
+        "vpc": "VPC0020",
+        "vars": [
+            "requestID",
+            "primaryGateway",
+            "protocol",
+            "host",
+            "port",
+            "isSecure",
+            "namespace"
+        ],
+        "description": "Starts the connection to the server",
+        "status": null,
+        "response_vpc": "VPC0040",
+        "api": "connectionStart",
+        "fxname": "connectionStart",
+        "classes": {
+            "Connection": "start"
+        }
+    },
+    "CONNECTION_START_RESULT": {
+        "name": "CONNECTION_START_RESULT",
+        "vpc": "VPC0040",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Returns the connection status of the previous requestID",
+        "status": null,
+        "response_vpc": "VPC0040",
+        "api": "connectionStartResult",
+        "fxname": "connectionStartResult",
+        "classes": {
+            "Connection": "startResult"
+        }
+    },
+    "CONNECTION_END": {
+        "name": "CONNECTION_END",
+        "vpc": "VPC0060",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "Requests the server to end the current connection",
+        "status": null,
+        "response_vpc": "VPC0080",
+        "api": "connectionEnd",
+        "fxname": "connectionEnd",
+        "classes": {
+            "Connection": "end"
+        }
+    },
+    "CONNECTION_END_RESULT": {
+        "name": "CONNECTION_END_RESULT",
+        "vpc": "VPC0080",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Returns the disconnect status of the previous request (VPC0060)",
+        "status": null,
+        "response_vpc": "VPC0080",
+        "api": "connectionEndResult",
+        "fxname": "connectionEndResult",
+        "classes": {
+            "Connection": "endResult"
+        }
+    },
+    "CONNECTION_REFUSED": {
+        "name": "CONNECTION_REFUSED",
+        "vpc": "VPC0100",
+        "vars": [
+            "requestID",
+            "reason",
+            "description"
+        ],
+        "description": "Indicates that Ocean Server refused the requested client connection, 'typically' because the client's address is banned. The reason argument indicates why the client connection was refused. The value of reason is either one of the following known refusal-reason codes, or an arbitrary string supplied by custom module code. BANNED. The description argument explains the cause of the refusal. The value of description is either given in one of the following known refusal-description formats, or is an arbitrary string supplied by custom module code. bannedAt|banDuration|banReason|bannedAt<br>The time at which the recipient client's address was banned by Ocean Server, 'in' milliseconds-from-1970 format, 'UTC' time, 'according' to the server's clock. banDuration. The length of the ban, in seconds. banReason <br>The cause of the ban on this client's address, 'as' an arbitrary string. For example: 'You were banned for inappropriate use of language'",
+        "status": [],
+        "response_vpc": 0,
+        "api": "VaidaEvent.CONNECT_REFUSED",
+        "fxname": "connectionRefused",
+        "classes": {
+            "VaidaEvent": [
+                "CONNECT_REFUSED"
+            ]
+        },
+        "vpc_id": "VPC0100"
+    },
+    "CONNECTION_SUCCESSFUL": {
+        "name": "CONNECTION_SUCCESSFUL",
+        "vpc": "VPC0120",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "Notifies the client that the connection was successful. This is an additional message to VPC",
+        "status": null,
+        "response_vpc": 0,
+        "api": "connectionSuccessful",
+        "fxname": "connectionSuccessful",
+        "classes": {
+            "Connection": "successful"
+        }
+    },
+    "CREATE_ACCOUNT": {
+        "name": "CREATE_ACCOUNT",
+        "vpc": "VPC0140",
+        "vars": [
+            "requestID",
+            "userID",
+            "password",
+            "firstName",
+            "lastName",
+            "username",
+            "email",
+            "phoneNumber",
+            "photoUrl",
+            "displayName"
+        ],
+        "description": "Asks the server to create a new user account, used to store information permanently in a persistent data source such as a database. Results of the create-account attempt are returned via a VPC0160.",
+        "status": null,
+        "response_vpc": "VPC0160",
+        "api": "AccountManager.createAccount()",
+        "fxname": "createAccount",
+        "classes": {
+            "AccountManager": [
+                "createAccount"
+            ]
+        },
+        "vpc_id": "VPC0140"
+    },
+    "CREATE_ACCOUNT_RESULT": {
+        "name": "CREATE_ACCOUNT_RESULT",
+        "vpc": "VPC0160",
+        "vars": [
+            "requestID",
+            "userID",
+            "status"
+        ],
+        "description": "Reports the result of an attempt to create the client account specified by userID. See VPC0140.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ACCOUNT_EXISTS",
+            "MISSING_INPUT",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "AccountManagerEvent.CREATE_ACCOUNT_RESULT",
+        "fxname": "createAccountResult",
+        "classes": {
+            "AccountManagerEvent": [
+                "CREATE_ACCOUNT_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0160"
+    },
+    "ACCOUNT_ADDED": {
+        "name": "ACCOUNT_ADDED",
+        "vpc": "VPC01401",
+        "vars": [
+            "requestID",
+            "userID"
+        ],
+        "description": "Informs the recipient that a new user account with the specified userID was created. See VPC0560.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AccountManagerEvent.ACCOUNT_ADDED",
+        "fxname": "accountAdded",
+        "classes": {
+            "AccountManagerEvent": [
+                "ACCOUNT_ADDED"
+            ]
+        },
+        "vpc_id": "VPC0180"
+    },
+    "LOGIN": {
+        "name": "LOGIN",
+        "vpc": "VPC0200",
+        "vars": [
+            "requestID",
+            "userID",
+            "password"
+        ],
+        "description": "Asks the server to login the sending client. Results of the login attempt are returned via a VPC0220. If the attempt succeeds, the server also sends a VPC0240 followed by a series of VPC1300s containing the client's persistent attributes. If the userID specified for a VPC0200 is already logged in under another client ID, the previous client is logged off and disconnected before the new login proceeds. Note that the sending client can ask to log in itself only; a VPC0200 cannot be used to log in a foreign client.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "AccountManager.login()",
+        "fxname": "login",
+        "classes": {
+            "AccountManager": [
+                "login"
+            ]
+        },
+        "vpc_id": "VPC0200"
+    },
+    "LOGIN_RESULT": {
+        "name": "LOGIN_RESULT",
+        "vpc": "VPC0220",
+        "vars": [
+            "requestID",
+            "userID",
+            "status"
+        ],
+        "description": "Reports the result of a login attempt made by the receiving client. See VPC0200.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ALREADY_LOGGED_IN",
+            "ACCOUNT_NOT_FOUND",
+            "AUTHORIZATION_FAILED",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "AccountEvent.LOGIN_RESULT",
+        "fxname": "loginResult",
+        "classes": {
+            "AccountEvent": [
+                "LOGIN_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0220"
+    },
+    "LOGGED_IN": {
+        "name": "LOGGED_IN",
+        "vpc": "VPC0240",
+        "vars": [
+            "requestID",
+            "clientID",
+            "userID",
+            "globalAttrs",
+            "roomID1",
+            "...roomAttrs"
+        ],
+        "description": "Informs the recipient that the client with the specified clientID has logged into the account with the specified userID. See VPC0200. Depending on the recipient's awareness of the logged in account, 'the' VPC0240 message includes the account's persistent attributes according to the following rules:If the recipient is observing the client with the specified clientID (see VPC1380): global attributes and room attributes are included. If the recipient is observing the account with the specified userID (see VPC0420): global attributes are included; room attributes are not included. If the recipient is watching for clients (see VPC1500): no attributes are loaded. If the recipient is in or observing a room that the specified client is also in or observing: global attributes and attributes scoped to that room are included in accordance with the recipient's update levels for the room. If the recipient is the client that is logging in: global attributes are included; room-scoped attributes are not included",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AccountEvent.LOGGED_IN",
+        "fxname": "loggedIn",
+        "classes": {
+            "AccountEvent": [
+                "LOGGED_IN"
+            ]
+        },
+        "vpc_id": "VPC0240"
+    },
+    "CHANGE_ACCOUNT_PASSWORD": {
+        "name": "CHANGE_ACCOUNT_PASSWORD",
+        "vpc": "VPC0260",
+        "vars": [
+            "requestID",
+            "userID",
+            "oldPassword",
+            "newPassword"
+        ],
+        "description": "Asks the server to change the specified userID's account password. Results of the change password attempt are returned via a VPC0280. If the attempt succeeds, and a client is currently logged in under the specified userID, the server also sends a VPC0380 to that client.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "AccountManager.changePassword(), UserAccount.changePassword()",
+        "fxname": "changeAccountPassword",
+        "classes": {
+            "AccountManager": [
+                "changePassword"
+            ],
+            "UserAccount": [
+                "changePassword"
+            ]
+        },
+        "vpc_id": "VPC0260"
+    },
+    "CHANGE_ACCOUNT_PASSWORD_RESULT": {
+        "name": "CHANGE_ACCOUNT_PASSWORD_RESULT",
+        "vpc": "VPC0280",
+        "vars": [
+            "requestID",
+            "userID",
+            "status"
+        ],
+        "description": "Reports the result of an attempt to change the password for the account specified by userID. See VPC0260.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ACCOUNT_NOT_FOUND",
+            "AUTHORIZATION_FAILED"
+        ],
+        "response_vpc": 0,
+        "api": "AccountEvent.CHANGE_PASSWORD_RESULT",
+        "fxname": "changeAccountPasswordResult",
+        "classes": {
+            "AccountEvent": [
+                "CHANGE_PASSWORD_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0280"
+    },
+    "SET_ACCOUNT_ATTR": {
+        "name": "SET_ACCOUNT_ATTR",
+        "vpc": "VPC0300",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "SET_ACCOUNT_ATTR",
+        "status": null,
+        "response_vpc": "VPC0300",
+        "api": "setAccountAttr",
+        "fxname": "setAccountAttr",
+        "classes": {
+            "Set": "accountAttr"
+        }
+    },
+    "SET_ACCOUNT_ATTR_RESULT": {
+        "name": "SET_ACCOUNT_ATTR_RESULT",
+        "vpc": "VPC0320",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "SET_ACCOUNT_ATTR_RESULT",
+        "status": null,
+        "response_vpc": "VPC0320",
+        "api": "setAccountAttrResult",
+        "fxname": "setAccountAttrResult",
+        "classes": {
+            "Set": "accountAttrResult"
+        }
+    },
+    "REMOVE_ACCOUNT_ATTR": {
+        "name": "REMOVE_ACCOUNT_ATTR",
+        "vpc": "VPC0340",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "REMOVE_ACCOUNT_ATTR",
+        "status": null,
+        "response_vpc": "VPC0340",
+        "api": "removeAccountAttr",
+        "fxname": "removeAccountAttr",
+        "classes": {
+            "Remove": "accountAttr"
+        }
+    },
+    "REMOVE_ACCOUNT_ATTR_RESULT": {
+        "name": "REMOVE_ACCOUNT_ATTR_RESULT",
+        "vpc": "VPC0360",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "REMOVE_ACCOUNT_ATTR_RESULT",
+        "status": null,
+        "response_vpc": "VPC0360",
+        "api": "removeAccountAttrResult",
+        "fxname": "removeAccountAttrResult",
+        "classes": {
+            "Remove": "accountAttrResult"
+        }
+    },
+    "ACCOUNT_PASSWORD_CHANGED": {
+        "name": "ACCOUNT_PASSWORD_CHANGED",
+        "vpc": "VPC0380",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Informs the receiving client that its password has been changed. See VPC0260.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AccountEvent.ACCOUNT_PASSWORD_CHANGED",
+        "fxname": "accountPasswordChanged",
+        "classes": {
+            "AccountEvent": [
+                "ACCOUNT_PASSWORD_CHANGED"
+            ]
+        },
+        "vpc_id": "VPC0380"
+    },
+    "ACCOUNT_LIST_UPDATE": {
+        "name": "ACCOUNT_LIST_UPDATE",
+        "vpc": "VPC0400",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "ACCOUNT_LIST_UPDATE",
+        "status": null,
+        "response_vpc": "VPC0400",
+        "api": "accountListUpdate",
+        "fxname": "accountListUpdate",
+        "classes": {
+            "Account": "listUpdate"
+        }
+    },
+    "OBSERVE_ACCOUNT": {
+        "name": "OBSERVE_ACCOUNT",
+        "vpc": "VPC0420",
+        "vars": [
+            "requestID",
+            "userID"
+        ],
+        "description": "Asks the server to register the sender as an observer of the specified user account. In response, the server sends a VPC0440 and, if the request succeeds, a VPC0500. Subsequently if the specified user account's state changes, the observing client is notified in the following ways: Observed account logs in: observer receives a VPC0240, Observed account logs off: observer receives a VPC0680, Observed account deleted: observer receives a VPC01402",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "UserAccount.observe(), AccountManager.observeAccount()",
+        "fxname": "observeAccount",
+        "classes": {
+            "UserAccount": [
+                "observe"
+            ],
+            "AccountManager": [
+                "observeAccount"
+            ]
+        },
+        "vpc_id": "VPC0420"
+    },
+    "OBSERVE_ACCOUNT_RESULT": {
+        "name": "OBSERVE_ACCOUNT_RESULT",
+        "vpc": "VPC0440",
+        "vars": [
+            "requestID",
+            "userID",
+            "status"
+        ],
+        "description": "Reports the result of a user-account observation attempt (VPC0420) made by the recipient. If status is SUCCESS, the client is also sent a separate VPC0500 message.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ACCOUNT_NOT_FOUND",
+            "ALREADY_OBSERVING"
+        ],
+        "response_vpc": 0,
+        "api": "AccountEvent.OBSERVE_RESULT",
+        "fxname": "observeAccountResult",
+        "classes": {
+            "AccountEvent": [
+                "OBSERVE_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0440"
+    },
+    "STOP_OBSERVING_ACCOUNT": {
+        "name": "STOP_OBSERVING_ACCOUNT",
+        "vpc": "VPC0460",
+        "vars": [
+            "requestID",
+            "userID"
+        ],
+        "description": "Asks the server to unregister the sender as an observer of the specified user account. In response, the server sends a VPC0480. If the request succeeds, the server also sends a VPC0520, and stops sending updates about the specified user account.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "UserAccount.stopObserving(), AccountManager.stopObservingAccount()",
+        "fxname": "stopObservingAccount",
+        "classes": {
+            "UserAccount": [
+                "stopObserving"
+            ],
+            "AccountManager": [
+                "stopObservingAccount"
+            ]
+        },
+        "vpc_id": "VPC0460"
+    },
+    "STOP_OBSERVING_ACCOUNT_RESULT": {
+        "name": "STOP_OBSERVING_ACCOUNT_RESULT",
+        "vpc": "VPC0480",
+        "vars": [
+            "requestID",
+            "userID",
+            "status"
+        ],
+        "description": "Reports the result of an attempt by the recipient to stop observing the specified user account (see VPC0460). If status is SUCCESS, the client is also sent a separate VPC0520 message.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ACCOUNT_NOT_FOUND",
+            "NOT_OBSERVING"
+        ],
+        "response_vpc": 0,
+        "api": "AccountEvent.STOP_OBSERVING_RESULT",
+        "fxname": "stopObservingAccountResult",
+        "classes": {
+            "AccountEvent": [
+                "STOP_OBSERVING_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0480"
+    },
+    "ACCOUNT_OBSERVED": {
+        "name": "ACCOUNT_OBSERVED",
+        "vpc": "VPC0500",
+        "vars": [
+            "requestID",
+            "userID"
+        ],
+        "description": "Informs the recipient that it started observing the specified user account.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AccountEvent.OBSERVE",
+        "fxname": "accountObserved",
+        "classes": {
+            "AccountEvent": [
+                "OBSERVE"
+            ]
+        },
+        "vpc_id": "VPC0500"
+    },
+    "STOPPED_OBSERVING_ACCOUNT": {
+        "name": "STOPPED_OBSERVING_ACCOUNT",
+        "vpc": "VPC0520",
+        "vars": [
+            "requestID",
+            "userID"
+        ],
+        "description": "Informs the recipient that it stopped observing the specified user account.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AccountEvent.STOP_OBSERVING",
+        "fxname": "stoppedObservingAccount",
+        "classes": {
+            "AccountEvent": [
+                "STOP_OBSERVING"
+            ]
+        },
+        "vpc_id": "VPC0520"
+    },
+    "STOPPED_OBSERVING_CLIENT": {
+        "name": "STOPPED_OBSERVING_CLIENT",
+        "vpc": "VPC0540",
+        "vars": [
+            "requestID",
+            "clientID"
+        ],
+        "description": "Informs the recipient that it stopped observing the specified client.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientEvent.STOP_OBSERVING",
+        "fxname": "stoppedObservingClient",
+        "classes": {
+            "ClientEvent": [
+                "STOP_OBSERVING"
+            ]
+        },
+        "vpc_id": "VPC1480"
+    },
+    "WATCH_FOR_ACCOUNTS": {
+        "name": "WATCH_FOR_ACCOUNTS",
+        "vpc": "VPC0560",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Asks the server to inform the client when new user accounts are created. The server sends the result of the request via a VPC0580. If the request was successful, the server also sends a VPC07007. Subsequent user-account creations trigger a VPC01401; subsequent user-account removals trigger a VPC01402.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "AccountManager.watchForAccounts()",
+        "fxname": "watchForAccounts",
+        "classes": {
+            "AccountManager": [
+                "watchForAccounts"
+            ]
+        },
+        "vpc_id": "VPC0560"
+    },
+    "WATCH_FOR_ACCOUNTS_RESULT": {
+        "name": "WATCH_FOR_ACCOUNTS_RESULT",
+        "vpc": "VPC0580",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a WATCH_FOR_ACCOUNTS (VPC0560) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ALREADY_WATCHING"
+        ],
+        "response_vpc": 0,
+        "api": "AccountManagerEvent.WATCH_FOR_ACCOUNTS_RESULT",
+        "fxname": "watchForAccountsResult",
+        "classes": {
+            "AccountManagerEvent": [
+                "WATCH_FOR_ACCOUNTS_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0580"
+    },
+    "STOP_WATCHING_FOR_ACCOUNTS": {
+        "name": "STOP_WATCHING_FOR_ACCOUNTS",
+        "vpc": "VPC0600",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Asks the server to stop sending user-account creation-and-removal notifications. The server sends the result of the request via a VPC01400.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "AccountManager.stopWatchingForAccounts()",
+        "fxname": "stopWatchingForAccounts",
+        "classes": {
+            "AccountManager": [
+                "stopWatchingForAccounts"
+            ]
+        },
+        "vpc_id": "VPC0600"
+    },
+    "STOP_WATCHING_FOR_ACCOUNTS_RESULT": {
+        "name": "STOP_WATCHING_FOR_ACCOUNTS_RESULT",
+        "vpc": "VPC01400",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a STOP_WATCHING_FOR_ACCOUNTS (VPC0600) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "NOT_WATCHING"
+        ],
+        "response_vpc": 0,
+        "api": "AccountManagerEvent.STOP_WATCHING_FOR_ACCOUNTS_RESULT",
+        "fxname": "stopWatchingForAccountsResult",
+        "classes": {
+            "AccountManagerEvent": [
+                "STOP_WATCHING_FOR_ACCOUNTS_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0620"
+    },
+    "LOGOFF": {
+        "name": "LOGOFF",
+        "vpc": "VPC0640",
+        "vars": [
+            "requestID",
+            "userID",
+            "password"
+        ],
+        "description": "Asks the server to logoff the user account specified by userID. Results of the logoff attempt are returned via a VPC0660. If the attempt succeeds, the server logs off and then disconnects the client.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "AccountManager.logoff(), UserAccount.logoff()",
+        "fxname": "logoff",
+        "classes": {
+            "AccountManager": [
+                "logoff"
+            ],
+            "UserAccount": [
+                "logoff"
+            ]
+        },
+        "vpc_id": "VPC0640"
+    },
+    "LOGOFF_RESULT": {
+        "name": "LOGOFF_RESULT",
+        "vpc": "VPC0660",
+        "vars": [
+            "requestID",
+            "userID",
+            "status"
+        ],
+        "description": "Reports the result of an attempt to log off the client with the specified userID. See VPC0640.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "AUTHORIZATION_FAILED",
+            "ACCOUNT_NOT_FOUND",
+            "NOT_LOGGED_IN",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "AccountEvent.LOGOFF_RESULT",
+        "fxname": "logoffResult",
+        "classes": {
+            "AccountEvent": [
+                "LOGOFF_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0660"
+    },
+    "LOGGED_OFF": {
+        "name": "LOGGED_OFF",
+        "vpc": "VPC0680",
+        "vars": [
+            "requestID",
+            "clientID",
+            "userID"
+        ],
+        "description": "Informs the recipient that the client with the specified clientID has logged off of the account with the specified userID. That client will also subsequently be disconnected. See VPC0640.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AccountEvent.LOGGED_OFF",
+        "fxname": "loggedOff",
+        "classes": {
+            "AccountEvent": [
+                "LOGGED_OFF"
+            ]
+        },
+        "vpc_id": "VPC0680"
+    },
+    "REMOVE_ACCOUNT": {
+        "name": "REMOVE_ACCOUNT",
+        "vpc": "VPC0700",
+        "vars": [
+            "requestID",
+            "userID",
+            "password"
+        ],
+        "description": "Asks the server to remove the user account for the specified userID. Results of the remove-account attempt are returned via a VPC0720.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "AccountManager.removeAccount()",
+        "fxname": "removeAccount",
+        "classes": {
+            "AccountManager": [
+                "removeAccount"
+            ]
+        },
+        "vpc_id": "VPC0700"
+    },
+    "REMOVE_ACCOUNT_RESULT": {
+        "name": "REMOVE_ACCOUNT_RESULT",
+        "vpc": "VPC0720",
+        "vars": [
+            "requestID",
+            "userID",
+            "status"
+        ],
+        "description": "Reports the result of an attempt to remove (delete) the client account specified by userID. See VPC0700.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ACCOUNT_NOT_FOUND",
+            "AUTHORIZATION_FAILED",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "AccountManagerEvent.REMOVE_ACCOUNT_RESULT",
+        "fxname": "removeAccountResult",
+        "classes": {
+            "AccountManagerEvent": [
+                "REMOVE_ACCOUNT_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0720"
+    },
+    "ACCOUNT_REMOVED": {
+        "name": "ACCOUNT_REMOVED",
+        "vpc": "VPC01402",
+        "vars": [
+            "requestID",
+            "userID"
+        ],
+        "description": "Informs the recipient that the user account with the specified userID was removed from the server. See VPC0560.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AccountManagerEvent.ACCOUNT_REMOVED",
+        "fxname": "accountRemoved",
+        "classes": {
+            "AccountManagerEvent": [
+                "ACCOUNT_REMOVED"
+            ]
+        },
+        "vpc_id": "VPC0740"
+    },
+    "ADD_ROLE": {
+        "name": "ADD_ROLE",
+        "vpc": "VPC02603",
+        "vars": [
+            "requestID",
+            "userID",
+            "role"
+        ],
+        "description": "Asks the server to assign the specified role to the user account with the specified userID. In response, the server sends a VPC02604. An account's role(s) determine which actions a user is allowed to perform on Ocean Server. For a list of security actions and corresponding rules, see Ocean Server's documentation. Legal values for role are: MODERATOR",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "UserAccount.addRole(), AccountManager.addRole()",
+        "fxname": "addRole",
+        "classes": {
+            "UserAccount": [
+                "addRole"
+            ],
+            "AccountManager": [
+                "addRole"
+            ]
+        },
+        "vpc_id": "VPC0760"
+    },
+    "ADD_ROLE_RESULT": {
+        "name": "ADD_ROLE_RESULT",
+        "vpc": "VPC02604",
+        "vars": [
+            "requestID",
+            "userID",
+            "role",
+            "status"
+        ],
+        "description": "Reports the result of an add-role attempt (VPC02603) made by the recipient. If status is SUCCESS, and the specified user is logged in, then Ocean Server updates the _ROLES attribute on the client under which the user logged in.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "PERMISSION_DENIED",
+            "ACCOUNT_NOT_FOUND",
+            "ALREADY_ASSIGNED",
+            "ROLE_NOT_FOUND"
+        ],
+        "response_vpc": 0,
+        "api": "AccountEvent.ADD_ROLE_RESULT, AccountEvent.ROLE_ADDED",
+        "fxname": "addRoleResult",
+        "classes": {
+            "AccountEvent": [
+                "ADD_ROLE_RESULT",
+                "ROLE_ADDED"
+            ]
+        },
+        "vpc_id": "VPC0780"
+    },
+    "REMOVE_ROLE": {
+        "name": "REMOVE_ROLE",
+        "vpc": "VPC02605",
+        "vars": [
+            "requestID",
+            "userID",
+            "role"
+        ],
+        "description": "Asks the server to remove the specified role from the user account with the specified userID. In response, the server sends a VPC02606. Legal values for role are listed under VPC02603.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "UserAccount.removeRole(), AccountManager.removeRole()",
+        "fxname": "removeRole",
+        "classes": {
+            "UserAccount": [
+                "removeRole"
+            ],
+            "AccountManager": [
+                "removeRole"
+            ]
+        },
+        "vpc_id": "VPC0800"
+    },
+    "REMOVE_ROLE_RESULT": {
+        "name": "REMOVE_ROLE_RESULT",
+        "vpc": "VPC02606",
+        "vars": [
+            "requestID",
+            "userID",
+            "role",
+            "status"
+        ],
+        "description": "Reports the result of a remove-role attempt (VPC02605) made by the recipient. If status is SUCCESS, and the specified user is logged in, then Ocean Server updates the _ROLES attribute on the client under which the user logged in.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "PERMISSION_DENIED",
+            "ACCOUNT_NOT_FOUND",
+            "NOT_ASSIGNED",
+            "ROLE_NOT_FOUND"
+        ],
+        "response_vpc": 0,
+        "api": "AccountEvent.REMOVE_ROLE_RESULT, AccountEvent.ROLE_REMOVED",
+        "fxname": "removeRoleResult",
+        "classes": {
+            "AccountEvent": [
+                "REMOVE_ROLE_RESULT",
+                "ROLE_REMOVED"
+            ]
+        },
+        "vpc_id": "VPC0820"
+    },
+    "BAN": {
+        "name": "BAN",
+        "vpc": "VPC02607",
+        "vars": [
+            "requestID",
+            "address",
+            "clientID",
+            "duration",
+            "reason"
+        ],
+        "description": "Asks the server to refuse all connection attempts made by a particular client address. A \"client address\" is the logical origin of a client connection, typically an IP address. If the address parameter is provided, the specified address is banned and clientID is ignored. If no address parameter is provided, then clientID must be provided, and the address of the client with the specified clientID is banned. The ban lasts for the number of seconds specified by duration. The reason parameter is an arbitrary optional string indicating the reason for the ban. The reason string is stored by the server in the banned list. The result of a ban attempt is returned via a VPC02608. A list of current banned addresses can be retrieved via a VPC02001 or VPC02003.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "ClientManager.ban(), Client.ban()",
+        "fxname": "ban",
+        "classes": {
+            "ClientManager": [
+                "ban"
+            ],
+            "Client": [
+                "ban"
+            ]
+        },
+        "vpc_id": "VPC0840"
+    },
+    "BAN_RESULT": {
+        "name": "BAN_RESULT",
+        "vpc": "VPC02608",
+        "vars": [
+            "requestID",
+            "address",
+            "clientID",
+            "status"
+        ],
+        "description": "Reports the result of a ban attempt (VPC02607) made by the recipient. If status is SUCCESS, connection attempts by any client at the specified address are refused by Ocean Server. If the original VPC02607 included a clientID and no address, that clientID is returned via VPC02608's clientID.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "PERMISSION_DENIED",
+            "ALREADY_BANNED",
+            "CLIENT_NOT_FOUND"
+        ],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.BAN_RESULT",
+        "fxname": "banResult",
+        "classes": {
+            "ClientManagerEvent": [
+                "BAN_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0860"
+    },
+    "BANNED_ADDRESS_ADDED": {
+        "name": "BANNED_ADDRESS_ADDED",
+        "vpc": "VPC02007",
+        "vars": [
+            "requestID",
+            "address"
+        ],
+        "description": "Informs the recipient that the specified address has been banned from connecting to the server. See VPC02003.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.ADDRESS_BANNED",
+        "fxname": "bannedAddressAdded",
+        "classes": {
+            "ClientManagerEvent": [
+                "ADDRESS_BANNED"
+            ]
+        },
+        "vpc_id": "VPC0880"
+    },
+    "BANNED_ADDRESS_REMOVED": {
+        "name": "BANNED_ADDRESS_REMOVED",
+        "vpc": "VPC02008",
+        "vars": [
+            "requestID",
+            "address"
+        ],
+        "description": "Informs the recipient that the specified address has been unbanned. See VPC02003.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.ADDRESS_UNBANNED",
+        "fxname": "bannedAddressRemoved",
+        "classes": {
+            "ClientManagerEvent": [
+                "ADDRESS_UNBANNED"
+            ]
+        },
+        "vpc_id": "VPC0900"
+    },
+    "BANNED_LIST_SNAPSHOT": {
+        "name": "BANNED_LIST_SNAPSHOT",
+        "vpc": "VPC02002",
+        "vars": [
+            "requestID",
+            "requestID",
+            "...addresses"
+        ],
+        "description": "Provides a list of addresses currently banned from connecting to the server. A VPC02002 is sent in response to VPC02001 and VPC02003.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.SYNCHRONIZE_BANLIST",
+        "fxname": "bannedListSnapshot",
+        "classes": {
+            "ClientManagerEvent": [
+                "SYNCHRONIZE_BANLIST"
+            ]
+        },
+        "vpc_id": "VPC0920"
+    },
+    "UNBAN": {
+        "name": "UNBAN",
+        "vpc": "VPC02609",
+        "vars": [
+            "requestID",
+            "address"
+        ],
+        "description": "Asks the server to remove a banned a client address from the banned list. The result of the unban attempt is returned via a VPC02000.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "ClientManager.unban(), Client.unban()",
+        "fxname": "unban",
+        "classes": {
+            "ClientManager": [
+                "unban"
+            ],
+            "Client": [
+                "unban"
+            ]
+        },
+        "vpc_id": "VPC0940"
+    },
+    "UNBAN_RESULT": {
+        "name": "UNBAN_RESULT",
+        "vpc": "VPC02000",
+        "vars": [
+            "requestID",
+            "address",
+            "status"
+        ],
+        "description": "Reports the result of an unban attempt (VPC02607) made by the recipient. If status is SUCCESS, 'any' previous connection ban on the specified address is lifted.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "PERMISSION_DENIED",
+            "NOT_BANNED"
+        ],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.UNBAN_RESULT",
+        "fxname": "unbanResult",
+        "classes": {
+            "ClientManagerEvent": [
+                "UNBAN_RESULT"
+            ]
+        },
+        "vpc_id": "VPC0960"
+    },
+    "CLIENT_HELLO": {
+        "name": "CLIENT_HELLO",
+        "vpc": "VPC0980",
+        "vars": [
+            "requestID",
+            "clientType",
+            "userAgent",
+            "upcVersion"
+        ],
+        "description": [
+            "CLIENT_HELLO is the first step in the client-server connection process. It tells the server the client's type, the user agent (software name and version) being used to make the connection, and the UPC protocol version used by the client to communicate. The server responds with a VPC2980, and then:",
+            "Example values for clientType are:",
+            "The userAgent is a human-readable string set arbitrarily by the client, and is used for logging purposes only. For example, \"Flash Player WIN 9,0,124,0 StandAlone (debug, localTrusted)\".",
+            "The upcVersion specifies the version of the UPC specification used by the client, in the format: majorNumber.minorNumber.revisionNumber. For example, 1.2.0. If the client's majorNumber, minorNumber, and revisionNumber all match the server's majorNumber, minorNumber, and revisionNumber, the server is considered compatible with the client. Otherwise:",
+            "if the client and server are considered strictly incompatible, the server disconnects the client (see compatibility details below). Otherwise, the server sends a VPC1080 followed by a VPC1000. Vaida, Orbiter, OrbiterMicro, Mariner. If the server's majorNumber and the client's majorNumber do not match, or the server's minorNumber and the client's minorNumber do not match, the server sends a VPC2980 with the \"upcCompatible\" argument set to false, and disconnects the client. In this case, the client is considered strictly incompatible with the server. If the server's revisionNumber and the client's revisionNumber do not match, but the majorNumber and minorNumber both match, then the server sends a VPC2980 with the \"upcCompatible\" argument set to false, but does not disconnect the client. In this case, the client is considered loosely incompatible with the server. Based on the features required in the application, the client application must, itself, decide whether to stay connected. For example, imagine a hypothetical UPC-specification version, 4.5.5, that is succeeded by a minor revision 4.5.6. The 4.5.6 revision is identical to its predecessor except that it contains a new UPC message, \"REMOVE_ALL_ROOMS\", that was not present in 4.5.5. All 4.5.5-compatible client applications can safely communicate with all 4.5.6-compatible servers because all 4.5.5 messages are still supported in revision 4.5.6. However, a 4.5.6-compatible client application, can safely communicate with a 4.5.5-compatible server only if it does not use REMOVE_ALL_ROOMS, which is not supported by the 4.5.5-compatible server. A 4.5.6-compatible client application that uses REMOVE_ALL_ROOMS would, hence, be expected to disconnect itself from a 4.5.5-compatible server."
+        ],
+        "status": null,
+        "response_vpc": "Array",
+        "api": "VaidaEvent.PROTOCOL_INCOMPATIBLE.",
+        "fxname": "clientHello",
+        "classes": {
+            "VaidaEvent": [
+                "PROTOCOL_INCOMPATIBLE"
+            ]
+        },
+        "vpc_id": "VPC0980"
+    },
+    "CLIENT_READY": {
+        "name": "CLIENT_READY",
+        "vpc": "VPC1000",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Informs the client that all setup tasks have completed and the client is ready for use.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "UConnectionEvent.READY",
+        "fxname": "clientReady",
+        "classes": {
+            "UConnectionEvent": [
+                "READY"
+            ]
+        },
+        "vpc_id": "VPC1000"
+    },
+    "CLIENT_ADDED_TO_ROOM": {
+        "name": "CLIENT_ADDED_TO_ROOM",
+        "vpc": "VPC1020",
+        "vars": [
+            "requestID",
+            "roomID",
+            "clientID",
+            "userID",
+            "globalAttrs",
+            "...roomAttrs"
+        ],
+        "description": "Reports that the specified client has joined the specified room.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomEvent.ADD_OCCUPANT",
+        "fxname": "clientAddedToRoom",
+        "classes": {
+            "RoomEvent": [
+                "ADD_OCCUPANT"
+            ]
+        },
+        "vpc_id": "VPC1020"
+    },
+    "CLIENT_ADDED_TO_SERVER": {
+        "name": "CLIENT_ADDED_TO_SERVER",
+        "vpc": "VPC1040",
+        "vars": [
+            "requestID",
+            "clientID"
+        ],
+        "description": "Informs the recipient that the client with the specified clientID has connected to the server. See VPC1500.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.CLIENT_CONNECTED",
+        "fxname": "clientAddedToServer",
+        "classes": {
+            "ClientManagerEvent": [
+                "CLIENT_CONNECTED"
+            ]
+        },
+        "vpc_id": "VPC1040"
+    },
+    "CLIENT_CONNECTED": {
+        "name": "CLIENT_CONNECTED",
+        "vpc": "VPC1060",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CLIENT_CONNECTED",
+        "status": null,
+        "response_vpc": "VPC1060",
+        "api": "clientConnected",
+        "fxname": "clientConnected",
+        "classes": {
+            "Client": "connected"
+        }
+    },
+    "CLIENT_METADATA": {
+        "name": "CLIENT_METADATA",
+        "vpc": "VPC1080",
+        "vars": [
+            "requestID",
+            "clientID"
+        ],
+        "description": "Provides each connecting client with its initial setup information.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "None. This UPC is handled internally.",
+        "fxname": "clientMetadata",
+        "classes": {
+            "None": [
+                "This UPC is handled internally"
+            ]
+        },
+        "vpc_id": "VPC1080"
+    },
+    "CLIENT_OBSERVED_ROOM": {
+        "name": "CLIENT_OBSERVED_ROOM",
+        "vpc": "VPC07009",
+        "vars": [
+            "requestID",
+            "roomID",
+            "clientID",
+            "userID",
+            "globalAttrs",
+            "...roomAttrs"
+        ],
+        "description": "Reports that the specified client has observed the specified room.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomEvent.ADD_OBSERVER",
+        "fxname": "clientObservedRoom",
+        "classes": {
+            "RoomEvent": [
+                "ADD_OBSERVER"
+            ]
+        },
+        "vpc_id": "VPC1100"
+    },
+    "CLIENT_REMOVED_FROM_ROOM": {
+        "name": "CLIENT_REMOVED_FROM_ROOM",
+        "vpc": "VPC1120",
+        "vars": [
+            "requestID",
+            "roomID",
+            "clientID"
+        ],
+        "description": "Reports that the specified client has left the specified room.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomEvent.REMOVE_OCCUPANT",
+        "fxname": "clientRemovedFromRoom",
+        "classes": {
+            "RoomEvent": [
+                "REMOVE_OCCUPANT"
+            ]
+        },
+        "vpc_id": "VPC1120"
+    },
+    "CLIENT_REMOVED_FROM_SERVER": {
+        "name": "CLIENT_REMOVED_FROM_SERVER",
+        "vpc": "VPC1140",
+        "vars": [
+            "requestID",
+            "clientID"
+        ],
+        "description": "Informs the recipient that the client with the specified clientID has disconnected from the server. See VPC1500.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.CLIENT_DISCONNECTED",
+        "fxname": "clientRemovedFromServer",
+        "classes": {
+            "ClientManagerEvent": [
+                "CLIENT_DISCONNECTED"
+            ]
+        },
+        "vpc_id": "VPC1140"
+    },
+    "CLIENT_SNAPSHOT": {
+        "name": "CLIENT_SNAPSHOT",
+        "vpc": "VPC1160",
+        "vars": [
+            "requestID",
+            "requestID",
+            "clientID",
+            "userID",
+            "occupiedRooms",
+            "observedRooms",
+            "globalAttrs",
+            "roomID",
+            "...roomAttrs"
+        ],
+        "description": "Provides a manifest describing the state of the specified client (and user account, 'in' the case of logged-in clients). See VPC2420, VPC1380, and VPC22000. The content of the manifest is limited by the receiving client's security privileges.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientEvent.SYNCHRONIZE, AccountEvent.SYNCHRONIZE",
+        "fxname": "clientSnapshot",
+        "classes": {
+            "ClientEvent": [
+                "SYNCHRONIZE"
+            ],
+            "AccountEvent": [
+                "SYNCHRONIZE"
+            ]
+        },
+        "vpc_id": "VPC1160"
+    },
+    "CLIENT_STOPPED_OBSERVING_ROOM": {
+        "name": "CLIENT_STOPPED_OBSERVING_ROOM",
+        "vpc": "VPC02600",
+        "vars": [
+            "requestID",
+            "roomID",
+            "clientID"
+        ],
+        "description": "Reports that the specified client has stopped observing the specified room.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomEvent.REMOVE_OBSERVER",
+        "fxname": "clientStoppedObservingRoom",
+        "classes": {
+            "RoomEvent": [
+                "REMOVE_OBSERVER"
+            ]
+        },
+        "vpc_id": "VPC1180"
+    },
+    "CLIENTCOUNT_SNAPSHOT": {
+        "name": "CLIENTCOUNT_SNAPSHOT",
+        "vpc": "VPC1200",
+        "vars": [
+            "requestID",
+            "requestID",
+            "numClients"
+        ],
+        "description": "Reports the number of clients on the server.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientProperties.ClientCountSnapshot",
+        "fxname": "clientcountSnapshot",
+        "classes": {
+            "ClientProperties": [
+                "ClientCountSnapshot"
+            ]
+        },
+        "vpc_id": "VPC1200"
+    },
+    "CLIENTLIST_SNAPSHOT": {
+        "name": "CLIENTLIST_SNAPSHOT",
+        "vpc": "VPC1220",
+        "vars": [
+            "requestID",
+            "requestID",
+            "...clientIDs"
+        ],
+        "description": "Provides a list of all clients currently connected to the server. For all clients that are logged in, 'userIDs' are also included. See VPC2380.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.CLIENT_CONNECTED, ClientManagerEvent.CLIENT_DISCONNECTED, ClientManagerEvent.SYNCHRONIZE",
+        "fxname": "clientlistSnapshot",
+        "classes": {
+            "ClientManagerEvent": [
+                "CLIENT_CONNECTED",
+                "CLIENT_DISCONNECTED",
+                "SYNCHRONIZE"
+            ]
+        },
+        "vpc_id": "VPC1220"
+    },
+    "SET_CLIENT_ATTR": {
+        "name": "SET_CLIENT_ATTR",
+        "vpc": "VPC1240",
+        "vars": [
+            "requestID",
+            "clientID",
+            "userID",
+            "attrName",
+            "escapedAttrValue",
+            "attrScope",
+            "...attrOptions"
+        ],
+        "description": [
+            "Asks the server to set a client attribute for client specified by clientID or the user account specified by userID. If the persistent bit is set, the server sets the attribute on the specified userID's account; if not, the server sets the attribute on the specified client. The result of the request is returned to the sender via a VPC1260. If the attribute is shared, any clients needing to be notified of the attribute assignment will receive a u8. When the sender sets one of its own attributes via VPC1240, the new attribute value is echoed back to the sender in a VPC1300 in the following situations only:",
+            "The specified attrScope must be a room, and cannot be a qualifier; however, future versions of the UPC protocol might support qualifier-scoped attributes. The meanings of the \"attrOptions\" bits are as follows:",
+            "The persistent bit is set. The evaluate bit is set. 0 - RESERVED. 1 - RESERVED. 2 - shared: interested clients will receive notification that the attribute changed. 3 - persistent: the attribute will be stored persistently in the account specified by userID, and will be available to any client that successfully logs into that account. 4 - RETIRED (formerly \"unique\"). 5 - RESERVED BY SERVER. 6 - RESERVED BY SERVER. 7 - RESERVED BY SERVER. 8 - evaluate: evaluate the supplied escapedAttrValue as a mathematical expression before assignment. Within escapedAttrValue, the token \"%v\" represents the attribute's current value. For example, \"%v+1\" means \"increment by one\". Supported mathematical operators are: *, \/, +, -, %, ., (, and ). If the expression contains any character other than a number or one of the supported operators, the attribute assignment fails and the server responds with a VPC1260 with status of EVALUATION_FAILED."
+        ],
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Client.setAttribute(), UserAccount.setAttribute()",
+        "fxname": "setClientAttr",
+        "classes": {
+            "Client": [
+                "setAttribute"
+            ],
+            "UserAccount": [
+                "setAttribute"
+            ]
+        },
+        "vpc_id": "VPC1240"
+    },
+    "SET_CLIENT_ATTR_RESULT": {
+        "name": "SET_CLIENT_ATTR_RESULT",
+        "vpc": "VPC1260",
+        "vars": [
+            "requestID",
+            "roomID",
+            "clientID",
+            "userID",
+            "attrName",
+            "attrOptions",
+            "status"
+        ],
+        "description": "Reports the result of a request to change a client attribute.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "DUPLICATE_VALUE",
+            "CLIENT_NOT_FOUND",
+            "ACCOUNT_NOT_FOUND",
+            "IMMUTABLE",
+            "SERVER_ONLY",
+            "EVALUATION_FAILED",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "AttributeEvent.SET_RESULT",
+        "fxname": "setClientAttrResult",
+        "classes": {
+            "AttributeEvent": [
+                "SET_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1260"
+    },
+    "CLIENT_ATTR_ADDED": {
+        "name": "CLIENT_ATTR_ADDED",
+        "vpc": "VPC1280",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CLIENT_ATTR_ADDED",
+        "status": null,
+        "response_vpc": "VPC1280",
+        "api": "clientAttrAdded",
+        "fxname": "clientAttrAdded",
+        "classes": {
+            "Client": "attrAdded"
+        }
+    },
+    "CLIENT_ATTR_UPDATE": {
+        "name": "CLIENT_ATTR_UPDATE",
+        "vpc": "VPC1300",
+        "vars": [
+            "requestID",
+            "roomID",
+            "clientID",
+            "userID",
+            "attrName",
+            "attrVal",
+            "attrOptions"
+        ],
+        "description": "Reports a change to a client attribute.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AttributeEvent.UPDATE",
+        "fxname": "clientAttrUpdate",
+        "classes": {
+            "AttributeEvent": [
+                "UPDATE"
+            ]
+        },
+        "vpc_id": "VPC1300"
+    },
+    "REMOVE_CLIENT_ATTR": {
+        "name": "REMOVE_CLIENT_ATTR",
+        "vpc": "VPC1320",
+        "vars": [
+            "requestID",
+            "clientID",
+            "userID",
+            "attrName",
+            "scope"
+        ],
+        "description": "Asks the server to remove a client attribute from the client specified by clientID or the user account specified by userID. The clientID and userID arguments are mutually exclusive; only one or the other is allowed. The result of the request is returned via a VPC1340. If the request succeeds, all clients needing to be notified of the deletion are sent a VPC1360. If clientID is not specified, the attribute is deleted from the sending client.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Client.deleteAttribute(), UserAccount.deleteAttribute()",
+        "fxname": "removeClientAttr",
+        "classes": {
+            "Client": [
+                "deleteAttribute"
+            ],
+            "UserAccount": [
+                "deleteAttribute"
+            ]
+        },
+        "vpc_id": "VPC1320"
+    },
+    "REMOVE_CLIENT_ATTR_RESULT": {
+        "name": "REMOVE_CLIENT_ATTR_RESULT",
+        "vpc": "VPC1340",
+        "vars": [
+            "requestID",
+            "roomID",
+            "clientID",
+            "userID",
+            "attrName",
+            "attrOptions",
+            "status"
+        ],
+        "description": "Reports the result of a request to remove a client attribute.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "CLIENT_NOT_FOUND",
+            "ACCOUNT_NOT_FOUND",
+            "IMMUTABLE",
+            "SERVER_ONLY",
+            "ATTR_NOT_FOUND",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "AttributeEvent.DELETE_RESULT",
+        "fxname": "removeClientAttrResult",
+        "classes": {
+            "AttributeEvent": [
+                "DELETE_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1340"
+    },
+    "CLIENT_ATTR_REMOVED": {
+        "name": "CLIENT_ATTR_REMOVED",
+        "vpc": "VPC1360",
+        "vars": [
+            "requestID",
+            "roomID",
+            "clientID",
+            "userID",
+            "attrName",
+            "attrOptions"
+        ],
+        "description": "Reports the removal of a client attribute.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AttributeEvent.DELETE",
+        "fxname": "clientAttrRemoved",
+        "classes": {
+            "AttributeEvent": [
+                "DELETE"
+            ]
+        },
+        "vpc_id": "VPC1360"
+    },
+    "OBSERVE_CLIENT": {
+        "name": "OBSERVE_CLIENT",
+        "vpc": "VPC1380",
+        "vars": [
+            "requestID",
+            "clientID"
+        ],
+        "description": "Asks the server to register the sender as an observer of the specified client. In response, the server sends a VPC1400 and, if the request succeeds, a VPC01409 followed by a VPC1160. Subsequently if the specified client's state changes, the observing client is notified in the following ways: Observed client's attribute changes: observer receives a VPC1300, Observed client's attribute is deleted: observer receives a VPC1360, Observed client joins a room: observer receives a 113, Observed client leaves a room: observer receives a 114, Observed client observes a room: observer receives a 117, Observed client stops observing a room: observer receives a 118, Observed client logs in: observer receives a VPC0240, Observed client logs off: observer receives a VPC0680, Observed client disconnects: observer receives a VPC1140",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Client.observe(), ClientManager.observeClient()",
+        "fxname": "observeClient",
+        "classes": {
+            "Client": [
+                "observe"
+            ],
+            "ClientManager": [
+                "observeClient"
+            ]
+        },
+        "vpc_id": "VPC1380"
+    },
+    "OBSERVE_CLIENT_RESULT": {
+        "name": "OBSERVE_CLIENT_RESULT",
+        "vpc": "VPC1400",
+        "vars": [
+            "requestID",
+            "clientID",
+            "status"
+        ],
+        "description": "Reports the result of a client observation attempt (VPC1380) made by the recipient. If status is SUCCESS, the client is also sent a separate VPC01409 message.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "CLIENT_NOT_FOUND",
+            "ALREADY_OBSERVING",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "ClientEvent.OBSERVE_RESULT",
+        "fxname": "observeClientResult",
+        "classes": {
+            "ClientEvent": [
+                "OBSERVE_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1400"
+    },
+    "CLIENT_OBSERVED": {
+        "name": "CLIENT_OBSERVED",
+        "vpc": "VPC01409",
+        "vars": [
+            "requestID",
+            "clientID"
+        ],
+        "description": "Informs the recipient that it started observing the specified client.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientEvent.OBSERVE",
+        "fxname": "clientObserved",
+        "classes": {
+            "ClientEvent": [
+                "OBSERVE"
+            ]
+        },
+        "vpc_id": "VPC1420"
+    },
+    "STOP_OBSERVING_CLIENT": {
+        "name": "STOP_OBSERVING_CLIENT",
+        "vpc": "VPC1440",
+        "vars": [
+            "requestID",
+            "clientID"
+        ],
+        "description": "Asks the server to unregister the sender as an observer of the specified client. In response, the server sends a VPC1460. If the request succeeds, the server also sends a VPC0540, and stops sending updates about the specified client.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Client.stopObserving(), ClientManager.stopObservingClient()",
+        "fxname": "stopObservingClient",
+        "classes": {
+            "Client": [
+                "stopObserving"
+            ],
+            "ClientManager": [
+                "stopObservingClient"
+            ]
+        },
+        "vpc_id": "VPC1440"
+    },
+    "STOP_OBSERVING_CLIENT_RESULT": {
+        "name": "STOP_OBSERVING_CLIENT_RESULT",
+        "vpc": "VPC1460",
+        "vars": [
+            "requestID",
+            "clientID",
+            "status"
+        ],
+        "description": "Reports the result of an attempt by the recipient to stop observing the specified client (see VPC1440). If status is SUCCESS, the client is also sent a separate VPC0540 message.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "CLIENT_NOT_FOUND",
+            "NOT_OBSERVING"
+        ],
+        "response_vpc": 0,
+        "api": "ClientEvent.STOP_OBSERVING_RESULT",
+        "fxname": "stopObservingClientResult",
+        "classes": {
+            "ClientEvent": [
+                "STOP_OBSERVING_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1460"
+    },
+    "WATCH_FOR_CLIENTS": {
+        "name": "WATCH_FOR_CLIENTS",
+        "vpc": "VPC1500",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Asks the server to inform the client when clients connect or disconnect, or login or logoff. The server sends the result of the request via a VPC1520. If the request was successful, the server also sends a VPC1220. Subsequent client connections trigger a VPC1040; subsequent client disconnections trigger a VPC1140. Subsequent client logins trigger a VPC0240; subsequent client logoffs trigger a VPC0680.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "ClientManager.watchForClients()",
+        "fxname": "watchForClients",
+        "classes": {
+            "ClientManager": [
+                "watchForClients"
+            ]
+        },
+        "vpc_id": "VPC1500"
+    },
+    "WATCH_FOR_CLIENTS_RESULT": {
+        "name": "WATCH_FOR_CLIENTS_RESULT",
+        "vpc": "VPC1520",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a WATCH_FOR_CLIENTS (VPC1500) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ALREADY_WATCHING"
+        ],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.WATCH_FOR_CLIENTS_RESULT",
+        "fxname": "watchForClientsResult",
+        "classes": {
+            "ClientManagerEvent": [
+                "WATCH_FOR_CLIENTS_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1520"
+    },
+    "STOP_WATCHING_FOR_CLIENTS": {
+        "name": "STOP_WATCHING_FOR_CLIENTS",
+        "vpc": "VPC1540",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Asks the server to stop sending client connection-and-disconnnection notifications. The server sends the result of the request via a VPC1560.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "ClientManager.stopWatchingForClients()",
+        "fxname": "stopWatchingForClients",
+        "classes": {
+            "ClientManager": [
+                "stopWatchingForClients"
+            ]
+        },
+        "vpc_id": "VPC1540"
+    },
+    "STOP_WATCHING_FOR_CLIENTS_RESULT": {
+        "name": "STOP_WATCHING_FOR_CLIENTS_RESULT",
+        "vpc": "VPC1560",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a STOP_WATCHING_FOR_CLIENTS (VPC1540) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "NOT_WATCHING"
+        ],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.STOP_WATCHING_FOR_CLIENTS_RESULT",
+        "fxname": "stopWatchingForClientsResult",
+        "classes": {
+            "ClientManagerEvent": [
+                "STOP_WATCHING_FOR_CLIENTS_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1560"
+    },
+    "": {
+        "name": "",
+        "vpc": "VPC1580",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "",
+        "status": null,
+        "response_vpc": "VPC1580",
+        "api": "",
+        "fxname": "",
+        "classes": {
+            "": ""
+        }
+    },
+    "CREATE_ROOM": {
+        "name": "CREATE_ROOM",
+        "vpc": "VPC1600",
+        "vars": [
+            "requestID",
+            "roomID",
+            "roomSettings",
+            "attrOptions",
+            "qualifiedClassName"
+        ],
+        "description": [
+            "Asks the server to create the specified room.",
+            "If roomID is empty, then the server creates the room ID automatically. To determine the room's ID, the client must watch for a room addition message (VPC1640).",
+            "Recognized setting names for the second argument are as follows:",
+            "The third argument lists the room's initial attributes.",
+            "The fourth argument lists room's room modules, which can be defined by a script or a class. Scripts and classes can be listed in any order. A path to a script indicates the location of a script relative to the server's central scripts directory.",
+            "_DIE_ON_EMPTY, _MAX_CLIENTS, _PASSWORD"
+        ],
+        "status": null,
+        "response_vpc": "Array",
+        "api": "RoomManager.createRoom()",
+        "fxname": "createRoom",
+        "classes": {
+            "RoomManager": [
+                "createRoom"
+            ]
+        },
+        "vpc_id": "VPC1600"
+    },
+    "CREATE_ROOM_RESULT": {
+        "name": "CREATE_ROOM_RESULT",
+        "vpc": "VPC1620",
+        "vars": [
+            "requestID",
+            "roomID",
+            "status"
+        ],
+        "description": "Reports the result of a room-creation attempt to the client.",
+        "status": null,
+        "response_vpc": 0,
+        "api": "RoomManagerEvent.CREATE_ROOM_RESULT",
+        "fxname": "createRoomResult",
+        "classes": {
+            "RoomManagerEvent": [
+                "CREATE_ROOM_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1620"
+    },
+    "ROOM_ADDED": {
+        "name": "ROOM_ADDED",
+        "vpc": "VPC1640",
+        "vars": [
+            "requestID",
+            "roomID"
+        ],
+        "description": "Reports that the specified room was added. Sent to clients watching the specified room's qualifier. See VPC2860.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomManagerEvent.ROOM_ADDED",
+        "fxname": "roomAdded",
+        "classes": {
+            "RoomManagerEvent": [
+                "ROOM_ADDED"
+            ]
+        },
+        "vpc_id": "VPC1640"
+    },
+    "JOIN_ROOM": {
+        "name": "JOIN_ROOM",
+        "vpc": "VPC1660",
+        "vars": [
+            "requestID",
+            "roomID",
+            "password"
+        ],
+        "description": "Asks the server to attempt to add the sender to the specified room. The result of attempting to join the room is returned to the sender via a VPC1680. If the attempt is successful, the sender is also sent a VPC1700, followed by updates for the room according to the sender's specified update levels (see VPC1800). When a room is removed from the server, clients in that room receive a VPC2240, but do not automatically receive notification that the room was removed. Clients wishing to be notified when a room is removed must register for notifications via WATCH_FOR_ROOMS.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Room.join(), RoomManager.joinRoom()",
+        "fxname": "joinRoom",
+        "classes": {
+            "Room": [
+                "join"
+            ],
+            "RoomManager": [
+                "joinRoom"
+            ]
+        },
+        "vpc_id": "VPC1660"
+    },
+    "JOIN_ROOM_RESULT": {
+        "name": "JOIN_ROOM_RESULT",
+        "vpc": "VPC1680",
+        "vars": [
+            "requestID",
+            "roomID",
+            "status"
+        ],
+        "description": "Reports the result of a join-room request (u4). If status is SUCCESS, the client is also sent a separate VPC1700 message.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ALREADY_IN_ROOM",
+            "ROOM_NOT_FOUND",
+            "ROOM_FULL",
+            "AUTHORIZATION_REQUIRED",
+            "AUTHORIZATION_FAILED",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "RoomEvent.JOIN_RESULT",
+        "fxname": "joinRoomResult",
+        "classes": {
+            "RoomEvent": [
+                "JOIN_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1680"
+    },
+    "JOINED_ROOM": {
+        "name": "JOINED_ROOM",
+        "vpc": "VPC1700",
+        "vars": [
+            "requestID",
+            "roomID"
+        ],
+        "description": "Informs the client that it joined a room.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomEvent.JOIN",
+        "fxname": "joinedRoom",
+        "classes": {
+            "RoomEvent": [
+                "JOIN"
+            ]
+        },
+        "vpc_id": "VPC1700"
+    },
+    "JOINED_ROOM_ADDED_TO_CLIENT": {
+        "name": "JOINED_ROOM_ADDED_TO_CLIENT",
+        "vpc": "VPC01403",
+        "vars": [
+            "requestID",
+            "clientID",
+            "roomID"
+        ],
+        "description": "Informs the recipient that the specified client joined the specified room.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientEvent.JOIN_ROOM",
+        "fxname": "joinedRoomAddedToClient",
+        "classes": {
+            "ClientEvent": [
+                "JOIN_ROOM"
+            ]
+        },
+        "vpc_id": "VPC1720"
+    },
+    "JOINED_ROOM_REMOVED_FROM_CLIENT": {
+        "name": "JOINED_ROOM_REMOVED_FROM_CLIENT",
+        "vpc": "VPC01404",
+        "vars": [
+            "requestID",
+            "clientID",
+            "roomID"
+        ],
+        "description": "Informs the recipient that the specified client left the specified room.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientEvent.LEAVE_ROOM",
+        "fxname": "joinedRoomRemovedFromClient",
+        "classes": {
+            "ClientEvent": [
+                "LEAVE_ROOM"
+            ]
+        },
+        "vpc_id": "VPC1740"
+    },
+    "SET_ROOM_ATTR": {
+        "name": "SET_ROOM_ATTR",
+        "vpc": "VPC1760",
+        "vars": [
+            "requestID",
+            "roomID",
+            "attrName",
+            "escapedAttrValue",
+            "...attrOptions"
+        ],
+        "description": "Asks the server to set a room attribute for the specified room. The result of the request is returned to the sender via a VPC1780. If the attribute is shared, any clients needing to be notified of the attribute assignment will receive a VPC1920. The meanings of the \"attrOptions\" bits are as follows: 0 - RESERVED. 1 - RESERVED. 2 - shared: interested clients will receive notification that the attribute changed. 3 - persistent: the attribute will be stored persistently, and will be available across multiple server restarts. 4 - UNUSED. 5 - RESERVED BY SERVER. 6 - RESERVED BY SERVER. 7 - RESERVED BY SERVER. 8 - evaluate: evaluate the supplied escapedAttrValue as a mathematical expression before assignment. Within escapedAttrValue, the token \"%v\" represents the attribute's current value. For example, \"%v+1\" means \"increment by one\". Supported mathematical operators are: *, \/, +, -, %, ., (, and ). If the expression contains any character other than a number or one of the supported operators, the attribute assignment fails and the server responds with a VPC1780 with status of EVALUATION_FAILED.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Room.setAttribute()",
+        "fxname": "setRoomAttr",
+        "classes": {
+            "Room": [
+                "setAttribute"
+            ]
+        },
+        "vpc_id": "VPC1760"
+    },
+    "SET_ROOM_ATTR_RESULT": {
+        "name": "SET_ROOM_ATTR_RESULT",
+        "vpc": "VPC1780",
+        "vars": [
+            "requestID",
+            "roomID",
+            "attrName",
+            "status"
+        ],
+        "description": "Reports the result of a request to change a room attribute.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "IMMUTABLE",
+            "SERVER_ONLY",
+            "ROOM_NOT_FOUND",
+            "EVALUATION_FAILED",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "AttributeEvent.SET_RESULT",
+        "fxname": "setRoomAttrResult",
+        "classes": {
+            "AttributeEvent": [
+                "SET_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1780"
+    },
+    "SET_ROOM_UPDATE_LEVELS": {
+        "name": "SET_ROOM_UPDATE_LEVELS",
+        "vpc": "VPC1800",
+        "vars": [
+            "requestID",
+            "roomID",
+            "updateLevel"
+        ],
+        "description": [
+            "Asks the server to change the client's update levels for the specified room. The server applies only those changes permitted for the client's security level. When a client's room update levels change, the server sends that client a VPC07008. The updateLevel parameter is an integer whose ordered bits represent the following update levels:",
+            "The update levels specified by the preceding bits determine how much information is pushed to the client when it is either in or observing a room.",
+            "In the preceding list, *, **, ***, and **** have the following meanings: 0 room messages. 1 room shared attributes *. 2 occupant count. 3 observer count. 4 occupant list *. 5 observer list *. 6 occupant shared room attributes *, **. 7 observer shared room attributes *, ***8 occupant shared global attributes *, **. 9 observer shared global attributes *, ***. 10 occupant login\/logoffs *, **. 11 observer login\/logoffs *, ***. 12 all room attributes *, ****. * When a client joins a room it is not already observing, or observes a room it is not already in, it is sent a u54 describing the current state of the room. ** When this bit is on, bit 4 is automatically turned on. *** When this bit is on, bit 5 is automatically turned on. **** This bit requires administrator privileges"
+        ],
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Room.setUpdateLevels(), Room.join(), Room.observe(), RoomManager.joinRoom(), RoomManager.observeRoom()",
+        "fxname": "setRoomUpdateLevels",
+        "classes": {
+            "Room": [
+                "setUpdateLevels",
+                "join",
+                "observe"
+            ],
+            "RoomManager": [
+                "joinRoom",
+                "observeRoom"
+            ]
+        },
+        "vpc_id": "VPC1800"
+    },
+    "REMOVE_ROOM": {
+        "name": "REMOVE_ROOM",
+        "vpc": "VPC1820",
+        "vars": [
+            "requestID",
+            "roomID",
+            "password"
+        ],
+        "description": "Asks the server to remove the specified room. If the request is successful, the server sends a VPC2140 to all clients in or observing the room. The client that sent the VPC1820 message also receives a VPC1880. Clients do not receive separate VPC1120 (CLIENT_REMOVED) notifications for clients that are forced out of the room when it is removed.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "RoomManager.removeRoom()",
+        "fxname": "removeRoom",
+        "classes": {
+            "RoomManager": [
+                "removeRoom"
+            ]
+        },
+        "vpc_id": "VPC1820"
+    },
+    "REMOVE_ROOM_ATTR": {
+        "name": "REMOVE_ROOM_ATTR",
+        "vpc": "VPC1840",
+        "vars": [
+            "requestID",
+            "roomID",
+            "attrName"
+        ],
+        "description": "Asks the server to remove a room attribute from the specified room. The result is returned via a VPC1860. If the request is successful, all clients requiring notification of the change are sent a VPC1900.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Room.deleteAttribute()",
+        "fxname": "removeRoomAttr",
+        "classes": {
+            "Room": [
+                "deleteAttribute"
+            ]
+        },
+        "vpc_id": "VPC1840"
+    },
+    "REMOVE_ROOM_ATTR_RESULT": {
+        "name": "REMOVE_ROOM_ATTR_RESULT",
+        "vpc": "VPC1860",
+        "vars": [
+            "requestID",
+            "roomID",
+            "attrName",
+            "status"
+        ],
+        "description": "Reports the result of a request to remove a room attribute.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "IMMUTABLE",
+            "SERVER_ONLY",
+            "ROOM_NOT_FOUND",
+            "ATTR_NOT_FOUND",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "AttributeEvent.DELETE_RESULT",
+        "fxname": "removeRoomAttrResult",
+        "classes": {
+            "AttributeEvent": [
+                "DELETE_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1860"
+    },
+    "REMOVE_ROOM_RESULT": {
+        "name": "REMOVE_ROOM_RESULT",
+        "vpc": "VPC1880",
+        "vars": [
+            "requestID",
+            "roomID",
+            "status"
+        ],
+        "description": "Reports the result of a room-removal attempt to the client.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ROOM_NOT_FOUND",
+            "AUTHORIZATION_REQUIRED",
+            "AUTHORIZATION_FAILED",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "RoomManagerEvent.REMOVE_ROOM_RESULT",
+        "fxname": "removeRoomResult",
+        "classes": {
+            "RoomManagerEvent": [
+                "REMOVE_ROOM_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1880"
+    },
+    "ROOM_ATTR_REMOVED": {
+        "name": "ROOM_ATTR_REMOVED",
+        "vpc": "VPC1900",
+        "vars": [
+            "requestID",
+            "roomID",
+            "clientID",
+            "attrName"
+        ],
+        "description": "Reports the removal of a room attribute. The clientID specifies the id of the client that removed the attribute. If the attribute was not removed by a client (as is the case when the server removes the attribute), clientID is empty.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AttributeEvent.DELETE",
+        "fxname": "roomAttrRemoved",
+        "classes": {
+            "AttributeEvent": [
+                "DELETE"
+            ]
+        },
+        "vpc_id": "VPC1900"
+    },
+    "ROOM_ATTR_UPDATE": {
+        "name": "ROOM_ATTR_UPDATE",
+        "vpc": "VPC1920",
+        "vars": [
+            "requestID",
+            "roomID",
+            "clientID",
+            "attrName",
+            "attrVal"
+        ],
+        "description": "Reports a change to a room attribute. The clientID specifies the id of the client that changed the attribute. If the attribute was not changed by a client (as is the case when the server sets the attribute), clientID is empty.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "AttributeEvent.UPDATE",
+        "fxname": "roomAttrUpdate",
+        "classes": {
+            "AttributeEvent": [
+                "UPDATE"
+            ]
+        },
+        "vpc_id": "VPC1920"
+    },
+    "OBSERVE_ROOM": {
+        "name": "OBSERVE_ROOM",
+        "vpc": "VPC1940",
+        "vars": [
+            "requestID",
+            "roomID",
+            "password"
+        ],
+        "description": [
+            "Used for spectating a room the client is not in. A VPC1940 asks the server to register the sender as an observer of the specified room. The result of attempting to observe the room is returned to the sender via a VPC1960. If the attempt is successful, the sender is also sent a VPC1980, and will subsequently receive updates for the room in accordance with the client's specified occupant, room, and message update levels. If a client changes its update levels, subsequent updates are sent according to the new levels. For details on which updates are sent and how levels affect updates, see VPC1800.",
+            "If a client is in a room, it can still register to observe that room. Likewise, a client can observe a room, and then join and leave it arbitrarily without affecting observation status. When a client is both an observer and an occupant of a room, it receives updates about the room even after leaving it. Clients that observe a room and then join it will not receive a u54 at join time.",
+            "When a room is removed from the server, clients in that room receive a VPC2080, but do not automatically receive notification that the room was removed. Clients wishing to be notified when a room is removed must register for notifications via WATCH_FOR_ROOMS."
+        ],
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Room.observe(), RoomManager.observeRoom()",
+        "fxname": "observeRoom",
+        "classes": {
+            "Room": [
+                "observe"
+            ],
+            "RoomManager": [
+                "observeRoom"
+            ]
+        },
+        "vpc_id": "VPC1940"
+    },
+    "OBSERVE_ROOM_RESULT": {
+        "name": "OBSERVE_ROOM_RESULT",
+        "vpc": "VPC1960",
+        "vars": [
+            "requestID",
+            "roomID",
+            "status"
+        ],
+        "description": "Reports the result of a room observation attempt (VPC1940) by the client. If status is SUCCESS, the client is also sent a separate VPC1980 message.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ROOM_NOT_FOUND",
+            "AUTHORIZATION_REQUIRED",
+            "AUTHORIZATION_FAILED",
+            "ALREADY_OBSERVING",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "RoomEvent.OBSERVE_RESULT",
+        "fxname": "observeRoomResult",
+        "classes": {
+            "RoomEvent": [
+                "OBSERVE_RESULT"
+            ]
+        },
+        "vpc_id": "VPC1960"
+    },
+    "OBSERVED_ROOM": {
+        "name": "OBSERVED_ROOM",
+        "vpc": "VPC1980",
+        "vars": [
+            "requestID",
+            "roomID"
+        ],
+        "description": "Informs the client that it started observing the specified room.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomEvent.OBSERVE",
+        "fxname": "observedRoom",
+        "classes": {
+            "RoomEvent": [
+                "OBSERVE"
+            ]
+        },
+        "vpc_id": "VPC1980"
+    },
+    "OBSERVED_ROOM_ADDED_TO_CLIENT": {
+        "name": "OBSERVED_ROOM_ADDED_TO_CLIENT",
+        "vpc": "VPC01407",
+        "vars": [
+            "requestID",
+            "clientID",
+            "roomID"
+        ],
+        "description": "Informs the recipient that the specified client observed the specified room.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientEvent.OBSERVE_ROOM",
+        "fxname": "observedRoomAddedToClient",
+        "classes": {
+            "ClientEvent": [
+                "OBSERVE_ROOM"
+            ]
+        },
+        "vpc_id": "VPC2000"
+    },
+    "OBSERVED_ROOM_REMOVED_FROM_CLIENT": {
+        "name": "OBSERVED_ROOM_REMOVED_FROM_CLIENT",
+        "vpc": "VPC01408",
+        "vars": [
+            "requestID",
+            "clientID",
+            "roomID"
+        ],
+        "description": "Informs the recipient that the specified client stopped observing the specified room.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ClientEvent.STOP_OBSERVING_ROOM",
+        "fxname": "observedRoomRemovedFromClient",
+        "classes": {
+            "ClientEvent": [
+                "STOP_OBSERVING_ROOM"
+            ]
+        },
+        "vpc_id": "VPC2020"
+    },
+    "STOP_OBSERVING_ROOM": {
+        "name": "STOP_OBSERVING_ROOM",
+        "vpc": "VPC2040",
+        "vars": [
+            "requestID",
+            "roomID"
+        ],
+        "description": "Asks the server to unregister the sender as an observer of the specified room. The result of the request is returned to the sender via a VPC2060. If the attempt is successful, the sender is also sent a VPC2080.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Room.stopObserving(), RoomManager.stopObservingRoom()",
+        "fxname": "stopObservingRoom",
+        "classes": {
+            "Room": [
+                "stopObserving"
+            ],
+            "RoomManager": [
+                "stopObservingRoom"
+            ]
+        },
+        "vpc_id": "VPC2040"
+    },
+    "STOP_OBSERVING_ROOM_RESULT": {
+        "name": "STOP_OBSERVING_ROOM_RESULT",
+        "vpc": "VPC2060",
+        "vars": [
+            "requestID",
+            "roomID",
+            "status"
+        ],
+        "description": "Reports the result of an attempt to stop observing the specified roomID. See VPC2040.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ROOM_NOT_FOUND",
+            "NOT_OBSERVING"
+        ],
+        "response_vpc": 0,
+        "api": "RoomEvent.STOP_OBSERVING",
+        "fxname": "stopObservingRoomResult",
+        "classes": {
+            "RoomEvent": [
+                "STOP_OBSERVING"
+            ]
+        },
+        "vpc_id": "VPC2060"
+    },
+    "STOPPED_OBSERVING_ROOM": {
+        "name": "STOPPED_OBSERVING_ROOM",
+        "vpc": "VPC2080",
+        "vars": [
+            "requestID",
+            "roomID"
+        ],
+        "description": "Informs the client that it has stopped observing the specified room, normally in response to an earlier 'stop observing rooms' request (VPC2040).",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomEvent.STOP_OBSERVING",
+        "fxname": "stoppedObservingRoom",
+        "classes": {
+            "RoomEvent": [
+                "STOP_OBSERVING"
+            ]
+        },
+        "vpc_id": "VPC2080"
+    },
+    "ROOM_OBSERVERCOUNT_UPDATE": {
+        "name": "ROOM_OBSERVERCOUNT_UPDATE",
+        "vpc": "VPC02602",
+        "vars": [
+            "requestID",
+            "roomID",
+            "numObservers"
+        ],
+        "description": "Reports the new number of observers in the room. VPC02602 is sent to clients that have joined or observed a room, and have observer-count updates enabled (see VPC1800).",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomEvent.OBSERVER_COUNT",
+        "fxname": "roomObservercountUpdate",
+        "classes": {
+            "RoomEvent": [
+                "OBSERVER_COUNT"
+            ]
+        },
+        "vpc_id": "VPC2100"
+    },
+    "ROOM_OCCUPANTCOUNT_UPDATE": {
+        "name": "ROOM_OCCUPANTCOUNT_UPDATE",
+        "vpc": "VPC02601",
+        "vars": [
+            "requestID",
+            "roomID",
+            "numOccupants"
+        ],
+        "description": "Reports the new number of occupants in the room. VPC02601 is sent to clients that have joined or observed a room, and have occupant-count updates enabled (see VPC1800).",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomEvent.OCCUPANT_COUNT",
+        "fxname": "roomOccupantcountUpdate",
+        "classes": {
+            "RoomEvent": [
+                "OCCUPANT_COUNT"
+            ]
+        },
+        "vpc_id": "VPC2120"
+    },
+    "ROOM_REMOVED": {
+        "name": "ROOM_REMOVED",
+        "vpc": "VPC2140",
+        "vars": [
+            "requestID",
+            "roomID"
+        ],
+        "description": "Reports that the specified room was removed. Sent to clients watching the specified room's qualifier. See VPC2860. Also sent to clients in or observing a room when the room is removed (regardless of their update levels). Note that clients do not receive separate VPC1120 (CLIENT_REMOVED) notifications for clients that are forced out of a room when it is removed.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomManagerEvent.ROOM_REMOVED",
+        "fxname": "roomRemoved",
+        "classes": {
+            "RoomManagerEvent": [
+                "ROOM_REMOVED"
+            ]
+        },
+        "vpc_id": "VPC2140"
+    },
+    "KICK_CLIENT": {
+        "name": "KICK_CLIENT",
+        "vpc": "VPC02009",
+        "vars": [
+            "requestID",
+            "clientID"
+        ],
+        "description": "Asks the server to forcibly disconnect the client with the specified clientID. The server sends the result of the request via a VPC2180.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "ClientManager.kickClient(), Client.kick()",
+        "fxname": "kickClient",
+        "classes": {
+            "ClientManager": [
+                "kickClient"
+            ],
+            "Client": [
+                "kick"
+            ]
+        },
+        "vpc_id": "VPC2160"
+    },
+    "KICK_CLIENT_RESULT": {
+        "name": "KICK_CLIENT_RESULT",
+        "vpc": "VPC2180",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a KICK_CLIENT (VPC02009) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "CLIENT_NOT_FOUND",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.KICK_RESULT",
+        "fxname": "kickClientResult",
+        "classes": {
+            "ClientManagerEvent": [
+                "KICK_RESULT"
+            ]
+        },
+        "vpc_id": "VPC2180"
+    },
+    "LEAVE_ROOM": {
+        "name": "LEAVE_ROOM",
+        "vpc": "VPC2200",
+        "vars": [
+            "requestID",
+            "roomID"
+        ],
+        "description": "Asks the server to remove the sender from the specified room. The result of attempting to leave the room is returned to the sender via a VPC2220. If the attempt is successful, the sender is also sent a VPC2240.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Room.leave()",
+        "fxname": "leaveRoom",
+        "classes": {
+            "Room": [
+                "leave"
+            ]
+        },
+        "vpc_id": "VPC2200"
+    },
+    "LEAVE_ROOM_RESULT": {
+        "name": "LEAVE_ROOM_RESULT",
+        "vpc": "VPC2220",
+        "vars": [
+            "requestID",
+            "roomID",
+            "status"
+        ],
+        "description": "Reports the result of an attempt to leave the specified roomID. See VPC2200.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "NOT_IN_ROOM",
+            "ROOM_NOT_FOUND"
+        ],
+        "response_vpc": 0,
+        "api": "RoomEvent.LEAVE_RESULT",
+        "fxname": "leaveRoomResult",
+        "classes": {
+            "RoomEvent": [
+                "LEAVE_RESULT"
+            ]
+        },
+        "vpc_id": "VPC2220"
+    },
+    "LEFT_ROOM": {
+        "name": "LEFT_ROOM",
+        "vpc": "VPC2240",
+        "vars": [
+            "requestID",
+            "roomID"
+        ],
+        "description": "Informs the client that it left the specified roomID, normally as a result of an earlier VPC2200 request.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "RoomEvent.LEAVE",
+        "fxname": "leftRoom",
+        "classes": {
+            "RoomEvent": [
+                "LEAVE"
+            ]
+        },
+        "vpc_id": "VPC2240"
+    },
+    "GATEWAYS_SNAPSHOT": {
+        "name": "GATEWAYS_SNAPSHOT",
+        "vpc": "VPC2260",
+        "vars": [
+            "requestID",
+            "requestID",
+            "gatewayID1",
+            "gatewayType1",
+            "NUM_CONNECTIONS_CATEGORY",
+            "NUM_CLIENTS_CLIENTTYPE",
+            "NUM_CLIENTS_UPCVERSION",
+            "gateway1Attr",
+            "connections",
+            "lifetimeRead",
+            "...args"
+        ],
+        "description": "<p>Provides gateway statistics in response to VPC2500.<\/p> <p>The list of NUM_CONNECTIONS_CATEGORYn gives the number of connections to the gateway, 'broken' down by connection type. Connection types are determined by each gateway. For example, 'the' built-in gateways for Adobe Flash clients include the connection types 'POLICYFILE' (for Flash policy file requests) and 'CLIENT' (for connections that are determined to be legitimate Union clients). For every gateway, 'one' of the categories in the NUM_CONNECTIONS_CATEGORYn list is always guaranteed to be 'TOTAL'. The 'TOTAL' connection category indicates the total raw number of lifetime connections to the specified gateway, 'including' all connection types.<\/p> <p>The list of NUM_CLIENTS_CLIENTTYPEn gives the number of Union clients that have connected to the gateway, 'broken' down by client type. For example, 'a' gateway might have had 150 Vaida (Flash) client connections and 35 Orbiter (JavaScript) client connections.<\/p> <p>The list of NUM_CLIENTS_UPCVERSION n gives the number of Union clients that have connected to the gateway, 'broken' down by UPC version. For example, 'a' gateway might have had 25 clients that used UPC version 1.4.0 and 40 clients that used UPC version 1.5.0.<\/p> <p>The 'lifetimeRead...' argument lists the gateway's bandwidth usage. All bandwidth statistics are given in bytes. Bandwidth averages are per second. Intervals are the most recent second at the time of the request.<\/p>",
+        "status": [],
+        "response_vpc": 0,
+        "api": "GatewaysSnapshot",
+        "fxname": "gatewaysSnapshot",
+        "classes": {
+            "GatewaysSnapshot": [
+                "GatewaysSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2260"
+    },
+    "GATEWAYS_SNAPSHOT_RESULT": {
+        "name": "GATEWAYS_SNAPSHOT_RESULT",
+        "vpc": "VPC2280",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "GATEWAYS_SNAPSHOT_RESULT",
+        "status": null,
+        "response_vpc": "VPC2280",
+        "api": "gatewaysSnapshotResult",
+        "fxname": "gatewaysSnapshotResult",
+        "classes": {
+            "Gateways": "snapshotResult"
+        }
+    },
+    "GET_ACCOUNT_SNAPSHOT": {
+        "name": "GET_ACCOUNT_SNAPSHOT",
+        "vpc": "VPC22000",
+        "vars": [
+            "requestID",
+            "requestID",
+            "userID"
+        ],
+        "description": "Asks the server to send a snapshot for the specified user account, including all persistent data stored in the user's account. In response, the server sends a VPC01406 and, if the request succeeds, a VPC1160.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "AccountProperties.AccountSnapshot",
+        "fxname": "getAccountSnapshot",
+        "classes": {
+            "AccountProperties": [
+                "AccountSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2300"
+    },
+    "GET_ACCOUNT_SNAPSHOT_RESULT": {
+        "name": "GET_ACCOUNT_SNAPSHOT_RESULT",
+        "vpc": "VPC01406",
+        "vars": [
+            "requestID",
+            "requestID",
+            "userID",
+            "status"
+        ],
+        "description": "Reports the result of a VPC22000 request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ACCOUNT_NOT_FOUND"
+        ],
+        "response_vpc": 0,
+        "api": "SnapshotEvent.STATUS",
+        "fxname": "getAccountSnapshotResult",
+        "classes": {
+            "SnapshotEvent": [
+                "STATUS"
+            ]
+        },
+        "vpc_id": "VPC2320"
+    },
+    "GET_ACCOUNTLIST_SNAPSHOT": {
+        "name": "GET_ACCOUNTLIST_SNAPSHOT",
+        "vpc": "VPC2340",
+        "vars": [
+            "requestID",
+            "requestID"
+        ],
+        "description": "Asks the server to send a list of userIDs for all registered user accounts on the server. The result is sent via a VPC07007. See also VPC2380.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "AccountProperties.AccountListSnapshot",
+        "fxname": "getAccountlistSnapshot",
+        "classes": {
+            "AccountProperties": [
+                "AccountListSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2340"
+    },
+    "GET_BANNED_LIST_SNAPSHOT": {
+        "name": "GET_BANNED_LIST_SNAPSHOT",
+        "vpc": "VPC02001",
+        "vars": [
+            "requestID",
+            "requestID"
+        ],
+        "description": "Asks the server to send a list of addresses currently banned from connecting to the server. The result is sent via a VPC02002. See also VPC02003.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "ClientProperties.ClientListSnapshot",
+        "fxname": "getBannedListSnapshot",
+        "classes": {
+            "ClientProperties": [
+                "ClientListSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2360"
+    },
+    "GET_CLIENTLIST_SNAPSHOT": {
+        "name": "GET_CLIENTLIST_SNAPSHOT",
+        "vpc": "VPC2380",
+        "vars": [
+            "requestID",
+            "requestID"
+        ],
+        "description": "Asks the server to send a list of clientIDs for all clients currently connected to the server. The list will also include userIDs for all clients with user accounts that are currently logged in. The result is sent via a VPC1220. See also VPC2340.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "ClientProperties.ClientListSnapshot",
+        "fxname": "getClientlistSnapshot",
+        "classes": {
+            "ClientProperties": [
+                "ClientListSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2380"
+    },
+    "GET_CLIENTLIST_SNAPSHOT_RESULT": {
+        "name": "GET_CLIENTLIST_SNAPSHOT_RESULT",
+        "vpc": "VPC2400",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "GET_CLIENTLIST_SNAPSHOT_RESULT",
+        "status": null,
+        "response_vpc": "VPC2400",
+        "api": "getClientlistSnapshotResult",
+        "fxname": "getClientlistSnapshotResult",
+        "classes": {
+            "Get": "clientlistSnapshotResult"
+        }
+    },
+    "GET_CLIENT_SNAPSHOT": {
+        "name": "GET_CLIENT_SNAPSHOT",
+        "vpc": "VPC2420",
+        "vars": [
+            "requestID",
+            "requestID",
+            "clientID"
+        ],
+        "description": "Asks the server to send a snapshot for the specified client. In response, the server sends a VPC01405 and, if the request succeeds, a VPC1160.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "ClientProperties.ClientSnapshot",
+        "fxname": "getClientSnapshot",
+        "classes": {
+            "ClientProperties": [
+                "ClientSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2420"
+    },
+    "GET_CLIENT_SNAPSHOT_RESULT": {
+        "name": "GET_CLIENT_SNAPSHOT_RESULT",
+        "vpc": "VPC01405",
+        "vars": [
+            "requestID",
+            "requestID",
+            "clientID",
+            "status"
+        ],
+        "description": "Reports the result of a VPC2420 request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "CLIENT_NOT_FOUND"
+        ],
+        "response_vpc": 0,
+        "api": "SnapshotEvent.STATUS",
+        "fxname": "getClientSnapshotResult",
+        "classes": {
+            "SnapshotEvent": [
+                "STATUS"
+            ]
+        },
+        "vpc_id": "VPC2440"
+    },
+    "GET_CLIENTCOUNT_SNAPSHOT": {
+        "name": "GET_CLIENTCOUNT_SNAPSHOT",
+        "vpc": "VPC2460",
+        "vars": [
+            "requestID",
+            "requestID"
+        ],
+        "description": "Asks the server to return the number of clients on the server. The result of a VPC2460 request is returned to the sender via a VPC2480. If the request is successful, the number of clients on the server is returned to the sender via a VPC1200.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Clients.ClientCountSnapshot",
+        "fxname": "getClientcountSnapshot",
+        "classes": {
+            "Clients": [
+                "ClientCountSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2460"
+    },
+    "GET_CLIENTCOUNT_SNAPSHOT_RESULT": {
+        "name": "GET_CLIENTCOUNT_SNAPSHOT_RESULT",
+        "vpc": "VPC2480",
+        "vars": [
+            "requestID",
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a request for the number of clients on the server.",
+        "status": [
+            "SUCCESS",
+            "ERROR"
+        ],
+        "response_vpc": 0,
+        "api": "SnapshotEvent.STATUS",
+        "fxname": "getClientcountSnapshotResult",
+        "classes": {
+            "SnapshotEvent": [
+                "STATUS"
+            ]
+        },
+        "vpc_id": "VPC2480"
+    },
+    "GET_GATEWAYS_SNAPSHOT": {
+        "name": "GET_GATEWAYS_SNAPSHOT",
+        "vpc": "VPC2500",
+        "vars": [
+            "requestID",
+            "requestID"
+        ],
+        "description": "Asks the server to return a per-gateway summary of connection and bandwidth statistics. The result is returned via a VPC2260. By default, access to gateway statistics requires administrator privileges.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "GatewayProperties.GatewaysSnapshot",
+        "fxname": "getGatewaysSnapshot",
+        "classes": {
+            "GatewayProperties": [
+                "GatewaysSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2500"
+    },
+    "GET_NODELIST_SNAPSHOT": {
+        "name": "GET_NODELIST_SNAPSHOT",
+        "vpc": "VPC2520",
+        "vars": [
+            "requestID",
+            "requestID"
+        ],
+        "description": "Asks the server to return a list of the cluster nodes currently connected to the server. The result is returned via a VPC2640.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "NodeProperties.NodeListSnapshot",
+        "fxname": "getNodelistSnapshot",
+        "classes": {
+            "NodeProperties": [
+                "NodeListSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2520"
+    },
+    "GET_ROOM_SNAPSHOT": {
+        "name": "GET_ROOM_SNAPSHOT",
+        "vpc": "VPC2540",
+        "vars": [
+            "requestID",
+            "requestID",
+            "roomID",
+            "password",
+            "updateLevels"
+        ],
+        "description": "Asks the server to send a room snapshot for the specified room. In response, the server sends a VPC2560 and, if the request succeeds, a u54. The updateLevels parameter specifies the amount of information that should be included in the snapshot, following the rules described under VPC1800. If updateLevels is not supplied, the sender's update levels for the room are used. If the sender does not have update levels specified for the room, the room's maximum levels are used.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "RoomProperties.RoomSnapshot",
+        "fxname": "getRoomSnapshot",
+        "classes": {
+            "RoomProperties": [
+                "RoomSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2540"
+    },
+    "GET_ROOM_SNAPSHOT_RESULT": {
+        "name": "GET_ROOM_SNAPSHOT_RESULT",
+        "vpc": "VPC2560",
+        "vars": [
+            "requestID",
+            "requestID",
+            "roomID",
+            "status"
+        ],
+        "description": "Reports the result of a VPC2540 request by the client.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ROOM_NOT_FOUND",
+            "AUTHORIZATION_REQUIRED",
+            "AUTHORIZATION_FAILED",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "SnapshotEvent.STATUS",
+        "fxname": "getRoomSnapshotResult",
+        "classes": {
+            "SnapshotEvent": [
+                "STATUS"
+            ]
+        },
+        "vpc_id": "VPC2560"
+    },
+    "GET_ROOMLIST_SNAPSHOT": {
+        "name": "GET_ROOMLIST_SNAPSHOT",
+        "vpc": "VPC2580",
+        "vars": [
+            "requestID",
+            "requestID",
+            "roomIdQualifier",
+            "recursive"
+        ],
+        "description": [
+            "Asks the server to return a list of the rooms whose ids are qualified by roomIdQualifier. The result is returned via a u38.",
+            "For a server-wide room list, supply the empty string (\"\") for roomIdQualifier and true for recursive.",
+            "For a list of rooms with the unnamed qualifier, supply the empty string (\"\") for roomIdQualifier and false for recursive.",
+            "For a list of rooms with the qualifier \"chat.sports\", supply \"chat.sports\" for roomIdQualifier and false for recursive.",
+            "Note: the recursive argument is currently available for the unnamed qualifier (\"\") only. Recursion for other qualifiers is planned for future versions of the UPC protocol."
+        ],
+        "status": null,
+        "response_vpc": "Array",
+        "api": "RoomProperties.RoomListSnapshot",
+        "fxname": "getRoomlistSnapshot",
+        "classes": {
+            "RoomProperties": [
+                "RoomListSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2580"
+    },
+    "GET_ROOMLIST_SNAPSHOT_RESULT": {
+        "name": "GET_ROOMLIST_SNAPSHOT_RESULT",
+        "vpc": "VPC2600",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "GET_ROOMLIST_SNAPSHOT_RESULT",
+        "status": null,
+        "response_vpc": "VPC2600",
+        "api": "getRoomlistSnapshotResult",
+        "fxname": "getRoomlistSnapshotResult",
+        "classes": {
+            "Get": "roomlistSnapshotResult"
+        }
+    },
+    "GET_UPC_STATS_SNAPSHOT_RESULT": {
+        "name": "GET_UPC_STATS_SNAPSHOT_RESULT",
+        "vpc": "VPC2620",
+        "vars": [
+            "requestID",
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a GET_UPC_STATS_SNAPSHOT (u154) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "SnapshotEvent.STATUS",
+        "fxname": "getUpcStatsSnapshotResult",
+        "classes": {
+            "SnapshotEvent": [
+                "STATUS"
+            ]
+        },
+        "vpc_id": "VPC2620"
+    },
+    "NODELIST_SNAPSHOT": {
+        "name": "NODELIST_SNAPSHOT",
+        "vpc": "VPC2640",
+        "vars": [
+            "requestID",
+            "requestID",
+            "...nodes"
+        ],
+        "description": "Provides a list of IDs for the cluster nodes currently connected to the server. Each ID is an arbitrary, statistically unique string generated automatically by Ocean Server. A server's nodeID is guaranteed to be the same for a given server until that server shuts down. VPC2640 is sent in response to VPC2520.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "NodeProperties.NodeListSnapshot",
+        "fxname": "nodelistSnapshot",
+        "classes": {
+            "NodeProperties": [
+                "NodeListSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2640"
+    },
+    "UPC_STATS_SNAPSHOT": {
+        "name": "UPC_STATS_SNAPSHOT",
+        "vpc": "VPC2660",
+        "vars": [
+            "requestID",
+            "requestID",
+            "totalUPCsProcessed",
+            "numUPCsInQueue",
+            "lastQueueWaitTime",
+            "...fromClient"
+        ],
+        "description": "Provides statistics about UPC messages received by Ocean Server. A VPC2620 is sent in response to u154. Arguments following lastQueueWaitTime specify an unsorted list of the longest UPC message processing times since either Ocean Server was started or since the last UPC-statistics reset command (see VPC3220).  Any CDATA sections contained within UPCSource fields are escaped according to the rules described under 'Nested CDATA'",
+        "status": [],
+        "response_vpc": 0,
+        "api": "UPCProperties.UPCStatsSnapshot",
+        "fxname": "upcStatsSnapshot",
+        "classes": {
+            "UPCProperties": [
+                "UPCStatsSnapshot"
+            ]
+        },
+        "vpc_id": "VPC2660"
+    },
+    "RECEIVE_MESSAGE": {
+        "name": "RECEIVE_MESSAGE",
+        "vpc": "VPC2680",
+        "vars": [
+            "requestID",
+            "messageName",
+            "broadcastType",
+            "fromClientID",
+            "roomID",
+            "...messageArgs"
+        ],
+        "description": "Causes the client to execute listeners registered for 'messageName'. VPC2680 is sent in response to VPC2720, VPC2700, and VPC2740. The broadcastType argument's three possible values--0, 1, or 2--indicate which clients received the message, as follows: |0 'TO SERVER':  all clients on the entire server|1 'TO ROOMS':   all clients in the specified rooms)|2 'TO CLIENTS': a list of individually specified clients. When VPC2680 is a VPC2720 response, broadcastType is 2, and VPC2680's fourth argument is empty. When VPC2680 is a VPC2700 response, broadcastType is 1, and VPC2680's fourth argument is the room receiving the message. When VPC2680 is a VPC2740 response, broadcastType is 0, and VPC2680's fourth argument is empty",
+        "status": [],
+        "response_vpc": 0,
+        "api": "MessageManager.addMessageListener(), Room.addMessageListener()",
+        "fxname": "receiveMessage",
+        "classes": {
+            "MessageManager": [
+                "addMessageListener"
+            ],
+            "Room": [
+                "addMessageListener"
+            ]
+        },
+        "vpc_id": "VPC2680"
+    },
+    "SEND_MESSAGE_TO_CLIENTS": {
+        "name": "SEND_MESSAGE_TO_CLIENTS",
+        "vpc": "VPC2700",
+        "vars": [
+            "requestID",
+            "messageName",
+            "clientIDs",
+            "filters",
+            "...args"
+        ],
+        "description": "Asks the server to send a VPC2680 with the specified messageName to all clients in client list that pass the provided filter tests.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Client.sendMessage()",
+        "fxname": "sendMessageToClients",
+        "classes": {
+            "Client": [
+                "sendMessage"
+            ]
+        },
+        "vpc_id": "VPC2700"
+    },
+    "SEND_MESSAGE_TO_ROOMS": {
+        "name": "SEND_MESSAGE_TO_ROOMS",
+        "vpc": "VPC2720",
+        "vars": [
+            "requestID",
+            "messageName",
+            "roomIDorQualifiers",
+            "includeSelf",
+            "filters",
+            "...args"
+        ],
+        "description": [
+            "Asks the server to send a VPC2680 with the specified messageName to all clients in the room list that pass the provided filter tests. The includeSelf argument is a Boolean indicating whether the message should be echoed to the sending client (assuming the sender is in the room list and passes the filter tests). If any of the rooms in the list is a room qualifier, the message is sent to all rooms qualified by that qualifier.",
+            "Qualifiers in the room list must be formed using the * character; for example, \"examples.*\" means \"the examples qualifier\" whereas \"examples\" means the room named \"examples\". To send a message to all rooms qualified by the unnamed qualifier, use \"*\" for the room qualifier.",
+            "The server sends separate VPC2680 messages for every room in the room list. For example, if the room list is \"chat1 [RS] chat2\" and a client is in both \"chat1\" and \"chat2\", the client will receive VPC2680 twice (once for each room)."
+        ],
+        "status": null,
+        "response_vpc": "Array",
+        "api": "RoomManager.sendMessage(), Room.sendMessage()",
+        "fxname": "sendMessageToRooms",
+        "classes": {
+            "RoomManager": [
+                "sendMessage"
+            ],
+            "Room": [
+                "sendMessage"
+            ]
+        },
+        "vpc_id": "VPC2720"
+    },
+    "SEND_MESSAGE_TO_SERVER": {
+        "name": "SEND_MESSAGE_TO_SERVER",
+        "vpc": "VPC2740",
+        "vars": [
+            "requestID",
+            "messageName",
+            "includeSelf",
+            "filters",
+            "...args"
+        ],
+        "description": "Asks the server to send a VPC2680 with the specified messageName to all clients on the server that pass the provided filter tests. The includeSelf argument is a Boolean indicating whether the message should be echoed to the sending client.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Server.sendMessage()",
+        "fxname": "sendMessageToServer",
+        "classes": {
+            "Server": [
+                "sendMessage"
+            ]
+        },
+        "vpc_id": "VPC2740"
+    },
+    "SEND_ROOMMODULE_MESSAGE": {
+        "name": "SEND_ROOMMODULE_MESSAGE",
+        "vpc": "VPC2760",
+        "vars": [
+            "requestID",
+            "roomID",
+            "moduleMessageName",
+            "...argNameValuePairs"
+        ],
+        "description": "Sends the specified message to all of the modules of the specified room. The argument names (argName1, argName2,...argNamen) must not contain the pipe (|) character. Argument values can contain the pipe (|) character.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Room.sendModuleMessage()",
+        "fxname": "sendRoommoduleMessage",
+        "classes": {
+            "Room": [
+                "sendModuleMessage"
+            ]
+        },
+        "vpc_id": "VPC2760"
+    },
+    "SEND_SERVERMODULE_MESSAGE": {
+        "name": "SEND_SERVERMODULE_MESSAGE",
+        "vpc": "VPC2780",
+        "vars": [
+            "requestID",
+            "moduleID",
+            "moduleMessageName",
+            "...argNameValues"
+        ],
+        "description": "Sends the specified message to the specified server module. The moduleID must be the ID of a deployed server module on the server. The argument names (argName1, argName2,...argNamen) must not contain the pipe (|) character. Argument values can contain the pipe (|) character.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Server.sendModuleMessage()",
+        "fxname": "sendServermoduleMessage",
+        "classes": {
+            "Server": [
+                "sendModuleMessage"
+            ]
+        },
+        "vpc_id": "VPC2780"
+    },
+    "WATCH_FOR_BANNED_ADDRESSES": {
+        "name": "WATCH_FOR_BANNED_ADDRESSES",
+        "vpc": "VPC02003",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Asks the server to inform the sending client when addresses are banned or unbanned. The server sends the result of the request via a VPC02004. If the request was successful, the server also sends a VPC02002. Subsequently, when an address is banned, the server sends a VPC02007; when an address is unbanned, the server sends a VPC02008.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "ClientManager.watchForBannedAddresses()",
+        "fxname": "watchForBannedAddresses",
+        "classes": {
+            "ClientManager": [
+                "watchForBannedAddresses"
+            ]
+        },
+        "vpc_id": "VPC2800"
+    },
+    "WATCH_FOR_BANNED_ADDRESSES_RESULT": {
+        "name": "WATCH_FOR_BANNED_ADDRESSES_RESULT",
+        "vpc": "VPC02004",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a WATCH_FOR_BANNED_ADDRESSES (VPC02003) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ALREADY_WATCHING",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.WATCH_FOR_BANNED_ADDRESSES_RESULT",
+        "fxname": "watchForBannedAddressesResult",
+        "classes": {
+            "ClientManagerEvent": [
+                "WATCH_FOR_BANNED_ADDRESSES_RESULT"
+            ]
+        },
+        "vpc_id": "VPC2820"
+    },
+    "WATCH_FOR_PROCESSED_UPCS_RESULT": {
+        "name": "WATCH_FOR_PROCESSED_UPCS_RESULT",
+        "vpc": "VPC2840",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a WATCH_FOR_PROCESSED_UPCS (u159) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "ALREADY_WATCHING",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "ServerEvent.WATCH_FOR_PROCESSED_UPCS_RESULT",
+        "fxname": "watchForProcessedUpcsResult",
+        "classes": {
+            "ServerEvent": [
+                "WATCH_FOR_PROCESSED_UPCS_RESULT"
+            ]
+        },
+        "vpc_id": "VPC2840"
+    },
+    "WATCH_FOR_ROOMS": {
+        "name": "WATCH_FOR_ROOMS",
+        "vpc": "VPC2860",
+        "vars": [
+            "requestID",
+            "roomIdQualifier",
+            "recursive"
+        ],
+        "description": [
+            "Asks the server to inform the client when new rooms qualified by roomIdQualifier are added to or removed from the server. The server sends the result of the request via a u42. If the request was successful, the server also sends a u38. Subsequent room additions trigger VPC1640; subsequent room removals trigger VPC2140. It is legal to watch a qualifier that does not yet exist.",
+            "To watch for all rooms on the server, supply the empty string (\"\") for roomIdQualifier and true for recursive.",
+            "To watch for rooms with the unnamed qualifier, supply the empty string (\"\") for roomIdQualifier and false for recursive.",
+            "To watch for rooms with the qualifier \"examples\", supply \"examples\" for roomIdQualifier and false for recursive.",
+            "Note: the recursive argument is currently available for the unnamed qualifier (\"\") only. Recursion for other qualifiers is planned for future versions of the UPC protocol."
+        ],
+        "status": null,
+        "response_vpc": "Array",
+        "api": "RoomManager.watchForRooms()",
+        "fxname": "watchForRooms",
+        "classes": {
+            "RoomManager": [
+                "watchForRooms"
+            ]
+        },
+        "vpc_id": "VPC2860"
+    },
+    "STOP_WATCHING_FOR_BANNED_ADDRESSES": {
+        "name": "STOP_WATCHING_FOR_BANNED_ADDRESSES",
+        "vpc": "VPC02005",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Asks the server to stop sending banned-address notifications. The server sends the result of the request via a VPC02006.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "ClientManager.stopWatchingForBannedAddresses()",
+        "fxname": "stopWatchingForBannedAddresses",
+        "classes": {
+            "ClientManager": [
+                "stopWatchingForBannedAddresses"
+            ]
+        },
+        "vpc_id": "VPC2880"
+    },
+    "STOP_WATCHING_FOR_BANNED_ADDRESSES_RESULT": {
+        "name": "STOP_WATCHING_FOR_BANNED_ADDRESSES_RESULT",
+        "vpc": "VPC02006",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a STOP_WATCHING_FOR_BANNED_ADDRESSES (VPC02005) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "NOT_WATCHING"
+        ],
+        "response_vpc": 0,
+        "api": "ClientManagerEvent.STOP_WATCHING_FOR_BANNED_ADDRESSES_RESULT",
+        "fxname": "stopWatchingForBannedAddressesResult",
+        "classes": {
+            "ClientManagerEvent": [
+                "STOP_WATCHING_FOR_BANNED_ADDRESSES_RESULT"
+            ]
+        },
+        "vpc_id": "VPC2900"
+    },
+    "STOP_WATCHING_FOR_PROCESSED_UPCS_RESULT": {
+        "name": "STOP_WATCHING_FOR_PROCESSED_UPCS_RESULT",
+        "vpc": "VPC2920",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a STOP_WATCHING_FOR_PROCESSED_UPCS_RESULT (u162) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "NOT_WATCHING",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "ServerEvent.STOP_WATCHING_FOR_PROCESSED_UPCS_RESULT",
+        "fxname": "stopWatchingForProcessedUpcsResult",
+        "classes": {
+            "ServerEvent": [
+                "STOP_WATCHING_FOR_PROCESSED_UPCS_RESULT"
+            ]
+        },
+        "vpc_id": "VPC2920"
+    },
+    "STOP_WATCHING_FOR_ROOMS": {
+        "name": "STOP_WATCHING_FOR_ROOMS",
+        "vpc": "VPC2940",
+        "vars": [
+            "requestID",
+            "roomIdQualifier",
+            "recursive"
+        ],
+        "description": [
+            "Asks the server to stop sending room-addition-and-removal notifications for the specified roomIdQualifier. The server sends the result of the request via a VPC2960.",
+            "To stop watching for all rooms on the server, supply the empty string (\"\") for roomIdQualifier and true for recursive.",
+            "To stop watching for rooms with the unnamed qualifier, supply the empty string (\"\") for roomIdQualifier and false for recursive.",
+            "To stop watching for rooms with the qualifier \"examples\", supply \"examples\" for roomIdQualifier and false for recursive.",
+            "Note: the recursive argument is currently available for the unnamed qualifier (\"\") only. Recursion for other qualifiers is planned for future versions of the UPC protocol."
+        ],
+        "status": null,
+        "response_vpc": "Array",
+        "api": "RoomManager.stopWatchingForRooms()",
+        "fxname": "stopWatchingForRooms",
+        "classes": {
+            "RoomManager": [
+                "stopWatchingForRooms"
+            ]
+        },
+        "vpc_id": "VPC2940"
+    },
+    "STOP_WATCHING_FOR_ROOMS_RESULT": {
+        "name": "STOP_WATCHING_FOR_ROOMS_RESULT",
+        "vpc": "VPC2960",
+        "vars": [
+            "requestID",
+            "roomIdQualifier",
+            "recursive",
+            "status"
+        ],
+        "description": "Reports the result of a VPC2940 request. The roomIdQualifier and recursive arguments specify the values supplied to the instigating VPC2860 request.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "INVALID_QUALIFIER",
+            "NOT_WATCHING"
+        ],
+        "response_vpc": 0,
+        "api": "RoomManagerEvent.STOP_WATCHING_FOR_ROOMS_RESULT",
+        "fxname": "stopWatchingForRoomsResult",
+        "classes": {
+            "RoomManagerEvent": [
+                "STOP_WATCHING_FOR_ROOMS_RESULT"
+            ]
+        },
+        "vpc_id": "VPC2960"
+    },
+    "SERVER_HELLO": {
+        "name": "SERVER_HELLO",
+        "vpc": "VPC2980",
+        "vars": [
+            "requestID",
+            "serverVersion",
+            "sessionID",
+            "upcVersion",
+            "protocolCompatible",
+            "affinityAddress",
+            "affinityDuration"
+        ],
+        "description": "SERVER_HELLO is the second step in the client-server connection process. It tells the client the server's version and protocol version, and provides the client with a server-side session ID used to identify the connection. If the server determines the client to be unacceptably protocol-incompatible, the server will automatically disconnect the client. For compatibility details, see VPC0980. The affinityAddress indicates the server's public address. When affinityAddress is provided, clients must send all communications to that address for the specified affinityDuration, which is given in minutes. Union Platform's affinity system ensures that a given client will connect to a specific Ocean Server node in a cluster for a specified duration, as is required in load-balanced configurations.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "VaidaEvent.PROTOCOL_INCOMPATIBLE",
+        "fxname": "serverHello",
+        "classes": {
+            "VaidaEvent": [
+                "PROTOCOL_INCOMPATIBLE"
+            ]
+        },
+        "vpc_id": "VPC2980"
+    },
+    "SERVER_TIME_UPDATE": {
+        "name": "SERVER_TIME_UPDATE",
+        "vpc": "VPC3000",
+        "vars": [
+            "requestID",
+            "timeOnServer"
+        ],
+        "description": "Reports the current time on the server, in UTC, using milliseconds-from-1970 format. See VPC3020.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ServerEvent.TIME_SYNC",
+        "fxname": "serverTimeUpdate",
+        "classes": {
+            "ServerEvent": [
+                "TIME_SYNC"
+            ]
+        },
+        "vpc_id": "VPC3000"
+    },
+    "SYNC_TIME": {
+        "name": "SYNC_TIME",
+        "vpc": "VPC3020",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Asks the server to return the current time. The result is returned via a VPC3000.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Server.syncTime()",
+        "fxname": "syncTime",
+        "classes": {
+            "Server": [
+                "syncTime"
+            ]
+        },
+        "vpc_id": "VPC3020"
+    },
+    "REQUEST_NOT_VALID": {
+        "name": "REQUEST_NOT_VALID",
+        "vpc": "VPC3040",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "REQUEST_NOT_VALID",
+        "status": null,
+        "response_vpc": "VPC3040",
+        "api": "requestNotValid",
+        "fxname": "requestNotValid",
+        "classes": {
+            "Request": "notValid"
+        }
+    },
+    "UPDATE_LEVELS_UPDATE": {
+        "name": "UPDATE_LEVELS_UPDATE",
+        "vpc": "VPC07008",
+        "vars": [
+            "requestID",
+            "updateLevels",
+            "roomID"
+        ],
+        "description": "forms the receiving client that its update levels for a room have changed. See VPC1800.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "UpdatesProperties.LEVELS_UPDATE",
+        "fxname": "updateLevelsupdate",
+        "classes": {
+            "UpdatesProperties": [
+                "LEVELS_UPDATE"
+            ]
+        },
+        "vpc_id": "VPC3060"
+    },
+    "SERVERMODULELIST_SNAPSHOT": {
+        "name": "SERVERMODULELIST_SNAPSHOT",
+        "vpc": "VPC3080",
+        "vars": [
+            "requestID",
+            "requestID",
+            "...serverModules"
+        ],
+        "description": "Provides a list of server modules currently active on Ocean Server. A VPC3080 is sent in response to u151.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "SnapshotEvent.LOAD",
+        "fxname": "servermodulelistSnapshot",
+        "classes": {
+            "SnapshotEvent": [
+                "LOAD"
+            ]
+        },
+        "vpc_id": "VPC3080"
+    },
+    "SESSION_CREATED": {
+        "name": "SESSION_CREATED",
+        "vpc": "VPC3100",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "SESSION_CREATED",
+        "status": null,
+        "response_vpc": "VPC3100",
+        "api": "sessionCreated",
+        "fxname": "sessionCreated",
+        "classes": {
+            "Session": "created"
+        }
+    },
+    "SESSION_NOT_FOUND": {
+        "name": "SESSION_NOT_FOUND",
+        "vpc": "VPC3120",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Informs the client that it sent an unknown session id. VPC3120 is sent to the client in the following situations: The client sends a sessionID that is no longer valid on the server|The client sends a sessionID that has never existed on the server|The client sends a malformed sessionID",
+        "status": [],
+        "response_vpc": 0,
+        "api": "Sessions.sessionNotFound",
+        "fxname": "sessionNotFound",
+        "classes": {
+            "Sessions": [
+                "sessionNotFound"
+            ]
+        },
+        "vpc_id": "VPC3120"
+    },
+    "SESSION_TERMINATED": {
+        "name": "SESSION_TERMINATED",
+        "vpc": "VPC3140",
+        "vars": [
+            "requestID"
+        ],
+        "description": "Informs the client that its session has been terminated. VPC3140 is sent to the client when the server forcibly ends the client's session.",
+        "status": [],
+        "response_vpc": 0,
+        "api": "Sessions.sessionTerminated",
+        "fxname": "sessionTerminated",
+        "classes": {
+            "Sessions": [
+                "sessionTerminated"
+            ]
+        },
+        "vpc_id": "VPC3140"
+    },
+    "SESSION_EXPIRED": {
+        "name": "SESSION_EXPIRED",
+        "vpc": "VPC3160",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "SESSION_EXPIRED",
+        "status": null,
+        "response_vpc": "VPC3160",
+        "api": "sessionExpired",
+        "fxname": "sessionExpired",
+        "classes": {
+            "Session": "expired"
+        }
+    },
+    "TERMINATE_SESSION": {
+        "name": "TERMINATE_SESSION",
+        "vpc": "VPC3180",
+        "vars": [
+            "requestID",
+            "sessionID"
+        ],
+        "description": "Asks the server to terminate the session specified by sessionID.",
+        "status": null,
+        "response_vpc": "Array",
+        "api": "SessionProperties.terminate",
+        "fxname": "terminateSession",
+        "classes": {
+            "SessionProperties": [
+                "terminate"
+            ]
+        },
+        "vpc_id": "VPC3180"
+    },
+    "TERMINATE_SESSION_RESULT": {
+        "name": "TERMINATE_SESSION_RESULT",
+        "vpc": "VPC3200",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "TERMINATE_SESSION_RESULT",
+        "status": null,
+        "response_vpc": "VPC3200",
+        "api": "terminateSessionResult",
+        "fxname": "terminateSessionResult",
+        "classes": {
+            "Terminate": "sessionResult"
+        }
+    },
+    "RESET_UPC_STATS": {
+        "name": "RESET_UPC_STATS",
+        "vpc": "VPC3220",
+        "vars": [
+            "requestID"
+        ],
+        "description": [
+            "Asks the server to reset server-side UPC-processing statistics. The following statistics are affected by a reset:",
+            "The result of a VPC3220 request is sent via a VPC3240. The statistics-reset is reflected in any subsequent VPC2660 transmission. By default, VPC3220 requires administrator privileges.",
+            "the list of the longest UPC-message-processing times"
+        ],
+        "status": null,
+        "response_vpc": "Array",
+        "api": "Server.resetUPCStats()",
+        "fxname": "resetUpcStats",
+        "classes": {
+            "Server": [
+                "resetUPCStats"
+            ]
+        },
+        "vpc_id": "VPC3220"
+    },
+    "RESET_UPC_STATS_RESULT": {
+        "name": "RESET_UPC_STATS_RESULT",
+        "vpc": "VPC3240",
+        "vars": [
+            "requestID",
+            "status"
+        ],
+        "description": "Reports the result of a RESET_UPC_STATS (VPC3220) request made by the recipient.",
+        "status": [
+            "SUCCESS",
+            "ERROR",
+            "PERMISSION_DENIED"
+        ],
+        "response_vpc": 0,
+        "api": "ServerEvent.RESET_UPC_STATS_RESULT",
+        "fxname": "resetUpcStatsResult",
+        "classes": {
+            "ServerEvent": [
+                "RESET_UPC_STATS_RESULT"
+            ]
+        },
+        "vpc_id": "VPC3240"
+    },
+    "PROCESSED_UPC_ADDED": {
+        "name": "PROCESSED_UPC_ADDED",
+        "vpc": "VPC3260",
+        "vars": [
+            "requestID",
+            "fromClientID",
+            "fromClientUserID",
+            "fromClientAddress",
+            "UPCProcessQueuedAt",
+            "UPCProcessStartedAt",
+            "UPCProcessFinishedAt",
+            "UPCSource"
+        ],
+        "description": "Informs the recipient that the server processed the UPC message specified by UPCSource. See VPC2840. Any CDATA sections contained within UPCSource are escaped according to the rules described under 'Nested CDATA'",
+        "status": [],
+        "response_vpc": 0,
+        "api": "ServerEvent.UPC_PROCESSED",
+        "fxname": "processedUpcAdded",
+        "classes": {
+            "ServerEvent": [
+                "UPC_PROCESSED"
+            ]
+        },
+        "vpc_id": "VPC3260"
+    },
+    "CALL_OUTGOING": {
+        "name": "CALL_OUTGOING",
+        "vpc": "VPC3280",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_OUTGOING",
+        "status": null,
+        "response_vpc": "VPC3280",
+        "api": "callOutgoing",
+        "fxname": "callOutgoing",
+        "classes": {
+            "Call": "outgoing"
+        }
+    },
+    "CALL_INCOMING": {
+        "name": "CALL_INCOMING",
+        "vpc": "VPC3300",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_INCOMING",
+        "status": null,
+        "response_vpc": "VPC3300",
+        "api": "callIncoming",
+        "fxname": "callIncoming",
+        "classes": {
+            "Call": "incoming"
+        }
+    },
+    "CALL_ANSWER": {
+        "name": "CALL_ANSWER",
+        "vpc": "VPC3320",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_ANSWER",
+        "status": null,
+        "response_vpc": "VPC3320",
+        "api": "callAnswer",
+        "fxname": "callAnswer",
+        "classes": {
+            "Call": "answer"
+        }
+    },
+    "CALL_DECLINE": {
+        "name": "CALL_DECLINE",
+        "vpc": "VPC3340",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_DECLINE",
+        "status": null,
+        "response_vpc": "VPC3340",
+        "api": "callDecline",
+        "fxname": "callDecline",
+        "classes": {
+            "Call": "decline"
+        }
+    },
+    "CALL_MUTE": {
+        "name": "CALL_MUTE",
+        "vpc": "VPC3360",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_MUTE",
+        "status": null,
+        "response_vpc": "VPC3360",
+        "api": "callMute",
+        "fxname": "callMute",
+        "classes": {
+            "Call": "mute"
+        }
+    },
+    "CALL_ON_HOLD": {
+        "name": "CALL_ON_HOLD",
+        "vpc": "VPC3380",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_ON_HOLD",
+        "status": null,
+        "response_vpc": "VPC3380",
+        "api": "callOnHold",
+        "fxname": "callOnHold",
+        "classes": {
+            "Call": "onHold"
+        }
+    },
+    "CALL_RESUME": {
+        "name": "CALL_RESUME",
+        "vpc": "VPC3400",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_RESUME",
+        "status": null,
+        "response_vpc": "VPC3400",
+        "api": "callResume",
+        "fxname": "callResume",
+        "classes": {
+            "Call": "resume"
+        }
+    },
+    "CALL_ADD_VIDEO": {
+        "name": "CALL_ADD_VIDEO",
+        "vpc": "VPC3420",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_ADD_VIDEO",
+        "status": null,
+        "response_vpc": "VPC3420",
+        "api": "callAddVideo",
+        "fxname": "callAddVideo",
+        "classes": {
+            "Call": "addVideo"
+        }
+    },
+    "CALL_ADD_VIDEO_RESULT": {
+        "name": "CALL_ADD_VIDEO_RESULT",
+        "vpc": "VPC3440",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_ADD_VIDEO_RESULT",
+        "status": null,
+        "response_vpc": "VPC3440",
+        "api": "callAddVideoResult",
+        "fxname": "callAddVideoResult",
+        "classes": {
+            "Call": "addVideoResult"
+        }
+    },
+    "CALL_REMOVE_VIDEO": {
+        "name": "CALL_REMOVE_VIDEO",
+        "vpc": "VPC3460",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_REMOVE_VIDEO",
+        "status": null,
+        "response_vpc": "VPC3460",
+        "api": "callRemoveVideo",
+        "fxname": "callRemoveVideo",
+        "classes": {
+            "Call": "removeVideo"
+        }
+    },
+    "CALL_REMOVE_VIDEO_RESULT": {
+        "name": "CALL_REMOVE_VIDEO_RESULT",
+        "vpc": "VPC3480",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_REMOVE_VIDEO_RESULT",
+        "status": null,
+        "response_vpc": "VPC3480",
+        "api": "callRemoveVideoResult",
+        "fxname": "callRemoveVideoResult",
+        "classes": {
+            "Call": "removeVideoResult"
+        }
+    },
+    "CALL_END": {
+        "name": "CALL_END",
+        "vpc": "VPC3500",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_END",
+        "status": null,
+        "response_vpc": "VPC3500",
+        "api": "callEnd",
+        "fxname": "callEnd",
+        "classes": {
+            "Call": "end"
+        }
+    },
+    "CALL_END_RESULT": {
+        "name": "CALL_END_RESULT",
+        "vpc": "VPC3520",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_END_RESULT",
+        "status": null,
+        "response_vpc": "VPC3520",
+        "api": "callEndResult",
+        "fxname": "callEndResult",
+        "classes": {
+            "Call": "endResult"
+        }
+    },
+    "CALL_PEER_ANSWER": {
+        "name": "CALL_PEER_ANSWER",
+        "vpc": "VPC3540",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_PEER_ANSWER",
+        "status": null,
+        "response_vpc": "VPC3540",
+        "api": "callPeerAnswer",
+        "fxname": "callPeerAnswer",
+        "classes": {
+            "Call": "peerAnswer"
+        }
+    },
+    "CALL_PEER_DECLINE": {
+        "name": "CALL_PEER_DECLINE",
+        "vpc": "VPC3560",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_PEER_DECLINE",
+        "status": null,
+        "response_vpc": "VPC3560",
+        "api": "callPeerDecline",
+        "fxname": "callPeerDecline",
+        "classes": {
+            "Call": "peerDecline"
+        }
+    },
+    "CALL_PEER_ON_HOLD": {
+        "name": "CALL_PEER_ON_HOLD",
+        "vpc": "VPC3580",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_PEER_ON_HOLD",
+        "status": null,
+        "response_vpc": "VPC3580",
+        "api": "callPeerOnHold",
+        "fxname": "callPeerOnHold",
+        "classes": {
+            "Call": "peerOnHold"
+        }
+    },
+    "CALL_PEER_RESUME": {
+        "name": "CALL_PEER_RESUME",
+        "vpc": "VPC3600",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_PEER_RESUME",
+        "status": null,
+        "response_vpc": "VPC3600",
+        "api": "callPeerResume",
+        "fxname": "callPeerResume",
+        "classes": {
+            "Call": "peerResume"
+        }
+    },
+    "CALL_PEER_END": {
+        "name": "CALL_PEER_END",
+        "vpc": "VPC3620",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_PEER_END",
+        "status": null,
+        "response_vpc": "VPC3620",
+        "api": "callPeerEnd",
+        "fxname": "callPeerEnd",
+        "classes": {
+            "Call": "peerEnd"
+        }
+    },
+    "CALL_PEER_END_RESULT": {
+        "name": "CALL_PEER_END_RESULT",
+        "vpc": "VPC3640",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_PEER_END_RESULT",
+        "status": null,
+        "response_vpc": "VPC3640",
+        "api": "callPeerEndResult",
+        "fxname": "callPeerEndResult",
+        "classes": {
+            "Call": "peerEndResult"
+        }
+    },
+    "CALL_ADD_PARTY": {
+        "name": "CALL_ADD_PARTY",
+        "vpc": "VPC3660",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_ADD_PARTY",
+        "status": null,
+        "response_vpc": "VPC3660",
+        "api": "callAddParty",
+        "fxname": "callAddParty",
+        "classes": {
+            "Call": "addParty"
+        }
+    },
+    "CALL_ADD_PARTY_RESULT": {
+        "name": "CALL_ADD_PARTY_RESULT",
+        "vpc": "VPC3680",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_ADD_PARTY_RESULT",
+        "status": null,
+        "response_vpc": "VPC3680",
+        "api": "callAddPartyResult",
+        "fxname": "callAddPartyResult",
+        "classes": {
+            "Call": "addPartyResult"
+        }
+    },
+    "CALL_REMOVE_PARTY": {
+        "name": "CALL_REMOVE_PARTY",
+        "vpc": "VPC3700",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_REMOVE_PARTY",
+        "status": null,
+        "response_vpc": "VPC3700",
+        "api": "callRemoveParty",
+        "fxname": "callRemoveParty",
+        "classes": {
+            "Call": "removeParty"
+        }
+    },
+    "CALL_REMOVE_PARTY_RESULT": {
+        "name": "CALL_REMOVE_PARTY_RESULT",
+        "vpc": "VPC3720",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_REMOVE_PARTY_RESULT",
+        "status": null,
+        "response_vpc": "VPC3720",
+        "api": "callRemovePartyResult",
+        "fxname": "callRemovePartyResult",
+        "classes": {
+            "Call": "removePartyResult"
+        }
+    },
+    "CALL_MUTE_PARTY": {
+        "name": "CALL_MUTE_PARTY",
+        "vpc": "VPC3740",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_MUTE_PARTY",
+        "status": null,
+        "response_vpc": "VPC3740",
+        "api": "callMuteParty",
+        "fxname": "callMuteParty",
+        "classes": {
+            "Call": "muteParty"
+        }
+    },
+    "CALL_MUTE_PARTY_RESULT": {
+        "name": "CALL_MUTE_PARTY_RESULT",
+        "vpc": "VPC3760",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_MUTE_PARTY_RESULT",
+        "status": null,
+        "response_vpc": "VPC3760",
+        "api": "callMutePartyResult",
+        "fxname": "callMutePartyResult",
+        "classes": {
+            "Call": "mutePartyResult"
+        }
+    },
+    "CALL_UNMUTE_PARTY": {
+        "name": "CALL_UNMUTE_PARTY",
+        "vpc": "VPC3780",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_UNMUTE_PARTY",
+        "status": null,
+        "response_vpc": "VPC3780",
+        "api": "callUnmuteParty",
+        "fxname": "callUnmuteParty",
+        "classes": {
+            "Call": "unmuteParty"
+        }
+    },
+    "CALL_UNMUTE_PARTY_RESULT": {
+        "name": "CALL_UNMUTE_PARTY_RESULT",
+        "vpc": "VPC3800",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_UNMUTE_PARTY_RESULT",
+        "status": null,
+        "response_vpc": "VPC3800",
+        "api": "callUnmutePartyResult",
+        "fxname": "callUnmutePartyResult",
+        "classes": {
+            "Call": "unmutePartyResult"
+        }
+    },
+    "CALL_REMOVE_ALL_PARTIES": {
+        "name": "CALL_REMOVE_ALL_PARTIES",
+        "vpc": "VPC3820",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_REMOVE_ALL_PARTIES",
+        "status": null,
+        "response_vpc": "VPC3820",
+        "api": "callRemoveAllParties",
+        "fxname": "callRemoveAllParties",
+        "classes": {
+            "Call": "removeAllParties"
+        }
+    },
+    "CALL_REMOVE_ALL_PARTIES_RESULT": {
+        "name": "CALL_REMOVE_ALL_PARTIES_RESULT",
+        "vpc": "VPC3840",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_REMOVE_ALL_PARTIES_RESULT",
+        "status": null,
+        "response_vpc": "VPC3840",
+        "api": "callRemoveAllPartiesResult",
+        "fxname": "callRemoveAllPartiesResult",
+        "classes": {
+            "Call": "removeAllPartiesResult"
+        }
+    },
+    "CALL_MUTE_ALL_PARTIES": {
+        "name": "CALL_MUTE_ALL_PARTIES",
+        "vpc": "VPC3860",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_MUTE_ALL_PARTIES",
+        "status": null,
+        "response_vpc": "VPC3860",
+        "api": "callMuteAllParties",
+        "fxname": "callMuteAllParties",
+        "classes": {
+            "Call": "muteAllParties"
+        }
+    },
+    "CALL_MUTE_ALL_PARTIES_RESULT": {
+        "name": "CALL_MUTE_ALL_PARTIES_RESULT",
+        "vpc": "VPC3880",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_MUTE_ALL_PARTIES_RESULT",
+        "status": null,
+        "response_vpc": "VPC3880",
+        "api": "callMuteAllPartiesResult",
+        "fxname": "callMuteAllPartiesResult",
+        "classes": {
+            "Call": "muteAllPartiesResult"
+        }
+    },
+    "CALL_UNMUTE_ALL_PARTIES": {
+        "name": "CALL_UNMUTE_ALL_PARTIES",
+        "vpc": "VPC3900",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_UNMUTE_ALL_PARTIES",
+        "status": null,
+        "response_vpc": "VPC3900",
+        "api": "callUnmuteAllParties",
+        "fxname": "callUnmuteAllParties",
+        "classes": {
+            "Call": "unmuteAllParties"
+        }
+    },
+    "CALL_UNMUTE_ALL_PARTIES_RESULT": {
+        "name": "CALL_UNMUTE_ALL_PARTIES_RESULT",
+        "vpc": "VPC3920",
+        "vars": [
+            "requestID",
+            "clientID, status"
+        ],
+        "description": "CALL_UNMUTE_ALL_PARTIES_RESULT",
+        "status": null,
+        "response_vpc": "VPC3920",
+        "api": "callUnmuteAllPartiesResult",
+        "fxname": "callUnmuteAllPartiesResult",
+        "classes": {
+            "Call": "unmuteAllPartiesResult"
+        }
+    }
+}

@@ -1,0 +1,44 @@
+
+.blog-single {
+	background: $color_catskill_white_approx;
+	.single-inner {
+		background-color: $white;
+		padding: 30px;
+		border: 1px solid $color_gallery_approx;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 6px;
+	}
+	.post-thumbnils {
+		position: relative;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 5px;
+		overflow: hidden;
+		img {
+			width: 100%;
+		}
+		.author {
+			display: inline-block;
+			padding: 6px 15px 6px 7px;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 30px;
+			background-color: $color_persian_blue_approx;
+			position: absolute;
+			right: 20px;
+			bottom: 20px;
+			img {
+				height: 28px;
+				width: 28px;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 50%;
+				display: inline-block;
+			}
+			span {
+				color: $white;
+				display: inline-block;
+				margin-left: 10px;
+				font-size: 10px;
+				font-weight: 500;
+			}
+		}
+	}
+}

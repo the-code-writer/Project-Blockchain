@@ -1,0 +1,2796 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://socket.io/docs/client-api/#Client
+Subject: Client API | Socket.IO
+Date: Mon, 28 Sep 2020 16:20:35 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--ryleL1GRlSyDIzx7uiyKBV4fmQESfSRusUrzKZyJiw----"
+
+
+------MultipartBoundary--ryleL1GRlSyDIzx7uiyKBV4fmQESfSRusUrzKZyJiw----
+Content-Type: text/html
+Content-ID: <frame-EAE0FB1A90FB6D3530CA2D556BCB01D5@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://socket.io/docs/client-api/#Client
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"tex=
+t/html; charset=3DUTF-8"><meta name=3D"generator" content=3D"Hexo 3.9.0">
+ =20
+ =20
+<!-- Google Analytics -->
+
+<!-- End Google Analytics -->
+
+
+ =20
+  <title>Client API | Socket.IO</title>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1, maximum-scale=3D1">
+  <meta name=3D"description" content=3D"IOExposed as the io namespace in th=
+e standalone build, or the result of calling require(&amp;#39;socket.io-cli=
+ent&amp;#39;). &amp;lt;script src=3D&quot;/socket.io/socket.io.js&quot;&amp=
+;gt;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;  const so">
+<meta property=3D"og:type" content=3D"website">
+<meta property=3D"og:title" content=3D"Client API">
+<meta property=3D"og:url" content=3D"https://socket.io/docs/client-api/inde=
+x.html">
+<meta property=3D"og:site_name" content=3D"Socket.IO">
+<meta property=3D"og:description" content=3D"IOExposed as the io namespace =
+in the standalone build, or the result of calling require(&amp;#39;socket.i=
+o-client&amp;#39;). &amp;lt;script src=3D&quot;/socket.io/socket.io.js&quot=
+;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;  const so">
+<meta property=3D"og:locale" content=3D"default">
+<meta property=3D"og:updated_time" content=3D"2020-09-28T09:12:01.624Z">
+<meta name=3D"twitter:card" content=3D"summary">
+<meta name=3D"twitter:title" content=3D"Client API">
+<meta name=3D"twitter:description" content=3D"IOExposed as the io namespace=
+ in the standalone build, or the result of calling require(&amp;#39;socket.=
+io-client&amp;#39;). &amp;lt;script src=3D&quot;/socket.io/socket.io.js&quo=
+t;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;  const so">
+ =20
+ =20
+    <link rel=3D"icon" href=3D"https://socket.io/images/favicon.png">
+ =20
+ =20
+    <link href=3D"https://fonts.googleapis.com/css?family=3DSource+Code+Pro=
+" rel=3D"stylesheet" type=3D"text/css">
+ =20
+
+  <link rel=3D"stylesheet" href=3D"https://socket.io/css/style.css">
+
+  <link href=3D"https://fonts.googleapis.com/css?family=3DOpen+Sans:300ital=
+ic,400italic,600italic,700italic,400,300,600,700" rel=3D"stylesheet" type=
+=3D"text/css">
+
+  <link rel=3D"stylesheet" href=3D"https://cdn.jsdelivr.net/npm/docsearch.j=
+s@2/dist/cdn/docsearch.min.css">
+</head>
+<body style=3D"">
+
+  <div id=3D"container">
+    <div id=3D"wrap">
+      <header id=3D"header">
+  <a id=3D"logo" href=3D"https://socket.io/"></a>
+  <nav class=3D"main-nav">
+    <ul class=3D"nav-items">
+      <li>
+        <span class=3D"algolia-autocomplete" style=3D"position: relative; d=
+isplay: inline-block; direction: ltr;"><input id=3D"docsearch-input" type=
+=3D"text" placeholder=3D"Search..." class=3D"ds-input" autocomplete=3D"off"=
+ spellcheck=3D"false" role=3D"combobox" aria-autocomplete=3D"list" aria-exp=
+anded=3D"false" aria-label=3D"search input" aria-owns=3D"algolia-autocomple=
+te-listbox-0" dir=3D"auto" style=3D"position: relative; vertical-align: top=
+;"><pre aria-hidden=3D"true" style=3D"position: absolute; visibility: hidde=
+n; white-space: pre; font-family: &quot;Open Sans&quot;, sans-serif; font-s=
+ize: 12px; font-style: normal; font-variant: normal; font-weight: 400; word=
+-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: au=
+to; text-transform: none;"></pre><span class=3D"ds-dropdown-menu" role=3D"l=
+istbox" id=3D"algolia-autocomplete-listbox-0" style=3D"position: absolute; =
+top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class=
+=3D"ds-dataset-1"></div></span></span>
+      </li>
+      <li>
+        <div class=3D"dropdown">
+          <span class=3D"dropdown-toggle nav-item">Learn</span>
+          <ul class=3D"dropdown-content">
+            <li>
+              <a href=3D"https://socket.io/get-started/chat/" class=3D"nav-=
+link">Get started</a>
+            </li>
+            <li>
+              <a href=3D"https://socket.io/docs/" class=3D"nav-link">Docume=
+ntation</a>
+            </li>
+            <li>
+              <a href=3D"https://socket.io/demos/chat/" class=3D"nav-link">=
+Demos</a>
+            </li>
+            <li class=3D"anchor"></li>
+            <li>
+              <a href=3D"https://socket.io/docs/server-api/" class=3D"nav-l=
+ink">Server API</a>
+            </li>
+            <li>
+              <a href=3D"https://socket.io/docs/client-api/" class=3D"nav-l=
+ink">Client API</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class=3D"dropdown">
+          <span class=3D"dropdown-toggle nav-item">Resources</span>
+          <ul class=3D"dropdown-content">
+            <li>
+              <span class=3D"nav-links-header">Getting help</span>
+              <ul>
+                <li>
+                  <a href=3D"https://socketio-slackin.herokuapp.com/" targe=
+t=3D"_blank" class=3D"nav-link">Slack</a>
+                </li>
+                <li>
+                  <a href=3D"https://stackoverflow.com/questions/tagged/soc=
+ket.io" target=3D"_blank" class=3D"nav-link">Stack Overflow</a>
+                </li>
+              </ul>
+            </li>
+            <li class=3D"anchor"></li>
+            <li>
+              <span class=3D"nav-links-header">News</span>
+              <ul>
+                <li>
+                  <a href=3D"https://socket.io/blog/" class=3D"nav-link">Bl=
+og</a>
+                </li>
+                <li>
+                  <a href=3D"https://twitter.com/SocketIO" target=3D"_blank=
+" class=3D"nav-link">Twitter</a>
+                </li>
+              </ul>
+            </li>
+            <li class=3D"anchor"></li>
+            <li>
+              <span class=3D"nav-links-header">Links</span>
+              <ul>
+                <li>
+                  <a href=3D"https://github.com/socketio/socket.io" target=
+=3D"_blank" class=3D"nav-link">GitHub</a>
+                </li>
+                <li>
+                  <a href=3D"https://cdnjs.com/libraries/socket.io" target=
+=3D"_blank" class=3D"nav-link">CDN</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href=3D"https://opencollective.com/socketio" target=3D"_blank" c=
+lass=3D"nav-item">Support Socket.IO</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+     =20
+      <aside id=3D"sidebar">
+ =20
+    <h3>Client API</h3>
+    <ol class=3D"toc"><li class=3D"toc-item toc-level-1"><a class=3D"toc-li=
+nk" href=3D"https://socket.io/docs/client-api/#IO"><span class=3D"toc-text"=
+>IO</span></a><ol class=3D"toc-child"><li class=3D"toc-item toc-level-2"><a=
+ class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#io-protocol"=
+><span class=3D"toc-text">io.protocol</span></a></li><li class=3D"toc-item =
+toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-ap=
+i/#io-url-options"><span class=3D"toc-text">io([url][, options])</span></a>=
+</li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https=
+://socket.io/docs/client-api/#Initialization-examples"><span class=3D"toc-t=
+ext">Initialization examples</span></a><ol class=3D"toc-child"><li class=3D=
+"toc-item toc-level-3"><a class=3D"toc-link" href=3D"https://socket.io/docs=
+/client-api/#With-multiplexing"><span class=3D"toc-text">With multiplexing<=
+/span></a></li><li class=3D"toc-item toc-level-3"><a class=3D"toc-link" hre=
+f=3D"https://socket.io/docs/client-api/#With-custom-path"><span class=3D"to=
+c-text">With custom path</span></a></li><li class=3D"toc-item toc-level-3">=
+<a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#With-query=
+-parameters"><span class=3D"toc-text">With query parameters</span></a></li>=
+<li class=3D"toc-item toc-level-3"><a class=3D"toc-link" href=3D"https://so=
+cket.io/docs/client-api/#With-query-option"><span class=3D"toc-text">With q=
+uery option</span></a></li><li class=3D"toc-item toc-level-3"><a class=3D"t=
+oc-link" href=3D"https://socket.io/docs/client-api/#With-extraHeaders"><spa=
+n class=3D"toc-text">With extraHeaders</span></a></li><li class=3D"toc-item=
+ toc-level-3"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-a=
+pi/#With-websocket-transport-only"><span class=3D"toc-text">With websocket =
+transport only</span></a></li><li class=3D"toc-item toc-level-3"><a class=
+=3D"toc-link" href=3D"https://socket.io/docs/client-api/#With-a-custom-pars=
+er"><span class=3D"toc-text">With a custom parser</span></a></li><li class=
+=3D"toc-item toc-level-3"><a class=3D"toc-link" href=3D"https://socket.io/d=
+ocs/client-api/#With-a-self-signed-certificate"><span class=3D"toc-text">Wi=
+th a self-signed certificate</span></a></li></ol></li></ol></li><li class=
+=3D"toc-item toc-level-1"><a class=3D"toc-link" href=3D"https://socket.io/d=
+ocs/client-api/#Manager"><span class=3D"toc-text">Manager</span></a><ol cla=
+ss=3D"toc-child"><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" h=
+ref=3D"https://socket.io/docs/client-api/#new-Manager-url-options"><span cl=
+ass=3D"toc-text">new Manager(url[, options])</span></a></li><li class=3D"to=
+c-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/cl=
+ient-api/#manager-reconnection-value"><span class=3D"toc-text">manager.reco=
+nnection([value])</span></a></li><li class=3D"toc-item toc-level-2"><a clas=
+s=3D"toc-link" href=3D"https://socket.io/docs/client-api/#manager-reconnect=
+ionAttempts-value"><span class=3D"toc-text">manager.reconnectionAttempts([v=
+alue])</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-li=
+nk" href=3D"https://socket.io/docs/client-api/#manager-reconnectionDelay-va=
+lue"><span class=3D"toc-text">manager.reconnectionDelay([value])</span></a>=
+</li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https=
+://socket.io/docs/client-api/#manager-reconnectionDelayMax-value"><span cla=
+ss=3D"toc-text">manager.reconnectionDelayMax([value])</span></a></li><li cl=
+ass=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.i=
+o/docs/client-api/#manager-timeout-value"><span class=3D"toc-text">manager.=
+timeout([value])</span></a></li><li class=3D"toc-item toc-level-2"><a class=
+=3D"toc-link" href=3D"https://socket.io/docs/client-api/#manager-open-callb=
+ack"><span class=3D"toc-text">manager.open([callback])</span></a></li><li c=
+lass=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.=
+io/docs/client-api/#manager-connect-callback"><span class=3D"toc-text">mana=
+ger.connect([callback])</span></a></li><li class=3D"toc-item toc-level-2"><=
+a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#manager-soc=
+ket-nsp-options"><span class=3D"toc-text">manager.socket(nsp, options)</spa=
+n></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D=
+"https://socket.io/docs/client-api/#Event-%E2%80%98connect-error%E2%80%99">=
+<span class=3D"toc-text">Event: =E2=80=98connect_error=E2=80=99</span></a><=
+/li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https:=
+//socket.io/docs/client-api/#Event-%E2%80%98connect-timeout%E2%80%99"><span=
+ class=3D"toc-text">Event: =E2=80=98connect_timeout=E2=80=99</span></a></li=
+><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://s=
+ocket.io/docs/client-api/#Event-%E2%80%98reconnect%E2%80%99"><span class=3D=
+"toc-text">Event: =E2=80=98reconnect=E2=80=99</span></a></li><li class=3D"t=
+oc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/c=
+lient-api/#Event-%E2%80%98reconnect-attempt%E2%80%99"><span class=3D"toc-te=
+xt">Event: =E2=80=98reconnect_attempt=E2=80=99</span></a></li><li class=3D"=
+toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/=
+client-api/#Event-%E2%80%98reconnecting%E2%80%99"><span class=3D"toc-text">=
+Event: =E2=80=98reconnecting=E2=80=99</span></a></li><li class=3D"toc-item =
+toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-ap=
+i/#Event-%E2%80%98reconnect-error%E2%80%99"><span class=3D"toc-text">Event:=
+ =E2=80=98reconnect_error=E2=80=99</span></a></li><li class=3D"toc-item toc=
+-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#=
+Event-%E2%80%98reconnect-failed%E2%80%99"><span class=3D"toc-text">Event: =
+=E2=80=98reconnect_failed=E2=80=99</span></a></li><li class=3D"toc-item toc=
+-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#=
+Event-%E2%80%98ping%E2%80%99"><span class=3D"toc-text">Event: =E2=80=98ping=
+=E2=80=99</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc=
+-link" href=3D"https://socket.io/docs/client-api/#Event-%E2%80%98pong%E2%80=
+%99"><span class=3D"toc-text">Event: =E2=80=98pong=E2=80=99</span></a></li>=
+</ol></li><li class=3D"toc-item toc-level-1"><a class=3D"toc-link" href=3D"=
+https://socket.io/docs/client-api/#Socket"><span class=3D"toc-text">Socket<=
+/span></a><ol class=3D"toc-child"><li class=3D"toc-item toc-level-2"><a cla=
+ss=3D"toc-link" href=3D"https://socket.io/docs/client-api/#socket-id"><span=
+ class=3D"toc-text">socket.id</span></a></li><li class=3D"toc-item toc-leve=
+l-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#socke=
+t-connected"><span class=3D"toc-text">socket.connected</span></a></li><li c=
+lass=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.=
+io/docs/client-api/#socket-disconnected"><span class=3D"toc-text">socket.di=
+sconnected</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"to=
+c-link" href=3D"https://socket.io/docs/client-api/#socket-open"><span class=
+=3D"toc-text">socket.open()</span></a></li><li class=3D"toc-item toc-level-=
+2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#socket-=
+connect"><span class=3D"toc-text">socket.connect()</span></a></li><li class=
+=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/d=
+ocs/client-api/#socket-send-%E2%80%A6args-ack"><span class=3D"toc-text">soc=
+ket.send([=E2=80=A6args][, ack])</span></a></li><li class=3D"toc-item toc-l=
+evel-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#so=
+cket-emit-eventName-%E2%80%A6args-ack"><span class=3D"toc-text">socket.emit=
+(eventName[, =E2=80=A6args][, ack])</span></a></li><li class=3D"toc-item to=
+c-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/=
+#socket-on-eventName-callback"><span class=3D"toc-text">socket.on(eventName=
+, callback)</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"t=
+oc-link" href=3D"https://socket.io/docs/client-api/#socket-compress-value">=
+<span class=3D"toc-text">socket.compress(value)</span></a></li><li class=3D=
+"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs=
+/client-api/#socket-binary-value"><span class=3D"toc-text">socket.binary(va=
+lue)</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link=
+" href=3D"https://socket.io/docs/client-api/#socket-close"><span class=3D"t=
+oc-text">socket.close()</span></a></li><li class=3D"toc-item toc-level-2"><=
+a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#socket-disc=
+onnect"><span class=3D"toc-text">socket.disconnect()</span></a></li><li cla=
+ss=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io=
+/docs/client-api/#Event-%E2%80%98connect%E2%80%99"><span class=3D"toc-text"=
+>Event: =E2=80=98connect=E2=80=99</span></a></li><li class=3D"toc-item toc-=
+level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#E=
+vent-%E2%80%98connect-error%E2%80%99-1"><span class=3D"toc-text">Event: =E2=
+=80=98connect_error=E2=80=99</span></a></li><li class=3D"toc-item toc-level=
+-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#Event-=
+%E2%80%98connect-timeout%E2%80%99-1"><span class=3D"toc-text">Event: =E2=80=
+=98connect_timeout=E2=80=99</span></a></li><li class=3D"toc-item toc-level-=
+2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#Event-%=
+E2%80%98error%E2%80%99"><span class=3D"toc-text">Event: =E2=80=98error=E2=
+=80=99</span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-li=
+nk" href=3D"https://socket.io/docs/client-api/#Event-%E2%80%98disconnect%E2=
+%80%99"><span class=3D"toc-text">Event: =E2=80=98disconnect=E2=80=99</span>=
+</a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"h=
+ttps://socket.io/docs/client-api/#Event-%E2%80%98reconnect%E2%80%99-1"><spa=
+n class=3D"toc-text">Event: =E2=80=98reconnect=E2=80=99</span></a></li><li =
+class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket=
+.io/docs/client-api/#Event-%E2%80%98reconnect-attempt%E2%80%99-1"><span cla=
+ss=3D"toc-text">Event: =E2=80=98reconnect_attempt=E2=80=99</span></a></li><=
+li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://soc=
+ket.io/docs/client-api/#Event-%E2%80%98reconnecting%E2%80%99-1"><span class=
+=3D"toc-text">Event: =E2=80=98reconnecting=E2=80=99</span></a></li><li clas=
+s=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/=
+docs/client-api/#Event-%E2%80%98reconnect-error%E2%80%99-1"><span class=3D"=
+toc-text">Event: =E2=80=98reconnect_error=E2=80=99</span></a></li><li class=
+=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/d=
+ocs/client-api/#Event-%E2%80%98reconnect-failed%E2%80%99-1"><span class=3D"=
+toc-text">Event: =E2=80=98reconnect_failed=E2=80=99</span></a></li><li clas=
+s=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/=
+docs/client-api/#Event-%E2%80%98ping%E2%80%99-1"><span class=3D"toc-text">E=
+vent: =E2=80=98ping=E2=80=99</span></a></li><li class=3D"toc-item toc-level=
+-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-api/#Event-=
+%E2%80%98pong%E2%80%99-1"><span class=3D"toc-text">Event: =E2=80=98pong=E2=
+=80=99</span></a></li></ol></li></ol>
+ =20
+
+</aside>
+
+     =20
+      <div id=3D"carbonads"><span><span class=3D"carbon-wrap"><a href=3D"ht=
+tps://srv.carbonads.net/ads/click/x/GTND42JEC67IC2JWCKB4YKQNCTYIV23UFT7DKZ3=
+JCYYD423MFT7DE27KC6BD4K7JCTYDC53ECASDT2QJF6SD6KJWHEYIKK3JCKYDE53ECTNCYBZ52K=
+?segment=3Dplacement:socketio;" class=3D"carbon-img" target=3D"_blank" rel=
+=3D"noopener sponsored"><img src=3D"https://cdn4.buysellads.net/uu/1/41369/=
+1551198561-Adobe_Stock_260x200.jpg" alt=3D"ads via Carbon" border=3D"0" sty=
+le=3D"max-width: 130px;"></a><a href=3D"https://srv.carbonads.net/ads/click=
+/x/GTND42JEC67IC2JWCKB4YKQNCTYIV23UFT7DKZ3JCYYD423MFT7DE27KC6BD4K7JCTYDC53E=
+CASDT2QJF6SD6KJWHEYIKK3JCKYDE53ECTNCYBZ52K?segment=3Dplacement:socketio;" c=
+lass=3D"carbon-text" target=3D"_blank" rel=3D"noopener sponsored">Limited t=
+ime offer: Get 10 free Adobe Stock images.</a></span><a href=3D"http://carb=
+onads.net/?utm_source=3Dsocketio&amp;utm_medium=3Dad_via_link&amp;utm_campa=
+ign=3Din_unit&amp;utm_term=3Dcarbon" class=3D"carbon-poweredby" target=3D"_=
+blank" rel=3D"noopener sponsored">ads via Carbon</a></span></div>
+     =20
+
+<article id=3D"page-" class=3D"article">
+  <h1 id=3D"IO"><a href=3D"https://socket.io/docs/client-api/#IO" class=3D"=
+headerlink" title=3D"IO"></a>IO</h1><p>Exposed as the <code>io</code> names=
+pace in the standalone build, or the result of calling <code>require('socke=
+t.io-client')</code>.</p>
+<figure class=3D"highlight html"><table><tbody><tr><td class=3D"code"><pre>=
+<span class=3D"line"><span class=3D"tag">&lt;<span class=3D"name">script</s=
+pan> <span class=3D"attr">src</span>=3D<span class=3D"string">"/socket.io/s=
+ocket.io.js"</span>&gt;</span><span class=3D"tag">&lt;/<span class=3D"name"=
+>script</span>&gt;</span></span><br><span class=3D"line"><span class=3D"tag=
+">&lt;<span class=3D"name">script</span>&gt;</span></span><br><span class=
+=3D"line">  const socket =3D io('http://localhost');</span><br><span class=
+=3D"line"><span class=3D"tag">&lt;/<span class=3D"name">script</span>&gt;</=
+span></span><br></pre></td></tr></tbody></table></figure>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> io =3D <span class=
+=3D"built_in">require</span>(<span class=3D"string">'socket.io-client'</spa=
+n>);</span><br><span class=3D"line"><span class=3D"comment">// or with impo=
+rt syntax</span></span><br><span class=3D"line"><span class=3D"keyword">imp=
+ort</span> io <span class=3D"keyword">from</span> <span class=3D"string">'s=
+ocket.io-client'</span>;</span><br></pre></td></tr></tbody></table></figure=
+>
+<h2 id=3D"io-protocol"><a href=3D"https://socket.io/docs/client-api/#io-pro=
+tocol" class=3D"headerlink" title=3D"io.protocol"></a>io.protocol</h2><ul>
+<li><em>(Number)</em></li>
+</ul>
+<p>The protocol revision number.</p>
+<h2 id=3D"io-url-options"><a href=3D"https://socket.io/docs/client-api/#io-=
+url-options" class=3D"headerlink" title=3D"io([url][, options])"></a>io([ur=
+l][, options])</h2><ul>
+<li><code>url</code> <em>(String)</em> (defaults to <code>window.location</=
+code>)</li>
+<li><code>options</code> <em>(Object)</em><ul>
+<li><code>forceNew</code> <em>(Boolean)</em> whether to reuse an existing c=
+onnection</li>
+</ul>
+</li>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Creates a new <code>Manager</code> for the given URL, and attempts to re=
+use an existing <code>Manager</code> for subsequent calls, unless the <code=
+>multiplex</code> option is passed with <code>false</code>. Passing this op=
+tion is the equivalent of passing <code>'force new connection': true</code>=
+ or <code>forceNew: true</code>.</p>
+<p>A new <code>Socket</code> instance is returned for the namespace specifi=
+ed by the pathname in the URL, defaulting to <code>/</code>. For example, i=
+f the <code>url</code> is <code>http://localhost/users</code>, a transport =
+connection will be established to <code>http://localhost</code> and a Socke=
+t.IO connection will be established to <code>/users</code>.</p>
+<p>Query parameters can also be provided, either with the <code>query</code=
+> option or directly in the url (example: <code>http://localhost/users?toke=
+n=3Dabc</code>).</p>
+<p>See <a href=3D"https://socket.io/docs/client-api/#new-Manager-url-option=
+s">new Manager(url[, options])</a> for the the list of available <code>opti=
+ons</code>.</p>
+<h2 id=3D"Initialization-examples"><a href=3D"https://socket.io/docs/client=
+-api/#Initialization-examples" class=3D"headerlink" title=3D"Initialization=
+ examples"></a>Initialization examples</h2><h3 id=3D"With-multiplexing"><a =
+href=3D"https://socket.io/docs/client-api/#With-multiplexing" class=3D"head=
+erlink" title=3D"With multiplexing"></a>With multiplexing</h3><p>By default=
+, a single connection is used when connecting to different namespaces (to m=
+inimize resources):</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io();</s=
+pan><br><span class=3D"line"><span class=3D"keyword">const</span> adminSock=
+et =3D io(<span class=3D"string">'/admin'</span>);</span><br><span class=3D=
+"line"><span class=3D"comment">// a single connection will be established</=
+span></span><br></pre></td></tr></tbody></table></figure>
+<p>That behaviour can be disabled with the <code>forceNew</code> option:</p=
+>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io();</s=
+pan><br><span class=3D"line"><span class=3D"keyword">const</span> adminSock=
+et =3D io(<span class=3D"string">'/admin'</span>, { <span class=3D"attr">fo=
+rceNew</span>: <span class=3D"literal">true</span> });</span><br><span clas=
+s=3D"line"><span class=3D"comment">// will create two distinct connections<=
+/span></span><br></pre></td></tr></tbody></table></figure>
+<p>Note: reusing the same namespace will also create two connections</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io();</s=
+pan><br><span class=3D"line"><span class=3D"keyword">const</span> socket2 =
+=3D io();</span><br><span class=3D"line"><span class=3D"comment">// will al=
+so create two distinct connections</span></span><br></pre></td></tr></tbody=
+></table></figure>
+<h3 id=3D"With-custom-path"><a href=3D"https://socket.io/docs/client-api/#W=
+ith-custom-path" class=3D"headerlink" title=3D"With custom path"></a>With c=
+ustom <code>path</code></h3><figure class=3D"highlight js"><table><tbody><t=
+r><td class=3D"code"><pre><span class=3D"line"><span class=3D"keyword">cons=
+t</span> socket =3D io(<span class=3D"string">'http://localhost'</span>, {<=
+/span><br><span class=3D"line">  path: <span class=3D"string">'/myownpath'<=
+/span></span><br><span class=3D"line">});</span><br><span class=3D"line"></=
+span><br><span class=3D"line"><span class=3D"comment">// server-side</span>=
+</span><br><span class=3D"line"><span class=3D"keyword">const</span> io =3D=
+ <span class=3D"built_in">require</span>(<span class=3D"string">'socket.io'=
+</span>)({</span><br><span class=3D"line">  path: <span class=3D"string">'/=
+myownpath'</span></span><br><span class=3D"line">});</span><br></pre></td><=
+/tr></tbody></table></figure>
+<p>The request URLs will look like: <code>localhost/myownpath/?EIO=3D3&amp;=
+transport=3Dpolling&amp;sid=3D&lt;id&gt;</code></p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io(<span=
+ class=3D"string">'http://localhost/admin'</span>, {</span><br><span class=
+=3D"line">  path: <span class=3D"string">'/mypath'</span></span><br><span c=
+lass=3D"line">});</span><br></pre></td></tr></tbody></table></figure>
+<p>Here, the socket connects to the <code>admin</code> namespace, with the =
+custom path <code>mypath</code>.</p>
+<p>The request URLs will look like: <code>localhost/mypath/?EIO=3D3&amp;tra=
+nsport=3Dpolling&amp;sid=3D&lt;id&gt;</code> (the namespace is sent as part=
+ of the payload).</p>
+<h3 id=3D"With-query-parameters"><a href=3D"https://socket.io/docs/client-a=
+pi/#With-query-parameters" class=3D"headerlink" title=3D"With query paramet=
+ers"></a>With query parameters</h3><figure class=3D"highlight js"><table><t=
+body><tr><td class=3D"code"><pre><span class=3D"line"><span class=3D"keywor=
+d">const</span> socket =3D io(<span class=3D"string">'http://localhost?toke=
+n=3Dabc'</span>);</span><br><span class=3D"line"></span><br><span class=3D"=
+line"><span class=3D"comment">// server-side</span></span><br><span class=
+=3D"line"><span class=3D"keyword">const</span> io =3D <span class=3D"built_=
+in">require</span>(<span class=3D"string">'socket.io'</span>)();</span><br>=
+<span class=3D"line"></span><br><span class=3D"line"><span class=3D"comment=
+">// middleware</span></span><br><span class=3D"line">io.use(<span class=3D=
+"function">(<span class=3D"params">socket, next</span>) =3D&gt;</span> {</s=
+pan><br><span class=3D"line">  <span class=3D"keyword">let</span> token =3D=
+ socket.handshake.query.token;</span><br><span class=3D"line">  <span class=
+=3D"keyword">if</span> (isValid(token)) {</span><br><span class=3D"line">  =
+  <span class=3D"keyword">return</span> next();</span><br><span class=3D"li=
+ne">  }</span><br><span class=3D"line">  <span class=3D"keyword">return</sp=
+an> next(<span class=3D"keyword">new</span> <span class=3D"built_in">Error<=
+/span>(<span class=3D"string">'authentication error'</span>));</span><br><s=
+pan class=3D"line">});</span><br><span class=3D"line"></span><br><span clas=
+s=3D"line"><span class=3D"comment">// then</span></span><br><span class=3D"=
+line">io.on(<span class=3D"string">'connection'</span>, (socket) =3D&gt; {<=
+/span><br><span class=3D"line">  <span class=3D"keyword">let</span> token =
+=3D socket.handshake.query.token;</span><br><span class=3D"line">  <span cl=
+ass=3D"comment">// ...</span></span><br><span class=3D"line">});</span><br>=
+</pre></td></tr></tbody></table></figure>
+<h3 id=3D"With-query-option"><a href=3D"https://socket.io/docs/client-api/#=
+With-query-option" class=3D"headerlink" title=3D"With query option"></a>Wit=
+h query option</h3><figure class=3D"highlight js"><table><tbody><tr><td cla=
+ss=3D"code"><pre><span class=3D"line"><span class=3D"keyword">const</span> =
+socket =3D io({</span><br><span class=3D"line">  query: {</span><br><span c=
+lass=3D"line">    token: <span class=3D"string">'cde'</span></span><br><spa=
+n class=3D"line">  }</span><br><span class=3D"line">});</span><br></pre></t=
+d></tr></tbody></table></figure>
+<p>The query content can also be updated on reconnection:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'reconnect_attempt'</sp=
+an>, () =3D&gt; {</span><br><span class=3D"line">  socket.io.opts.query =3D=
+ {</span><br><span class=3D"line">    token: <span class=3D"string">'fgh'</=
+span></span><br><span class=3D"line">  }</span><br><span class=3D"line">});=
+</span><br></pre></td></tr></tbody></table></figure>
+<h3 id=3D"With-extraHeaders"><a href=3D"https://socket.io/docs/client-api/#=
+With-extraHeaders" class=3D"headerlink" title=3D"With extraHeaders"></a>Wit=
+h <code>extraHeaders</code></h3><p>This only works if <code>polling</code> =
+transport is enabled (which is the default). Custom headers will not be app=
+ended when using <code>websocket</code> as the transport. This happens beca=
+use the WebSocket handshake does not honor custom headers. (For background =
+see the <a href=3D"https://tools.ietf.org/html/rfc6455#section-4" target=3D=
+"_blank" rel=3D"noopener">WebSocket protocol RFC</a>)</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io({</sp=
+an><br><span class=3D"line">  transportOptions: {</span><br><span class=3D"=
+line">    polling: {</span><br><span class=3D"line">      extraHeaders: {</=
+span><br><span class=3D"line">        <span class=3D"string">'x-clientid'</=
+span>: <span class=3D"string">'abc'</span></span><br><span class=3D"line"> =
+     }</span><br><span class=3D"line">    }</span><br><span class=3D"line">=
+  }</span><br><span class=3D"line">});</span><br><span class=3D"line"></spa=
+n><br><span class=3D"line"><span class=3D"comment">// server-side</span></s=
+pan><br><span class=3D"line"><span class=3D"keyword">const</span> io =3D <s=
+pan class=3D"built_in">require</span>(<span class=3D"string">'socket.io'</s=
+pan>)();</span><br><span class=3D"line"></span><br><span class=3D"line"><sp=
+an class=3D"comment">// middleware</span></span><br><span class=3D"line">io=
+.use(<span class=3D"function">(<span class=3D"params">socket, next</span>) =
+=3D&gt;</span> {</span><br><span class=3D"line">  <span class=3D"keyword">l=
+et</span> clientId =3D socket.handshake.headers[<span class=3D"string">'x-c=
+lientid'</span>];</span><br><span class=3D"line">  <span class=3D"keyword">=
+if</span> (isValid(clientId)) {</span><br><span class=3D"line">    <span cl=
+ass=3D"keyword">return</span> next();</span><br><span class=3D"line">  }</s=
+pan><br><span class=3D"line">  <span class=3D"keyword">return</span> next(<=
+span class=3D"keyword">new</span> <span class=3D"built_in">Error</span>(<sp=
+an class=3D"string">'authentication error'</span>));</span><br><span class=
+=3D"line">});</span><br></pre></td></tr></tbody></table></figure>
+<h3 id=3D"With-websocket-transport-only"><a href=3D"https://socket.io/docs/=
+client-api/#With-websocket-transport-only" class=3D"headerlink" title=3D"Wi=
+th websocket transport only"></a>With <code>websocket</code> transport only=
+</h3><p>By default, a long-polling connection is established first, then up=
+graded to =E2=80=9Cbetter=E2=80=9D transports (like WebSocket). If you like=
+ to live dangerously, this part can be skipped:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io({</sp=
+an><br><span class=3D"line">  transports: [<span class=3D"string">'websocke=
+t'</span>]</span><br><span class=3D"line">});</span><br><span class=3D"line=
+"></span><br><span class=3D"line"><span class=3D"comment">// on reconnectio=
+n, reset the transports option, as the Websocket</span></span><br><span cla=
+ss=3D"line"><span class=3D"comment">// connection may have failed (caused b=
+y proxy, firewall, browser, ...)</span></span><br><span class=3D"line">sock=
+et.on(<span class=3D"string">'reconnect_attempt'</span>, () =3D&gt; {</span=
+><br><span class=3D"line">  socket.io.opts.transports =3D [<span class=3D"s=
+tring">'polling'</span>, <span class=3D"string">'websocket'</span>];</span>=
+<br><span class=3D"line">});</span><br></pre></td></tr></tbody></table></fi=
+gure>
+<h3 id=3D"With-a-custom-parser"><a href=3D"https://socket.io/docs/client-ap=
+i/#With-a-custom-parser" class=3D"headerlink" title=3D"With a custom parser=
+"></a>With a custom parser</h3><p>The default <a href=3D"https://github.com=
+/socketio/socket.io-parser" target=3D"_blank" rel=3D"noopener">parser</a> p=
+romotes compatibility (support for <code>Blob</code>, <code>File</code>, bi=
+nary check) at the expense of performance. A custom parser can be provided =
+to match the needs of your application. Please see the example <a href=3D"h=
+ttps://github.com/socketio/socket.io/tree/master/examples/custom-parsers" t=
+arget=3D"_blank" rel=3D"noopener">here</a>.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> parser =3D <span cl=
+ass=3D"built_in">require</span>(<span class=3D"string">'socket.io-msgpack-p=
+arser'</span>); <span class=3D"comment">// or require('socket.io-json-parse=
+r')</span></span><br><span class=3D"line"><span class=3D"keyword">const</sp=
+an> socket =3D io({</span><br><span class=3D"line">  parser: parser</span><=
+br><span class=3D"line">});</span><br><span class=3D"line"></span><br><span=
+ class=3D"line"><span class=3D"comment">// the server-side must have the sa=
+me parser, to be able to communicate</span></span><br><span class=3D"line">=
+<span class=3D"keyword">const</span> io =3D <span class=3D"built_in">requir=
+e</span>(<span class=3D"string">'socket.io'</span>)({</span><br><span class=
+=3D"line">  parser: parser</span><br><span class=3D"line">});</span><br></p=
+re></td></tr></tbody></table></figure>
+<h3 id=3D"With-a-self-signed-certificate"><a href=3D"https://socket.io/docs=
+/client-api/#With-a-self-signed-certificate" class=3D"headerlink" title=3D"=
+With a self-signed certificate"></a>With a self-signed certificate</h3><fig=
+ure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><span =
+class=3D"line"><span class=3D"comment">// server-side</span></span><br><spa=
+n class=3D"line"><span class=3D"keyword">const</span> fs =3D <span class=3D=
+"built_in">require</span>(<span class=3D"string">'fs'</span>);</span><br><s=
+pan class=3D"line"><span class=3D"keyword">const</span> server =3D <span cl=
+ass=3D"built_in">require</span>(<span class=3D"string">'https'</span>).crea=
+teServer({</span><br><span class=3D"line">  key: fs.readFileSync(<span clas=
+s=3D"string">'server-key.pem'</span>),</span><br><span class=3D"line">  cer=
+t: fs.readFileSync(<span class=3D"string">'server-cert.pem'</span>)</span><=
+br><span class=3D"line">});</span><br><span class=3D"line"><span class=3D"k=
+eyword">const</span> io =3D <span class=3D"built_in">require</span>(<span c=
+lass=3D"string">'socket.io'</span>)(server);</span><br><span class=3D"line"=
+>server.listen(<span class=3D"number">3000</span>);</span><br><span class=
+=3D"line"></span><br><span class=3D"line"><span class=3D"comment">// client=
+-side</span></span><br><span class=3D"line"><span class=3D"keyword">const</=
+span> socket =3D io({</span><br><span class=3D"line">  <span class=3D"comme=
+nt">// option 1</span></span><br><span class=3D"line">  ca: fs.readFileSync=
+(<span class=3D"string">'server-cert.pem'</span>),</span><br><span class=3D=
+"line"></span><br><span class=3D"line">  <span class=3D"comment">// option =
+2. WARNING: it leaves you vulnerable to MITM attacks!</span></span><br><spa=
+n class=3D"line">  rejectUnauthorized: <span class=3D"literal">false</span>=
+</span><br><span class=3D"line">});</span><br></pre></td></tr></tbody></tab=
+le></figure>
+<h1 id=3D"Manager"><a href=3D"https://socket.io/docs/client-api/#Manager" c=
+lass=3D"headerlink" title=3D"Manager"></a>Manager</h1><p>The <code>Manager<=
+/code> <em>manages</em> the Engine.IO <a href=3D"https://github.com/socketi=
+o/engine.io-client/" target=3D"_blank" rel=3D"noopener">client</a> instance=
+, which is the low-level engine that establishes the connection to the serv=
+er (by using transports like WebSocket or HTTP long-polling).</p>
+<p>The <code>Manager</code> handles the <a href=3D"https://socket.io/docs/c=
+lient-connection-lifecycle/">reconnection logic</a>.</p>
+<p>A single <code>Manager</code> can be used by several <a href=3D"https://=
+socket.io/docs/client-api/#Socket">Sockets</a>. You can find more informati=
+on about this multiplexing feature <a href=3D"https://socket.io/docs/namesp=
+aces">here</a>.</p>
+<h2 id=3D"new-Manager-url-options"><a href=3D"https://socket.io/docs/client=
+-api/#new-Manager-url-options" class=3D"headerlink" title=3D"new Manager(ur=
+l[, options])"></a>new Manager(url[, options])</h2><ul>
+<li><code>url</code> <em>(String)</em></li>
+<li><code>options</code> <em>(Object)</em></li>
+<li><strong>Returns</strong> <code>Manager</code></li>
+</ul>
+<p>Available options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>/socket.io</code></td>
+<td>name of the path that is captured on the server side</td>
+</tr>
+<tr>
+<td><code>reconnection</code></td>
+<td><code>true</code></td>
+<td>whether to reconnect automatically</td>
+</tr>
+<tr>
+<td><code>reconnectionAttempts</code></td>
+<td><code>Infinity</code></td>
+<td>number of reconnection attempts before giving up</td>
+</tr>
+<tr>
+<td><code>reconnectionDelay</code></td>
+<td><code>1000</code></td>
+<td>how long to initially wait before attempting a new reconnection. Affect=
+ed by +/- <code>randomizationFactor</code>, for example the default initial=
+ delay will be between 500 to 1500ms.</td>
+</tr>
+<tr>
+<td><code>reconnectionDelayMax</code></td>
+<td><code>5000</code></td>
+<td>maximum amount of time to wait between reconnections. Each attempt incr=
+eases the reconnection delay by 2x along with a randomization factor.</td>
+</tr>
+<tr>
+<td><code>randomizationFactor</code></td>
+<td><code>0.5</code></td>
+<td>0 &lt;=3D randomizationFactor &lt;=3D 1</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td><code>20000</code></td>
+<td>connection timeout before a <code>connect_error</code> and <code>connec=
+t_timeout</code> events are emitted</td>
+</tr>
+<tr>
+<td><code>autoConnect</code></td>
+<td><code>true</code></td>
+<td>by setting this false, you have to call <code>manager.open</code> whene=
+ver you decide it=E2=80=99s appropriate</td>
+</tr>
+<tr>
+<td><code>query</code></td>
+<td><code>{}</code></td>
+<td>additional query parameters that are sent when connecting a namespace (=
+then found in <code>socket.handshake.query</code> object on the server-side=
+)</td>
+</tr>
+<tr>
+<td><code>parser</code></td>
+<td>-</td>
+<td>the parser to use. Defaults to an instance of the <code>Parser</code> t=
+hat ships with socket.io. See <a href=3D"https://github.com/socketio/socket=
+.io-parser" target=3D"_blank" rel=3D"noopener">socket.io-parser</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Available options for the underlying Engine.IO client:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>upgrade</code></td>
+<td><code>true</code></td>
+<td>whether the client should try to upgrade the transport from long-pollin=
+g to something better.</td>
+</tr>
+<tr>
+<td><code>forceJSONP</code></td>
+<td><code>false</code></td>
+<td>forces JSONP for polling transport.</td>
+</tr>
+<tr>
+<td><code>jsonp</code></td>
+<td><code>true</code></td>
+<td>determines whether to use JSONP when necessary for polling. If disabled=
+ (by settings to false) an error will be emitted (saying =E2=80=9CNo transp=
+orts available=E2=80=9D) if no other transports are available. If another t=
+ransport is available for opening a connection (e.g. WebSocket) that transp=
+ort will be used instead.</td>
+</tr>
+<tr>
+<td><code>forceBase64</code></td>
+<td><code>false</code></td>
+<td>forces base 64 encoding for polling transport even when XHR2 responseTy=
+pe is available and WebSocket even if the used standard supports binary.</t=
+d>
+</tr>
+<tr>
+<td><code>enablesXDR</code></td>
+<td><code>false</code></td>
+<td>enables XDomainRequest for IE8 to avoid loading bar flashing with click=
+ sound. default to <code>false</code> because XDomainRequest has a flaw of =
+not sending cookie.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>timestampRequests</code></td>
+<td>-</td>
+<td>whether to add the timestamp with each transport request. Note: polling=
+ requests are always stamped unless this option is explicitly set to <code>=
+false</code></td>
+</tr>
+<tr>
+<td><code>timestampParam</code></td>
+<td><code>t</code></td>
+<td>the timestamp parameter</td>
+</tr>
+<tr>
+<td><code>policyPort</code></td>
+<td><code>843</code></td>
+<td>port the policy server listens on</td>
+</tr>
+<tr>
+<td><code>transports</code></td>
+<td><code>['polling', 'websocket']</code></td>
+<td>a list of transports to try (in order). <code>Engine</code> always atte=
+mpts to connect directly with the first one, provided the feature detection=
+ test for it passes.</td>
+</tr>
+<tr>
+<td><code>transportOptions</code></td>
+<td><code>{}</code></td>
+<td>hash of options, indexed by transport name, overriding the common optio=
+ns for the given transport</td>
+</tr>
+<tr>
+<td><code>rememberUpgrade</code></td>
+<td><code>false</code></td>
+<td>If true and if the previous websocket connection to the server succeede=
+d, the connection attempt will bypass the normal upgrade process and will i=
+nitially try websocket. A connection attempt following a transport error wi=
+ll use the normal upgrade process. It is recommended you turn this on only =
+when using SSL/TLS connections, or if you know that your network does not b=
+lock websockets.</td>
+</tr>
+<tr>
+<td><code>onlyBinaryUpgrades</code></td>
+<td><code>false</code></td>
+<td>whether transport upgrades should be restricted to transports supportin=
+g binary data</td>
+</tr>
+<tr>
+<td><code>requestTimeout</code></td>
+<td><code>0</code></td>
+<td>timeout for xhr-polling requests in milliseconds (<code>0</code>) (<em>=
+only for polling transport</em>)</td>
+</tr>
+<tr>
+<td><code>protocols</code></td>
+<td>-</td>
+<td>a list of subprotocols (see <a href=3D"https://developer.mozilla.org/en=
+-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#Subprotocols" tar=
+get=3D"_blank" rel=3D"noopener">MDN reference</a>) (<em>only for websocket =
+transport</em>)</td>
+</tr>
+</tbody>
+</table>
+<p>Node.js-only options for the underlying Engine.IO client:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>agent</code></td>
+<td><code>false</code></td>
+<td>the <code>http.Agent</code> to use</td>
+</tr>
+<tr>
+<td><code>pfx</code></td>
+<td>-</td>
+<td>Certificate, Private key and CA certificates to use for SSL.</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td>-</td>
+<td>Private key to use for SSL.</td>
+</tr>
+<tr>
+<td><code>passphrase</code></td>
+<td>-</td>
+<td>A string of passphrase for the private key or pfx.</td>
+</tr>
+<tr>
+<td><code>cert</code></td>
+<td>-</td>
+<td>Public x509 certificate to use.</td>
+</tr>
+<tr>
+<td><code>ca</code></td>
+<td>-</td>
+<td>An authority certificate or array of authority certificates to check th=
+e remote host against.</td>
+</tr>
+<tr>
+<td><code>ciphers</code></td>
+<td>-</td>
+<td>A string describing the ciphers to use or exclude. Consult the <a href=
+=3D"http://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT" targe=
+t=3D"_blank" rel=3D"noopener">cipher format list</a> for details on the for=
+mat.</td>
+</tr>
+<tr>
+<td><code>rejectUnauthorized</code></td>
+<td><code>false</code></td>
+<td>If true, the server certificate is verified against the list of supplie=
+d CAs. An =E2=80=98error=E2=80=99 event is emitted if verification fails. V=
+erification happens at the connection level, before the HTTP request is sen=
+t.</td>
+</tr>
+<tr>
+<td><code>perMessageDeflate</code></td>
+<td><code>true</code></td>
+<td>parameters of the WebSocket permessage-deflate extension (see <a href=
+=3D"https://github.com/einaros/ws" target=3D"_blank" rel=3D"noopener">ws mo=
+dule</a> api docs). Set to <code>false</code> to disable.</td>
+</tr>
+<tr>
+<td><code>extraHeaders</code></td>
+<td><code>{}</code></td>
+<td>Headers that will be passed for each request to the server (via xhr-pol=
+ling and via websockets). These values then can be used during handshake or=
+ for special proxies.</td>
+</tr>
+<tr>
+<td><code>forceNode</code></td>
+<td><code>false</code></td>
+<td>Uses NodeJS implementation for websockets - even if there is a native B=
+rowser-Websocket available, which is preferred by default over the NodeJS i=
+mplementation. (This is useful when using hybrid platforms like nw.js or el=
+ectron)</td>
+</tr>
+<tr>
+<td><code>localAddress</code></td>
+<td>-</td>
+<td>the local IP address to connect to</td>
+</tr>
+</tbody>
+</table>
+<h2 id=3D"manager-reconnection-value"><a href=3D"https://socket.io/docs/cli=
+ent-api/#manager-reconnection-value" class=3D"headerlink" title=3D"manager.=
+reconnection([value])"></a>manager.reconnection([value])</h2><ul>
+<li><code>value</code> <em>(Boolean)</em></li>
+<li><strong>Returns</strong> <code>Manager|Boolean</code></li>
+</ul>
+<p>Sets the <code>reconnection</code> option, or returns it if no parameter=
+s are passed.</p>
+<h2 id=3D"manager-reconnectionAttempts-value"><a href=3D"https://socket.io/=
+docs/client-api/#manager-reconnectionAttempts-value" class=3D"headerlink" t=
+itle=3D"manager.reconnectionAttempts([value])"></a>manager.reconnectionAtte=
+mpts([value])</h2><ul>
+<li><code>value</code> <em>(Number)</em></li>
+<li><strong>Returns</strong> <code>Manager|Number</code></li>
+</ul>
+<p>Sets the <code>reconnectionAttempts</code> option, or returns it if no p=
+arameters are passed.</p>
+<h2 id=3D"manager-reconnectionDelay-value"><a href=3D"https://socket.io/doc=
+s/client-api/#manager-reconnectionDelay-value" class=3D"headerlink" title=
+=3D"manager.reconnectionDelay([value])"></a>manager.reconnectionDelay([valu=
+e])</h2><ul>
+<li><code>value</code> <em>(Number)</em></li>
+<li><strong>Returns</strong> <code>Manager|Number</code></li>
+</ul>
+<p>Sets the <code>reconnectionDelay</code> option, or returns it if no para=
+meters are passed.</p>
+<h2 id=3D"manager-reconnectionDelayMax-value"><a href=3D"https://socket.io/=
+docs/client-api/#manager-reconnectionDelayMax-value" class=3D"headerlink" t=
+itle=3D"manager.reconnectionDelayMax([value])"></a>manager.reconnectionDela=
+yMax([value])</h2><ul>
+<li><code>value</code> <em>(Number)</em></li>
+<li><strong>Returns</strong> <code>Manager|Number</code></li>
+</ul>
+<p>Sets the <code>reconnectionDelayMax</code> option, or returns it if no p=
+arameters are passed.</p>
+<h2 id=3D"manager-timeout-value"><a href=3D"https://socket.io/docs/client-a=
+pi/#manager-timeout-value" class=3D"headerlink" title=3D"manager.timeout([v=
+alue])"></a>manager.timeout([value])</h2><ul>
+<li><code>value</code> <em>(Number)</em></li>
+<li><strong>Returns</strong> <code>Manager|Number</code></li>
+</ul>
+<p>Sets the <code>timeout</code> option, or returns it if no parameters are=
+ passed.</p>
+<h2 id=3D"manager-open-callback"><a href=3D"https://socket.io/docs/client-a=
+pi/#manager-open-callback" class=3D"headerlink" title=3D"manager.open([call=
+back])"></a>manager.open([callback])</h2><ul>
+<li><code>callback</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Manager</code></li>
+</ul>
+<p>If the manager was initiated with <code>autoConnect</code> to <code>fals=
+e</code>, launch a new connection attempt.</p>
+<p>The <code>callback</code> argument is optional and will be called once t=
+he attempt fails/succeeds.</p>
+<h2 id=3D"manager-connect-callback"><a href=3D"https://socket.io/docs/clien=
+t-api/#manager-connect-callback" class=3D"headerlink" title=3D"manager.conn=
+ect([callback])"></a>manager.connect([callback])</h2><p>Synonym of <a href=
+=3D"https://socket.io/docs/client-api/#manageropencallback">manager.open([c=
+allback])</a>.</p>
+<h2 id=3D"manager-socket-nsp-options"><a href=3D"https://socket.io/docs/cli=
+ent-api/#manager-socket-nsp-options" class=3D"headerlink" title=3D"manager.=
+socket(nsp, options)"></a>manager.socket(nsp, options)</h2><ul>
+<li><code>nsp</code> <em>(String)</em></li>
+<li><code>options</code> <em>(Object)</em></li>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Creates a new <code>Socket</code> for the given namespace.</p>
+<h2 id=3D"Event-=E2=80=98connect-error=E2=80=99"><a href=3D"https://socket.=
+io/docs/client-api/#Event-%E2%80%98connect-error%E2%80%99" class=3D"headerl=
+ink" title=3D"Event: =E2=80=98connect_error=E2=80=99"></a>Event: =E2=80=98c=
+onnect_error=E2=80=99</h2><ul>
+<li><code>error</code> <em>(Object)</em> error object</li>
+</ul>
+<p>Fired upon a connection error.</p>
+<h2 id=3D"Event-=E2=80=98connect-timeout=E2=80=99"><a href=3D"https://socke=
+t.io/docs/client-api/#Event-%E2%80%98connect-timeout%E2%80%99" class=3D"hea=
+derlink" title=3D"Event: =E2=80=98connect_timeout=E2=80=99"></a>Event: =E2=
+=80=98connect_timeout=E2=80=99</h2><p>Fired upon a connection timeout.</p>
+<h2 id=3D"Event-=E2=80=98reconnect=E2=80=99"><a href=3D"https://socket.io/d=
+ocs/client-api/#Event-%E2%80%98reconnect%E2%80%99" class=3D"headerlink" tit=
+le=3D"Event: =E2=80=98reconnect=E2=80=99"></a>Event: =E2=80=98reconnect=E2=
+=80=99</h2><ul>
+<li><code>attempt</code> <em>(Number)</em> reconnection attempt number</li>
+</ul>
+<p>Fired upon a successful reconnection.</p>
+<h2 id=3D"Event-=E2=80=98reconnect-attempt=E2=80=99"><a href=3D"https://soc=
+ket.io/docs/client-api/#Event-%E2%80%98reconnect-attempt%E2%80%99" class=3D=
+"headerlink" title=3D"Event: =E2=80=98reconnect_attempt=E2=80=99"></a>Event=
+: =E2=80=98reconnect_attempt=E2=80=99</h2><ul>
+<li><code>attempt</code> <em>(Number)</em> reconnection attempt number</li>
+</ul>
+<p>Fired upon an attempt to reconnect.</p>
+<h2 id=3D"Event-=E2=80=98reconnecting=E2=80=99"><a href=3D"https://socket.i=
+o/docs/client-api/#Event-%E2%80%98reconnecting%E2%80%99" class=3D"headerlin=
+k" title=3D"Event: =E2=80=98reconnecting=E2=80=99"></a>Event: =E2=80=98reco=
+nnecting=E2=80=99</h2><ul>
+<li><code>attempt</code> <em>(Number)</em> reconnection attempt number</li>
+</ul>
+<p>Fired upon an attempt to reconnect.</p>
+<h2 id=3D"Event-=E2=80=98reconnect-error=E2=80=99"><a href=3D"https://socke=
+t.io/docs/client-api/#Event-%E2%80%98reconnect-error%E2%80%99" class=3D"hea=
+derlink" title=3D"Event: =E2=80=98reconnect_error=E2=80=99"></a>Event: =E2=
+=80=98reconnect_error=E2=80=99</h2><ul>
+<li><code>error</code> <em>(Object)</em> error object</li>
+</ul>
+<p>Fired upon a reconnection attempt error.</p>
+<h2 id=3D"Event-=E2=80=98reconnect-failed=E2=80=99"><a href=3D"https://sock=
+et.io/docs/client-api/#Event-%E2%80%98reconnect-failed%E2%80%99" class=3D"h=
+eaderlink" title=3D"Event: =E2=80=98reconnect_failed=E2=80=99"></a>Event: =
+=E2=80=98reconnect_failed=E2=80=99</h2><p>Fired when couldn=E2=80=99t recon=
+nect within <code>reconnectionAttempts</code>.</p>
+<h2 id=3D"Event-=E2=80=98ping=E2=80=99"><a href=3D"https://socket.io/docs/c=
+lient-api/#Event-%E2%80%98ping%E2%80%99" class=3D"headerlink" title=3D"Even=
+t: =E2=80=98ping=E2=80=99"></a>Event: =E2=80=98ping=E2=80=99</h2><p>Fired w=
+hen a ping packet is written out to the server.</p>
+<h2 id=3D"Event-=E2=80=98pong=E2=80=99"><a href=3D"https://socket.io/docs/c=
+lient-api/#Event-%E2%80%98pong%E2%80%99" class=3D"headerlink" title=3D"Even=
+t: =E2=80=98pong=E2=80=99"></a>Event: =E2=80=98pong=E2=80=99</h2><ul>
+<li><code>ms</code> <em>(Number)</em> number of ms elapsed since <code>ping=
+</code> packet (i.e.: latency).</li>
+</ul>
+<p>Fired when a pong is received from the server.</p>
+<h1 id=3D"Socket"><a href=3D"https://socket.io/docs/client-api/#Socket" cla=
+ss=3D"headerlink" title=3D"Socket"></a>Socket</h1><p>A <code>Socket</code> =
+is the fundamental class for interacting with the server. A <code>Socket</c=
+ode> belongs to a certain <a href=3D"https://socket.io/docs/namespace">Name=
+space</a> (by default <code>/</code>) and uses an underlying <a href=3D"htt=
+ps://socket.io/docs/client-api/#Manager">Manager</a> to communicate.</p>
+<h2 id=3D"socket-id"><a href=3D"https://socket.io/docs/client-api/#socket-i=
+d" class=3D"headerlink" title=3D"socket.id"></a>socket.id</h2><ul>
+<li><em>(String)</em></li>
+</ul>
+<p>An unique identifier for the socket session. Set after the <code>connect=
+</code> event is triggered, and updated after the <code>reconnect</code> ev=
+ent.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io(<span=
+ class=3D"string">'http://localhost'</span>);</span><br><span class=3D"line=
+"></span><br><span class=3D"line"><span class=3D"built_in">console</span>.l=
+og(socket.id); <span class=3D"comment">// undefined</span></span><br><span =
+class=3D"line"></span><br><span class=3D"line">socket.on(<span class=3D"str=
+ing">'connect'</span>, () =3D&gt; {</span><br><span class=3D"line">  <span =
+class=3D"built_in">console</span>.log(socket.id); <span class=3D"comment">/=
+/ 'G5p5...'</span></span><br><span class=3D"line">});</span><br></pre></td>=
+</tr></tbody></table></figure>
+<h2 id=3D"socket-connected"><a href=3D"https://socket.io/docs/client-api/#s=
+ocket-connected" class=3D"headerlink" title=3D"socket.connected"></a>socket=
+.connected</h2><ul>
+<li><em>(Boolean)</em></li>
+</ul>
+<p>Whether or not the socket is connected to the server.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io(<span=
+ class=3D"string">'http://localhost'</span>);</span><br><span class=3D"line=
+"></span><br><span class=3D"line">socket.on(<span class=3D"string">'connect=
+'</span>, () =3D&gt; {</span><br><span class=3D"line">  <span class=3D"buil=
+t_in">console</span>.log(socket.connected); <span class=3D"comment">// true=
+</span></span><br><span class=3D"line">});</span><br></pre></td></tr></tbod=
+y></table></figure>
+<h2 id=3D"socket-disconnected"><a href=3D"https://socket.io/docs/client-api=
+/#socket-disconnected" class=3D"headerlink" title=3D"socket.disconnected"><=
+/a>socket.disconnected</h2><ul>
+<li><em>(Boolean)</em></li>
+</ul>
+<p>Whether or not the socket is disconnected from the server.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io(<span=
+ class=3D"string">'http://localhost'</span>);</span><br><span class=3D"line=
+"></span><br><span class=3D"line">socket.on(<span class=3D"string">'connect=
+'</span>, () =3D&gt; {</span><br><span class=3D"line">  <span class=3D"buil=
+t_in">console</span>.log(socket.disconnected); <span class=3D"comment">// f=
+alse</span></span><br><span class=3D"line">});</span><br></pre></td></tr></=
+tbody></table></figure>
+<h2 id=3D"socket-open"><a href=3D"https://socket.io/docs/client-api/#socket=
+-open" class=3D"headerlink" title=3D"socket.open()"></a>socket.open()</h2><=
+ul>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Manually opens the socket.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io({</sp=
+an><br><span class=3D"line">  autoConnect: <span class=3D"literal">false</s=
+pan></span><br><span class=3D"line">});</span><br><span class=3D"line"></sp=
+an><br><span class=3D"line"><span class=3D"comment">// ...</span></span><br=
+><span class=3D"line">socket.open();</span><br></pre></td></tr></tbody></ta=
+ble></figure>
+<p>It can also be used to manually reconnect:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'disconnect'</span>, ()=
+ =3D&gt; {</span><br><span class=3D"line">  socket.open();</span><br><span =
+class=3D"line">});</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"socket-connect"><a href=3D"https://socket.io/docs/client-api/#soc=
+ket-connect" class=3D"headerlink" title=3D"socket.connect()"></a>socket.con=
+nect()</h2><p>Synonym of <a href=3D"https://socket.io/docs/client-api/#sock=
+etopen">socket.open()</a>.</p>
+<h2 id=3D"socket-send-=E2=80=A6args-ack"><a href=3D"https://socket.io/docs/=
+client-api/#socket-send-%E2%80%A6args-ack" class=3D"headerlink" title=3D"so=
+cket.send([=E2=80=A6args][, ack])"></a>socket.send([=E2=80=A6args][, ack])<=
+/h2><ul>
+<li><code>args</code></li>
+<li><code>ack</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Sends a <code>message</code> event. See <a href=3D"https://socket.io/doc=
+s/client-api/#socketemiteventname-args-ack">socket.emit(eventName[, =E2=80=
+=A6args][, ack])</a>.</p>
+<h2 id=3D"socket-emit-eventName-=E2=80=A6args-ack"><a href=3D"https://socke=
+t.io/docs/client-api/#socket-emit-eventName-%E2%80%A6args-ack" class=3D"hea=
+derlink" title=3D"socket.emit(eventName[, =E2=80=A6args][, ack])"></a>socke=
+t.emit(eventName[, =E2=80=A6args][, ack])</h2><ul>
+<li><code>eventName</code> <em>(String)</em></li>
+<li><code>args</code></li>
+<li><code>ack</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Emits an event to the socket identified by the string name. Any other pa=
+rameters can be included. All serializable datastructures are supported, in=
+cluding <code>Buffer</code>.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.emit(<span class=3D"string">'hello'</span>, <span=
+ class=3D"string">'world'</span>);</span><br><span class=3D"line">socket.em=
+it(<span class=3D"string">'with-binary'</span>, <span class=3D"number">1</s=
+pan>, <span class=3D"string">'2'</span>, { <span class=3D"number">3</span>:=
+ <span class=3D"string">'4'</span>, <span class=3D"number">5</span>: <span =
+class=3D"keyword">new</span> Buffer(<span class=3D"number">6</span>) });</s=
+pan><br></pre></td></tr></tbody></table></figure>
+<p>The <code>ack</code> argument is optional and will be called with the se=
+rver answer.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.emit(<span class=3D"string">'ferret'</span>, <spa=
+n class=3D"string">'tobi'</span>, (data) =3D&gt; {</span><br><span class=3D=
+"line">  <span class=3D"built_in">console</span>.log(data); <span class=3D"=
+comment">// data will be 'woot'</span></span><br><span class=3D"line">});</=
+span><br><span class=3D"line"></span><br><span class=3D"line"><span class=
+=3D"comment">// server:</span></span><br><span class=3D"line"><span class=
+=3D"comment">//  io.on('connection', (socket) =3D&gt; {</span></span><br><s=
+pan class=3D"line"><span class=3D"comment">//    socket.on('ferret', (name,=
+ fn) =3D&gt; {</span></span><br><span class=3D"line"><span class=3D"comment=
+">//      fn('woot');</span></span><br><span class=3D"line"><span class=3D"=
+comment">//    });</span></span><br><span class=3D"line"><span class=3D"com=
+ment">//  });</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"socket-on-eventName-callback"><a href=3D"https://socket.io/docs/c=
+lient-api/#socket-on-eventName-callback" class=3D"headerlink" title=3D"sock=
+et.on(eventName, callback)"></a>socket.on(eventName, callback)</h2><ul>
+<li><code>eventName</code> <em>(String)</em></li>
+<li><code>callback</code> <em>(Function)</em></li>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Register a new handler for the given event.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'news'</span>, (data) =
+=3D&gt; {</span><br><span class=3D"line">  <span class=3D"built_in">console=
+</span>.log(data);</span><br><span class=3D"line">});</span><br><span class=
+=3D"line"></span><br><span class=3D"line"><span class=3D"comment">// with m=
+ultiple arguments</span></span><br><span class=3D"line">socket.on(<span cla=
+ss=3D"string">'news'</span>, (arg1, arg2, arg3, arg4) =3D&gt; {</span><br><=
+span class=3D"line">  <span class=3D"comment">// ...</span></span><br><span=
+ class=3D"line">});</span><br><span class=3D"line"><span class=3D"comment">=
+// with callback</span></span><br><span class=3D"line">socket.on(<span clas=
+s=3D"string">'news'</span>, (cb) =3D&gt; {</span><br><span class=3D"line"> =
+ cb(<span class=3D"number">0</span>);</span><br><span class=3D"line">});</s=
+pan><br></pre></td></tr></tbody></table></figure>
+<p>The socket actually inherits every method of the <a href=3D"https://gith=
+ub.com/component/emitter" target=3D"_blank" rel=3D"noopener">Emitter</a> cl=
+ass, like <code>hasListeners</code>, <code>once</code> or <code>off</code> =
+(to remove an event listener).</p>
+<h2 id=3D"socket-compress-value"><a href=3D"https://socket.io/docs/client-a=
+pi/#socket-compress-value" class=3D"headerlink" title=3D"socket.compress(va=
+lue)"></a>socket.compress(value)</h2><ul>
+<li><code>value</code> <em>(Boolean)</em></li>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Sets a modifier for a subsequent event emission that the event data will=
+ only be <em>compressed</em> if the value is <code>true</code>. Defaults to=
+ <code>true</code> when you don=E2=80=99t call the method.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.compress(<span class=3D"literal">false</span>).em=
+it(<span class=3D"string">'an event'</span>, { <span class=3D"attr">some</s=
+pan>: <span class=3D"string">'data'</span> });</span><br></pre></td></tr></=
+tbody></table></figure>
+<h2 id=3D"socket-binary-value"><a href=3D"https://socket.io/docs/client-api=
+/#socket-binary-value" class=3D"headerlink" title=3D"socket.binary(value)">=
+</a>socket.binary(value)</h2><p>Specifies whether the emitted data contains=
+ binary. Increases performance when specified. Can be <code>true</code> or =
+<code>false</code>.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.binary(<span class=3D"literal">false</span>).emit=
+(<span class=3D"string">'an event'</span>, { <span class=3D"attr">some</spa=
+n>: <span class=3D"string">'data'</span> });</span><br></pre></td></tr></tb=
+ody></table></figure>
+<h2 id=3D"socket-close"><a href=3D"https://socket.io/docs/client-api/#socke=
+t-close" class=3D"headerlink" title=3D"socket.close()"></a>socket.close()</=
+h2><ul>
+<li><strong>Returns</strong> <code>Socket</code></li>
+</ul>
+<p>Disconnects the socket manually.</p>
+<h2 id=3D"socket-disconnect"><a href=3D"https://socket.io/docs/client-api/#=
+socket-disconnect" class=3D"headerlink" title=3D"socket.disconnect()"></a>s=
+ocket.disconnect()</h2><p>Synonym of <a href=3D"https://socket.io/docs/clie=
+nt-api/#socketclose">socket.close()</a>.</p>
+<h2 id=3D"Event-=E2=80=98connect=E2=80=99"><a href=3D"https://socket.io/doc=
+s/client-api/#Event-%E2%80%98connect%E2%80%99" class=3D"headerlink" title=
+=3D"Event: =E2=80=98connect=E2=80=99"></a>Event: =E2=80=98connect=E2=80=99<=
+/h2><p>Fired upon connection (including a successful reconnection).</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'connect'</span>, () =
+=3D&gt; {</span><br><span class=3D"line">  <span class=3D"comment">// ...</=
+span></span><br><span class=3D"line">});</span><br><span class=3D"line"></s=
+pan><br><span class=3D"line"><span class=3D"comment">// note: you should re=
+gister event handlers outside of connect,</span></span><br><span class=3D"l=
+ine"><span class=3D"comment">// so they are not registered again on reconne=
+ction</span></span><br><span class=3D"line">socket.on(<span class=3D"string=
+">'myevent'</span>, () =3D&gt; {</span><br><span class=3D"line">  <span cla=
+ss=3D"comment">// ...</span></span><br><span class=3D"line">});</span><br><=
+/pre></td></tr></tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98connect-error=E2=80=99-1"><a href=3D"https://socke=
+t.io/docs/client-api/#Event-%E2%80%98connect-error%E2%80%99-1" class=3D"hea=
+derlink" title=3D"Event: =E2=80=98connect_error=E2=80=99"></a>Event: =E2=80=
+=98connect_error=E2=80=99</h2><ul>
+<li><code>error</code> <em>(Object)</em> error object</li>
+</ul>
+<p>Fired upon a connection error.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'connect_error'</span>,=
+ (error) =3D&gt; {</span><br><span class=3D"line">  <span class=3D"comment"=
+>// ...</span></span><br><span class=3D"line">});</span><br></pre></td></tr=
+></tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98connect-timeout=E2=80=99-1"><a href=3D"https://soc=
+ket.io/docs/client-api/#Event-%E2%80%98connect-timeout%E2%80%99-1" class=3D=
+"headerlink" title=3D"Event: =E2=80=98connect_timeout=E2=80=99"></a>Event: =
+=E2=80=98connect_timeout=E2=80=99</h2><p>Fired upon a connection timeout.</=
+p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'connect_timeout'</span=
+>, (timeout) =3D&gt; {</span><br><span class=3D"line">  <span class=3D"comm=
+ent">// ...</span></span><br><span class=3D"line">});</span><br></pre></td>=
+</tr></tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98error=E2=80=99"><a href=3D"https://socket.io/docs/=
+client-api/#Event-%E2%80%98error%E2%80%99" class=3D"headerlink" title=3D"Ev=
+ent: =E2=80=98error=E2=80=99"></a>Event: =E2=80=98error=E2=80=99</h2><ul>
+<li><code>error</code> <em>(Object)</em> error object</li>
+</ul>
+<p>Fired when an error occurs.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'error'</span>, (error)=
+ =3D&gt; {</span><br><span class=3D"line">  <span class=3D"comment">// ...<=
+/span></span><br><span class=3D"line">});</span><br></pre></td></tr></tbody=
+></table></figure>
+<h2 id=3D"Event-=E2=80=98disconnect=E2=80=99"><a href=3D"https://socket.io/=
+docs/client-api/#Event-%E2%80%98disconnect%E2%80%99" class=3D"headerlink" t=
+itle=3D"Event: =E2=80=98disconnect=E2=80=99"></a>Event: =E2=80=98disconnect=
+=E2=80=99</h2><ul>
+<li><code>reason</code> <em>(String)</em> either =E2=80=98io server disconn=
+ect=E2=80=99, =E2=80=98io client disconnect=E2=80=99, or =E2=80=98ping time=
+out=E2=80=99</li>
+</ul>
+<p>Fired upon disconnection.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'disconnect'</span>, (r=
+eason) =3D&gt; {</span><br><span class=3D"line">  <span class=3D"keyword">i=
+f</span> (reason =3D=3D=3D <span class=3D"string">'io server disconnect'</s=
+pan>) {</span><br><span class=3D"line">    <span class=3D"comment">// the d=
+isconnection was initiated by the server, you need to reconnect manually</s=
+pan></span><br><span class=3D"line">    socket.connect();</span><br><span c=
+lass=3D"line">  }</span><br><span class=3D"line">  <span class=3D"comment">=
+// else the socket will automatically try to reconnect</span></span><br><sp=
+an class=3D"line">});</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98reconnect=E2=80=99-1"><a href=3D"https://socket.io=
+/docs/client-api/#Event-%E2%80%98reconnect%E2%80%99-1" class=3D"headerlink"=
+ title=3D"Event: =E2=80=98reconnect=E2=80=99"></a>Event: =E2=80=98reconnect=
+=E2=80=99</h2><ul>
+<li><code>attempt</code> <em>(Number)</em> reconnection attempt number</li>
+</ul>
+<p>Fired upon a successful reconnection.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'reconnect'</span>, (at=
+temptNumber) =3D&gt; {</span><br><span class=3D"line">  <span class=3D"comm=
+ent">// ...</span></span><br><span class=3D"line">});</span><br></pre></td>=
+</tr></tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98reconnect-attempt=E2=80=99-1"><a href=3D"https://s=
+ocket.io/docs/client-api/#Event-%E2%80%98reconnect-attempt%E2%80%99-1" clas=
+s=3D"headerlink" title=3D"Event: =E2=80=98reconnect_attempt=E2=80=99"></a>E=
+vent: =E2=80=98reconnect_attempt=E2=80=99</h2><ul>
+<li><code>attempt</code> <em>(Number)</em> reconnection attempt number</li>
+</ul>
+<p>Fired upon an attempt to reconnect.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'reconnect_attempt'</sp=
+an>, (attemptNumber) =3D&gt; {</span><br><span class=3D"line">  <span class=
+=3D"comment">// ...</span></span><br><span class=3D"line">});</span><br></p=
+re></td></tr></tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98reconnecting=E2=80=99-1"><a href=3D"https://socket=
+.io/docs/client-api/#Event-%E2%80%98reconnecting%E2%80%99-1" class=3D"heade=
+rlink" title=3D"Event: =E2=80=98reconnecting=E2=80=99"></a>Event: =E2=80=98=
+reconnecting=E2=80=99</h2><ul>
+<li><code>attempt</code> <em>(Number)</em> reconnection attempt number</li>
+</ul>
+<p>Fired upon an attempt to reconnect.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'reconnecting'</span>, =
+(attemptNumber) =3D&gt; {</span><br><span class=3D"line">  <span class=3D"c=
+omment">// ...</span></span><br><span class=3D"line">});</span><br></pre></=
+td></tr></tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98reconnect-error=E2=80=99-1"><a href=3D"https://soc=
+ket.io/docs/client-api/#Event-%E2%80%98reconnect-error%E2%80%99-1" class=3D=
+"headerlink" title=3D"Event: =E2=80=98reconnect_error=E2=80=99"></a>Event: =
+=E2=80=98reconnect_error=E2=80=99</h2><ul>
+<li><code>error</code> <em>(Object)</em> error object</li>
+</ul>
+<p>Fired upon a reconnection attempt error.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'reconnect_error'</span=
+>, (error) =3D&gt; {</span><br><span class=3D"line">  <span class=3D"commen=
+t">// ...</span></span><br><span class=3D"line">});</span><br></pre></td></=
+tr></tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98reconnect-failed=E2=80=99-1"><a href=3D"https://so=
+cket.io/docs/client-api/#Event-%E2%80%98reconnect-failed%E2%80%99-1" class=
+=3D"headerlink" title=3D"Event: =E2=80=98reconnect_failed=E2=80=99"></a>Eve=
+nt: =E2=80=98reconnect_failed=E2=80=99</h2><p>Fired when the client couldn=
+=E2=80=99t reconnect within <code>reconnectionAttempts</code>.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'reconnect_failed'</spa=
+n>, () =3D&gt; {</span><br><span class=3D"line">  <span class=3D"comment">/=
+/ ...</span></span><br><span class=3D"line">});</span><br></pre></td></tr><=
+/tbody></table></figure>
+<h2 id=3D"Event-=E2=80=98ping=E2=80=99-1"><a href=3D"https://socket.io/docs=
+/client-api/#Event-%E2%80%98ping%E2%80%99-1" class=3D"headerlink" title=3D"=
+Event: =E2=80=98ping=E2=80=99"></a>Event: =E2=80=98ping=E2=80=99</h2><p>Fir=
+ed when a ping is sent to the server.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'ping'</span>, () =3D&g=
+t; {</span><br><span class=3D"line">  <span class=3D"comment">// ...</span>=
+</span><br><span class=3D"line">});</span><br></pre></td></tr></tbody></tab=
+le></figure>
+<h2 id=3D"Event-=E2=80=98pong=E2=80=99-1"><a href=3D"https://socket.io/docs=
+/client-api/#Event-%E2%80%98pong%E2%80%99-1" class=3D"headerlink" title=3D"=
+Event: =E2=80=98pong=E2=80=99"></a>Event: =E2=80=98pong=E2=80=99</h2><ul>
+<li><code>ms</code> <em>(Number)</em> number of ms elapsed since <code>ping=
+</code> packet (i.e.: latency).</li>
+</ul>
+<p>Fired when a pong is received from the server.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line">socket.on(<span class=3D"string">'pong'</span>, (latency=
+) =3D&gt; {</span><br><span class=3D"line">  <span class=3D"comment">// ...=
+</span></span><br><span class=3D"line">});</span><br></pre></td></tr></tbod=
+y></table></figure>
+
+
+ =20
+  <footer class=3D"article-footer">
+    Caught a mistake? Edit this page on <a href=3D"https://github.com/socke=
+tio/socket.io-website/blob/master/source/docs/client-api.md" target=3D"_bla=
+nk" class=3D"link">GitHub</a>
+  </footer>
+ =20
+</article>
+
+    </div>
+    <nav id=3D"mobile-nav">
+ =20
+</nav>
+   =20
+
+
+
+<!-- Algolia DocSearch -->
+
+
+
+
+
+  </div>
+
+</body></html>
+------MultipartBoundary--ryleL1GRlSyDIzx7uiyKBV4fmQESfSRusUrzKZyJiw----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css?family=Source+Code+Pro
+
+@charset "utf-8";
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlMOvWjMY.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1=
+C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlOevWjMY.woff2") format("woff2"); unicode-range: U+400-45F, U+490-49=
+1, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlPuvWjMY.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlMuvWjMY.woff2") format("woff2"); unicode-range: U+102-103, U+110-11=
+1, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlM-vWjMY.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U=
++1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A=
+7FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlPevW.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-1=
+53, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+=
+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+------MultipartBoundary--ryleL1GRlSyDIzx7uiyKBV4fmQESfSRusUrzKZyJiw----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://socket.io/css/style.css
+
+@charset "utf-8";
+
+html { line-height: 1.15; text-size-adjust: 100%; }
+
+body { margin: 0px; }
+
+h1 { font-size: 2em; margin: 0.67em 0px; }
+
+hr { box-sizing: content-box; height: 0px; overflow: visible; }
+
+pre { font-family: monospace, monospace; font-size: 1em; }
+
+a { background-color: transparent; }
+
+abbr[title] { border-bottom: none; text-decoration: underline dotted; }
+
+b, strong { font-weight: bolder; }
+
+code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }
+
+small { font-size: 80%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-ali=
+gn: baseline; }
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+img { border-style: none; }
+
+button, input, optgroup, select, textarea { font-family: inherit; font-size=
+: 100%; line-height: 1.15; margin: 0px; }
+
+button, input { overflow: visible; }
+
+button, select { text-transform: none; }
+
+button, [type=3D"button"], [type=3D"reset"], [type=3D"submit"] { appearance=
+: button; }
+
+fieldset { padding: 0.35em 0.75em 0.625em; }
+
+legend { box-sizing: border-box; color: inherit; display: table; max-width:=
+ 100%; padding: 0px; white-space: normal; }
+
+progress { vertical-align: baseline; }
+
+textarea { overflow: auto; }
+
+[type=3D"checkbox"], [type=3D"radio"] { box-sizing: border-box; padding: 0p=
+x; }
+
+[type=3D"number"]::-webkit-inner-spin-button, [type=3D"number"]::-webkit-ou=
+ter-spin-button { height: auto; }
+
+[type=3D"search"] { appearance: textfield; outline-offset: -2px; }
+
+[type=3D"search"]::-webkit-search-decoration { appearance: none; }
+
+::-webkit-file-upload-button { appearance: button; font: inherit; }
+
+details { display: block; }
+
+summary { display: list-item; }
+
+template { display: none; }
+
+[hidden] { display: none; }
+
+#header { padding: 10px; z-index: 10; position: relative; background-color:=
+ rgb(255, 255, 255); }
+
+@media screen and (min-width: 900px) {
+  #header { position: fixed; left: 0px; right: 0px; padding: 10px 40px; bac=
+kground-color: rgba(255, 255, 255, 0.9); }
+}
+
+#header #logo { background-image: url("images/logo.svg"); background-size: =
+cover; display: block; width: 136px; height: 40px; margin: 0px auto; }
+
+@media screen and (min-width: 900px) {
+  #header #logo { margin: 0px; display: inline-block; }
+}
+
+#header #docsearch-input { border: 1px solid rgb(227, 227, 227); border-rad=
+ius: 15px; padding: 0px 10px 0px 30px; outline: none; height: 30px; font-si=
+ze: 1.2rem; margin-top: 5px; }
+
+#header .main-nav { float: right; display: none; }
+
+@media screen and (min-width: 900px) {
+  #header .main-nav { display: block; }
+}
+
+#header .nav-items { padding: 0px; margin: 0px; height: 40px; line-height: =
+40px; }
+
+#header .nav-items > li { padding: 0px; margin: 0px 10px; }
+
+#header .nav-item { font-size: 1.4rem; }
+
+#header nav li { display: inline-block; }
+
+#header .nav-link { color: rgb(155, 155, 155); font-size: 1.2rem; }
+
+#header .nav-links-header { font-weight: bold; font-size: 1.2rem; }
+
+#header .dropdown-toggle { cursor: pointer; }
+
+#header .dropdown-content { display: none; position: absolute; background-c=
+olor: rgb(255, 255, 255); padding: 0px 20px 10px; border: 1px solid rgb(238=
+, 238, 238); }
+
+#header .dropdown:hover .dropdown-content { display: block; }
+
+#header .dropdown-content li { display: block; margin-top: 10px; line-heigh=
+t: 20px; }
+
+#header ul { padding-left: 1rem; }
+
+#footer { background: rgb(38, 42, 48); padding: 50px 0px; border-top: 1px s=
+olid rgb(221, 221, 221); color: rgb(153, 153, 153); }
+
+#footer a { color: rgb(37, 143, 184); text-decoration: none; }
+
+#footer a:hover { text-decoration: underline; }
+
+#footer-info { line-height: 1.6em; font-size: 0.85em; }
+
+#sidebar { display: none; width: 200px; position: fixed; top: 0px; left: 0p=
+x; bottom: 0px; overflow: hidden auto; margin-top: 80px; padding: 0px 20px =
+20px; }
+
+@media screen and (min-width: 900px) {
+  #sidebar { display: block; }
+}
+
+#sidebar .items { padding: 0px; }
+
+#sidebar .toc, #sidebar .toc-child { padding-left: 0.6em; }
+
+#sidebar li { list-style-type: none; }
+
+#sidebar li.selected > a { font-weight: bold; }
+
+#sidebar .sidebar-link { color: rgb(155, 155, 155); font-size: 1.4rem; }
+
+#sidebar .sidebar-link.selected { font-weight: bold; }
+
+#sidebar .toc-text { color: rgb(155, 155, 155); font-size: 1.2rem; }
+
+#sidebar .toc-item.toc-level-1 > a { font-weight: bold; }
+
+.article { margin: 40px; padding-top: 60px; }
+
+@media screen and (min-width: 900px) {
+  .article { margin-left: 320px; }
+}
+
+@media screen and (min-width: 1280px) {
+  .article { margin-right: 240px; }
+}
+
+.article .highlight figure { margin: 0px; }
+
+.article code { margin: 0px 2px; color: rgb(102, 102, 102); }
+
+.article .article-footer { margin: 60px 0px 30px; }
+
+.article .article-footer .link { text-decoration: underline; }
+
+.article :target { padding-top: 80px; margin-top: -60px; }
+
+.article li { margin-top: 10px; }
+
+.article a { text-decoration: underline; }
+
+.article img { display: block; margin-left: auto; margin-right: auto; max-w=
+idth: 100%; }
+
+.article table { width: 100%; border-collapse: collapse; }
+
+.article td { border-top: 1px solid rgb(153, 153, 153); padding: 1rem; }
+
+.article pre, .article .highlight { background: rgb(45, 45, 45); margin: 0p=
+x -20px; padding: 15px 20px; border-style: solid; border-color: rgb(221, 22=
+1, 221); border-width: 1px 0px; overflow: auto; color: rgb(204, 204, 204); =
+line-height: 22.4px; }
+
+.article .highlight .gutter pre, .article .gist .gist-file .gist-data .line=
+-numbers { color: rgb(102, 102, 102); font-size: 0.85em; }
+
+.article pre, .article code { font-family: "Source Code Pro", Consolas, Mon=
+aco, Menlo, Consolas, monospace; }
+
+.article code { background: rgb(238, 238, 238); text-shadow: rgb(255, 255, =
+255) 0px 1px; padding: 0px 0.3em; }
+
+.article pre code { background: none; text-shadow: none; padding: 0px; }
+
+.article .highlight pre { border: none; margin: 0px; padding: 0px; }
+
+.article .highlight table { margin: 0px; width: auto; }
+
+.article .highlight td { border: none; padding: 0px; }
+
+.article .highlight figcaption { font-size: 0.85em; color: rgb(153, 153, 15=
+3); line-height: 1em; margin-bottom: 1em; }
+
+.article .highlight figcaption a { float: right; }
+
+.article .highlight .gutter pre { text-align: right; padding-right: 20px; }
+
+.article .highlight .line { height: 22.4px; }
+
+.article .highlight .line.marked { background: rgb(81, 81, 81); }
+
+.article .gist { margin: 0px -20px; border-style: solid; border-color: rgb(=
+221, 221, 221); border-width: 1px 0px; background: rgb(45, 45, 45); padding=
+: 15px 20px 15px 0px; }
+
+.article .gist .gist-file { border: none; font-family: "Source Code Pro", C=
+onsolas, Monaco, Menlo, Consolas, monospace; margin: 0px; }
+
+.article .gist .gist-file .gist-data { background: none; border: none; }
+
+.article .gist .gist-file .gist-data .line-numbers { background: none; bord=
+er: none; padding: 0px 20px 0px 0px; }
+
+.article .gist .gist-file .gist-data .line-data { padding: 0px !important; =
+}
+
+.article .gist .gist-file .highlight { margin: 0px; padding: 0px; border: n=
+one; }
+
+.article .gist .gist-file .gist-meta { background: rgb(45, 45, 45); color: =
+rgb(153, 153, 153); font: 0.85em -apple-system, BlinkMacSystemFont, "Segoe =
+UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helveti=
+ca Neue", sans-serif; text-shadow: 0px 0px; padding: 0px; margin-top: 1em; =
+margin-left: 20px; }
+
+.article .gist .gist-file .gist-meta a { color: rgb(37, 143, 184); font-wei=
+ght: normal; }
+
+.article .gist .gist-file .gist-meta a:hover { text-decoration: underline; =
+}
+
+pre .comment, pre .title { color: rgb(153, 153, 153); }
+
+pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, =
+pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, =
+pre .css .id, pre .css .class, pre .css .pseudo { color: rgb(242, 119, 122)=
+; }
+
+pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, p=
+re .constant { color: rgb(249, 145, 87); }
+
+pre .class, pre .ruby .class .title, pre .css .rules .attribute { color: rg=
+b(153, 204, 153); }
+
+pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, =
+pre .xml .cdata { color: rgb(153, 204, 153); }
+
+pre .css .hexcolor { color: rgb(102, 204, 204); }
+
+pre .function, pre .python .decorator, pre .python .title, pre .ruby .funct=
+ion .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .tit=
+le, pre .coffeescript .title { color: rgb(102, 153, 204); }
+
+pre .keyword, pre .javascript .function { color: rgb(204, 153, 204); }
+
+@media mq-mobile {
+  #mobile-nav { position: absolute; top: 0px; left: 0px; width: 280px; heig=
+ht: 100%; background: rgb(25, 25, 25); border-right: 1px solid rgb(255, 255=
+, 255); }
+}
+
+@media mq-mobile {
+  .mobile-nav-link { display: block; color: rgb(153, 153, 153); text-decora=
+tion: none; padding: 15px 20px; font-weight: bold; }
+  .mobile-nav-link:hover { color: rgb(255, 255, 255); }
+}
+
+#sponsors .sponsor { display: inline-block; width: 100%; height: 100px; lin=
+e-height: 100px; margin-top: 1.5rem; margin-bottom: 1.5rem; text-align: cen=
+ter; }
+
+@media screen and (min-width: 900px) {
+  #sponsors .sponsor { width: 32%; }
+}
+
+#sponsors .sponsor img { display: inline-block; max-width: 80%; max-height:=
+ 100%; vertical-align: middle; }
+
+#carbonads { width: 130px; display: block; overflow: hidden; line-height: 1=
+.5; position: relative; float: right; margin: 20px; }
+
+@media screen and (min-width: 900px) {
+  #carbonads { margin-top: 60px; }
+}
+
+@media screen and (min-width: 1280px) {
+  #carbonads { float: none; position: fixed; right: 0px; top: 6rem; }
+}
+
+#carbonads a { color: rgb(155, 155, 155); }
+
+#carbonads span { display: block; overflow: hidden; }
+
+#carbonads .carbon-img { display: block; margin: 0px auto 8px; line-height:=
+ 0; }
+
+#carbonads .carbon-text { display: block; color: rgb(155, 155, 155); font-s=
+ize: 1.2rem; margin-bottom: 20px; }
+
+#carbonads .carbon-poweredby { display: block; text-transform: uppercase; l=
+etter-spacing: 1px; font-size: 1rem; line-height: 1; }
+
+.post .metadata { margin-top: 60px; margin-bottom: 60px; }
+
+.post .metadata .metadata-title { text-align: center; font-size: 40px; font=
+-weight: lighter; line-height: 1.2; margin-bottom: 4px; }
+
+.post .metadata .metadata-author { text-align: center; font-weight: lighter=
+; background: rgb(255, 255, 255); color: rgb(119, 119, 119); margin-top: 0p=
+x; }
+
+.post .links { margin-top: 40px; }
+
+html { font-size: 62.5%; }
+
+html, body, #container { height: 100%; }
+
+#wrap { height: 100%; width: 100%; position: absolute; top: 0px; left: 0px;=
+ }
+
+body, button, input, select, textarea { color: rgb(85, 85, 85); font-family=
+: "Open Sans", sans-serif; font-size: 1.6rem; line-height: 1.6; }
+
+a { text-decoration: none; color: rgb(85, 85, 85); }
+------MultipartBoundary--ryleL1GRlSyDIzx7uiyKBV4fmQESfSRusUrzKZyJiw----
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://socket.io/css/images/logo.svg
+
+<?xml version=3D"1.0" encoding=3D"UTF-8" standalone=3D"no"?>
+<svg width=3D"143px" height=3D"43px" viewBox=3D"0 0 143 43" version=3D"1.1"=
+ xmlns=3D"http://www.w3.org/2000/svg" xmlns:xlink=3D"http://www.w3.org/1999=
+/xlink" xmlns:sketch=3D"http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.2 (7799) - http://www.bohemiancoding.com/ske=
+tch -->
+    <title>logo full</title>
+    <description>Created with Sketch.</description>
+    <defs></defs>
+    <g id=3D"Page-1" stroke=3D"none" stroke-width=3D"1" fill=3D"none" fill-=
+rule=3D"evenodd" sketch:type=3D"MSPage">
+        <g id=3D"logo" sketch:type=3D"MSLayerGroup">
+            <path d=3D"M0,0 L43,0 L43,43 L0,43 L0,0 L0,0 Z" id=3D"Shape" fi=
+ll=3D"#FFFFFF" sketch:type=3D"MSShapeGroup"></path>
+            <path d=3D"M16.2,1.24 C21.62,-0.15 27.61,0.66 32.39,3.61 C38.41=
+,7.21 42.34,14.02 42.44,21.03 C42.66,28.11 38.97,35.13 33.04,38.98 C26.44,4=
+3.42 17.31,43.59 10.57,39.37 C3.7,35.27 -0.31,27 0.72,19.06 C1.55,10.67 8.0=
+3,3.27 16.2,1.24 L16.2,1.24 Z" id=3D"Shape" fill=3D"#010101" sketch:type=3D=
+"MSShapeGroup"></path>
+            <path d=3D"M15.37,4.67 C25.61,0.57 38.17,8.14 39.23,19.12 C40.8=
+8,29 32.68,39.04 22.67,39.33 C13.15,40.28 3.95,32.21 3.68,22.65 C2.97,14.91=
+ 8.07,7.23 15.37,4.67 L15.37,4.67 Z" id=3D"Shape" fill=3D"#FFFFFF" sketch:t=
+ype=3D"MSShapeGroup"></path>
+            <path d=3D"M16.4,20.44 C20.99,16.69 25.48,12.81 30.17,9.17 C27.=
+71,12.95 25.18,16.68 22.72,20.46 C20.61,20.47 18.5,20.47 16.4,20.44 L16.4,2=
+0.44 Z" id=3D"Shape" fill=3D"#010101" sketch:type=3D"MSShapeGroup"></path>
+            <path d=3D"M20.28,22.53 C22.4,22.53 24.51,22.53 26.62,22.56 C22=
+,26.29 17.53,30.2 12.83,33.83 C15.29,30.05 17.82,26.31 20.28,22.53 L20.28,2=
+2.53 Z" id=3D"Shape" fill=3D"#010101" sketch:type=3D"MSShapeGroup"></path>
+        </g>
+        <path d=3D"M59.864,28.424 C60.728,28.904 62,29.24 63.416,29.24 C66.=
+512,29.24 68.168,27.704 68.168,25.592 C68.144,23.864 67.16,22.784 65.048,22=
+.016 C63.56,21.488 63.008,21.128 63.008,20.384 C63.008,19.664 63.584,19.16 =
+64.64,19.16 C65.672,19.16 66.608,19.544 67.112,19.832 L67.688,17.744 C67.01=
+6,17.384 65.888,17.048 64.592,17.048 C61.88,17.048 60.176,18.656 60.176,20.=
+72 C60.152,22.088 61.112,23.336 63.392,24.128 C64.832,24.632 65.312,25.04 6=
+5.312,25.832 C65.312,26.6 64.736,27.128 63.44,27.128 C62.384,27.128 61.112,=
+26.696 60.44,26.288 L59.864,28.424 Z M74.896,17.048 C71.368,17.048 68.848,1=
+9.4 68.848,23.24 C68.848,26.984 71.392,29.264 74.704,29.264 C77.68,29.264 8=
+0.704,27.344 80.704,23.048 C80.704,19.496 78.376,17.048 74.896,17.048 Z M74=
+.824,19.208 C76.84,19.208 77.656,21.296 77.656,23.12 C77.656,25.472 76.48,2=
+7.128 74.8,27.128 C73,27.128 71.896,25.424 71.896,23.168 C71.896,21.224 72.=
+736,19.208 74.824,19.208 Z M90.312,26.456 C89.736,26.696 89.016,26.912 87.9=
+84,26.912 C85.968,26.912 84.408,25.544 84.408,23.144 C84.384,21.008 85.728,=
+19.352 87.984,19.352 C89.04,19.352 89.736,19.592 90.216,19.808 L90.744,17.6=
+ C90.072,17.288 88.968,17.048 87.888,17.048 C83.784,17.048 81.384,19.784 81=
+.384,23.288 C81.384,26.912 83.76,29.24 87.408,29.24 C88.872,29.24 90.096,28=
+.928 90.72,28.64 L90.312,26.456 Z M94.856,11.96 L91.904,11.96 L91.904,29 L9=
+4.856,29 L94.856,25.016 L95.864,23.84 L99.224,29 L102.848,29 L97.904,22.088=
+ L102.224,17.312 L98.672,17.312 L95.84,21.08 C95.528,21.488 95.192,21.992 9=
+4.904,22.448 L94.856,22.448 L94.856,11.96 Z M112.864,23.984 C112.912,23.72 =
+112.96,23.288 112.96,22.736 C112.96,20.168 111.712,17.048 107.92,17.048 C10=
+4.176,17.048 102.208,20.096 102.208,23.336 C102.208,26.912 104.44,29.24 108=
+.232,29.24 C109.912,29.24 111.304,28.928 112.312,28.52 L111.88,26.48 C110.9=
+92,26.816 110.008,27.008 108.64,27.008 C106.768,27.008 105.112,26.096 105.0=
+4,23.984 L112.864,23.984 Z M105.04,21.92 C105.16,20.72 105.928,19.064 107.7=
+52,19.064 C109.72,19.064 110.2,20.84 110.176,21.92 L105.04,21.92 Z M114.84,=
+14.672 L114.84,17.312 L113.16,17.312 L113.16,19.52 L114.84,19.52 L114.84,25=
+.016 C114.84,26.552 115.128,27.608 115.752,28.28 C116.304,28.88 117.216,29.=
+24 118.296,29.24 C119.232,29.24 120,29.12 120.432,28.952 L120.384,26.696 C1=
+20.12,26.768 119.736,26.84 119.232,26.84 C118.104,26.84 117.72,26.096 117.7=
+2,24.68 L117.72,19.52 L120.528,19.52 L120.528,17.312 L117.72,17.312 L117.72=
+,13.976 L114.84,14.672 Z M123.08,29.264 C124.184,29.264 124.904,28.448 124.=
+904,27.368 C124.904,26.24 124.16,25.472 123.08,25.472 C122.024,25.472 121.2=
+56,26.264 121.256,27.368 C121.256,28.448 122,29.264 123.08,29.264 Z M129.25=
+6,29 L129.256,17.312 L126.28,17.312 L126.28,29 L129.256,29 Z M127.768,12.44=
+ C126.784,12.44 126.112,13.136 126.112,14.048 C126.112,14.936 126.76,15.632=
+ 127.744,15.632 C128.776,15.632 129.424,14.936 129.424,14.048 C129.4,13.136=
+ 128.776,12.44 127.768,12.44 Z M136.728,17.048 C133.2,17.048 130.68,19.4 13=
+0.68,23.24 C130.68,26.984 133.224,29.264 136.536,29.264 C139.512,29.264 142=
+.536,27.344 142.536,23.048 C142.536,19.496 140.208,17.048 136.728,17.048 Z =
+M136.656,19.208 C138.672,19.208 139.488,21.296 139.488,23.12 C139.488,25.47=
+2 138.312,27.128 136.632,27.128 C134.832,27.128 133.728,25.424 133.728,23.1=
+68 C133.728,21.224 134.568,19.208 136.656,19.208 Z" id=3D"socket.io" fill=
+=3D"#000000" sketch:type=3D"MSShapeGroup"></path>
+    </g>
+</svg>
+------MultipartBoundary--ryleL1GRlSyDIzx7uiyKBV4fmQESfSRusUrzKZyJiw----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700
+
+@charset "utf-8";
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hmIqOjj=
+g.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U=
++2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hvIqOjj=
+g.woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, =
+U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hnIqOjj=
+g.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hoIqOjj=
+g.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hkIqOjj=
+g.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, =
+U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hlIqOjj=
+g.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+=
+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hrIqM.w=
+off2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC,=
+ U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, =
+U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Udc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A=
+640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0ddc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Vdc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0adc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Wdc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A=
+0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Xdc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20=
+AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Zdc0.woff2") format("=
+woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, =
+U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,=
+ U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+mIqOjjg.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+2=
+0B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+vIqOjjg.woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0=
+-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+nIqOjjg.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+oIqOjjg.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+kIqOjjg.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128=
+-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+lIqOjjg.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1E=
+FF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+rIqM.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2B=
+B-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+=
+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhmIqOjjg.=
+woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2=
+DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhvIqOjjg.=
+woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+=
+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhnIqOjjg.=
+woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhoIqOjjg.=
+woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhkIqOjjg.=
+woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+=
+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhlIqOjjg.=
+woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+20=
+20, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhrIqM.wof=
+f2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U=
++2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+=
+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OX-hpOqc.woff2") format=
+("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A6=
+40-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OVuhpOqc.woff2") format=
+("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXuhpOqc.woff2") format=
+("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OUehpOqc.woff2") format=
+("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXehpOqc.woff2") format=
+("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0=
+-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXOhpOqc.woff2") format=
+("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20A=
+B, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OUuhp.woff2") format("w=
+off2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U=
++2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, =
+U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWJ0bbck.woff2") format=
+("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A6=
+40-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFUZ0bbck.woff2") format=
+("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWZ0bbck.woff2") format=
+("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFVp0bbck.woff2") format=
+("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWp0bbck.woff2") format=
+("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0=
+-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFW50bbck.woff2") format=
+("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20A=
+B, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFVZ0b.woff2") format("w=
+off2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U=
++2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, =
+U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOX-hpOqc.woff2") =
+format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF=
+, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOVuhpOqc.woff2") =
+format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXuhpOqc.woff2") =
+format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOUehpOqc.woff2") =
+format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXehpOqc.woff2") =
+format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169,=
+ U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXOhpOqc.woff2") =
+format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20=
+A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOUuhp.woff2") for=
+mat("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+=
+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+=
+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOX-hpOqc.woff2") format("=
+woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640=
+-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOVuhpOqc.woff2") format("=
+woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOXuhpOqc.woff2") format("=
+woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOUehpOqc.woff2") format("=
+woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOXehpOqc.woff2") format("=
+woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1=
+A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOXOhpOqc.woff2") format("=
+woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB,=
+ U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOUuhp.woff2") format("wof=
+f2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2=
+DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+=
+FEFF, U+FFFD; }
+------MultipartBoundary--ryleL1GRlSyDIzx7uiyKBV4fmQESfSRusUrzKZyJiw----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css
+
+@charset "utf-8";
+
+.searchbox { display: inline-block; position: relative; width: 200px; white=
+-space: nowrap; box-sizing: border-box; height: 32px !important; visibility=
+: visible !important; }
+
+.searchbox .algolia-autocomplete { display: block; width: 100%; height: 100=
+%; }
+
+.searchbox__wrapper { width: 100%; height: 100%; z-index: 999; position: re=
+lative; }
+
+.searchbox__input { display: inline-block; box-sizing: border-box; transiti=
+on: box-shadow 0.4s ease 0s, background 0.4s ease 0s; border: 0px; border-r=
+adius: 16px; box-shadow: rgb(204, 204, 204) 0px 0px 0px 1px inset; padding:=
+ 0px 26px 0px 32px; width: 100%; height: 100%; vertical-align: middle; whit=
+e-space: normal; font-size: 12px; appearance: none; background: rgb(255, 25=
+5, 255) !important; }
+
+.searchbox__input::-webkit-search-cancel-button, .searchbox__input::-webkit=
+-search-decoration, .searchbox__input::-webkit-search-results-button, .sear=
+chbox__input::-webkit-search-results-decoration { display: none; }
+
+.searchbox__input:hover { box-shadow: rgb(179, 179, 179) 0px 0px 0px 1px in=
+set; }
+
+.searchbox__input:active, .searchbox__input:focus { outline: 0px; box-shado=
+w: rgb(170, 170, 170) 0px 0px 0px 1px inset; background: rgb(255, 255, 255)=
+; }
+
+.searchbox__input::-webkit-input-placeholder { color: rgb(170, 170, 170); }
+
+.searchbox__input::placeholder { color: rgb(170, 170, 170); }
+
+.searchbox__submit { position: absolute; top: 0px; margin: 0px; border: 0px=
+; border-radius: 16px 0px 0px 16px; background-color: rgba(69, 142, 225, 0)=
+; padding: 0px; width: 32px; height: 100%; vertical-align: middle; text-ali=
+gn: center; font-size: inherit; user-select: none; right: inherit; left: 0p=
+x; }
+
+.searchbox__submit::before { display: inline-block; margin-right: -4px; hei=
+ght: 100%; vertical-align: middle; content: ""; }
+
+.searchbox__submit:active, .searchbox__submit:hover { cursor: pointer; }
+
+.searchbox__submit:focus { outline: 0px; }
+
+.searchbox__submit svg { width: 14px; height: 14px; vertical-align: middle;=
+ fill: rgb(109, 126, 150); }
+
+.searchbox__reset { display: block; position: absolute; top: 8px; right: 8p=
+x; margin: 0px; border: 0px; background: none; cursor: pointer; padding: 0p=
+x; font-size: inherit; user-select: none; fill: rgba(0, 0, 0, 0.5); }
+
+.searchbox__reset.hide { display: none; }
+
+.searchbox__reset:focus { outline: 0px; }
+
+.searchbox__reset svg { display: block; margin: 4px; width: 8px; height: 8p=
+x; }
+
+.searchbox__input:valid ~ .searchbox__reset { display: block; animation-nam=
+e: sbx-reset-in; animation-duration: 0.15s; }
+
+@-webkit-keyframes sbx-reset-in {=20
+  0% { transform: translate3d(-20%, 0px, 0px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+@keyframes sbx-reset-in {=20
+  0% { transform: translate3d(-20%, 0px, 0px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+.algolia-autocomplete.algolia-autocomplete-right .ds-dropdown-menu { right:=
+ 0px !important; left: inherit !important; }
+
+.algolia-autocomplete.algolia-autocomplete-right .ds-dropdown-menu::before =
+{ right: 48px; }
+
+.algolia-autocomplete.algolia-autocomplete-left .ds-dropdown-menu { left: 0=
+px !important; right: inherit !important; }
+
+.algolia-autocomplete.algolia-autocomplete-left .ds-dropdown-menu::before {=
+ left: 48px; }
+
+.algolia-autocomplete .ds-dropdown-menu { top: -6px; border-radius: 4px; ma=
+rgin: 6px 0px 0px; padding: 0px; text-align: left; height: auto; position: =
+relative; background: transparent; border: none; z-index: 999; max-width: 6=
+00px; min-width: 500px; box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px 0px, rgb=
+a(0, 0, 0, 0.1) 0px 2px 3px 0px; }
+
+.algolia-autocomplete .ds-dropdown-menu::before { display: block; position:=
+ absolute; content: ""; width: 14px; height: 14px; background: rgb(255, 255=
+, 255); z-index: 1000; top: -7px; border-top: 1px solid rgb(217, 217, 217);=
+ border-right: 1px solid rgb(217, 217, 217); transform: rotate(-45deg); bor=
+der-radius: 2px; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions { position: relativ=
+e; z-index: 1000; margin-top: 8px; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions a:hover { text-deco=
+ration: none; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion { cursor: pointer; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-d=
+ocsearch-suggestion.suggestion-layout-simple, .algolia-autocomplete .ds-dro=
+pdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.sugg=
+estion-layout-simple) .algolia-docsearch-suggestion--content { background-c=
+olor: rgba(69, 142, 225, 0.05); }
+
+.algolia-autocomplete .ds-dropdown-menu [class^=3D"ds-dataset-"] { position=
+: relative; border: 1px solid rgb(217, 217, 217); background: rgb(255, 255,=
+ 255); border-radius: 4px; overflow: auto; padding: 0px 8px 8px; }
+
+.algolia-autocomplete .ds-dropdown-menu * { box-sizing: border-box; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion { display: block; posit=
+ion: relative; padding: 0px 8px; background: rgb(255, 255, 255); color: rgb=
+(2, 6, 12); overflow: hidden; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight { color: rgb=
+(23, 77, 140); background: rgba(143, 187, 237, 0.1); padding: 0.1em 0.05em;=
+ }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header .algol=
+ia-docsearch-suggestion--category-header-lvl0 .algolia-docsearch-suggestion=
+--highlight, .algolia-autocomplete .algolia-docsearch-suggestion--category-=
+header .algolia-docsearch-suggestion--category-header-lvl1 .algolia-docsear=
+ch-suggestion--highlight, .algolia-autocomplete .algolia-docsearch-suggesti=
+on--text .algolia-docsearch-suggestion--highlight { padding: 0px 0px 1px; b=
+ackground: inherit; box-shadow: rgba(69, 142, 225, 0.8) 0px -2px 0px 0px in=
+set; color: inherit; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--content { display: blo=
+ck; float: right; width: 70%; position: relative; padding: 5.33333px 0px 5.=
+33333px 10.6667px; cursor: pointer; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--content::before { cont=
+ent: ""; position: absolute; display: block; top: 0px; height: 100%; width:=
+ 1px; background: rgb(221, 221, 221); left: -1px; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header { posi=
+tion: relative; border-bottom: 1px solid rgb(221, 221, 221); display: none;=
+ margin-top: 8px; padding: 4px 0px; font-size: 1em; color: rgb(51, 54, 61);=
+ }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--wrapper { width: 100%;=
+ float: left; padding: 8px 0px 0px; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column { f=
+loat: left; width: 30%; text-align: right; position: relative; padding: 5.3=
+3333px 10.6667px; color: rgb(164, 167, 174); font-size: 0.9em; overflow-wra=
+p: break-word; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column::be=
+fore { content: ""; position: absolute; display: block; top: 0px; height: 1=
+00%; width: 1px; background: rgb(221, 221, 221); right: 0px; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-inline { d=
+isplay: none; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--title { margin-bottom:=
+ 4px; color: rgb(2, 6, 12); font-size: 0.9em; font-weight: 700; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--text { display: block;=
+ line-height: 1.2em; font-size: 0.85em; color: rgb(99, 103, 109); }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--no-results { width: 10=
+0%; padding: 8px 0px; text-align: center; font-size: 1.2em; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--no-results::before { d=
+isplay: none; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion code { padding: 1px 5px=
+; font-size: 90%; border: none; color: rgb(34, 34, 34); background-color: r=
+gb(235, 235, 235); border-radius: 3px; font-family: Menlo, Monaco, Consolas=
+, "Courier New", monospace; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion code .algolia-docsearch=
+-suggestion--highlight { background: none; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion.algolia-docsearch-sugge=
+stion__main .algolia-docsearch-suggestion--category-header, .algolia-autoco=
+mplete .algolia-docsearch-suggestion.algolia-docsearch-suggestion__secondar=
+y { display: block; }
+
+@media (min-width: 768px) {
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column { display: block; }
+}
+
+@media (max-width: 768px) {
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column { display: inline-block; width: auto; float: l=
+eft; padding: 0px; color: rgb(2, 6, 12); font-size: 0.9em; font-weight: 700=
+; text-align: left; opacity: 0.5; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column::before { display: none; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column::after { content: "|"; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--content { display: inline-block; width: auto; text-align: left; f=
+loat: left; padding: 0px; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--content::before { display: none; }
+}
+
+.algolia-autocomplete .suggestion-layout-simple.algolia-docsearch-suggestio=
+n { border-bottom: 1px solid rgb(238, 238, 238); padding: 8px; margin: 0px;=
+ }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--content { width: 100%; padding: 0px; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--content::before { display: none; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--category-header { margin: 0px; padding: 0px; display: block; width: 100=
+%; border: none; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--category-header-lvl0, .algolia-autocomplete .suggestion-layout-simple .=
+algolia-docsearch-suggestion--category-header-lvl1 { opacity: 0.6; font-siz=
+e: 0.85em; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--category-header-lvl1::before { background-image: url("data:image/svg+xm=
+l;utf8,<svg width=3D\"10\" height=3D\"10\" viewBox=3D\"0 0 20 38\" xmlns=3D=
+\"http://www.w3.org/2000/svg\"><path d=3D\"M1.49 4.31l14 16.126.002-2.624-1=
+4 16.074-1.314 1.51 3.017 2.626 1.313-1.508 14-16.075 1.142-1.313-1.14-1.31=
+3-14-16.125L3.2.18.18 2.8l1.31 1.51z\" fill-rule=3D\"evenodd\" fill=3D\"%23=
+1D3657\" /></svg>"); content: ""; width: 10px; height: 10px; display: inlin=
+e-block; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--wrapper { width: 100%; float: left; margin: 0px; padding: 0px; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--duplicate-content, .algolia-autocomplete .suggestion-layout-simple .alg=
+olia-docsearch-suggestion--subcategory-inline { display: none !important; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--title { margin: 0px; color: rgb(69, 142, 225); font-size: 0.9em; font-w=
+eight: 400; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--title::before { content: "#"; font-weight: 700; color: rgb(69, 142, 225=
+); display: inline-block; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--text { margin: 4px 0px 0px; display: block; line-height: 1.4em; padding=
+: 5.33333px 8px; background: rgb(248, 248, 248); font-size: 0.85em; opacity=
+: 0.8; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--text .algolia-docsearch-suggestion--highlight { color: rgb(63, 65, 69);=
+ font-weight: 700; box-shadow: none; }
+
+.algolia-autocomplete .algolia-docsearch-footer { width: 134px; height: 20p=
+x; z-index: 2000; margin-top: 10.6667px; float: right; font-size: 0px; line=
+-height: 0; }
+
+.algolia-autocomplete .algolia-docsearch-footer--logo { background-image: u=
+rl("data:image/svg+xml;charset=3Dutf-8,%3Csvg width=3D'168' height=3D'24' x=
+mlns=3D'http://www.w3.org/2000/svg'%3E%3Cg fill=3D'none' fill-rule=3D'eveno=
+dd'%3E%3Cpath d=3D'M78.988.938h16.594a2.968 2.968 0 0 1 2.966 2.966V20.5a2.=
+967 2.967 0 0 1-2.966 2.964H78.988a2.967 2.967 0 0 1-2.966-2.964V3.897A2.96=
+1 2.961 0 0 1 78.988.938zm41.937 17.866c-4.386.02-4.386-3.54-4.386-4.106l-.=
+007-13.336 2.675-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-10.846-2.18=
+c.821 0 1.43-.047 1.855-.129v-2.719a6.334 6.334 0 0 0-1.574-.199 5.7 5.7 0 =
+0 0-.897.069 2.699 2.699 0 0 0-.814.24c-.24.116-.439.28-.582.491-.15.212-.2=
+19.335-.219.656 0 .628.219.991.616 1.23s.938.362 1.615.362zm-.233-9.7c.883 =
+0 1.629.109 2.231.328.602.218 1.088.525 1.444.915.363.396.609.922.76 1.483.=
+157.56.232 1.175.232 1.85v6.874a32.5 32.5 0 0 1-1.868.314c-.834.123-1.772.1=
+85-2.813.185-.69 0-1.327-.069-1.895-.198a4.001 4.001 0 0 1-1.471-.636 3.085=
+ 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.803 0-.656.13-1.073.384=
+-1.525a3.24 3.24 0 0 1 1.047-1.106c.445-.287.95-.492 1.532-.615a8.8 8.8 0 0=
+ 1 1.82-.185 8.404 8.404 0 0 1 1.972.24v-.438c0-.307-.035-.6-.11-.874a1.88 =
+1.88 0 0 0-.384-.73 1.784 1.784 0 0 0-.724-.493 3.164 3.164 0 0 0-1.143-.20=
+5c-.616 0-1.177.075-1.69.164a7.735 7.735 0 0 0-1.26.307l-.321-2.192c.335-.1=
+17.834-.233 1.478-.349a10.98 10.98 0 0 1 2.073-.178zm52.842 9.626c.822 0 1.=
+43-.048 1.854-.13V13.7a6.347 6.347 0 0 0-1.574-.199c-.294 0-.595.021-.896.0=
+69a2.7 2.7 0 0 0-.814.24 1.46 1.46 0 0 0-.582.491c-.15.212-.218.335-.218.65=
+6 0 .628.218.991.615 1.23.404.245.938.362 1.615.362zm-.226-9.694c.883 0 1.6=
+29.108 2.231.327.602.219 1.088.526 1.444.915.355.39.609.923.759 1.483a6.8 6=
+.8 0 0 1 .233 1.852v6.873c-.41.088-1.034.19-1.868.314-.834.123-1.772.184-2.=
+813.184-.69 0-1.327-.068-1.895-.198a4.001 4.001 0 0 1-1.471-.635 3.085 3.08=
+5 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.804 0-.656.13-1.073.384-1.52=
+4.26-.45.608-.82 1.047-1.107.445-.286.95-.491 1.532-.614a8.803 8.803 0 0 1 =
+2.751-.13c.329.034.671.096 1.04.185v-.437a3.3 3.3 0 0 0-.109-.875 1.873 1.8=
+73 0 0 0-.384-.731 1.784 1.784 0 0 0-.724-.492 3.165 3.165 0 0 0-1.143-.205=
+c-.616 0-1.177.075-1.69.164a7.75 7.75 0 0 0-1.26.307l-.321-2.193c.335-.116.=
+834-.232 1.478-.348a11.633 11.633 0 0 1 2.073-.177zm-8.034-1.271a1.626 1.62=
+6 0 0 1-1.628-1.62c0-.895.725-1.62 1.628-1.62.904 0 1.63.725 1.63 1.62 0 .8=
+95-.733 1.62-1.63 1.62zm1.348 13.22h-2.689V7.27l2.69-.423v11.956zm-4.714 0c=
+-4.386.02-4.386-3.54-4.386-4.107l-.008-13.336 2.676-.424v13.254c0 .322 0 2.=
+358 1.718 2.364v2.248zm-8.698-5.903c0-1.156-.253-2.119-.746-2.788-.493-.677=
+-1.183-1.01-2.067-1.01-.882 0-1.574.333-2.065 1.01-.493.676-.733 1.632-.733=
+ 2.788 0 1.168.246 1.953.74 2.63.492.683 1.183 1.018 2.066 1.018.882 0 1.57=
+4-.342 2.067-1.019.492-.683.738-1.46.738-2.63zm2.737-.007c0 .902-.13 1.584-=
+.397 2.33a5.52 5.52 0 0 1-1.128 1.906 4.986 4.986 0 0 1-1.752 1.223c-.685.2=
+86-1.739.45-2.265.45-.528-.006-1.574-.157-2.252-.45a5.096 5.096 0 0 1-1.744=
+-1.223c-.487-.527-.863-1.162-1.137-1.906a6.345 6.345 0 0 1-.41-2.33c0-.902.=
+123-1.77.397-2.508a5.554 5.554 0 0 1 1.15-1.892 5.133 5.133 0 0 1 1.75-1.21=
+6c.679-.287 1.425-.423 2.232-.423.808 0 1.553.142 2.237.423a4.88 4.88 0 0 1=
+ 1.753 1.216 5.644 5.644 0 0 1 1.135 1.892c.287.738.431 1.606.431 2.508zm-2=
+0.138 0c0 1.12.246 2.363.738 2.882.493.52 1.13.78 1.91.78.424 0 .828-.062 1=
+.204-.178.377-.116.677-.253.917-.417V9.33a10.476 10.476 0 0 0-1.766-.226c-.=
+971-.028-1.71.37-2.23 1.004-.513.636-.773 1.75-.773 2.788zm7.438 5.274c0 1.=
+824-.466 3.156-1.404 4.004-.936.846-2.367 1.27-4.296 1.27-.705 0-2.17-.137-=
+3.34-.396l.431-2.118c.98.205 2.272.26 2.95.26 1.074 0 1.84-.219 2.299-.656.=
+459-.437.684-1.086.684-1.948v-.437a8.07 8.07 0 0 1-1.047.397c-.43.13-.93.19=
+8-1.492.198-.739 0-1.41-.116-2.018-.349a4.206 4.206 0 0 1-1.567-1.025c-.431=
+-.45-.774-1.017-1.013-1.694-.24-.677-.363-1.885-.363-2.773 0-.834.13-1.88.3=
+84-2.577.26-.696.629-1.298 1.129-1.796.493-.498 1.095-.881 1.8-1.162a6.605 =
+6.605 0 0 1 2.428-.457c.87 0 1.67.109 2.45.24.78.129 1.444.265 1.985.415V18=
+.17z' fill=3D'%235468FF'/%3E%3Cpath d=3D'M6.972 6.677v1.627c-.712-.446-1.52=
+-.67-2.425-.67-.585 0-1.045.13-1.38.391a1.24 1.24 0 0 0-.502 1.03c0 .425.16=
+4.765.494 1.02.33.256.835.532 1.516.83.447.192.795.356 1.045.495.25.138.537=
+.332.862.582.324.25.563.548.718.894.154.345.23.741.23 1.188 0 .947-.334 1.6=
+91-1.004 2.234-.67.542-1.537.814-2.601.814-1.18 0-2.16-.229-2.936-.686v-1.7=
+08c.84.628 1.814.942 2.92.942.585 0 1.048-.136 1.388-.407.34-.271.51-.646.5=
+1-1.125 0-.287-.1-.55-.302-.79-.203-.24-.42-.42-.655-.542-.234-.123-.585-.2=
+9-1.053-.503a61.27 61.27 0 0 1-.582-.271 13.67 13.67 0 0 1-.55-.287 4.275 4=
+.275 0 0 1-.567-.351 6.92 6.92 0 0 1-.455-.4c-.18-.17-.31-.34-.39-.51-.08-.=
+17-.155-.37-.224-.598a2.553 2.553 0 0 1-.104-.742c0-.915.333-1.638.998-2.17=
+.664-.532 1.523-.798 2.576-.798.968 0 1.793.17 2.473.51zm7.468 5.696v-.287c=
+-.022-.607-.187-1.088-.495-1.444-.309-.357-.75-.535-1.324-.535-.532 0-.99.1=
+94-1.373.583-.382.388-.622.949-.717 1.683h3.909zm1.005 2.792v1.404c-.596.34=
+-1.383.51-2.362.51-1.255 0-2.255-.377-3-1.132-.744-.755-1.116-1.744-1.116-2=
+.968 0-1.297.34-2.316 1.021-3.055.68-.74 1.548-1.11 2.6-1.11 1.033 0 1.852.=
+323 2.458.966.606.644.91 1.572.91 2.784 0 .33-.033.676-.096 1.038h-5.314c.1=
+07.702.405 1.239.894 1.611.49.372 1.106.558 1.85.558.862 0 1.58-.202 2.155-=
+.606zm6.605-1.77h-1.212c-.596 0-1.045.116-1.349.35-.303.234-.454.532-.454.8=
+94 0 .372.117.664.35.877.235.213.575.32 1.022.32.51 0 .912-.142 1.204-.424.=
+293-.281.44-.651.44-1.108v-.91zm-4.068-2.554V9.325c.627-.361 1.457-.542 2.4=
+89-.542 2.116 0 3.175 1.026 3.175 3.08V17h-1.548v-.957c-.415.68-1.143 1.02-=
+2.186 1.02-.766 0-1.38-.22-1.843-.661-.462-.442-.694-1.003-.694-1.684 0-.77=
+6.293-1.38.878-1.81.585-.431 1.404-.647 2.457-.647h1.34V11.8c0-.554-.133-.9=
+71-.399-1.253-.266-.282-.707-.423-1.324-.423a4.07 4.07 0 0 0-2.345.718zm9.3=
+33-1.93v1.42c.394-1 1.101-1.5 2.123-1.5.148 0 .313.016.494.048v1.531a1.885 =
+1.885 0 0 0-.75-.143c-.542 0-.989.24-1.34.718-.351.479-.527 1.048-.527 1.70=
+7V17h-1.563V8.91h1.563zm5.01 4.084c.022.82.272 1.492.75 2.019.479.526 1.15.=
+79 2.01.79.639 0 1.235-.176 1.788-.527v1.404c-.521.319-1.186.479-1.995.479-=
+1.265 0-2.276-.4-3.031-1.197-.755-.798-1.133-1.792-1.133-2.984 0-1.16.38-2.=
+151 1.14-2.975.761-.825 1.79-1.237 3.088-1.237.702 0 1.346.149 1.93.447v1.4=
+36a3.242 3.242 0 0 0-1.77-.495c-.84 0-1.513.266-2.019.798-.505.532-.758 1.2=
+13-.758 2.042zM40.24 5.72v4.579c.458-1 1.293-1.5 2.505-1.5.787 0 1.42.245 1=
+.899.734.479.49.718 1.17.718 2.042V17h-1.564v-5.106c0-.553-.14-.98-.422-1.2=
+84-.282-.303-.652-.455-1.11-.455-.531 0-1.002.202-1.411.606-.41.405-.615 1.=
+022-.615 1.851V17h-1.563V5.72h1.563zm14.966 10.02c.596 0 1.096-.253 1.5-.75=
+8.404-.506.606-1.157.606-1.955 0-.915-.202-1.62-.606-2.114-.404-.495-.92-.7=
+42-1.548-.742-.553 0-1.05.224-1.491.67-.442.447-.662 1.133-.662 2.058 0 .95=
+8.212 1.67.638 2.138.425.469.946.703 1.563.703zM53.004 5.72v4.42c.574-.894 =
+1.388-1.341 2.44-1.341 1.022 0 1.857.383 2.506 1.149.649.766.973 1.781.973 =
+3.047 0 1.138-.309 2.109-.925 2.912-.617.803-1.463 1.205-2.537 1.205-1.075 =
+0-1.894-.447-2.457-1.34V17h-1.58V5.72h1.58zm9.908 11.104l-3.223-7.913h1.739=
+l1.005 2.632 1.26 3.415c.096-.32.48-1.458 1.15-3.415l.909-2.632h1.66l-2.92 =
+7.866c-.777 2.074-1.963 3.11-3.559 3.11a2.92 2.92 0 0 1-.734-.079v-1.34c.17=
+.042.351.064.543.064 1.032 0 1.755-.57 2.17-1.708z' fill=3D'%235D6494'/%3E%=
+3Cpath d=3D'M89.632 5.967v-.772a.978.978 0 0 0-.978-.977h-2.28a.978.978 0 0=
+ 0-.978.977v.793c0 .088.082.15.171.13a7.127 7.127 0 0 1 1.984-.28c.65 0 1.2=
+95.088 1.917.259.082.02.164-.04.164-.13m-6.248 1.01l-.39-.389a.977.977 0 0 =
+0-1.382 0l-.465.465a.973.973 0 0 0 0 1.38l.383.383c.062.061.15.047.205-.014=
+.226-.307.472-.601.746-.874.281-.28.568-.526.883-.751.068-.042.075-.137.02-=
+.2m4.16 2.453v3.341c0 .096.104.165.192.117l2.97-1.537c.068-.034.089-.117.05=
+5-.184a3.695 3.695 0 0 0-3.08-1.866c-.068 0-.136.054-.136.13m0 8.048a4.489 =
+4.489 0 0 1-4.49-4.482 4.488 4.488 0 0 1 4.49-4.482 4.488 4.488 0 0 1 4.489=
+ 4.482 4.484 4.484 0 0 1-4.49 4.482m0-10.85a6.363 6.363 0 1 0 0 12.729 6.37=
+ 6.37 0 0 0 6.372-6.368 6.358 6.358 0 0 0-6.371-6.36' fill=3D'%23FFF'/%3E%3=
+C/g%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 50% =
+center; background-size: 100%; overflow: hidden; text-indent: -9000px; widt=
+h: 100%; height: 100%; display: block; padding: 0px !important; }
+------MultipartBoundary--ryleL1GRlSyDIzx7uiyKBV4fmQESfSRusUrzKZyJiw----
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: https://cdn4.buysellads.net/uu/1/41369/1551198561-Adobe_Stock_260x200.jpg
+
+/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QOIaHR0cDov
+L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
+aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
+OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzEzOCA3OS4xNTk4MjQsIDIwMTYvMDkvMTQtMDE6
+MDk6MDEgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5
+OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHht
+bG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0i
+aHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1w
+PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9
+InhtcC5kaWQ6OGVmZGNkNmItYzQzMi0xYjQ0LWI1YTItYjA1OGEyZjhjZGJiIiB4bXBNTTpEb2N1
+bWVudElEPSJ4bXAuZGlkOkY2NEU1NzcwMzIwNzExRTk4MzlFQjBDOTg0MTg0OEM5IiB4bXBNTTpJ
+bnN0YW5jZUlEPSJ4bXAuaWlkOkY2NEU1NzZGMzIwNzExRTk4MzlFQjBDOTg0MTg0OEM5IiB4bXA6
+Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiPiA8eG1wTU06RGVyaXZl
+ZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDphOTA0OTg4MS01NTllLTY2NGUtYjAxYS1k
+M2E1MWFiODU1OWMiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDpiZWU3
+MmU3MC0yNmUxLWVhNDAtYTIwZi0wYjUxZTgyYzliYTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwv
+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
+
+------MultipartBoundary--ryleL1GRlSyDIzx7uiyKBV4fmQESfSRusUrzKZyJiw------

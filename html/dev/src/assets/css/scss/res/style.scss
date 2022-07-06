@@ -1,0 +1,304 @@
+@import '../01-settings/file-header.scss';
+
+/**
+ *
+ * +++++++++++++++++
+ * TABLE OF CONTENTS
+ * +++++++++++++++++
+ *
+ * BOOTSTRAP V5
+   ============
+ *
+ * 1. SETTINGS
+   ===========
+ * File-header..........The file header for the themes style.css file.
+ * Fonts................Any font files, if the project needs specific fonts.
+ * Global...............Project-specific, globally available variables.
+ // Settings
+  @import "../01-settings/file-header.scss";
+  @import "../01-settings/fonts.scss";
+  @import "../01-settings/global.scss";
+ *
+ *
+ * 2. TOOLS
+   ========
+ * Functions............Global functions.
+ * Mixins...............Global variables.
+ * Mixins...............Global mixins.
+ * Utilities...............Global utilities.
+ // Configuration Tools
+  @import "../02-tools/functions.scss";
+  @import "../02-tools/variables.scss";
+  @import "../02-tools/mixins.scss";
+  @import "../02-tools/utilities.scss";
+ *
+ *
+ * 3. REBOOT
+   =========
+ * Normalize.css........Normalise browser defaults.
+ * Breakpoints..........Mixins and variables for responsive styles
+ * Vertical-margins.....Vertical spacing for the main components.
+ * Reset................Reset specific elements to make them easier to style in other contexts.
+ * Clearings............Clearings for the main components.
+ // Reboot
+  @import "../03-reboot/normalize.scss";
+  @import "../03-reboot/breakpoints.scss";
+  @import "../03-reboot/margins.scss";
+  @import "../03-reboot/reset.scss";
+  @import "../03-reboot/clearings.scss";
+ *
+ *
+ * 4. LAYOUT
+   =========
+ * Blockquote...........Default blockquote.npm install -g scss-compile
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ * 
+ *
+ * 5. ELEMENTS
+   ===========
+ * Blockquote...........Default blockquote.npm install -g scss-compile
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ * 
+ *
+ * 6. COMPONENTS
+   =============
+ * Blockquote...........Default blockquote.npm install -g scss-compile
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ * 
+ *
+ * 7. GENERIC PAGES
+   ================
+ * Blockquote...........Default blockquote.npm install -g scss-compile
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ * 
+ *
+ * 8. BLOG
+   =======
+ * Blockquote...........Default blockquote.npm install -g scss-compile
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ * 
+ *
+ * 9. NFT MARKETPLACE
+   ==================
+ * Blockquote...........Default blockquote.npm install -g scss-compile
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ * 
+ *
+ * 10. ECOMMERCE
+   =============
+ * Blockquote...........Default blockquote.npm install -g scss-compile
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ *
+ *
+ * 11. USER PROFILE
+   ================
+ * Blockquote...........Default blockquote.npm install -g scss-compile
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ *
+ *
+ * 12. ECOMMERCE
+   =============
+ * Blockquote...........Default blockquote.npm install -g scss-compile
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ *
+ * 13. WP-BLOCKS
+   =============
+ * Audio................Specific styles for the audio block.
+ * Button...............Specific styles for the button block.
+ * Code.................Specific styles for the code block.
+ * Columns..............Specific styles for the columns block.
+ * Cover................Specific styles for the cover block.
+ * File.................Specific styles for the file block.
+ * Gallery..............Specific styles for the gallery block.
+ * Group................Specific styles for the group block.
+ * Heading..............Specific styles for the heading block.
+ * Image................Specific styles for the image block.
+ * Latest comments......Specific styles for the latest comments block.
+ * Latest posts.........Specific styles for the latest posts block.
+ * Legacy...............Specific styles for the legacy gallery.
+ * List.................Specific styles for the list block.
+ * Media text...........Specific styles for the media and text block.
+ * Navigation...........Specific styles for the navigation block.
+ * Paragraph............Specific styles for the paragraph block.
+ * Pullquote............Specific styles for the pullquote block.
+ * Quote................Specific styles for the quote block.
+ * Search...............Specific styles for the search block.
+ * Separator............Specific styles for the separator block.
+ * Spacer...............Specific styles for the spacer block.
+ * Table................Specific styles for the table block.
+ * Verse................Specific styles for the verse block.
+ * Video................Specific styles for the video block.
+ * Utilities............Block alignments.
+ *
+ * 14. WP-COMPONENTS
+   =================
+ * Header...............Header styles.
+ * Footer...............Footer styles.
+ * Comments.............Comment styles.
+ * Archives.............Archive styles.
+ * 404..................404 styles.
+ * Search...............Search styles.
+ * Navigation...........Navigation styles.
+ * Footer Navigation....Footer Navigation styles.
+ * Pagination...........Pagination styles.
+ * Single...............Single page and post styles.
+ * Posts................Misc, sticky post styles.
+ * Pages................Misc, sticky post styles.
+ * Entry................Entry, author biography.
+ * Widget...............Widget styles.
+ * Editor...............Editor styles.
+ *
+ * 15. UTILITIES
+   =============
+ * A11y.................Screen reader text, prefers reduced motion etc.
+ * Color Palette........Classes for the color palette colors.
+ * Editor Font Sizes....Editor Font Sizes.
+ * Measure..............The width of a line of text, in characters.
+ *
+ * 
+ * 16. VENDORS
+   ===========
+ * A11y.................Screen reader text, prefers reduced motion etc.
+ * Color Palette........Classes for the color palette colors.
+ * Editor Font Sizes....Editor Font Sizes.
+ * Measure..............The width of a line of text, in characters.
+ *
+ * 
+ * 17. MEDIA SIZES
+   ===============
+ * A11y.................Screen reader text, prefers reduced motion etc.
+ * Color Palette........Classes for the color palette colors.
+ * Editor Font Sizes....Editor Font Sizes.
+ * Measure..............The width of a line of text, in characters.
+ *
+ * 
+ * 18. PRINT
+   =========
+ * A11y.................Screen reader text, prefers reduced motion etc.
+ * Color Palette........Classes for the color palette colors.
+ * Editor Font Sizes....Editor Font Sizes.
+ * Measure..............The width of a line of text, in characters.
+ *
+ * 
+ * 19. DARK THEME
+   ==============
+ * A11y.................Screen reader text, prefers reduced motion etc.
+ * Color Palette........Classes for the color palette colors.
+ * Editor Font Sizes....Editor Font Sizes.
+ * Measure..............The width of a line of text, in characters.
+ *
+ * 
+ * 20. FRONTEND CUSTOMIZER
+   =======================
+ * A11y.................Screen reader text, prefers reduced motion etc.
+ * Color Palette........Classes for the color palette colors.
+ * Editor Font Sizes....Editor Font Sizes.
+ * Measure..............The width of a line of text, in characters.
+ *
+ * 
+ */
+
+
+// Import the bootstrap styles
+@import '../../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+/* Categories 01 to 03 are the basics. */
+
+@import '../01-settings/fonts.scss';
+
+@import '../01-settings/global.scss';
+
+///
+@import '../01-settings/colors.scss';
+@import '../01-settings/urls.scss';
+@import '../01-settings/extensions.scss';
+
+@import '../02-tools/mixins.scss';
+@import '../02-tools/functions.scss';
+
+@import '../03-generic/normalize.scss';
+@import '../03-generic/breakpoints.scss';
+@import '../03-generic/vertical-margins.scss';
+@import '../03-generic/reset.scss';
+@import '../03-generic/clearings.scss';
+
+/* Category 04 can contain any default HTML element. Do not add classes here, just give the elements some basic styles. */
+@import '../04-elements/blockquote.scss';
+@import '../04-elements/forms.scss';
+@import '../04-elements/media.scss';
+@import '../04-elements/links.scss';
+@import '../04-elements/misc.scss';
+
+///
+@import '../04-elements/tags.scss';
+@import '../04-elements/margins.scss';
+@import '../04-elements/paddings.scss';
+@import '../04-elements/breadcrumbs.scss';
+@import '../04-elements/overlay.scss';
+@import '../04-elements/align.scss';
+@import '../04-elements/preloader.scss';
+@import '../04-elements/header.scss';
+
+/* Category 05 is all about adjusting the default block styles to the given layout. I only added three blocks as examples. */
+@import '../05-blocks/blocks.scss';
+
+/* Category 06 contains all 'bigger' components which contain elements of the previous two categories like header, footer, page template, single template, comments section, archives, ... */
+@import '../06-components/header.scss';
+@import '../06-components/footer.scss';
+@import '../06-components/single.scss';
+@import '../06-components/posts-and-pages.scss';
+@import '../06-components/entry.scss';
+@import '../06-components/archives.scss';
+@import '../06-components/404.scss';
+@import '../06-components/search.scss';
+@import '../06-components/comments.scss';
+@import '../06-components/navigation.scss';
+@import '../06-components/footer-navigation.scss';
+@import '../06-components/pagination.scss';
+@import '../06-components/accordions.scss';
+@import '../06-components/dashboard.scss';
+@import '../06-components/items.scss';
+@import '../06-components/widgets.scss';
+
+/* Category 07 is for any utility classes that are not assigned to a specific component. */
+@import '../07-utilities/a11y.scss';
+@import '../07-utilities/color-palette.scss';
+@import '../07-utilities/measure.scss';
+@import '../07-utilities/ie.scss';
+@import '../12-custom/tweaks.scss';

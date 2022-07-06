@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+.kanban-header {
+  /*display: block;
+  clear: both;
+  width: 100%;
+  */
+  padding: 25px;
+  background-image: url(https://communicator.hyperefficient2.net/assets/display/header.png);
+  background-position: center center;
+  background-size: cover;
+}
+
+.kanban-header-container{
+  height: 9vh  !important;
+  background-color: #0a58ca;
+  margin-bottom: 16px;
+}
+
+.kanban-header-image {
+  max-height: 32px !important;
+  widows: inherit;
+  width: unset;
+  vertical-align: middle;
+}
+
+.kanban-button-container{
+  height: fit-content  !important;
+  min-height: 3.5vh  !important;
+  max-height: 3.5vh  !important;
+  background-color: transparent;
+  text-align: center;
+}
+img.beveled-milestone-title-image {
+  vertical-align: middle;
+  width: 100%;
+  padding: 12px 0;
+}
+
+.kanban-tiles-container{
+  height: 88vh  !important; /*** 84.375vh  !important; ***/
+  background-color: #565656;
+  background-image: url(https://communicator.hyperefficient2.net/assets/display/background.png);
+  background-position: center center;
+  background-size: cover;
+}
+.kanban-tiles-container-row{
+  margin-top: 8px;
+}
+
+.kanban-button-bg {
+  background-position: center center;
+  background-size: 90%;
+  background-repeat: no-repeat;
+}
+
+.kanban-button-bg h3 {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 20px !important;
+  font-family: "Bungee";
+  font-style: italic;
+  margin: 10px;
+  top: -2px !important;
+  display: block;
+  position: relative;
+}
+
+.kanban-button-bg.bg-1{
+
+  background-image: url(https://communicator.hyperefficient2.net/assets/display/m10.png);
+}
+
+.kanban-button-bg.bg-2{
+
+  background-image: url(https://communicator.hyperefficient2.net/assets/display/m20.png);
+}
+
+.kanban-button-bg.bg-3{
+
+  background-image: url(https://communicator.hyperefficient2.net/assets/display/m30.png);
+}
+
+.kanban-button-bg.bg-4{
+
+  background-image: url(https://communicator.hyperefficient2.net/assets/display/m40.png);
+}
+
+.kanban-footer-container{
+  height: 3.09375vh  !important;
+  background-color: #2f2f2f;
+}
+
+.kanban-footer-text-container{
+  text-align: center;
+}
+
+.color-1{
+  background-color: #eea300;
+}
+.color-2{
+  background-color: #ff0f21;
+}
+.color-3{
+  background-color: #1874ff;
+}
+.color-4{
+  background-color: #3bb220;
+}
+
+.swiper-slide {
+  padding: 0 20px;
+}
+
+.list-group.list-group-flush > svg{
+  width: 80%;
+  height: fit-content;
+  margin: 8px auto;
+}
+
+.col-md-3 {
+  border-right: 2px dotted #787a7c;
+}
+
+.col-md-3:last-of-type {
+  border-right: none;
+}
+
+
+.text-align-left{
+  text-align:  left !important;
+}
+
+.w-100{
+  width: 100% !important;
+}
+
+@keyframes fa-blink {
+  0% { opacity: 1; }
+  25% { opacity: 0.5; }
+  75% { opacity: 0; }
+  100% { opacity: 0; }
+}
+.fa-blink {
+  -webkit-animation: fa-blink 1s linear infinite;
+  -moz-animation: fa-blink 1s linear infinite;
+  -ms-animation: fa-blink 1s linear infinite;
+  -o-animation: fa-blink 1s linear infinite;
+  animation: fa-blink 1s linear infinite;
+}

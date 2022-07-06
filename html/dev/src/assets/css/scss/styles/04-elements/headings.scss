@@ -1,0 +1,42 @@
+h1 {
+	@extend %extend_2;
+	font-size: 50px;
+	a {
+		color: inherit;
+	}
+}
+h2 {
+	@extend %extend_2;
+	font-size: 40px;
+	a {
+		color: inherit;
+	}
+}
+h3 {
+	@extend %extend_2;
+	font-size: 30px;
+	a {
+		color: inherit;
+	}
+}
+h4 {
+	@extend %extend_2;
+	font-size: 25px;
+	a {
+		color: inherit;
+	}
+}
+h5 {
+	@extend %extend_2;
+	font-size: 20px;
+	a {
+		color: inherit;
+	}
+}
+h6 {
+	@extend %extend_2;
+	font-size: 16px;
+	a {
+		color: inherit;
+	}
+}

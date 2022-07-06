@@ -1,0 +1,83 @@
+.position-relative {
+	position: relative !important;
+}
+.pos-abs-tr {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.pos-abs-cr {
+	position: absolute;
+	top: 50%;
+	right: 12px;
+	-webkit-transform: translateY(-50%);
+	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+	transform: translateY(-50%);
+	height: 30px;
+	width: 30px;
+	background-color: transparent;
+	opacity: 1;
+	visibility: visible;
+	line-height: 30px;
+	text-align: center;
+	display: block;
+	&.show::after {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+.pos-abs-cr::before {
+	content: "\eab1";
+	font-family: $line_icons_font_2;
+	color: $color_black_pearl_approx;
+	font-size: 17px;
+}
+.pos-abs-cr::after {
+	content: "";
+	position: absolute;
+	right: 5px;
+	top: 14px;
+	height: 2px;
+	width: 20px;
+	background-color: $color_dorado_approx;
+	z-index: 1;
+	-webkit-transform: rotate(45deg);
+	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+	transform: rotate(45deg);
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0;
+	opacity: 0;
+	visibility: hidden;
+}
+.z-index-supper {
+	z-index: 800;
+}
+.circle-32 {
+	max-width: 32px;
+	min-width: 32px;
+	max-height: 32px;
+	min-height: 32px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 500px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	right: 20px;
+	top: 20px;
+	background: $color_gallery_approx !important;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 3px;
+	-webkit-transition: all 0.4s ease;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 0.4s ease;
+	&:hover {
+		background-color: $color_black_pearl_approx !important;
+		color: $white !important;
+	}
+}

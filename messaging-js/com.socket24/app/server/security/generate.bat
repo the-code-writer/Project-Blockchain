@@ -1,0 +1,2 @@
+cd "C:\Program Files\OpenSSL-Win64\bin\"
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout C:\Users\Admin\WebstormProjects\com.socket24\app\server\security\cert.key -out C:\Users\Admin\WebstormProjects\com.socket24\app\server\security\cert.pem -config C:\Users\Admin\WebstormProjects\com.socket24\app\server\security\req.cnf -sha256

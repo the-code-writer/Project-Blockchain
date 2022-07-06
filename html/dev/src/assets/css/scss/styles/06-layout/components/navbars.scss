@@ -1,0 +1,731 @@
+.navbar-area {
+	width: 100%;
+	z-index: 99;
+	-webkit-transition: all 0.3s ease-out 0s;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 0.3s ease-out 0s;
+	background-color: transparent;
+	position: absolute;
+	border-bottom: 1px solid $color_mercury_approx;
+}
+.sticky {
+	position: fixed;
+	z-index: 99;
+	background-color: $white;
+	-webkit-box-shadow: 0 20px 50px 0 $black_5;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 20px 50px 0 $black_5;
+	-webkit-transition: all 0.3s ease-out 0s;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 0.3s ease-out 0s;
+	top: 0;
+	.navbar {
+		.navbar-nav .nav-item a {
+			color: $color_mine_shaft_approx;
+			&.active {
+				color: $color_persian_blue_approx;
+			}
+		}
+		.navbar-toggler .toggler-icon {
+			background: $color_mine_shaft_approx;
+		}
+	}
+}
+.navbar {
+	padding: 0;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	position: relative;
+	-webkit-transition: all 0.3s ease-out 0s;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 0.3s ease-out 0s;
+}
+@media only screen and(min-width: 768px) and(max-width: 991px) {
+	.navbar {
+		padding: 17px 0;
+	}
+	.navbar-collapse {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background-color: $white;
+		z-index: 9;
+		-webkit-box-shadow: 0 15px 20px 0 $black_10;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 15px 20px 0 $black_10;
+		padding: 5px 12px;
+		overflow: scroll;
+		height: 400px;
+		-webkit-transition: all 0.4s ease;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: all 0.4s ease;
+	}
+	.navbar-nav {
+		.nav-item {
+			a {
+				display: inline-block;
+				padding: 6px 0;
+				color: $color_waikawa_gray_approx;
+				&:hover::after {
+					opacity: 1;
+				}
+				&:hover::before {
+					opacity: 1;
+				}
+				&.active::after {
+					opacity: 1;
+				}
+				&.active::before {
+					opacity: 1;
+				}
+			}
+			.sub-menu {
+				position: relative;
+				width: 100%;
+				top: 0;
+				display: block;
+				opacity: 1;
+				visibility: visible;
+			}
+			&:last-child {
+				padding-bottom: 20px;
+			}
+			&:hover .sub-menu {
+				top: 0;
+			}
+		}
+		.sub-nav-toggler {
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 0;
+			background: none;
+			color: $color_mine_shaft_approx;
+			font-size: 18px;
+			border: 0;
+			width: 30px;
+			height: 30px;
+		}
+	}
+	.header {
+		.button {
+			display: none !important;
+			margin: 0;
+		}
+		&.index2 .sticky .navbar .navbar-toggler .toggler-icon {
+			background: $color_black_pearl_approx !important;
+		}
+		.navbar-nav li {
+			.sub-menu {
+				background: $white;
+				width: 200px;
+				padding: 10px;
+				z-index: 9999999;
+				left: 95px;
+				opacity: 1;
+				visibility: visible;
+				position: relative;
+				left: 13px;
+				top: 0;
+				-webkit-transform: scaleY(1) !important;
+				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+				transform: scaleY(1) !important;
+				border: 1px dashed $color_gallery_approx;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 5px;
+				-webkit-box-shadow: none;
+				//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+				box-shadow: none;
+				li a {
+					padding: 5px 10px;
+					font-size: 13px;
+					padding: 8px 12px;
+					font-size: 12px;
+				}
+			}
+			a {
+				position: relative;
+				margin-bottom: 6px;
+				&:hover .sub-menu {
+					top: 42px;
+				}
+			}
+		}
+	}
+	.section {
+		padding: 60px 0;
+	}
+	.section-title {
+		margin-bottom: 50px;
+		padding: 0 90px;
+		span {
+			text-transform: uppercase;
+			display: inline-block;
+			margin-bottom: 8px;
+			font-size: 13px;
+		}
+		h2 {
+			font-size: 28px;
+			margin-top: 5px;
+			line-height: 38px;
+		}
+		&.align-left {
+			padding: 0;
+			padding-right: 200px;
+		}
+		p {
+			font-size: 13px;
+		}
+	}
+	.breadcrumbs {
+		padding-top: 105px;
+		padding-bottom: 50px;
+		.bread-list {
+			margin-top: 8px;
+		}
+		.breadcrumbs-content .page-title {
+			font-size: 30px;
+			margin-bottom: 5px;
+			color: $white;
+		}
+	}
+	#scrollUp {
+		bottom: 55px;
+	}
+	.hero-area {
+		.hero-inner {
+			height: 550px;
+		}
+		.hero-inner::before {
+			display: none;
+		}
+		.hero-text {
+			float: none;
+			margin-top: 140px;
+			h1 {
+				font-size: 30px;
+				line-height: 38px;
+			}
+			.button {
+				margin-top: 25px;
+			}
+		}
+		.hero-video-head {
+			display: none;
+		}
+		&.style2 {
+			.home-slider {
+				position: relative;
+				height: 450px;
+			}
+			.hero-image {
+				display: none !important;
+			}
+			.hero-inner .hero-text {
+				margin-top: 150px;
+			}
+			.tns-controls button {
+				width: 30px;
+				height: 50px;
+				z-index: 2;
+				color: $white;
+				font-size: 15px;
+				background: $color_persian_blue_approx;
+				border: none;
+				padding: 2px 5px;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 4px;
+				-webkit-transition: all .3s ease-out 0s;
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: all .3s ease-out 0s;
+				position: absolute;
+				z-index: 99;
+				top: 50%;
+				margin-top: -25px;
+				&:hover {
+					background-color: $color_black_pearl_approx;
+					color: $white;
+				}
+				&:first-child {
+					//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+					border-radius: 0 5px 5px 0 !important;
+					left: 0;
+				}
+				&:last-child {
+					//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+					border-radius: 5px 0 0 5px !important;
+					right: 0;
+				}
+			}
+		}
+		&.style3 {
+			.hero-inner {
+				height: auto !important;
+				padding-bottom: 50px;
+				.hero-text {
+					margin-top: 120px;
+					text-align: center;
+					padding: 0 !important;
+				}
+			}
+			.trending-keywords {
+				text-align: center;
+				.keywords {
+					text-align: center;
+					display: inline-block;
+				}
+			}
+			.home-search {
+				margin-top: 40px;
+				.button {
+					margin-top: 20px;
+					.btn {
+						width: 100%;
+					}
+				}
+			}
+		}
+		&.style4 .hero-inner .hero-text {
+			margin-top: 120px;
+			text-align: center;
+			padding: 0 !important;
+		}
+	}
+	.about-us {
+		.content-left {
+			position: relative;
+			text-align: center;
+			.md-left {
+				margin-left: 0 !important;
+			}
+			.media-body {
+				text-align: left;
+			}
+		}
+		.content-right {
+			margin-top: 50px;
+			padding: 0;
+			h2 {
+				font-size: 27px;
+				margin-bottom: 40px;
+				line-height: 38px;
+			}
+		}
+	}
+	.testimonials {
+		.patern1 {
+			display: none;
+		}
+		.testimonial-right {
+			display: none;
+		}
+	}
+	.pricing-table {
+		.section-title {
+			margin-bottom: 20px;
+		}
+		.single-table {
+			margin-top: 30px;
+		}
+	}
+	.faq-area {
+		padding-bottom: 30px !important;
+		.heading {
+			font-size: 17px;
+			line-height: 28px;
+		}
+	}
+	.latest-news-area {
+		.section-title {
+			margin-bottom: 20px;
+		}
+		.single-news {
+			margin-top: 30px;
+		}
+		&.blog-list {
+			padding-top: 30px;
+		}
+	}
+	.post-details {
+		p {
+			margin: 25px 0;
+		}
+		.post-title {
+			line-height: 30px;
+			a {
+				font-size: 24px;
+				font-weight: 600;
+			}
+		}
+		.post-meta li {
+			margin-bottom: 8px;
+		}
+	}
+	.sidebar {
+		margin-top: 30px;
+		.widget {
+			&.search-widget form input {
+				padding: 0 80px 0 20px;
+			}
+			&.social-widget ul li {
+				margin-bottom: 10px;
+			}
+		}
+		&.service-sidebar {
+			.service-category {
+				padding: 30px;
+				> li > a {
+					font-size: 14px;
+					font-weight: 500;
+					padding: 0;
+					padding: 10px 15px;
+				}
+			}
+			.service-docs {
+				padding: 30px;
+			}
+			.service-quote {
+				padding: 30px;
+			}
+		}
+	}
+	.contact-area {
+		.contact-address-wrapper {
+			padding-right: 0;
+		}
+		.inner-section-title h2 {
+			font-weight: 700;
+			font-size: 28px;
+		}
+	}
+	.adv-banner {
+		padding: 30px;
+	}
+	.blog-middle-image {
+		margin-bottom: 20px;
+	}
+	.map-section {
+		background-color: $white;
+		margin-top: 50px;
+		padding-bottom: 60px !important;
+		height: auto;
+		iframe {
+			height: 300px !important;
+		}
+	}
+	.error-page {
+		.error-text {
+			margin-top: 50px;
+			padding-left: 0 !important;
+			text-align: center !important;
+			padding: 0 100px !important;
+		}
+		.error-image img {
+			width: 70%;
+		}
+	}
+	.contact-us {
+		.form-main {
+			padding: 50px 50px 50px 50px !important;
+		}
+		.single-head {
+			padding-top: 0 !important;
+		}
+	}
+	.dashbord-sidebar {
+		margin-bottom: 30px;
+	}
+	.footer {
+		.footer-top {
+			text-align: center;
+			.download-button {
+				text-align: center !important;
+				margin-top: 20px;
+			}
+		}
+		.footer-middle {
+			padding-bottom: 60px;
+			padding-top: 30px;
+		}
+		.single-footer {
+			margin-top: 30px;
+		}
+		.f-about p {
+			padding-right: 80px;
+		}
+	}
+	.button .btn {
+		padding: 12px 25px;
+		font-size: 14px;
+		font-weight: 500;
+	}
+	.navbar-brand img {
+		width: 130px;
+	}
+	.right-button .btn {
+		font-size: 13px;
+	}
+	.apply-process .process-item {
+		padding: 0 !important;
+		padding-top: 0;
+		text-align: center;
+		padding-top: 80px !important;
+		i {
+			left: 50% !important;
+			margin-left: -30px;
+			height: 60px !important;
+			width: 60px !important;
+			font-size: 25px !important;
+			line-height: 60px !important;
+		}
+		h4:before {
+			left: 50% !important;
+			margin-left: -25px;
+		}
+	}
+	.call-action.style2 {
+		.button::before {
+			display: none;
+		}
+		.text h2 {
+			font-size: 24px !important;
+		}
+	}
+	.featured-job .single-job .content .button .btn {
+		padding: 12px 28px !important;
+	}
+	.all-categories .categories-title {
+		font-size: 25px !important;
+	}
+	.find-job.job-list {
+		padding-top: 30px !important;
+	}
+	.brand-area .section-title.align-left {
+		padding-right: 200px;
+		margin-bottom: 40px !important;
+	}
+	.newsletter-area .mini-call-action {
+		height: auto;
+		margin-top: 30px;
+	}
+	.blog-list .single-news {
+		margin-bottom: 0 !important;
+	}
+	.blog-single .sidebar {
+		margin-top: 30px;
+	}
+	.error-area .error-content h1 {
+		font-size: 90px !important;
+	}
+	.maill-success .success-content {
+		h1 {
+			font-size: 30px !important;
+		}
+		h2 {
+			font-size: 20px !important;
+		}
+	}
+}
+@media(max-width: 767px) {
+	.navbar {
+		padding: 17px 0;
+	}
+	.navbar-collapse {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background-color: $white;
+		z-index: 9;
+		-webkit-box-shadow: 0 15px 20px 0 $color_biscay_10_approx;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 15px 20px 0 $color_biscay_10_approx;
+		padding: 5px 12px;
+	}
+	.navbar-nav {
+		.nav-item {
+			a {
+				display: inline-block;
+				padding: 6px 0;
+				color: $color_waikawa_gray_approx;
+				&:hover::after {
+					opacity: 1;
+				}
+				&:hover::before {
+					opacity: 1;
+				}
+				&.active::after {
+					opacity: 1;
+				}
+				&.active::before {
+					opacity: 1;
+				}
+			}
+			.sub-menu {
+				position: relative;
+				width: 100%;
+				top: 0;
+				display: block;
+				opacity: 1;
+				visibility: visible;
+			}
+			&:hover .sub-menu {
+				top: 0;
+			}
+		}
+		.sub-nav-toggler {
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 0;
+			background: none;
+			color: $color_mine_shaft_approx;
+			font-size: 18px;
+			border: 0;
+			width: 30px;
+			height: 30px;
+		}
+	}
+	.header .button {
+		display: none !important;
+	}
+}
+.navbar-brand {
+	padding: 0;
+	img {
+		width: 150px;
+	}
+}
+.navbar-nav {
+	.nav-item {
+		position: relative;
+		margin-left: 38px;
+		a {
+			font-size: 14px;
+			font-weight: 500;
+			color: $color_mine_shaft_approx;
+			-webkit-transition: all 0.3s ease-out 0s;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all 0.3s ease-out 0s;
+			padding: 30px 0;
+			position: relative;
+			text-transform: capitalize;
+			&:hover {
+				color: $color_persian_blue_approx;
+			}
+			&.active {
+				color: $color_persian_blue_approx;
+			}
+			&.active::before {
+				opacity: 1;
+				width: 100%;
+			}
+			i {
+				display: inline-block;
+				margin-left: 4px;
+				font-size: 10px;
+			}
+		}
+		a::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			height: 3px;
+			background: $color_persian_blue_approx;
+			z-index: -1;
+			opacity: 0;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 10px;
+			-webkit-transition: all 0.3s ease-out 0s;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all 0.3s ease-out 0s;
+			z-index: 5;
+			width: 0;
+			left: 0;
+		}
+		a::after {
+			width: 20%;
+			right: 0;
+		}
+		&:hover {
+			.sub-menu {
+				top: 100%;
+				opacity: 1;
+				visibility: visible;
+			}
+			a:before {
+				opacity: 1;
+				width: 100%;
+			}
+		}
+	}
+	.sub-nav-toggler {
+		display: block;
+		span {
+			width: 8px;
+			height: 8px;
+			border-left: 1px solid $color_mine_shaft_approx;
+			border-bottom: 1px solid $color_mine_shaft_approx;
+			-webkit-transform: rotate(-45deg);
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: rotate(-45deg);
+			position: relative;
+			top: -5px;
+		}
+	}
+}
+
+.navbar-toggler {
+	padding: 0;
+	background-color: $color_persian_blue_approx;
+	padding: 5px 8px !important;
+	-webkit-transition: all 0.4s ease;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 0.4s ease;
+	&:focus {
+		text-decoration: none;
+		outline: none;
+		outline: none;
+		-webkit-box-shadow: none;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+	}
+	.toggler-icon {
+		background-color: $white !important;
+		width: 22px;
+		height: 2px;
+		background-color: $color_mine_shaft_approx;
+		display: block;
+		margin: 5px 0;
+		position: relative;
+		-webkit-transition: all 0.3s ease-out 0s;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: all 0.3s ease-out 0s;
+	}
+	&:hover {
+		background-color: $color_black_pearl_approx !important;
+	}
+	&.active .toggler-icon {
+		&:nth-of-type(1) {
+			-webkit-transform: rotate(45deg);
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: rotate(45deg);
+			top: 7px;
+		}
+		&:nth-of-type(2) {
+			opacity: 0;
+		}
+		&:nth-of-type(3) {
+			-webkit-transform: rotate(135deg);
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: rotate(135deg);
+			top: -7px;
+		}
+	}
+}
+
+.other-page .navbar-area {
+	background-color: $white;
+	border: none;
+}

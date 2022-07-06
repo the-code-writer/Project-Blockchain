@@ -1,0 +1,3564 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://unionplatform.com/specs/upc/
+Subject: Union :: UPC Specification
+Date: Wed, 9 Mar 2022 11:13:08 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--zqTBqGc6gXoVgspjyBoBvwGa9xZ48AHLDThBlRbkc4----"
+
+
+------MultipartBoundary--zqTBqGc6gXoVgspjyBoBvwGa9xZ48AHLDThBlRbkc4----
+Content-Type: text/html
+Content-ID: <frame-2118F11B198A155A8C00F62542D45D41@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://unionplatform.com/specs/upc/
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8">
+    <title>Union :: UPC Specification</title>
+  </head>
+<body>
+
+<h1>Union Procedure Call Protocol Specification</h1>
+
+<h2>UPC Protocol Version</h2>
+<p>1.10.3</p>
+
+<h2>Latest Version</h2>
+
+<p>The most recent version of the UPC protocol is available at: <a href=3D"=
+http://unionplatform.com/specs/upc/">http://unionplatform.com/specs/upc/</a=
+>.</p>
+
+<h2>Prior Versions</h2>
+
+<p>Older versions of the UPC protocol are available under <a href=3D"http:/=
+/unionplatform.com/specs/upc/#history">Revision History</a>.</p>
+
+<h2>Message Structure</h2>
+
+<p>The Union Procedure Call (UPC) protocol is the Union platform's central =
+communications protocol. It describes the message format used in all client=
+/server communication and specifies a list of native messages supported by =
+the Union server.</p>
+
+<p>Structurally, UPC is a simple XML format that includes a message id and =
+a list of arguments. A UPC message can be sent from the client to the serve=
+r or the server to the client. Either way, every UPC message has the follow=
+ing general form:</p>
+
+<pre>&lt;u&gt;
+  &lt;m&gt;messageID&lt;/m&gt;
+  &lt;l&gt;
+    &lt;a&gt;value1&lt;/a&gt;
+    &lt;a&gt;value2&lt;/a&gt;
+    &lt;a&gt;...&lt;/a&gt;
+    &lt;a&gt;valuen&lt;/a&gt;
+  &lt;/l&gt;
+&lt;/u&gt;
+</pre>
+
+<p>In the preceding message, the <code>messageID</code> is the message's id=
+entifier, which is typically a short code such as "u1" or "u2". The argumen=
+ts for the message are specified by <code>value1, value2, ...valuen</code>.
+
+</p><p>Note that Union application developers need not necessarily be conce=
+rned with the format of raw UPC messages because Union Server and some Unio=
+n client frameworks wrap UPC messages in a higher-level API. For example, i=
+n the Reactor framework for Flash-client development, a client joins a room=
+ by invoking the <i>Room</i> class's <i>join()</i> method, not by manually =
+transmitting the XML for a "u4" UPC message. Similarly, the result of the j=
+oin-room request is sent to the client in the form of a "u6" UPC message, b=
+ut the client need not read that message directly; instead, the client simp=
+ly handles the RoomEvent.JOIN event. However, some lightweight frameworks, =
+such as OrbiterMicro, require the application developer to communicate by s=
+ending and responding to UPC messages directly.</p>
+
+<h2>Reserved Characters</h2>
+
+<p>Fully qualified room IDs in UPC messages must not contain the following =
+reserved characters.</p>
+
+<pre>* (asterisk)
+| (pipe)</pre>
+
+<p>The asterisk character is reserved for use as a wildcard character when =
+indicating "all rooms qualifed by a specified qualifier." For example, the =
+expression "a.b.*" means "all rooms with the room qualifier 'a.b'". By cont=
+rast, the expression "a.b" means "room 'b', qualified by 'a'". The pipe cha=
+racter is reserved for use as a record separator. </p>
+
+<p>Furthermore, in room qualifiers and fully qualified room ids, the dot ch=
+aracter (.) is reserved for use as a room id separator.</p>
+
+<p>In the following tables, the record separator character, "|", is represe=
+nted by the token "[RS]".</p>
+
+<h2>Nested CDATA</h2>
+
+<p>Before transporting UPC messages that contain other UPC messages (e.g., =
+u155), Union Server and Union clients escape any nested CDATA-section start=
+-and-end tokens as follows:</p>
+
+<ul>
+<li>Convert &lt;[CDATA[ to &lt;([CDATA[</li>
+<li>Convert ]]&gt; to ]])&gt;</li>
+</ul>
+
+<p>For example, the following CDATA section:</p>
+
+<pre>&lt;[CDATA[Hello]]&gt;</pre>
+
+<p>becomes:</p>
+
+<pre>&lt;([CDATA[Hello]])&gt;</pre>
+
+<h2>Protocol Compatibility</h2>
+
+<p>The UPC protocol version takes format: majorNumber.minorNumber.revisionN=
+umber. For example, in the version number 1.2.0, the majorNumber is 1, the =
+minorNumber is 2, and the revisionNumber is 0. Every client must declare it=
+s UPC protocol version in its initial u65 message. If a client's declared v=
+ersion number does not match the server's then the client is either loosely=
+ or strictly incompatible with the server. Strictly incompatible clients ar=
+e disconnected automatically. For complete details, see the description for=
+ the u65 message.</p>
+		=09
+
+
+
+<h2>Native UPC Messages</h2>
+
+<p>Tables 1 and 2 list all messages in the UPC protocol.</p>
+
+<h2>Table 1: Client-to-Server Messages</h2>
+
+<table cellpadding=3D"5" cellspacing=3D"0" border=3D"1">
+<tbody><tr valign=3D"top">
+  <td><span class=3D"tableheader">Official Message Name</span></td>
+  <td><span class=3D"tableheader">Internal Message ID</span></td>
+  <td><span class=3D"tableheader">Arguments</span></td>
+  <td><span class=3D"tableheader">Corresponding Client API</span></td>
+  <td><span class=3D"tableheader">Description</span></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SEND_MESSAGE_TO_ROOMS</td>
+  <td>u1</td>
+  <td>
+  <ul>
+    <li>messageName</li>
+    <li>roomIDorQualifier1 [RS] roomIDorQualifier2 [RS] roomIDorQualifier<i=
+>n</i></li>
+    <li>includeSelf</li>
+      <li>filters ##[add link to UFP spec]</li>
+      <li>arg1</li>
+      <li>arg2</li>
+      <li>...</li>
+      <li>arg<i>n</i></li>
+  </ul>
+  </td>
+  <td>RoomManager.sendMessage(), Room.sendMessage()</td>
+  <td>
+  <p>
+  Asks the server to send a u7 with the specified messageName to all client=
+s in the room list that pass the provided filter tests. The includeSelf arg=
+ument is a Boolean indicating whether the message should be echoed to the s=
+ending client (assuming the sender is in the room list and passes the filte=
+r tests). If any of the rooms in the list is a room qualifier, the message =
+is sent to all rooms qualified by that qualifier.=20
+  </p>
+ =20
+  <p>
+  Qualifiers in the room list must be formed using the * character; for exa=
+mple, "examples.*" means "the examples qualifier" whereas "examples" means =
+the room named "examples". To send a message to all rooms qualified by the =
+unnamed qualifier, use "*" for the room qualifier.</p>
+ =20
+  <p>The server sends separate u7 messages for every room in the room list.=
+ For example, if the room list is "chat1 [RS] chat2" and a client is in bot=
+h "chat1" and "chat2", the client will receive u7 twice (once for each room=
+).</p></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SEND_MESSAGE_TO_CLIENTS
+    </td>
+  <td>u2</td>
+  <td>
+    <ul>
+      <li>messageName</li>
+      <li>clientID1 [RS] clientID2 [RS] clientIDn</li>
+        <li>filters ##[add link to UFP spec]</li>
+        <li>arg1</li>
+        <li>arg2</li>
+        <li>...</li>
+        <li>arg<i>n</i></li>
+    </ul>   =20
+  </td>
+  <td>Client.sendMessage()</td>
+  <td>Asks the server to send a u7 with the specified messageName to all cl=
+ients in client list that pass the provided filter tests.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SEND_MESSAGE_TO_SERVER
+    </td>
+  <td>u57</td>
+  <td>
+    <ul>
+      <li>messageName</li>
+        <li>includeSelf</li>
+        <li>filters ##[add link to UFP spec]</li>
+        <li>arg1</li>
+        <li>arg2</li>
+        <li>...</li>
+        <li>arg<i>n</i></li>
+    </ul>   =20
+  </td>
+  <td>Server.sendMessage()</td>
+  <td>Asks the server to send a u7 with the specified messageName to all cl=
+ients on the server that pass the provided filter tests. The includeSelf ar=
+gument is a Boolean indicating whether the message should be echoed to the =
+sending client.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SET_CLIENT_ATTR</td>
+  <td>u3</td>
+  <td>
+<ul>
+  <li>clientID</li>
+  <li>userID</li>
+  <li>attrName</li>
+  <li>escapedAttrValue</li>
+  <li>attrScope</li>
+  <li>attrOptions, an integer whose bits have the following meaning when se=
+t:<br>
+    <ul>
+    <li>0 - RESERVED</li>
+    <li>1 - RESERVED</li>
+    <li>2 - shared</li>
+    <li>3 - persistent</li>
+    <li>4 - RETIRED (formerly "unique")</li>
+    <li>5 - RESERVED BY SERVER</li>
+    <li>6 - RESERVED BY SERVER</li>
+    <li>7 - RESERVED BY SERVER</li>
+    <li>8 - evaluate</li>
+    </ul>
+    </li>
+</ul>
+    </td>
+  <td>Client.setAttribute(), UserAccount.setAttribute()</td>
+  <td>
+    <p>Asks the server to set a client attribute for client specified by cl=
+ientID or the user account specified by userID. If the persistent bit is se=
+t, the server sets the attribute on the specified userID's account; if not,=
+ the server sets the attribute on the specified client. The result of the r=
+equest is returned to the sender via a u73. If the attribute is shared, any=
+ clients needing to be notified of the attribute assignment will receive a =
+u8. When the sender sets one of its own attributes via u3, the new attribut=
+e value is echoed back to the sender in a u8 in the following situations on=
+ly:</p>
+ =20
+    <ul>
+      <li>The persistent bit is set</li>
+      <li>The evaluate bit is set</li>
+    </ul>
+	 =20
+    <p>The specified attrScope must be a room, and cannot be a qualifier; h=
+owever, future versions of the UPC protocol might support qualifier-scoped =
+attributes. The meanings of the "attrOptions" bits are as follows:</p>
+
+    <ul>
+    <li>0 - RESERVED</li>
+    <li>1 - RESERVED</li>
+    <li>2 - shared: interested clients will receive notification that the a=
+ttribute changed</li>
+    <li>3 - persistent: the attribute will be stored persistently in the ac=
+count specified by userID, and will be available to any client that success=
+fully logs into that account</li>
+    <li>4 - RETIRED (formerly "unique")</li>
+    <li>5 - RESERVED BY SERVER</li>
+    <li>6 - RESERVED BY SERVER</li>
+    <li>7 - RESERVED BY SERVER</li>
+    <li>8 - evaluate: evaluate the supplied escapedAttrValue as a mathemati=
+cal expression before assignment. Within escapedAttrValue, the token "%v" r=
+epresents the attribute's current value. For example, "%v+1" means "increme=
+nt by one". Supported mathematical operators are: *, /, +, -, %, ., (, and =
+). If the expression contains any character other than a number or one of t=
+he supported operators, the attribute assignment fails and the server respo=
+nds with a u73 with status of EVALUATION_FAILED.</li>
+    </ul>
+   =20
+ =20
+ =20
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>JOIN_ROOM
+    </td>
+  <td>u4</td>
+  <td>
+<ul>
+  <li>roomID</li>
+  <li>password</li>
+</ul>
+    </td>
+  <td>Room.join(), RoomManager.joinRoom()</td>
+  <td>Asks the server to attempt to add the sender to the specified room. T=
+he result of attempting to join the room is returned to the sender via a u7=
+2. If the attempt is successful, the sender is also sent a u6, followed by =
+updates for the room according to the sender's specified update levels (see=
+ u64).
+When a room is removed from the server, clients in that room receive a u44,=
+ but do not automatically receive notification that the room was removed. C=
+lients wishing to be notified when a room is removed must register for noti=
+fications via WATCH_FOR_ROOMS.<p></p>
+</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SET_ROOM_ATTR</td>
+  <td>u5</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>attrName</li>
+      <li>escapedAttrValue</li>
+      <li>attrOptions, an integer whose bits have the following meaning whe=
+n set:<br>
+        <ul>
+          <li>0 - RESERVED</li>
+          <li>1 - RESERVED</li>
+          <li>2 - shared</li>
+          <li>3 - persistent</li>
+          <li>4 - UNUSED</li>
+          <li>5 - RESERVED BY SERVER</li>
+          <li>6 - RESERVED BY SERVER</li>
+          <li>7 - RESERVED BY SERVER</li>
+          <li>8 - evaluate</li>
+        </ul>
+      </li>
+    </ul>
+  </td>
+  <td>Room.setAttribute()</td>
+  <td>Asks the server to set a room attribute for the specified room. The r=
+esult of the request is returned to the sender via a u74. If the attribute =
+is shared, any clients needing to be notified of the attribute assignment w=
+ill receive a u9. The meanings of the "attrOptions" bits are as follows:
+
+    <ul>
+      <li>0 - RESERVED</li>
+      <li>1 - RESERVED</li>
+      <li>2 - shared: interested clients will receive notification that the=
+ attribute changed</li>
+      <li>3 - persistent: the attribute will be stored persistently, and wi=
+ll be available across multiple server restarts</li>
+      <li>4 - UNUSED</li>
+      <li>5 - RESERVED BY SERVER</li>
+      <li>6 - RESERVED BY SERVER</li>
+      <li>7 - RESERVED BY SERVER</li>
+      <li>8 - evaluate: evaluate the supplied escapedAttrValue as a mathema=
+tical expression before assignment. Within escapedAttrValue, the token "%v"=
+ represents the attribute's current value. For example, "%v+1" means "incre=
+ment by one". Supported mathematical operators are: *, /, +, -, %, ., (, an=
+d ). If the expression contains any character other than a number or one of=
+ the supported operators, the attribute assignment fails and the server res=
+ponds with a u74 with status of EVALUATION_FAILED.</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>LEAVE_ROOM</td>
+  <td>u10</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>Room.leave()</td>
+  <td>Asks the server to remove the sender from the specified room. The res=
+ult of attempting to leave the room is returned to the sender via a u76. If=
+ the attempt is successful, the sender is also sent a u44.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CREATE_ACCOUNT</td>
+  <td>u11</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>password</li>
+    </ul>
+  </td>
+  <td>AccountManager.createAccount()</td>
+  <td>Asks the server to create a new user account, used to store informati=
+on permanently in a persistent data source such as a database. Results of t=
+he create-account attempt are returned via a u47.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>REMOVE_ACCOUNT</td>
+  <td>u12</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>password</li>
+    </ul>
+  </td>
+  <td>AccountManager.removeAccount()</td>
+  <td>Asks the server to remove the user account for the specified userID. =
+Results of the remove-account attempt are returned via a u48.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CHANGE_ACCOUNT_PASSWORD</td>
+  <td>u13</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>oldPassword</li>
+      <li>newPassword</li>
+    </ul>
+  </td>
+  <td>AccountManager.changePassword(), UserAccount.changePassword()</td>
+  <td>Asks the server to change the specified userID's account password. Re=
+sults of the change password attempt are returned via a u46. If the attempt=
+ succeeds, and a client is currently logged in under the specified userID, =
+the server also sends a u90 to that client.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>LOGIN</td>
+  <td>u14</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>password</li>
+    </ul>
+  </td>
+  <td>AccountManager.login()</td>
+  <td>Asks the server to login the sending client. Results of the login att=
+empt are returned via a u49. If the attempt succeeds, the server also sends=
+ a u88 followed by a series of u8s containing the client's persistent attri=
+butes. If the userID specified for a u14 is already logged in under another=
+ client ID, the previous client is logged off and disconnected before the n=
+ew login proceeds. Note that the sending client can ask to log in itself on=
+ly; a u14 cannot be used to log in a foreign client.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_CLIENTCOUNT_SNAPSHOT</td>
+  <td>u18</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+    </ul>
+  </td>
+  <td>ClientCountSnapshot</td>
+  <td>
+  <p>
+  Asks the server to return the number of clients on the server.=20
+  </p>
+  <p>
+  The result of a u18 request is returned to the sender via a u75. If the r=
+equest is successful, the number of clients on the server is returned to th=
+e sender via a u34.</p>=20
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SYNC_TIME</td>
+  <td>u19</td>
+  <td>None</td>
+  <td>Server.syncTime()</td>
+  <td>Asks the server to return the current time. The result is returned vi=
+a a u50.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_ROOMLIST_SNAPSHOT</td>
+  <td>u21</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>roomIdQualifier</li>
+      <li>recursive</li>
+    </ul>
+  </td>
+  <td>RoomListSnapshot</td>
+  <td><p>Asks the server to return a list of the rooms whose ids are qualif=
+ied=20
+    by roomIdQualifier. The result is returned via a u38.</p>
+   =20
+  <p>
+  For a server-wide room list, supply the empty string ("") for roomIdQuali=
+fier and true for recursive.
+  </p>
+ =20
+  <p>
+  For a list of rooms with the unnamed qualifier, supply the empty string (=
+"") for roomIdQualifier and false for recursive.
+  </p>
+
+  <p> =20
+  For a list of rooms with the qualifier "chat.sports", supply "chat.sports=
+" for roomIdQualifier and false for recursive.=20
+  </p>
+ =20
+  <p><em>Note: the recursive argument is currently available for the unname=
+d qualifier ("") only. Recursion for other qualifiers is planned for future=
+ versions of the UPC protocol.</em></p>   =20
+   =20
+</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CREATE_ROOM</td>
+  <td>u24</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>roomSettingName1[RS]roomSettingValue1 [RS] roomSettingName<i>n</i=
+>[RS]roomSettingValue<i>n</i></li>
+      <li>attrName1[RS]attrVal1[RS]attrOptions [RS] attrName2[RS]attrVal2[R=
+S]attrOptions [RS]...attrName<i>n</i>[RS]attrVal<i>n</i>[RS]attrOptions<br>=
+</li>
+      <li>CLASS[RS]qualifiedClassName1 [RS] CLASS[RS]qualifiedClassName<i>n=
+</i> [RS] SCRIPT[RS]pathToScript1 [RS] SCRIPT[RS]pathToScript<i>n</i></li>
+    </ul>
+  </td>
+  <td>RoomManager.createRoom()</td>
+  <td>
+    <p>Asks the server to create the specified room.</p>
+    <p>If roomID is empty, then the server creates the room ID automaticall=
+y. To determine the room's ID, the client must watch for a room addition me=
+ssage (u39).</p>
+    <p>Recognized setting names for the second argument are as follows:</p>
+    <ul>
+      <li>_DIE_ON_EMPTY: true, false</li>
+      <li>_MAX_CLIENTS: int (-1 for no max)</li>
+      <li>_PASSWORD: String ("" for no password)</li>
+    </ul>
+    <p>The third argument lists the room's initial attributes.</p>
+    <p>The fourth argument lists room's room modules, which can be defined =
+by a script or a class. Scripts and classes can be listed in any order. A p=
+ath to a script indicates the location of a script relative to the server's=
+ central scripts directory.</p>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>REMOVE_ROOM</td>
+  <td>u25</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>password</li>
+    </ul>
+  </td>
+  <td>RoomManager.removeRoom()</td>
+  <td>Asks the server to remove the specified room. If the request is succe=
+ssful, the server sends a u40 to all clients in or observing the room. The =
+client that sent the u25 message also receives a u33. Clients do not receiv=
+e separate u37 (CLIENT_REMOVED) notifications for clients that are forced o=
+ut of the room when it is removed.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>WATCH_FOR_ROOMS</td>
+  <td>u26</td>
+  <td>
+    <ul>
+      <li>roomIdQualifier</li>
+      <li>recursive</li>
+    </ul>
+  </td>
+  <td>RoomManager.watchForRooms()</td>
+  <td><p>Asks the server to inform the client when new rooms qualified by r=
+oomIdQualifier are added to or removed from the server. The server sends th=
+e result of the request via a u42. If the request was successful, the serve=
+r also sends a u38. Subsequent room additions trigger u39; subsequent room =
+removals trigger u40. It is legal to watch a qualifier that does not yet ex=
+ist.
+  </p>
+ =20
+  <p>To watch for all rooms on the server, supply the empty string ("") for=
+ roomIdQualifier and true for recursive.</p>
+  <p>To watch for rooms with the unnamed qualifier, supply the empty string=
+ ("") for roomIdQualifier and false for recursive.</p>
+  <p>To watch for rooms with the qualifier "examples", supply "examples" fo=
+r roomIdQualifier and false for recursive.</p>
+ =20
+  <p><em>Note: the recursive argument is currently available for the unname=
+d qualifier ("") only. Recursion for other qualifiers is planned for future=
+ versions of the UPC protocol.</em></p>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_WATCHING_FOR_ROOMS</td>
+  <td>u27</td>
+  <td>
+    <ul>
+      <li>roomIdQualifier</li>
+      <li>recursive</li>
+    </ul>
+  </td>
+  <td>RoomManager.stopWatchingForRooms()</td>
+  <td><p>Asks the server to stop sending room-addition-and-removal notifica=
+tions for the specified roomIdQualifier. The server sends the result of the=
+ request via a u43.</p>
+ =20
+  <p>To stop watching for all rooms on the server, supply the empty string =
+("") for roomIdQualifier and true for recursive.</p>
+  <p>To stop watching for rooms with the unnamed qualifier, supply the empt=
+y string ("") for roomIdQualifier and false for recursive.</p>
+  <p>To stop watching for rooms with the qualifier "examples", supply "exam=
+ples" for roomIdQualifier and false for recursive.</p>
+ =20
+  <p><em>Note: the recursive argument is currently available for the unname=
+d qualifier ("") only. Recursion for other qualifiers is planned for future=
+ versions of the UPC protocol.</em></p>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_ROOM_SNAPSHOT</td>
+  <td>u55</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>roomID</li>
+      <li>password</li>
+      <li>updateLevels</li>
+    </ul>
+  </td>
+  <td>RoomSnapshot</td>
+  <td>Asks the server to send a room snapshot for the specified room. In re=
+sponse, the server sends a u60 and, if the request succeeds, a u54. The upd=
+ateLevels parameter specifies the amount of information that should be incl=
+uded in the snapshot, following the rules described under u64. If updateLev=
+els is not supplied, the sender's update levels for the room are used. If t=
+he sender does not have update levels specified for the room, the room's ma=
+ximum levels are used.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>OBSERVE_ROOM</td>
+  <td>u58</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>password</li>
+    </ul>
+  </td>
+  <td>Room.observe(), RoomManager.observeRoom()</td>
+  <td>
+    <p>Used for spectating a room the client is not in. A u58 asks the serv=
+er to register the sender as an observer of the specified room.  The result=
+ of attempting to observe the room is returned to the sender via a u77. If =
+the attempt is successful, the sender is also sent a u59, and will subseque=
+ntly receive updates for the room in accordance with the client's specified=
+ occupant, room, and message update levels. If a client changes its update =
+levels, subsequent updates are sent according to the new levels. For detail=
+s on which updates are sent and how levels affect updates, see u64.</p>
+
+    <p>If a client is in a room, it can still register to observe that room=
+. Likewise, a client can observe a room, and then join and leave it arbitra=
+rily without affecting observation status. When a client is both an observe=
+r and an occupant of a room, it receives updates about the room even after =
+leaving it. Clients that observe a room and then join it will not receive a=
+ u54 at join time.</p>
+
+    <p>When a room is removed from the server, clients in that room receive=
+ a u62, but do not automatically receive notification that the room was rem=
+oved. Clients wishing to be notified when a room is removed must register f=
+or notifications via WATCH_FOR_ROOMS.</p>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_OBSERVING_ROOM</td>
+  <td>u61</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>Room.stopObserving(), RoomManager.stopObservingRoom()</td>
+  <td>Asks the server to unregister the sender as an observer of the specif=
+ied room. The result of the request is returned to the sender via a u78. If=
+ the attempt is successful, the sender is also sent a u62.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SET_ROOM_UPDATE_LEVELS</td>
+  <td>u64</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>updateLevel</li>
+    </ul>
+  </td>
+  <td>Room.setUpdateLevels(), Room.join(), Room.observe(), RoomManager.join=
+Room(), RoomManager.observeRoom()</td>
+  <td><p>Asks the server to change the client's update levels for the speci=
+fied room. The server applies only those changes permitted for the client's=
+ security level. When a client's room update levels change, the server send=
+s that client a u128.
+  The updateLevel parameter is an integer whose ordered bits represent the =
+following update levels:</p>
+ =20
+    <ul>
+      <li>0 room messages</li>
+      <li>1 room shared attributes *</li>
+      <li>2 occupant count</li>
+      <li>3 observer count</li>
+      <li>4 occupant list *</li>
+      <li>5 observer list *</li>
+      <li>6 occupant shared room attributes *, **</li>
+      <li>7 observer shared room attributes *, ***</li>
+      <li>8 occupant shared global attributes *, **</li>
+      <li>9 observer shared global attributes *, ***</li>
+      <li>10 occupant login/logoffs *, **</li>
+      <li>11 observer login/logoffs *, ***</li>
+      <li>12 all room attributes *, ****</li>
+     </ul>
+
+      <p>
+      The update levels specified by the preceding bits determine how much =
+information is pushed to the client when it is either in or observing a roo=
+m.  =20
+      </p>
+   =20
+      <p>In the preceding list, *, **, ***, and **** have the following mea=
+nings:</p>
+   =20
+      <ul>
+        <li>* When a client joins a room it is not already observing, or ob=
+serves a room it is not already in, it is sent a u54 describing the current=
+ state of the room</li>
+        <li>** When this bit is on, bit 4 is automatically turned on</li>
+        <li>*** When this bit is on, bit 5 is automatically turned on</li> =
+      =20
+        <li>**** This bit requires administrator privileges</li>
+      </ul>	=09
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_HELLO</td>
+  <td>u65</td>
+  <td>
+    <ul>
+      <li>clientType</li>
+      <li>userAgent</li>
+      <li>upcVersion</li>
+    </ul>
+  </td>
+  <td>ReactorEvent.PROTOCOL_INCOMPATIBLE.</td>
+  <td>CLIENT_HELLO is the first step in the client-server connection proces=
+s. It tells the server the client's type, the user agent (software name and=
+ version) being used to make the connection, and the UPC protocol version u=
+sed by the client to communicate. The server responds with a u66, and then:
+
+    <ul>
+      <li>if the client and server are considered strictly incompatible, th=
+e server disconnects the client (see compatibility details below)</li>
+      <li>otherwise, the server sends a u29 followed by a u63</li>
+    </ul>
+=09
+    <p>Example values for clientType are:</p>
+
+    <ul>
+      <li>Reactor</li>
+      <li>Orbiter</li>     =20
+      <li>OrbiterMicro</li>     =20
+      <li>Mariner</li>
+    </ul>=09
+
+    <p>The userAgent is a human-readable string set arbitrarily by the clie=
+nt, and is used for logging purposes only. For example, "Flash Player WIN 9=
+,0,124,0 StandAlone (debug, localTrusted)".</p>
+
+    <p>The upcVersion specifies the version of the UPC specification used b=
+y the client, in the format: majorNumber.minorNumber.revisionNumber. For ex=
+ample, 1.2.0. If the client's majorNumber, minorNumber, and revisionNumber =
+all match the server's majorNumber, minorNumber, and revisionNumber, the se=
+rver is considered compatible with the client. Otherwise:</p>
+
+    <ul>
+      <li>If the server's majorNumber and the client's majorNumber do not m=
+atch, or the server's minorNumber and the client's minorNumber do not match=
+, the server sends a u66 with the "upcCompatible" argument set to false, an=
+d disconnects the client. In this case, the client is considered strictly i=
+ncompatible with the server.</li>
+
+      <li>If the server's revisionNumber and the client's revisionNumber do=
+ not match, but the majorNumber and minorNumber both match, then the server=
+ sends a u66 with the "upcCompatible" argument set to false, but does not d=
+isconnect the client. In this case, the client is considered loosely incomp=
+atible with the server. Based on the features required in the application, =
+the client application must, itself, decide whether to stay connected. For =
+example, imagine a hypothetical UPC-specification version, 4.5.5, that is s=
+ucceeded by a minor revision 4.5.6. The 4.5.6 revision is identical to its =
+predecessor except that it contains a new UPC message, "REMOVE_ALL_ROOMS", =
+that was not present in 4.5.5. All 4.5.5-compatible client applications can=
+ safely communicate with all 4.5.6-compatible servers because all 4.5.5 mes=
+sages are still supported in revision 4.5.6. However, a 4.5.6-compatible cl=
+ient application, can safely communicate with a 4.5.5-compatible server onl=
+y if it does not use REMOVE_ALL_ROOMS, which is not supported by the 4.5.5-=
+compatible server. A 4.5.6-compatible client application that uses REMOVE_A=
+LL_ROOMS would, hence, be expected to disconnect itself from a 4.5.5-compat=
+ible server.</li>
+    </ul>
+  </td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>REMOVE_ROOM_ATTR</td>
+  <td>u67</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>attrName</li>
+    </ul>
+  </td>
+  <td>Room.deleteAttribute()</td>
+  <td>Asks the server to remove a room attribute from the specified room. T=
+he result is returned via a u80. If the request is successful, all clients =
+requiring notification of the change are sent a u79.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>REMOVE_CLIENT_ATTR</td>
+  <td>u69</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+      <li>userID</li>
+      <li>attrName</li>
+      <li>scope</li>
+    </ul>
+  </td>
+  <td>Client.deleteAttribute(), UserAccount.deleteAttribute()</td>
+  <td>Asks the server to remove a client attribute from the client specifie=
+d by clientID or the user account specified by userID. The clientID and use=
+rID arguments are mutually exclusive; only one or the other is allowed. The=
+ result of the request is returned via a u82. If the request succeeds, all =
+clients needing to be notified of the deletion are sent a u81. If clientID =
+is not specified, the attribute is deleted from the sending client.</td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>SEND_ROOMMODULE_MESSAGE</td>
+  <td>u70</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>moduleMessageName</li>
+      <li>argName1 [RS] argValue1</li>
+      <li>argName2 [RS] argValue2</li>
+      <li>...</li>
+      <li>argNamen [RS] argValuen</li>
+    </ul>
+  </td>
+  <td>Room.sendModuleMessage()</td>
+  <td>Sends the specified message to all of the modules of the specified ro=
+om. The argument names (argName1, argName2,...argNamen) must not contain th=
+e pipe (|) character. Argument values can contain the pipe (|) character.</=
+td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SEND_SERVERMODULE_MESSAGE</td>
+  <td>u71</td>
+  <td>
+    <ul>
+      <li>moduleID</li>
+      <li>moduleMessageName</li>
+      <li>argName1 [RS] argValue1</li>
+      <li>argName2 [RS] argValue2</li>
+      <li>...</li>
+      <li>argNamen [RS] argValuen</li>
+    </ul>
+  </td>
+  <td>Server.sendModuleMessage()</td>
+  <td>Sends the specified message to the specified server module. The modul=
+eID must be the ID of a deployed server module on the server. The argument =
+names (argName1, argName2,...argNamen) must not contain the pipe (|) charac=
+ter. Argument values can contain the pipe (|) character.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>TERMINATE_SESSION</td>
+  <td>u83</td>
+  <td>
+    <ul>
+      <li>sessionID</li>
+    </ul>
+  </td>
+  <td></td>
+  <td>Asks the server to terminate the session specified by sessionID.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>LOGOFF</td>
+  <td>u86</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>password</li>    =20
+    </ul>
+  </td>
+  <td>AccountManager.logoff(), UserAccount.logoff()</td>
+  <td>Asks the server to logoff the user account specified by userID. Resul=
+ts of the logoff attempt are returned via a u87. If the attempt succeeds, t=
+he server logs off and then disconnects the client.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_CLIENTLIST_SNAPSHOT</td>
+  <td>u91</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+    </ul>		=09
+  </td>
+  <td>ClientListSnapshot</td>
+  <td>Asks the server to send a list of clientIDs for all clients currently=
+ connected to the server. The list will also include userIDs for all client=
+s with user accounts that are currently logged in. The result is sent via a=
+ u101. See also u97.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>WATCH_FOR_CLIENTS</td>
+  <td>u92</td>
+  <td>
+  </td>
+  <td>ClientManager.watchForClients()</td>
+  <td>Asks the server to inform the client when clients connect or disconne=
+ct, or login or logoff. The server sends the result of the request via a u1=
+07. If the request was successful, the server also sends a u101. Subsequent=
+ client connections trigger a u102; subsequent client disconnections trigge=
+r a u103. Subsequent client logins trigger a u88; subsequent client logoffs=
+ trigger a u89.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_WATCHING_FOR_CLIENTS</td>
+  <td>u93</td>
+  <td>
+  </td>
+  <td>ClientManager.stopWatchingForClients()</td>
+  <td>Asks the server to stop sending client connection-and-disconnnection =
+notifications. The server sends the result of the request via a u108.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_CLIENT_SNAPSHOT</td>
+  <td>u94</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>clientID</li>
+    </ul>		=09
+  </td>
+  <td>ClientSnapshot</td>
+  <td>Asks the server to send a snapshot for the specified client. In respo=
+nse, the server sends a u115 and, if the request succeeds, a u104.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>OBSERVE_CLIENT</td>
+  <td>u95</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+    </ul>
+  </td>
+  <td>Client.observe(), ClientManager.observeClient()</td>
+  <td>Asks the server to register the sender as an observer of the specifie=
+d client. In response, the server sends a u105 and, if the request succeeds=
+, a u119 followed by a u104. Subsequently if the specified client's state c=
+hanges, the observing client is notified in the following ways:
+ =20
+  <ul>
+    <li>Observed client's attribute changes: observer receives a u8</li>
+    <li>Observed client's attribute is deleted: observer receives a u81</li=
+>
+    <li>Observed client joins a room: observer receives a 113</li>
+    <li>Observed client leaves a room: observer receives a 114</li>
+    <li>Observed client observes a room: observer receives a 117</li>
+    <li>Observed client stops observing a room: observer receives a 118</li=
+>
+    <li>Observed client logs in: observer receives a u88</li>
+    <li>Observed client logs off: observer receives a u89</li>
+    <li>Observed client disconnects: observer receives a u103</li>
+  </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_OBSERVING_CLIENT</td>
+  <td>u96</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+    </ul>
+  </td>
+  <td>Client.stopObserving(), ClientManager.stopObservingClient()</td>
+  <td>Asks the server to unregister the sender as an observer of the specif=
+ied client. In response, the server sends a u106. If the request succeeds, =
+the server also sends a u120, and stops sending updates about the specified=
+ client.
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_ACCOUNTLIST_SNAPSHOT</td>
+  <td>u97</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+    </ul>
+  </td>
+  <td>AccountListSnapshot</td>
+  <td>Asks the server to send a list of userIDs for all registered user acc=
+ounts on the server. The result is sent via a u127. See also u91.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>WATCH_FOR_ACCOUNTS</td>
+  <td>u98</td>
+  <td>
+  </td>
+  <td>AccountManager.watchForAccounts()</td>
+  <td>Asks the server to inform the client when new user accounts are creat=
+ed. The server sends the result of the request via a u109. If the request w=
+as successful, the server also sends a u127. Subsequent user-account creati=
+ons trigger a u111; subsequent user-account removals trigger a u112.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_WATCHING_FOR_ACCOUNTS</td>
+  <td>u99</td>
+  <td>
+  </td>
+  <td>AccountManager.stopWatchingForAccounts()</td>
+  <td>Asks the server to stop sending user-account creation-and-removal not=
+ifications. The server sends the result of the request via a u110.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_ACCOUNT_SNAPSHOT</td>
+  <td>u100</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>userID</li>
+    </ul>
+  </td>
+  <td>AccountSnapshot</td>
+  <td>Asks the server to send a snapshot for the specified user account, in=
+cluding all persistent data stored in the user's account. In response, the =
+server sends a u116 and, if the request succeeds, a u104.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>OBSERVE_ACCOUNT</td>
+  <td>u121</td>
+  <td>
+    <ul>
+      <li>userID</li>
+    </ul>
+  </td>
+  <td>UserAccount.observe(), AccountManager.observeAccount()</td>
+  <td>Asks the server to register the sender as an observer of the specifie=
+d user account. In response, the server sends a u123 and, if the request su=
+cceeds, a u124. Subsequently if the specified user account's state changes,=
+ the observing client is notified in the following ways:
+ =20
+  <ul>
+    <li>Observed account logs in: observer receives a u88</li>
+    <li>Observed account logs off: observer receives a u89</li>
+    <li>Observed account deleted: observer receives a u112</li>   =20
+  </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_OBSERVING_ACCOUNT</td>
+  <td>u122</td>
+  <td>
+    <ul>
+      <li>userID</li>
+    </ul>
+  </td>
+  <td>UserAccount.stopObserving(), AccountManager.stopObservingAccount()</t=
+d>
+  <td>Asks the server to unregister the sender as an observer of the specif=
+ied user account. In response, the server sends a u125. If the request succ=
+eeds, the server also sends a u126, and stops sending updates about the spe=
+cified user account.
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ADD_ROLE</td>
+  <td>u133</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>role</li>
+    </ul>
+  </td>
+  <td>UserAccount.addRole(), AccountManager.addRole()</td>
+  <td>Asks the server to assign the specified role to the user account with=
+ the specified userID. In response, the server sends a u134. An account's r=
+ole(s) determine which actions a user is allowed to perform on Union Server=
+. For a list of security actions and corresponding rules, see Union Server'=
+s documentation. Legal values for role are:
+ =20
+  <ul>
+    <li>MODERATOR</li>
+  </ul>
+  =20
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>REMOVE_ROLE</td>
+  <td>u135</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>role</li>
+    </ul>
+  </td>
+  <td>UserAccount.removeRole(), AccountManager.removeRole()</td>
+  <td>Asks the server to remove the specified role from the user account wi=
+th the specified userID. In response, the server sends a u136. Legal values=
+ for role are listed under u133.
+  =20
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>BAN</td>
+  <td>u137</td>
+  <td>
+    <ul>
+      <li>address</li>
+      <li>clientID</li>
+      <li>duration</li>
+      <li>reason</li>
+    </ul>
+  </td>
+  <td>ClientManager.ban(), Client.ban()</td>
+  <td>Asks the server to refuse all connection attempts made by a particula=
+r client address. A "client address" is the logical origin of a client conn=
+ection, typically an IP address. If the address parameter is provided, the =
+specified address is banned and clientID is ignored. If no address paramete=
+r is provided, then clientID must be provided, and the address of the clien=
+t with the specified clientID is banned. The ban lasts for the number of se=
+conds specified by duration. The reason parameter is an arbitrary optional =
+string indicating the reason for the ban. The reason string is stored by th=
+e server in the banned list. The result of a ban attempt is returned via a =
+u138. A list of current banned addresses can be retrieved via a u141 or u14=
+3.
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>UNBAN</td>
+  <td>u139</td>
+  <td>
+    <ul>
+      <li>address</li>
+    </ul>
+  </td>
+  <td>ClientManager.unban(), Client.unban()</td>
+  <td>Asks the server to remove a banned a client address from the banned l=
+ist. The result of the unban attempt is returned via a u140.
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_BANNED_LIST_SNAPSHOT</td>
+  <td>u141</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+    </ul>		=09
+  </td>
+  <td>ClientListSnapshot</td>
+  <td>Asks the server to send a list of addresses currently banned from con=
+necting to the server. The result is sent via a u142. See also u143.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>WATCH_FOR_BANNED_ADDRESSES</td>
+  <td>u143</td>
+  <td>
+  </td>
+  <td>ClientManager.watchForBannedAddresses()</td>
+  <td>Asks the server to inform the sending client when addresses are banne=
+d or unbanned. The server sends the result of the request via a u144. If th=
+e request was successful, the server also sends a u142. Subsequently, when =
+an address is banned, the server sends a u147; when an address is unbanned,=
+ the server sends a u148.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_WATCHING_FOR_BANNED_ADDRESSES</td>
+  <td>u145</td>
+  <td>
+  </td>
+  <td>ClientManager.stopWatchingForBannedAddresses()</td>
+  <td>Asks the server to stop sending banned-address notifications. The ser=
+ver sends the result of the request via a u146.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>KICK_CLIENT</td>
+  <td>u149</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+    </ul>
+  </td>
+  <td>ClientManager.kickClient(), Client.kick()</td>
+  <td>Asks the server to forcibly disconnect the client with the specified =
+clientID. The server sends the result of the request via a u150.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_SERVERMODULELIST_SNAPSHOT</td>
+  <td>u151</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+    </ul>		=09
+  </td>
+  <td>ServerModuleListSnapshot</td>
+  <td>Asks the server to send a list of currently active server modules (no=
+t to be confused with room modules). The result is sent via a u152. By defa=
+ult, u151 requires administrator privileges.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLEAR_MODULE_CACHE</td>
+  <td>u153</td>
+  <td>
+  </td>
+  <td>Server.clearModuleCache()</td>
+  <td>Asks the server to remove all current module class definitions from m=
+emory. Subsequently instantiated modules will use the newly loaded module c=
+lass definitions, allowing module developers to update Union Server's modul=
+es at runtime without restarting the server. By default, u153 requires admi=
+nistrator privileges.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_UPC_STATS_SNAPSHOT</td>
+  <td>u154</td>
+  <td>
+  </td>
+  <td>UPCStatsSnapshot</td>
+  <td>Asks the server to send a list of UPC-message-processing statistics. =
+In response, the server sends a u155 and, if the request succeeds, a u156. =
+By default, u154 requires administrator privileges.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>RESET_UPC_STATS</td>
+  <td>u157</td>
+  <td>
+  </td>
+  <td>Server.resetUPCStats()</td>
+  <td>Asks the server to reset server-side UPC-processing statistics. The f=
+ollowing statistics are affected by a reset:
+ =20
+<ul>
+<li>the list of the longest UPC-message-processing times</li>
+</ul>
+
+The result of a u157 request is sent via a u158. The statistics-reset is re=
+flected in any subsequent u156 transmission. By default, u157 requires admi=
+nistrator privileges.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>WATCH_FOR_PROCESSED_UPCS</td>
+  <td>u159</td>
+  <td>
+  </td>
+  <td>Server.watchForProcessedUPCs()</td>
+  <td>Asks the server to notify the sending client upon processing any UPC =
+message. The server sends the result of the request via a u160. Notificatio=
+ns are transmitted via u161. By default, u159 requires administrator privil=
+eges.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_WATCHING_FOR_PROCESSED_UPCS</td>
+  <td>u162</td>
+  <td>
+  </td>
+  <td>Server.stopWatchingForProcessedUPCs()</td>
+  <td>Asks the server to stop sending UPC-processing notifications to the s=
+ending client. The server sends the result of the request via a u163. By de=
+fault, u162 requires administrator privileges.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_NODELIST_SNAPSHOT</td>
+  <td>u165</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+    </ul>
+  </td>
+  <td>NodeListSnapshot</td>
+  <td><p>Asks the server to return a list of the cluster nodes currently co=
+nnected to the server. The result is returned via a u166.</p>
+</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_GATEWAYS_SNAPSHOT</td>
+  <td>u167</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+    </ul>
+  </td>
+  <td>GatewaysSnapshot</td>
+  <td><p>Asks the server to return a per-gateway summary of connection and =
+bandwidth statistics. The result is returned via a u168. By default, access=
+ to gateway statistics requires administrator privileges.</p>
+</td>
+</tr>
+
+</tbody></table>
+
+
+
+
+
+
+
+<!-- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=20
+     SERVER TO CLIENT
+     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D -->
+
+
+
+<h2>Table 2: Server-to-Client Messages</h2>
+
+<table cellpadding=3D"5" cellspacing=3D"0" border=3D"1">
+<tbody><tr valign=3D"top">
+  <td><span class=3D"tableheader">Official Message Name</span></td>
+  <td><span class=3D"tableheader">Internal Message ID</span></td>
+  <td><span class=3D"tableheader">Arguments</span></td>
+  <td><span class=3D"tableheader">Corresponding Client API</span></td>
+  <td><span class=3D"tableheader">Description</span></td>
+  <td><span class=3D"tableheader">Status Codes</span></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>JOINED_ROOM</td>
+  <td>u6</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>RoomEvent.JOIN</td>
+  <td>Informs the client that it joined a room.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+	<td>RECEIVE_MESSAGE</td>
+	<td>u7</td>
+	<td>
+<ul>
+	<li>messageName</li>
+	<li>broadcastType</li>
+	<li>fromClientID</li>
+	<li>roomID</li>
+    <li>messageArg1</li>
+    <li>messageArg2</li>
+    <li>...</li>
+    <li>messageArg<i>n</i></li>
+</ul>    </td>
+	<td>No direct corresponding method. But see MessageManager.addMessageListe=
+ner(), Room.addMessageListener().</td>
+	<td>Causes the client to execute listeners registered for "messageName". u=
+7 is sent in response to u1, u2, and u57. The broadcastType argument's thre=
+e possible values--0, 1, or 2--indicate which clients received the message,=
+ as follows:=20
+
+<ul>
+	<li>0 ("TO SERVER":  all clients on the entire server)</li>
+	<li>1 ("TO ROOMS":   all clients in the specified rooms)</li>
+	<li>2 ("TO CLIENTS": a list of individually specified clients)</li>
+</ul>
+
+When u7 is a u1 response, broadcastType is 2, and u7's fourth argument is e=
+mpty. When u7 is a u2 response, broadcastType is 1, and u7's fourth argumen=
+t is the room receiving the message. When u7 is a u57 response, broadcastTy=
+pe is 0, and u7's fourth argument is empty.</td>
+    <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_ATTR_UPDATE</td>
+  <td>u8</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>clientID</li>
+      <li>userID</li>
+      <li>attrName</li>
+      <li>attrVal</li>
+      <li>attrOptions</li>
+    </ul>
+  </td>
+  <td>AttributeEvent.UPDATE</td>
+  <td>Reports a change to a client attribute.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ROOM_ATTR_UPDATE</td>
+  <td>u9</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>clientID</li>
+      <li>attrName</li>
+      <li>attrVal</li>
+    </ul>
+  </td>
+  <td>AttributeEvent.UPDATE</td>
+  <td>Reports a change to a room attribute. The clientID specifies the id o=
+f the client that changed the attribute. If the attribute was not changed b=
+y a client (as is the case when the server sets the attribute), clientID is=
+ empty.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_METADATA</td>
+  <td>u29</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+    </ul>
+  </td>
+  <td>None. This UPC is handled internally.</td>
+  <td>Provides each connecting client with its initial setup information.</=
+td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CREATE_ROOM_RESULT</td>
+  <td>u32</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>RoomManagerEvent.CREATE_ROOM_RESULT</td>
+  <td>Reports the result of a room-creation attempt to the client.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ROOM_EXISTS</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>REMOVE_ROOM_RESULT</td>
+  <td>u33</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>RoomManagerEvent.REMOVE_ROOM_RESULT</td>
+  <td>Reports the result of a room-removal attempt to the client.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ROOM_NOT_FOUND</li>
+      <li>AUTHORIZATION_REQUIRED</li>
+      <li>AUTHORIZATION_FAILED</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENTCOUNT_SNAPSHOT</td>
+  <td>u34</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>numClients</li>
+    </ul>
+  </td>
+  <td>ClientCountSnapshot</td>
+  <td>Reports the number of clients on the server.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_ADDED_TO_ROOM</td>
+  <td>u36</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>clientID</li>
+      <li>userID</li>
+      <li>globalAttrName1 [RS] globalAttrValue1 [RS] globalAttrOptions1 [RS=
+]
+      ...
+      globalAttrName<em>n</em> [RS] globalAttrValue<em>n</em> [RS] globalAt=
+trOptions<em>n</em></li>
+      <li>roomAttrName1 [RS] roomAttrValue1 [RS] roomAttrOptions1 [RS]
+      ...
+      roomAttrName<i>n</i> [RS] roomAttrValue<i>n</i> [RS] roomAttrOptions<=
+em>n</em></li>
+    </ul>
+  </td>
+  <td>RoomEvent.ADD_OCCUPANT</td>
+  <td>Reports that the specified client has joined the specified room.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_REMOVED_FROM_ROOM</td>
+  <td>u37</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>clientID</li>
+    </ul>
+  </td>
+  <td>RoomEvent.REMOVE_OCCUPANT</td>
+  <td>Reports that the specified client has left the specified room.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ROOMLIST_SNAPSHOT</td>
+  <td>u38</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>requestedRoomIDQualifier</li>
+      <li>recursive</li>
+      <li>roomIDQualifier1</li>
+      <li>roomID1 [RS] roomID2 [RS] ...roomID<em>n</em></li>
+      <li>roomIDQualifier2</li>
+      <li>roomID1 [RS] roomID2 [RS] ...roomID<em>n</em></li>
+      <li>...</li>
+      <li>roomIDQualifier<em>n</em></li>
+      <li>roomID1 [RS] roomID2 [RS] ...roomID<em>n</em></li>
+    </ul>
+  </td>
+  <td>RoomManagerEvent.ROOM_ADDED, RoomManagerEvent.ROOM_REMOVED</td>
+  <td>Provides a list of rooms on the server. A u38 is sent in response to =
+u21 and u26. The requestedRoomIDQualifier and recursive arguments are the o=
+riginal values supplied to the call that generated the room list.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ROOM_ADDED</td>
+  <td>u39</td>
+  <td>
+  <ul>
+    <li>roomID</li>
+  </ul>
+  </td>
+  <td>RoomManagerEvent.ROOM_ADDED</td>
+  <td>Reports that the specified room was added. Sent to clients watching t=
+he specified room's qualifier. See u26.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ROOM_REMOVED</td>
+  <td>u40</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>RoomManagerEvent.ROOM_REMOVED</td>
+  <td>Reports that the specified room was removed. Sent to clients watching=
+ the specified room's qualifier. See u26. Also sent to clients in or observ=
+ing a room when the room is removed (regardless of their update levels). No=
+te that clients do not receive separate u37 (CLIENT_REMOVED) notifications =
+for clients that are forced out of a room when it is removed.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>WATCH_FOR_ROOMS_RESULT</td>
+  <td>u42</td>
+  <td>
+    <ul>
+      <li>roomIdQualifier</li>
+      <li>recursive</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>RoomManagerEvent.WATCH_FOR_ROOMS_RESULT</td>
+  <td>Reports the result of a u26 request. The roomIdQualifier and recursiv=
+e arguments specify the values supplied to the instigating u26 request.</td=
+>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>INVALID_QUALIFIER</li>
+      <li>ALREADY_WATCHING</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_WATCHING_FOR_ROOMS_RESULT</td>
+  <td>u43</td>
+  <td>
+    <ul>
+      <li>roomIdQualifier</li>
+      <li>recursive</li>    =20
+      <li>status</li>
+    </ul>
+  </td>
+  <td>RoomManagerEvent.STOP_WATCHING_FOR_ROOMS_RESULT</td>
+  <td>Reports the result of a u27 request. The roomIdQualifier and recursiv=
+e arguments specify the values supplied to the instigating u26 request.</td=
+>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>INVALID_QUALIFIER</li>
+      <li>NOT_WATCHING (If the client had no watch set for the specified qu=
+alifier.)</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>LEFT_ROOM</td>
+  <td>u44</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>RoomEvent.LEAVE</td>
+  <td>Informs the client that it left the specified roomID, normally as a r=
+esult of an earlier u10 request.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CHANGE_ACCOUNT_PASSWORD_RESULT</td>
+  <td>u46</td>
+  <td>
+    <ul>
+      <li>userID</li>   =20
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountEvent.CHANGE_PASSWORD_RESULT</td>
+  <td>Reports the result of an attempt to change the password for the accou=
+nt specified by userID. See u13.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+      <li>AUTHORIZATION_FAILED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CREATE_ACCOUNT_RESULT</td>
+  <td>u47</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountManagerEvent.CREATE_ACCOUNT_RESULT</td>
+  <td>Reports the result of an attempt to create the client account specifi=
+ed by userID. See u11.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ACCOUNT_EXISTS</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>REMOVE_ACCOUNT_RESULT</td>
+  <td>u48</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountManagerEvent.REMOVE_ACCOUNT_RESULT</td>
+  <td>Reports the result of an attempt to remove (delete) the client accoun=
+t specified by userID. See u12.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+      <li>AUTHORIZATION_FAILED</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>LOGIN_RESULT</td>
+  <td>u49</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountEvent.LOGIN_RESULT</td>
+  <td>Reports the result of a login attempt made by the receiving client. S=
+ee u14.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ALREADY_LOGGED_IN</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+      <li>AUTHORIZATION_FAILED</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SERVER_TIME_UPDATE</td>
+  <td>u50</td>
+  <td>
+    <ul>
+      <li>timeOnServer</li>
+    </ul>
+  </td>
+  <td>ServerEvent.TIME_SYNC</td>
+  <td>Reports the current time on the server, in UTC, using milliseconds-fr=
+om-1970 format. See u19.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ROOM_SNAPSHOT</td>
+  <td>u54</td>
+  <td>
+<ul>
+    <li>requestID</li>
+    <li>roomID</li>
+    <li>occupantCount</li>
+    <li>observerCount</li>
+    <li>roomAttrName1[RS]roomAttrValue1 [RS] roomAttrName2[RS]roomAttrValue=
+2 [RS] roomAttrName<i>n</i>[RS]roomAttrValue<i>n</i></li>
+    <li>client1clientID</li>
+    <li>client1userID</li> =20
+    <li>client1occupantObserverIndicator</li>
+    <li>client1GlobalAttrName1 [RS] client1GlobalAttrValue1  [RS] client1Gl=
+obalAttrOptions1 [RS] <br>
+    ...<br>
+    client1GlobalAttrName<i>n</i> [RS] client1GlobalAttrValue<i>n</i> [RS] =
+client1GlobalAttrOptions<i>n</i></li>
+    <li>client1RoomAttrName1 [RS] client1RoomAttrValue1 [RS] client1RoomAtt=
+rOptions1<br>
+    ...<br>
+    client1RoomAttrName<i>n</i> [RS] client1RoomAttrValue<i>n</i> [RS] clie=
+nt1RoomAttrOptions<i>n</i></li>
+    <li>...</li>
+    <li>client<i>n</i>clientID</li>
+    <li>client<i>n</i>userID</li>     =20
+    <li>client<i>n</i>occupantObserverIndicator</li>
+    <li>client<i>n</i>GlobalAttrName1 [RS] client<i>n</i>GlobalAttrValue1 [=
+RS] client<i>n</i>GlobalAttrOptions1 [RS]<br>
+    ...<br>
+    client<i>n</i>GlobalAttrName<i>n</i> [RS] client<i>n</i>GlobalAttrValue=
+<i>n</i> [RS] client<i>n</i>GlobalAttrOptions<i>n</i></li>
+    <li>client<i>n</i>RoomAttrName1 [RS] client<i>n</i>RoomAttrValue1 [RS] =
+client<i>n</i>RoomAttrOptions1 [RS]<br>
+    ...<br>
+    client<i>n</i>RoomAttrName<i>n</i> [RS] client<i>n</i>RoomAttrValue<i>n=
+</i> [RS] client<i>n</i>RoomAttrOptions<i>n</i></li>   =20
+</ul>
+   =20
+</td>
+  <td>RoomEvent.SYNCHRONIZE</td>
+  <td>Provides a manifest of a room's contents (attributes and clients). Th=
+e content of the manifest is limited by the receiving client's update level=
+s (set via u64) and security privileges. The server sends u54 messages in r=
+esponse to either joining a room (u4), observing a room (u58), or requestin=
+g a room snapshot (u55). The "occupantObserverIndicator" parameter indicate=
+s whether the client is an occupant of the room (in which case, occupantObs=
+erverIndicator is 0) or an observer of the room (in which case, occupantObs=
+erverIndicator is 1).</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>OBSERVED_ROOM</td>
+  <td>u59</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>RoomEvent.OBSERVE</td>
+  <td>Informs the client that it started observing the specified room.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_ROOM_SNAPSHOT_RESULT</td>
+  <td>u60</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>roomID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>SnapshotEvent.STATUS</td>
+  <td>Reports the result of a u55 request by the client.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ROOM_NOT_FOUND</li>
+      <li>AUTHORIZATION_REQUIRED</li>
+      <li>AUTHORIZATION_FAILED</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOPPED_OBSERVING_ROOM</td>
+  <td>u62</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>RoomEvent.STOP_OBSERVING</td>
+  <td>Informs the client that it has stopped observing the specified room, =
+normally in response to an earlier "stop observing rooms" request (u61).</t=
+d>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_READY</td>
+  <td>u63</td>
+  <td></td>
+  <td>UConnectionEvent.READY</td>
+  <td>Informs the client that all setup tasks have completed and the client=
+ is ready for use.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SERVER_HELLO</td>
+  <td>u66</td>
+  <td>
+    <ul>
+      <li>serverVersion</li>
+      <li>sessionID</li>
+      <li>upcVersion</li>
+      <li>protocolCompatible</li>
+      <li>affinityAddress</li>
+      <li>affinityDuration</li>
+    </ul>
+  </td>
+  <td>ReactorEvent.PROTOCOL_INCOMPATIBLE</td>
+  <td>SERVER_HELLO is the second step in the client-server connection proce=
+ss. It tells the client the server's version and protocol version, and prov=
+ides the client with a server-side session ID used to identify the connecti=
+on. If the server determines the client to be unacceptably protocol-incompa=
+tible, the server will automatically disconnect the client. For compatibili=
+ty details, see u65. The affinityAddress indicates the server's public addr=
+ess. When affinityAddress is provided, clients must send all communications=
+ to that address for the specified affinityDuration, which is given in minu=
+tes. Union Platform's affinity system ensures that a given client will conn=
+ect to a specific Union Server node in a cluster for a specified duration, =
+as is required in load-balanced configurations. For details, see <a href=3D=
+"http://www.unionplatform.com/?page_id=3D3190">Clustering Union Server</a>.=
+</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>JOIN_ROOM_RESULT</td>
+  <td>u72</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>RoomEvent.JOIN_RESULT</td>
+  <td>Reports the result of a join-room request (u4). If status is SUCCESS,=
+ the client is also sent a separate u6 message.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ALREADY_IN_ROOM</li>
+      <li>ROOM_NOT_FOUND</li>
+      <li>ROOM_FULL</li>
+      <li>AUTHORIZATION_REQUIRED</li>
+      <li>AUTHORIZATION_FAILED</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SET_CLIENT_ATTR_RESULT</td>
+  <td>u73</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>clientID</li>
+      <li>userID</li>
+      <li>attrName</li>
+      <li>attrOptions</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AttributeEvent.SET_RESULT</td>
+  <td>Reports the result of a request to change a client attribute.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>DUPLICATE_VALUE</li>
+      <li>CLIENT_NOT_FOUND</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+      <li>IMMUTABLE</li>
+      <li>SERVER_ONLY</li>
+      <li>EVALUATION_FAILED</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>SET_ROOM_ATTR_RESULT</td>
+  <td>u74</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>attrName</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AttributeEvent.SET_RESULT</td>
+  <td>Reports the result of a request to change a room attribute.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>IMMUTABLE</li>
+      <li>SERVER_ONLY</li>
+      <li>ROOM_NOT_FOUND</li>
+      <li>EVALUATION_FAILED</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_CLIENTCOUNT_SNAPSHOT_RESULT</td>
+  <td>u75</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>SnapshotEvent.STATUS</td>
+  <td>Reports the result of a request for the number of clients on the serv=
+er.
+  </td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>LEAVE_ROOM_RESULT</td>
+  <td>u76</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>RoomEvent.LEAVE_RESULT</td>
+  <td>Reports the result of an attempt to leave the specified roomID. See u=
+10.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>NOT_IN_ROOM</li>
+      <li>ROOM_NOT_FOUND</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>OBSERVE_ROOM_RESULT</td>
+  <td>u77</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>RoomEvent.OBSERVE_RESULT</td>
+  <td>Reports the result of a room observation attempt (u58) by the client.=
+ If status is SUCCESS, the client is also sent a separate u59 message.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ROOM_NOT_FOUND</li>
+      <li>AUTHORIZATION_REQUIRED</li>
+      <li>AUTHORIZATION_FAILED</li>
+      <li>ALREADY_OBSERVING</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_OBSERVING_ROOM_RESULT</td>
+  <td>u78</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>RoomEvent.STOP_OBSERVING</td>
+  <td>Reports the result of an attempt to stop observing the specified room=
+ID. See u61.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ROOM_NOT_FOUND</li>
+      <li>NOT_OBSERVING</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ROOM_ATTR_REMOVED</td>
+  <td>u79</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>clientID</li>
+      <li>attrName</li>
+    </ul>
+  </td>
+  <td>AttributeEvent.DELETE</td>
+  <td>Reports the removal of a room attribute. The clientID specifies the i=
+d of the client that removed the attribute. If the attribute was not remove=
+d by a client (as is the case when the server removes the attribute), clien=
+tID is empty.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>REMOVE_ROOM_ATTR_RESULT</td>
+  <td>u80</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>attrName</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AttributeEvent.DELETE_RESULT</td>
+  <td>Reports the result of a request to remove a room attribute.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>IMMUTABLE</li>
+      <li>SERVER_ONLY</li>
+      <li>ROOM_NOT_FOUND</li>
+      <li>ATTR_NOT_FOUND</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_ATTR_REMOVED</td>
+  <td>u81</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>clientID</li>
+      <li>userID</li>
+      <li>attrName</li>
+      <li>attrOptions</li>
+    </ul>
+  </td>
+  <td>AttributeEvent.DELETE</td>
+  <td>Reports the removal of a client attribute.</td>
+  <td></td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>REMOVE_CLIENT_ATTR_RESULT</td>
+  <td>u82</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>clientID</li>
+      <li>userID</li>
+      <li>attrName</li>
+      <li>attrOptions</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AttributeEvent.DELETE_RESULT</td>
+  <td>Reports the result of a request to remove a client attribute.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>CLIENT_NOT_FOUND</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+      <li>IMMUTABLE</li>
+      <li>SERVER_ONLY</li>
+      <li>ATTR_NOT_FOUND</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>SESSION_TERMINATED</td>
+  <td>u84</td>
+  <td>
+  </td>
+  <td></td>
+  <td>Informs the client that its session has been terminated. u84 is sent =
+to the client when the server forcibly ends the client's session.</td>
+  <td></td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>SESSION_NOT_FOUND</td>
+  <td>u85</td>
+  <td>
+  </td>
+  <td></td>
+  <td>Informs the client that it sent an unknown session id. u85 is sent to=
+ the client in the following situations:
+ =20
+  <ul>
+  <li>The client sends a sessionID that is no longer valid on the server</l=
+i>
+  <li>The client sends a sessionID that has never existed on the server</li=
+> =20
+  <li>The client sends a malformed sessionID</li> =20
+  <ul></ul></ul></td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>LOGOFF_RESULT</td>
+  <td>u87</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountEvent.LOGOFF_RESULT</td>
+  <td>Reports the result of an attempt to log off the client with the speci=
+fied userID. See u86.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>AUTHORIZATION_FAILED</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+      <li>NOT_LOGGED_IN</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>LOGGED_IN</td>
+  <td>u88</td>
+  <td>
+  <ul>
+    <li>clientID</li>
+    <li>userID</li>
+    <li>globalAttrName1[RS]globalAttrValue1[RS]globalAttrOptions1 [RS] glob=
+alAttrName<i>n</i>[RS]globalAttrValue<i>n</i>[RS]globalAttrOptions<i>n</i><=
+/li>
+    <li>roomID1</li>
+    <li>roomAttrName1[RS]roomAttrValue1[RS]roomAttrOptions1 [RS] roomAttrNa=
+me<i>n</i>[RS]roomAttrValue<i>n</i>[RS]roomAttrOptions<i>n</i></li>
+    <li>...</li>
+    <li>roomIDn</li>
+    <li>roomAttrName1[RS]roomAttrValue1[RS]roomAttrOptions1 [RS] roomAttrNa=
+me<i>n</i>[RS]roomAttrValue<i>n</i>[RS]roomAttrOptions<i>n</i></li>
+  </ul>
+  </td>
+  <td>AccountEvent.LOGGED_IN</td>
+  <td>Informs the recipient that the client with the specified clientID has=
+ logged into the account with the specified userID. See u14. Depending on t=
+he recipient's awareness of the logged in account, the u88 message includes=
+ the account's persistent attributes according to the following rules:
+ =20
+    <ul>
+      <li>If the recipient is observing the client with the specified clien=
+tID (see u95): global attributes and room attributes are included</li>
+      <li>If the recipient is observing the account with the specified user=
+ID (see u121): global attributes are included; room attributes are not incl=
+uded</li>
+      <li>If the recipient is watching for clients (see u92): no attributes=
+ are loaded</li>
+      <li>If the recipient is in or observing a room that the specified cli=
+ent is also in or observing: global attributes and attributes scoped to tha=
+t room are included in accordance with the recipient's update levels for th=
+e room</li>
+      <li>If the recipient is the client that is logging in: global attribu=
+tes are included; room-scoped attributes are not included</li>
+    </ul>
+		=09
+  </td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>LOGGED_OFF</td>
+  <td>u89</td>
+  <td>
+  <ul>
+    <li>clientID</li>
+    <li>userID</li>
+  </ul>
+  </td>
+  <td>AccountEvent.LOGGED_OFF</td>
+  <td>Informs the recipient that the client with the specified clientID has=
+ logged off of the account with the specified userID. That client will also=
+ subsequently be disconnected. See u86.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ACCOUNT_PASSWORD_CHANGED</td>
+  <td>u90</td>
+  <td></td>
+  <td>AccountEvent.ACCOUNT_PASSWORD_CHANGED</td>
+  <td>Informs the receiving client that its password has been changed. See =
+u13.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENTLIST_SNAPSHOT</td>
+  <td>u101</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>clientID1 [RS] userID1 [RS] clientID2 [RS] userID2 [RS]...clientI=
+Dn [RS] userIDn</li>
+    </ul> =20
+  </td>
+  <td>ClientManagerEvent.CLIENT_CONNECTED, ClientManagerEvent.CLIENT_DISCON=
+NECTED, ClientManagerEvent.SYNCHRONIZE</td>
+  <td>Provides a list of all clients currently connected to the server. For=
+ all clients that are logged in, userIDs are also included. See u91.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_ADDED_TO_SERVER</td>
+  <td>u102</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.CLIENT_CONNECTED</td>
+  <td>Informs the recipient that the client with the specified clientID has=
+ connected to the server. See u92.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_REMOVED_FROM_SERVER</td>
+  <td>u103</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.CLIENT_DISCONNECTED</td>
+  <td>Informs the recipient that the client with the specified clientID has=
+ disconnected from the server. See u92.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_SNAPSHOT</td>
+  <td>u104</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>clientID</li>
+      <li>userID</li>
+      <li>occupiedRoom1 [RS] occupiedRoomID2 [RS] ...occupiedRoomIDn</li>
+      <li>observedRoom1 [RS] observedRoomID2 [RS] ...observedRoomIDn</li>
+      <li>globalAttrName1[RS]globalAttrValue1[RS]globalAttrOptions1 [RS] gl=
+obalAttrName<i>n</i>[RS]globalAttrValue<i>n</i>[RS]globalAttrOptions<i>n</i=
+></li>
+      <li>roomID1</li>
+      <li>roomAttrName1[RS]roomAttrValue1[RS]roomAttrOptions1 [RS] roomAttr=
+Name<i>n</i>[RS]roomAttrValue<i>n</i>[RS]roomAttrOptions<i>n</i></li>
+      <li>...</li>
+      <li>roomIDn</li>
+      <li>roomAttrName1[RS]roomAttrValue1[RS]roomAttrOptions1 [RS] roomAttr=
+Name<i>n</i>[RS]roomAttrValue<i>n</i>[RS]roomAttrOptions<i>n</i></li>
+    </ul>
+  </td>
+  <td>ClientEvent.SYNCHRONIZE, AccountEvent.SYNCHRONIZE</td>
+  <td>Provides a manifest describing the state of the specified client (and=
+ user account, in the case of logged-in clients). See u94, u95, and u100. T=
+he content of the manifest is limited by the receiving client's security pr=
+ivileges.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>OBSERVE_CLIENT_RESULT</td>
+  <td>u105</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ClientEvent.OBSERVE_RESULT</td>
+  <td>Reports the result of a client observation attempt (u95) made by the =
+recipient. If status is SUCCESS, the client is also sent a separate u119 me=
+ssage.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>CLIENT_NOT_FOUND</li>
+      <li>ALREADY_OBSERVING</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_OBSERVING_CLIENT_RESULT</td>
+  <td>u106</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ClientEvent.STOP_OBSERVING_RESULT</td>
+  <td>Reports the result of an attempt by the recipient to stop observing t=
+he specified client (see u96). If status is SUCCESS, the client is also sen=
+t a separate u120 message.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>CLIENT_NOT_FOUND</li>
+      <li>NOT_OBSERVING</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>WATCH_FOR_CLIENTS_RESULT</td>
+  <td>u107</td>
+  <td>
+    <ul>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.WATCH_FOR_CLIENTS_RESULT</td>
+  <td>Reports the result of a WATCH_FOR_CLIENTS (u92) request made by the r=
+ecipient.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ALREADY_WATCHING</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_WATCHING_FOR_CLIENTS_RESULT</td>
+  <td>u108</td>
+  <td>
+    <ul>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.STOP_WATCHING_FOR_CLIENTS_RESULT</td>
+  <td>Reports the result of a STOP_WATCHING_FOR_CLIENTS (u93) request made =
+by the recipient.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>NOT_WATCHING</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>WATCH_FOR_ACCOUNTS_RESULT</td>
+  <td>u109</td>
+  <td>
+    <ul>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountManagerEvent.WATCH_FOR_ACCOUNTS_RESULT</td>
+  <td>Reports the result of a WATCH_FOR_ACCOUNTS (u98) request made by the =
+recipient.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ALREADY_WATCHING</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_WATCHING_FOR_ACCOUNTS_RESULT</td>
+  <td>u110</td>
+  <td>
+    <ul>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountManagerEvent.STOP_WATCHING_FOR_ACCOUNTS_RESULT</td>
+  <td>Reports the result of a STOP_WATCHING_FOR_ACCOUNTS (u99) request made=
+ by the recipient.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>NOT_WATCHING</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ACCOUNT_ADDED</td>
+  <td>u111</td>
+  <td>
+    <ul>
+      <li>userID</li>
+    </ul>
+  </td>
+  <td>AccountManagerEvent.ACCOUNT_ADDED</td>
+  <td>Informs the recipient that a new user account with the specified user=
+ID was created. See u98.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ACCOUNT_REMOVED</td>
+  <td>u112</td>
+  <td>
+    <ul>
+      <li>userID</li>
+    </ul>
+  </td>
+  <td>AccountManagerEvent.ACCOUNT_REMOVED</td>
+  <td>Informs the recipient that the user account with the specified userID=
+ was removed from the server. See u98.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>JOINED_ROOM_ADDED_TO_CLIENT</td>
+  <td>u113</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>ClientEvent.JOIN_ROOM</td>
+  <td>Informs the recipient that the specified client joined the specified =
+room.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>JOINED_ROOM_REMOVED_FROM_CLIENT</td>
+  <td>u114</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>ClientEvent.LEAVE_ROOM</td>
+  <td>Informs the recipient that the specified client left the specified ro=
+om.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_CLIENT_SNAPSHOT_RESULT</td>
+  <td>u115</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>clientID</li>
+      <li>status</li>
+    </ul>	=09
+  </td>
+  <td>SnapshotEvent.STATUS</td>
+  <td>Reports the result of a u94 request made by the recipient.</td>
+  <td>
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>CLIENT_NOT_FOUND</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_ACCOUNT_SNAPSHOT_RESULT</td>
+  <td>u116</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>userID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>SnapshotEvent.STATUS</td>
+  <td>Reports the result of a u100 request made by the recipient.</td>
+  <td>=20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+    </ul> =20
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>OBSERVED_ROOM_ADDED_TO_CLIENT</td>
+  <td>u117</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>ClientEvent.OBSERVE_ROOM</td>
+  <td>Informs the recipient that the specified client observed the specifie=
+d room.</td>
+  <td>  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>OBSERVED_ROOM_REMOVED_FROM_CLIENT</td>
+  <td>u118</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+      <li>roomID</li>
+    </ul>
+  </td>
+  <td>ClientEvent.STOP_OBSERVING_ROOM</td>
+  <td>Informs the recipient that the specified client stopped observing the=
+ specified room.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_OBSERVED</td>
+  <td>u119</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+    </ul>		=09
+  </td>
+  <td>ClientEvent.OBSERVE</td>
+  <td>Informs the recipient that it started observing the specified client.=
+</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOPPED_OBSERVING_CLIENT</td>
+  <td>u120</td>
+  <td>
+    <ul>
+      <li>clientID</li>
+    </ul>		=09
+  </td>
+  <td>ClientEvent.STOP_OBSERVING</td>
+  <td>Informs the recipient that it stopped observing the specified client.=
+</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>OBSERVE_ACCOUNT_RESULT</td>
+  <td>u123</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountEvent.OBSERVE_RESULT</td>
+  <td>Reports the result of a user-account observation attempt (u121) made =
+by the recipient. If status is SUCCESS, the client is also sent a separate =
+u124 message.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+      <li>ALREADY_OBSERVING</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ACCOUNT_OBSERVED</td>
+  <td>u124</td>
+  <td>
+    <ul>
+      <li>userID</li>
+    </ul>		=09
+  </td>
+  <td>AccountEvent.OBSERVE</td>
+  <td>Informs the recipient that it started observing the specified user ac=
+count.</td>
+  <td></td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>STOP_OBSERVING_ACCOUNT_RESULT</td>
+  <td>u125</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountEvent.STOP_OBSERVING_RESULT</td>
+  <td>Reports the result of an attempt by the recipient to stop observing t=
+he specified user account (see u122). If status is SUCCESS, the client is a=
+lso sent a separate u126 message.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+      <li>NOT_OBSERVING</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOPPED_OBSERVING_ACCOUNT</td>
+  <td>u126</td>
+  <td>
+    <ul>
+      <li>userID</li>
+    </ul>		=09
+  </td>
+  <td>AccountEvent.STOP_OBSERVING</td>
+  <td>Informs the recipient that it stopped observing the specified user ac=
+count.</td>
+  <td></td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>ACCOUNTLIST_SNAPSHOT</td>
+  <td>u127</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>userID1 [RS] userID2 [RS]...userIDn</li>
+    </ul> =20
+  </td>
+  <td>AccountManagerEvent.ACCOUNT_ADDED, AccountManagerEvent.ACCOUNT_REMOVE=
+D, AccountManagerEvent.SYNCHRONIZE</td>
+  <td>Provides a list of all user accounts currently registered on the serv=
+er. See u97.</td>
+  <td></td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>UPDATE_LEVELS_UPDATE</td>
+  <td>u128</td>
+  <td>
+    <ul>
+      <li>updateLevels</li>
+      <li>roomID</li>
+    </ul> =20
+  </td>
+  <td></td>
+  <td>Informs the receiving client that its update levels for a room have c=
+hanged. See u64.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_OBSERVED_ROOM</td>
+  <td>u129</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>clientID</li>
+      <li>userID</li>
+      <li>globalAttrName1 [RS] globalAttrValue1 [RS] globalAttrOptions1 [RS=
+]
+      ...
+      globalAttrName<em>n</em> [RS] globalAttrValue<em>n</em> [RS] globalAt=
+trOptions<em>n</em></li>
+      <li>roomAttrName1 [RS] roomAttrValue1 [RS] roomAttrOptions1 [RS]
+      ...
+      roomAttrName<i>n</i> [RS] roomAttrValue<i>n</i> [RS] roomAttrOptions<=
+em>n</em></li>
+    </ul>
+  </td>
+  <td>RoomEvent.ADD_OBSERVER</td>
+  <td>Reports that the specified client has observed the specified room.</t=
+d>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CLIENT_STOPPED_OBSERVING_ROOM</td>
+  <td>u130</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>clientID</li>
+    </ul>
+  </td>
+  <td>RoomEvent.REMOVE_OBSERVER</td>
+  <td>Reports that the specified client has stopped observing the specified=
+ room.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ROOM_OCCUPANTCOUNT_UPDATE</td>
+  <td>u131</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>numOccupants</li>
+    </ul>
+  </td>
+  <td>RoomEvent.OCCUPANT_COUNT</td>
+  <td>Reports the new number of occupants in the room. u131 is sent to clie=
+nts that have joined or observed a room, and have occupant-count updates en=
+abled (see u64).</td>
+  <td></td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>ROOM_OBSERVERCOUNT_UPDATE</td>
+  <td>u132</td>
+  <td>
+    <ul>
+      <li>roomID</li>
+      <li>numObservers</li>
+    </ul>
+  </td>
+  <td>RoomEvent.OBSERVER_COUNT</td>
+  <td>Reports the new number of observers in the room. u132 is sent to clie=
+nts that have joined or observed a room, and have observer-count updates en=
+abled (see u64).</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>ADD_ROLE_RESULT</td>
+  <td>u134</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>role</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountEvent.ADD_ROLE_RESULT, AccountEvent.ROLE_ADDED</td>
+  <td>Reports the result of an add-role attempt (u133) made by the recipien=
+t. If status is SUCCESS, and the specified user is logged in, then Union Se=
+rver updates the _ROLES attribute on the client under which the user logged=
+ in.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>PERMISSION_DENIED</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+      <li>ALREADY_ASSIGNED</li>
+      <li>ROLE_NOT_FOUND</li>
+    </ul>
+  </td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>REMOVE_ROLE_RESULT</td>
+  <td>u136</td>
+  <td>
+    <ul>
+      <li>userID</li>
+      <li>role</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>AccountEvent.REMOVE_ROLE_RESULT, AccountEvent.ROLE_REMOVED</td>
+  <td>Reports the result of a remove-role attempt (u135) made by the recipi=
+ent. If status is SUCCESS, and the specified user is logged in, then Union =
+Server updates the _ROLES attribute on the client under which the user logg=
+ed in.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>PERMISSION_DENIED</li>
+      <li>ACCOUNT_NOT_FOUND</li>
+      <li>NOT_ASSIGNED</li>
+      <li>ROLE_NOT_FOUND</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>BAN_RESULT</td>
+  <td>u138</td>
+  <td>
+    <ul>
+      <li>address</li>
+      <li>clientID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.BAN_RESULT</td>
+  <td>Reports the result of a ban attempt (u137) made by the recipient. If =
+status is SUCCESS, connection attempts by any client at the specified addre=
+ss are refused by Union Server. If the original u137 included a clientID an=
+d no address, that clientID is returned via u138's clientID.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>PERMISSION_DENIED</li>
+      <li>ALREADY_BANNED</li>
+      <li>CLIENT_NOT_FOUND</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>UNBAN_RESULT</td>
+  <td>u140</td>
+  <td>
+    <ul>
+      <li>address</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.UNBAN_RESULT</td>
+  <td>Reports the result of an unban attempt (u137) made by the recipient. =
+If status is SUCCESS, any previous connection ban on the specified address =
+is lifted.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>PERMISSION_DENIED</li>
+      <li>NOT_BANNED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>BANNED_LIST_SNAPSHOT</td>
+  <td>u142</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>address1 [RS] address2 [RS] ...address<em>n</em></li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.SYNCHRONIZE_BANLIST</td>
+  <td>Provides a list of addresses currently banned from connecting to the =
+server. A u142 is sent in response to u141 and u143.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>WATCH_FOR_BANNED_ADDRESSES_RESULT</td>
+  <td>u144</td>
+  <td>
+    <ul>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.WATCH_FOR_BANNED_ADDRESSES_RESULT</td>
+  <td>Reports the result of a WATCH_FOR_BANNED_ADDRESSES (u143) request mad=
+e by the recipient.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ALREADY_WATCHING</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_WATCHING_FOR_BANNED_ADDRESSES_RESULT</td>
+  <td>u146</td>
+  <td>
+    <ul>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.STOP_WATCHING_FOR_BANNED_ADDRESSES_RESULT</td>
+  <td>Reports the result of a STOP_WATCHING_FOR_BANNED_ADDRESSES (u145) req=
+uest made by the recipient.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>NOT_WATCHING</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>BANNED_ADDRESS_ADDED</td>
+  <td>u147</td>
+  <td>
+    <ul>
+      <li>address</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.ADDRESS_BANNED</td>
+  <td>Informs the recipient that the specified address has been banned from=
+ connecting to the server. See u143.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>BANNED_ADDRESS_REMOVED</td>
+  <td>u148</td>
+  <td>
+    <ul>
+      <li>address</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.ADDRESS_UNBANNED</td>
+  <td>Informs the recipient that the specified address has been unbanned. S=
+ee u143.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>KICK_CLIENT_RESULT</td>
+  <td>u150</td>
+  <td>
+    <ul>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ClientManagerEvent.KICK_RESULT</td>
+  <td>Reports the result of a KICK_CLIENT (u149) request made by the recipi=
+ent.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>CLIENT_NOT_FOUND</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+
+<tr valign=3D"top">
+  <td>SERVERMODULELIST_SNAPSHOT</td>
+  <td>u152</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>serverModuleID1 [RS] serverModuleType1 [RS] serverModuleSource1 [=
+RS]...serverModuleID<em>n</em> [RS] serverModuleType<em>n</em> [RS] serverM=
+oduleSource<em>n</em></li>
+    </ul>
+  </td>
+  <td>SnapshotEvent.LOAD</td>
+  <td>Provides a list of server modules currently active on Union Server. A=
+ u152 is sent in response to u151.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GET_UPC_STATS_SNAPSHOT_RESULT</td>
+  <td>u155</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>SnapshotEvent.STATUS</td>
+  <td>Reports the result of a GET_UPC_STATS_SNAPSHOT (u154) request made by=
+ the recipient.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>UPC_STATS_SNAPSHOT</td>
+  <td>u156</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>totalUPCsProcessed</li>
+      <li>numUPCsInQueue</li>
+      <li>lastQueueWaitTime</li>
+      <li>&lt;![CDATA[ fromClientID1 [RS] fromClientUserID1 [RS] fromClient=
+Address1 [RS] longestUPCProcessQueuedAt1 [RS] longestUPCProcessStartedAt1 [=
+RS] longestUPCProcessFinishedAt1 [RS] UPCSource1 ]]&gt;</li>
+      <li>...</li>
+      <li>&lt;![CDATA[ fromClientID<em>n</em> [RS] fromClientUserID<em>n</e=
+m> [RS] fromClientAddress<em>n</em> [RS] longestUPCProcessQueuedAt<em>n</em=
+> [RS] longestUPCProcessStartedAt<em>n</em> [RS] longestUPCProcessFinishedA=
+t<em>n</em> [RS] UPCSource<em>n</em> ]]&gt;</li>
+    </ul>
+  </td>
+  <td>UPCStatsSnapshot</td>
+  <td>Provides statistics about UPC messages received by Union Server. A u1=
+55 is sent in response to u154. Arguments following lastQueueWaitTime speci=
+fy an unsorted list of the longest UPC message processing times since eithe=
+r Union Server was started or since the last UPC-statistics reset command (=
+see u157).  Any CDATA sections contained within UPCSource fields are escape=
+d according to the rules described under "Nested CDATA".</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>RESET_UPC_STATS_RESULT</td>
+  <td>u158</td>
+  <td>
+    <ul>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ServerEvent.RESET_UPC_STATS_RESULT</td>
+  <td>Reports the result of a RESET_UPC_STATS (u157) request made by the re=
+cipient.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>WATCH_FOR_PROCESSED_UPCS_RESULT</td>
+  <td>u160</td>
+  <td>
+    <ul>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ServerEvent.WATCH_FOR_PROCESSED_UPCS_RESULT</td>
+  <td>Reports the result of a WATCH_FOR_PROCESSED_UPCS (u159) request made =
+by the recipient.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>ALREADY_WATCHING</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>PROCESSED_UPC_ADDED</td>
+  <td>u161</td>
+  <td>
+    <ul>
+      <li>fromClientID</li>
+      <li>fromClientUserID</li>
+      <li>fromClientAddress</li>
+      <li>UPCProcessQueuedAt</li>
+      <li>UPCProcessStartedAt</li>
+      <li>UPCProcessFinishedAt</li>
+      <li>&lt;![CDATA[UPCSource]]&gt;</li>
+    </ul>
+  </td>
+  <td>ServerEvent.UPC_PROCESSED</td>
+  <td>Informs the recipient that the server processed the UPC message speci=
+fied by UPCSource. See u160. Any CDATA sections contained within UPCSource =
+are escaped according to the rules described under "Nested CDATA".</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>STOP_WATCHING_FOR_PROCESSED_UPCS_RESULT</td>
+  <td>u163</td>
+  <td>
+    <ul>
+      <li>status</li>
+    </ul>
+  </td>
+  <td>ServerEvent.STOP_WATCHING_FOR_PROCESSED_UPCS_RESULT</td>
+  <td>Reports the result of a STOP_WATCHING_FOR_PROCESSED_UPCS_RESULT (u162=
+) request made by the recipient.</td>
+  <td>   =20
+    <ul>
+      <li>SUCCESS</li>
+      <li>ERROR (An exception occurred on the server.)</li>
+      <li>NOT_WATCHING</li>
+      <li>PERMISSION_DENIED</li>
+    </ul>
+  </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>CONNECTION_REFUSED</td>
+  <td>u164</td>
+  <td>
+    <ul>
+      <li>reason</li>
+      <li>description</li>
+    </ul>
+  </td>
+  <td>ReactorEvent.CONNECT_REFUSED</td>
+  <td>Indicates that Union Server refused the requested client connection, =
+typically because the client's address is banned. The reason argument indic=
+ates why the client connection was refused. The value of reason is either o=
+ne of the following known refusal-reason codes, or an arbitrary string supp=
+lied by custom module code.
+ =20
+<ul>
+<li>BANNED</li>
+</ul>
+=09
+The description argument explains the cause of the refusal. The value of de=
+scription is either given in one of the following known refusal-description=
+ formats, or is an arbitrary string supplied by custom module code.
+ =20
+<ul>
+<li>bannedAt|banDuration|banReason
+<ul>
+<li>bannedAt
+<br>The time at which the recipient client's address was banned by Union Se=
+rver, in milliseconds-from-1970 format, UTC time, according to the server's=
+ clock.</li>
+<li>banDuration
+<br>The length of the ban, in seconds.</li>
+<li>banReason
+<br>The cause of the ban on this client's address, as an arbitrary string. =
+For example: "You were banned for inappropriate use of language".</li>
+</ul>
+		=09
+</li>
+</ul>
+ =20
+  </td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>NODELIST_SNAPSHOT</td>
+  <td>u166</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>nodeID1 [RS] nodeID2 [RS] ...nodeID<em>n</em></li>
+    </ul>
+  </td>
+  <td>NodeListSnapshot</td>
+  <td>Provides a list of IDs for the cluster nodes currently connected to t=
+he server. Each ID is an arbitrary, statistically unique string generated a=
+utomatically by Union Server. A server's nodeID is guaranteed to be the sam=
+e for a given server until that server shuts down. u166 is sent in response=
+ to u165.</td>
+  <td></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>GATEWAYS_SNAPSHOT</td>
+  <td>u168</td>
+  <td>
+    <ul>
+      <li>requestID</li>
+      <li>gatewayID1</li>
+      <li>gatewayType1</li>
+      <li>NUM_CONNECTIONS_CATEGORY1 [RS] NUM_CONNECTIONS_CATEGORY1_VALUE [R=
+S]  NUM_CONNECTIONS_CATEGORY2 [RS] NUM_CONNECTIONS_CATEGORY2_VALUE [RS]  NU=
+M_CONNECTIONS_CATEGORYn [RS] NUM_CONNECTIONS_CATEGORYn_VALUE</li>
+      <li>NUM_CLIENTS_CLIENTTYPE1 [RS] NUM_CLIENTS_CLIENTTYPE1_VALUE [RS]  =
+NUM_CLIENTS_CLIENTTYPE2 [RS] NUM_CLIENTS_CLIENTTYPE2_VALUE [RS]  NUM_CLIENT=
+S_CLIENTTYPEn [RS] NUM_CLIENTS_CLIENTTYPEn_VALUE</li>
+      <li>NUM_CLIENTS_UPCVERSION1 [RS] NUM_CLIENTS_UPCVERSION1_VALUE [RS]  =
+NUM_CLIENTS_UPCVERSION2 [RS] NUM_CLIENTS_UPCVERSION2_VALUE [RS]  NUM_CLIENT=
+S_UPCVERSIONn [RS] NUM_CLIENTS_UPCVERSIONn_VALUE</li>
+      <li>gateway1AttrName1  [RS]  gateway1AttrName1  [RS]  gateway1AttrNam=
+e2  [RS]  gateway1AttrName2  [RS]  gateway1AttrNamen  [RS]  gateway1AttrNam=
+en</li>
+      <li>connectionsPerSecond [RS] maxConnectionsPerSecond [RS] clientsPer=
+Second [RS] maxClientsPerSecond</li>
+      <li>lifetimeRead [RS] lifetimeWritten [RS] averageRead [RS] averageWr=
+itten [RS] intervalRead [RS] intervalWritten [RS] maxIntervalRead [RS] maxI=
+ntervalWritten [RS] scheduledWrite</li>     =20
+      <li>...</li>
+      <li>gatewayID<em>n</em></li>
+      <li>gatewayType<em>n</em></li>
+      <li>NUM_CONNECTIONS_CATEGORY1 [RS] NUM_CONNECTIONS_CATEGORY1_VALUE [R=
+S]  NUM_CONNECTIONS_CATEGORY2 [RS] NUM_CONNECTIONS_CATEGORY2_VALUE [RS]  NU=
+M_CONNECTIONS_CATEGORYn [RS] NUM_CONNECTIONS_CATEGORYn_VALUE</li>
+      <li>NUM_CLIENTS_CLIENTTYPE1 [RS] NUM_CLIENTS_CLIENTTYPE1_VALUE [RS]  =
+NUM_CLIENTS_CLIENTTYPE2 [RS] NUM_CLIENTS_CLIENTTYPE2_VALUE [RS]  NUM_CLIENT=
+S_CLIENTTYPEn [RS] NUM_CLIENTS_CLIENTTYPEn_VALUE</li>
+      <li>NUM_CLIENTS_UPCVERSION1 [RS] NUM_CLIENTS_UPCVERSION1_VALUE [RS]  =
+NUM_CLIENTS_UPCVERSION2 [RS] NUM_CLIENTS_UPCVERSION2_VALUE [RS]  NUM_CLIENT=
+S_UPCVERSIONn [RS] NUM_CLIENTS_UPCVERSIONn_VALUE</li>
+      <li>gateway<em>n</em>AttrName1  [RS]  gateway<em>n</em>AttrName1  [RS=
+]  gateway<em>n</em>AttrName2  [RS]  gateway<em>n</em>AttrName2  [RS]  gate=
+way<em>n</em>AttrNamen  [RS]  gateway<em>n</em>AttrNamen</li>
+      <li>connectionsPerSecond [RS] maxConnectionsPerSecond [RS] clientsPer=
+Second [RS] maxClientsPerSecond</li>
+      <li>lifetimeRead [RS] lifetimeWritten [RS] averageRead [RS] averageWr=
+itten [RS] intervalRead [RS] intervalWritten [RS] maxIntervalRead [RS] maxI=
+ntervalWritten [RS] scheduledWrite</li>           =20
+    </ul>
+  </td>
+  <td>GatewaysSnapshot</td>
+  <td><p>Provides gateway statistics in response to u167.</p>
+   <p>The list of NUM_CONNECTIONS_CATEGORYn gives the number of connections=
+ to the gateway, broken down by connection type. Connection types are deter=
+mined by each gateway. For example, the built-in gateways for Adobe Flash c=
+lients include the connection types "POLICYFILE" (for Flash policy file req=
+uests) and "CLIENT" (for connections that are determined to be legitimate U=
+nion clients). For every gateway, one of the categories in the NUM_CONNECTI=
+ONS_CATEGORYn list is always guaranteed to be "TOTAL". The "TOTAL" connecti=
+on category indicates the total raw number of lifetime connections to the s=
+pecified gateway, including all connection types.</p>
+
+   <p>The list of NUM_CLIENTS_CLIENTTYPEn gives the number of Union clients=
+ that have connected to the gateway, broken down by client type. For exampl=
+e, a gateway might have had 150 Reactor (Flash) client connections and 35 O=
+rbiter (JavaScript) client connections.</p>
+
+   <p>The list of NUM_CLIENTS_UPCVERSIONn gives the number of Union clients=
+ that have connected to the gateway, broken down by UPC version. For exampl=
+e, a gateway might have had 25 clients that used UPC version 1.4.0 and 40 c=
+lients that used UPC version 1.5.0.</p>
+ =20
+   <p>The "lifetimeRead..." argument lists the gateway's bandwidth usage. A=
+ll bandwidth statistics are given in bytes. Bandwidth averages are per seco=
+nd. Intervals are the most recent second at the time of the request.</p></t=
+d>
+  <td></td>
+</tr>
+</tbody></table>
+
+
+
+
+
+<!-- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=20
+     RESERVED CLIENT ATTRIBUTES
+     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D -->
+
+<h2>Table 3: Reserved Client Attributes</h2>
+
+Union Server reserves the following client attributes for internal system u=
+se.
+
+<table cellpadding=3D"5" cellspacing=3D"0" border=3D"1">
+<tbody><tr valign=3D"top">
+  <td><span class=3D"tableheader">Attribute Name</span></td>
+  <td><span class=3D"tableheader">Attribute Scope</span></td>
+  <td><span class=3D"tableheader">Attribute Description</span></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_CLIENT_TYPE</td>
+  <td>Global</td>
+  <td>The Union client type. For example, "Orbiter" or "Reactor".</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_CONNECTION_TYPE</td>
+  <td>Global</td>
+  <td>The type of the client's connection to the server.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_CT</td>
+  <td>Global</td>
+  <td>The client's connection time in milliseconds from 1970 format.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_GATEWAY_ID</td>
+  <td>Global</td>
+  <td>The ID of the server gateway to which the client is connected.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_GATEWAY_TYPE</td>
+  <td>Global</td>
+  <td>The type of the server gateway to which the client is connected.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_IP</td>
+  <td>Global</td>
+  <td>The client's IP address, if available.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_ROLES</td>
+  <td>Global</td>
+  <td>The security roles for this client, as an integer whose bits have the=
+ following meaning when set:<br>
+    <ul>
+    <li>0 - USER: The client is logged into a user account.</li>
+    <li>2 - ADMIN: The client is connected to an administration port.</li>
+    </ul>
+    </td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_UL</td>
+  <td>Room</td>
+  <td>The client's update levels for the room to which the _UL attribute is=
+ scoped. See u64.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_UPC_VERSION</td>
+  <td>Global</td>
+  <td>The UPC protocol version supported by the client. For example, "1.8.2=
+".</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_USERAGENT</td>
+  <td>Global</td>
+  <td>A description of the client software application being used to connec=
+t to Union. For example, "Flash Player MAC 10,1,53,38 StandAlone (debug, lo=
+calTrusted); 1.0.0".</td>
+</tr>
+
+</tbody></table>
+
+
+
+
+
+
+<!-- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=20
+     RESERVED ACCOUNT ATTRIBUTES
+     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D -->
+
+<h2>Table 4: Reserved Account Attributes</h2>
+
+Union Server reserves the following account attributes for internal system =
+use.
+
+<table cellpadding=3D"5" cellspacing=3D"0" border=3D"1">
+<tbody><tr valign=3D"top">
+  <td><span class=3D"tableheader">Attribute Name</span></td>
+  <td><span class=3D"tableheader">Attribute Description</span></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_ROLES</td>
+  <td>The security roles for this account, as an integer whose bits have th=
+e following meaning when set:<br>
+    <ul>
+    <li>1 - MODERATOR: The client is logged into a user account.</li>
+    </ul>
+</td>
+</tr>
+
+</tbody></table>
+
+
+
+
+
+
+<!-- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=20
+     RESERVED ROOM ATTRIBUTES
+     =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D -->
+
+<h2>Table 5: Reserved Room Attributes</h2>
+
+Union Server reserves the following room attributes for internal system use=
+.
+
+<table cellpadding=3D"5" cellspacing=3D"0" border=3D"1">
+<tbody><tr valign=3D"top">
+  <td><span class=3D"tableheader">Attribute Name</span></td>
+  <td><span class=3D"tableheader">Attribute Description</span></td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_MAX_CLIENTS</td>
+  <td>The maximum number of simultaneous occupants for the room.</td>
+</tr>
+
+<tr valign=3D"top">
+  <td>_DIE_ON_EMPTY</td>
+  <td>A Boolean indicating whether the server should remove the room when i=
+t becomes empty (all its occupants leave).</td>
+</tr>
+
+
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
+------MultipartBoundary--zqTBqGc6gXoVgspjyBoBvwGa9xZ48AHLDThBlRbkc4------

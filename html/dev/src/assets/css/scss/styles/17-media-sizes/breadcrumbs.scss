@@ -1,0 +1,876 @@
+@media only screen and(min-width: 768px) and(max-width: 991px) {
+	.breadcrumbs {
+		padding: 30px;
+		.breadcrumbs-content .page-title {
+			font-size: 17px;
+			line-height: 28px;
+		}
+	}
+	.section {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	.section-title {
+		padding: 0 20px;
+		margin-bottom: 30px;
+		h3 {
+			font-size: 14px;
+		}
+		h2 {
+			font-size: 24px;
+			line-height: 32px;
+			margin-bottom: 20px;
+		}
+		p {
+			font-size: 14px;
+		}
+	}
+	.button {
+		.btn {
+			padding: 12px 25px;
+			font-size: 14px;
+			font-weight: 500;
+		}
+		.btn-alt {
+			padding: 12px 25px;
+			font-size: 14px;
+			font-weight: 500;
+		}
+	}
+	.header {
+		.nav-hotline {
+			display: none;
+		}
+		.button {
+			margin: 0 !important;
+		}
+		.nav-inner {
+			display: block !important;
+			padding: 18px 0;
+		}
+		.navbar-collapse {
+			position: absolute;
+			top: 46px !important;
+			left: 0;
+			width: 100%;
+			background-color: $white;
+			z-index: 9;
+			-webkit-box-shadow: 0 15px 20px 0 $black_10;
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: 0 15px 20px 0 $black_10;
+			padding: 10px 20px;
+			max-height: 350px;
+			overflow-y: scroll;
+			border-top: 1px solid $color_gallery_approx;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 6px;
+		}
+		.mega-category-menu {
+			display: none;
+		}
+		.navbar-cart .cart-items .shopping-item {
+			top: 68px;
+		}
+		.mobile-menu-btn .toggler-icon {
+			background-color: $color_black_pearl_approx;
+		}
+		.navbar .navbar-nav .nav-item a {
+			&:hover {
+				color: $color_blue_ribbon_approx !important;
+			}
+			&.active {
+				color: $color_blue_ribbon_approx !important;
+			}
+		}
+		.navbar-nav .nav-item {
+			margin: 0;
+			a {
+				padding: 12px 16px !important;
+				color: $color_deep_cove_approx;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: justify;
+				-ms-flex-pack: justify;
+				justify-content: space-between;
+				padding: 10px 0;
+				font-size: 14px;
+				&:hover {
+					color: $color_blue_ribbon_approx;
+				}
+			}
+			a::before {
+				display: none;
+			}
+			.sub-menu {
+				position: static;
+				width: 100%;
+				opacity: 1;
+				visibility: visible;
+				-webkit-box-shadow: none;
+				//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+				box-shadow: none;
+				padding: 0;
+				border: none;
+				margin-left: 15px;
+				margin-right: 15px;
+				.nav-item {
+					margin: 0 !important;
+					a {
+						padding: 12px;
+						padding: 10px 12px !important;
+						&:hover {
+							color: $color_blue_ribbon_approx !important;
+						}
+					}
+				}
+				li {
+					&.active {
+						background: $white !important;
+						color: $color_blue_ribbon_approx !important;
+					}
+					&:hover {
+						background: $white !important;
+						color: $color_blue_ribbon_approx !important;
+					}
+				}
+			}
+			a::after {
+				opacity: 1;
+				visibility: visible;
+			}
+			&:hover a {
+				color: $color_blue_ribbon_approx;
+			}
+		}
+		.navbar-brand img {
+			width: 190px;
+		}
+	}
+	.hero-area {
+		.md-custom-padding {
+			padding-right: 0 !important;
+		}
+		.custom-padding-right {
+			padding-right: calc(var(--bs-gutter-x)/ 2);
+		}
+		.hero-small-banner {
+			height: 240px;
+			&.style2 {
+				margin-top: 0;
+			}
+		}
+		.hero-slider .single-slider {
+			height: 400px;
+			margin-bottom: 12px;
+			.content {
+				padding-right: 300px;
+				h2 {
+					font-size: 22px;
+					span {
+						font-size: 14px;
+						font-weight: 500;
+					}
+				}
+				p {
+					margin-top: 10px;
+				}
+				h3 {
+					font-size: 20px;
+					span {
+						margin-right: 10px;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+	.faq {
+		padding-bottom: 40px;
+		.section-title {
+			margin-bottom: 40px;
+		}
+	}
+	.accordion-body {
+		padding: 30px;
+	}
+	.footer {
+		.footer-top {
+			.inner-content {
+				padding: 50px 0;
+			}
+			.footer-newsletter {
+				.title {
+					margin-bottom: 20px;
+					display: block;
+				}
+				.newsletter-form {
+					float: none;
+				}
+			}
+			.footer-logo a img {
+				width: 190px;
+			}
+		}
+		.footer-middle {
+			padding-top: 30px;
+			padding-bottom: 70px;
+		}
+	}
+	.shipping-info li {
+		width: 50%;
+	}
+	.single-banner .content {
+		padding: 50px 30px;
+		h2 {
+			font-size: 20px;
+		}
+		p {
+			margin-top: 10px;
+		}
+		.button {
+			margin-top: 20px;
+		}
+	}
+	.special-offer .section-title {
+		margin-bottom: 20px;
+	}
+	.about-us .content-right h2 {
+		font-size: 28px;
+		line-height: 38px;
+	}
+	.accordion-item .accordion-button {
+		padding: 18px 20px;
+		padding-right: 40px;
+		.title {
+			font-size: 14px;
+		}
+	}
+	.blog-section .section-title {
+		margin-bottom: 30px;
+	}
+	.blog-single .post-title a {
+		font-size: 20px;
+	}
+	.shopping-cart select.form-control:not([size]):not([multiple]) {
+		width: 100%;
+	}
+	.contact-form-head .contact-inner-title h2 {
+		font-size: 25px;
+		line-height: 32px;
+	}
+	.map-section .mapouter {
+		height: 400px;
+		.gmap_canvas {
+			height: 400px;
+			iframe {
+				height: 400px;
+			}
+		}
+	}
+	.error-area .error-content {
+		h1 {
+			font-size: 60px;
+			line-height: 50px;
+		}
+		h2 {
+			font-size: 22px;
+		}
+	}
+	.maill-success .success-content h2 {
+		font-size: 15px;
+	}
+}
+@media(max-width: 767px) {
+	.breadcrumbs {
+		padding: 30px;
+		.breadcrumb-nav {
+			text-align: center;
+			margin-top: 15px;
+		}
+		.breadcrumbs-content .page-title {
+			font-size: 16px;
+			text-align: center;
+			line-height: 26px;
+		}
+	}
+	.section {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	.section-title {
+		padding: 0 10px;
+		margin-bottom: 25px;
+		h3 {
+			font-size: 14px;
+		}
+		h2 {
+			font-size: 20px;
+			line-height: 30px;
+			margin-bottom: 18px;
+		}
+		p {
+			font-size: 14px;
+		}
+	}
+	.button {
+		.btn {
+			padding: 12px 25px;
+			font-size: 14px;
+			font-weight: 500;
+		}
+		.btn-alt {
+			padding: 12px 25px;
+			font-size: 14px;
+			font-weight: 500;
+		}
+	}
+	.header {
+		.topbar {
+			.top-left {
+				text-align: center;
+			}
+			.top-middle {
+				display: none;
+			}
+			.top-end {
+				float: none;
+				text-align: center;
+				display: block;
+				margin-top: 15px;
+			}
+		}
+		.middle-right-area {
+			-webkit-box-pack: right;
+			-ms-flex-pack: right;
+			justify-content: right;
+			float: right;
+		}
+		.nav-hotline {
+			display: none;
+		}
+		.main-menu-search {
+			display: none;
+		}
+		.button {
+			margin: 0 !important;
+		}
+		.nav-inner {
+			display: block !important;
+			padding: 18px 0;
+		}
+		.navbar-collapse {
+			position: absolute;
+			top: 46px !important;
+			left: 0;
+			width: 100%;
+			background-color: $white;
+			z-index: 9;
+			-webkit-box-shadow: 0 15px 20px 0 $black_10;
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: 0 15px 20px 0 $black_10;
+			padding: 10px 20px;
+			max-height: 350px;
+			overflow-y: scroll;
+			border-top: 1px solid $color_gallery_approx;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 6px;
+		}
+		.mega-category-menu {
+			display: none;
+		}
+		.nav-social {
+			position: relative;
+			margin-top: -50px;
+			.title {
+				display: none;
+			}
+		}
+		.navbar-brand {
+			display: block;
+			text-align: left;
+			padding: 0;
+			img {
+				width: 180px;
+			}
+		}
+		.header-middle .d-xs-none {
+			display: none;
+		}
+		.navbar-cart .cart-items .shopping-item {
+			width: 250px;
+			top: 66px;
+			.shopping-list li {
+				.cart-img-head {
+					width: 30%;
+					margin-right: 12px;
+				}
+				.cart-img {
+					height: 60px;
+					width: 60px;
+					margin-right: 10px;
+				}
+				.content {
+					width: 70%;
+					h4 a {
+						font-size: 13px;
+					}
+				}
+			}
+		}
+		.mobile-menu-btn .toggler-icon {
+			background-color: $color_black_pearl_approx;
+		}
+		.navbar .navbar-nav .nav-item a {
+			&:hover {
+				color: $color_blue_ribbon_approx !important;
+			}
+			&.active {
+				color: $color_blue_ribbon_approx !important;
+			}
+		}
+		.navbar-nav .nav-item {
+			margin: 0;
+			a {
+				padding: 12px 16px !important;
+				color: $color_deep_cove_approx;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: justify;
+				-ms-flex-pack: justify;
+				justify-content: space-between;
+				padding: 10px 0;
+				font-size: 14px;
+				&:hover {
+					color: $color_blue_ribbon_approx;
+				}
+			}
+			a::before {
+				display: none;
+			}
+			.sub-menu {
+				position: static;
+				width: 100%;
+				opacity: 1;
+				visibility: visible;
+				-webkit-box-shadow: none;
+				//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+				box-shadow: none;
+				padding: 0;
+				border: none;
+				margin-left: 15px;
+				margin-right: 15px;
+				.nav-item {
+					margin: 0 !important;
+					a {
+						padding: 12px;
+						padding: 10px 12px !important;
+						&:hover {
+							color: $color_blue_ribbon_approx !important;
+						}
+					}
+				}
+				li {
+					&.active {
+						background: $white !important;
+						color: $color_blue_ribbon_approx !important;
+					}
+					&:hover {
+						background: $white !important;
+						color: $color_blue_ribbon_approx !important;
+					}
+				}
+			}
+			a::after {
+				opacity: 1;
+				visibility: visible;
+			}
+			&:hover a {
+				color: $color_blue_ribbon_approx;
+			}
+		}
+	}
+	.hero-area {
+		.custom-padding-right {
+			padding-right: calc(var(--bs-gutter-x)/ 2);
+		}
+		.hero-slider {
+			.single-slider {
+				position: relative;
+				height: 350px;
+				margin-bottom: 12px;
+				.content {
+					padding-right: 30px;
+					padding-left: 20px;
+					h2 {
+						font-size: 20px;
+						span {
+							font-size: 14px;
+							font-weight: 500;
+						}
+					}
+					p {
+						margin-top: 10px;
+					}
+					h3 {
+						font-size: 20px;
+						span {
+							margin-right: 8px;
+							font-size: 14px;
+						}
+					}
+				}
+			}
+			.single-slider::before {
+				position: absolute;
+				left: 0;
+				top: 0;
+				content: "";
+				height: 100%;
+				width: 100%;
+				background-color: $white;
+				opacity: 0.6;
+			}
+		}
+		.hero-small-banner {
+			height: 240px;
+		}
+	}
+	.single-banner {
+		&.custom-responsive-margin {
+			margin-top: 30px;
+		}
+		.content {
+			padding: 35px;
+			h2 {
+				font-size: 18px;
+			}
+			p {
+				margin-top: 8px;
+			}
+			.button {
+				margin-top: 15px;
+			}
+		}
+	}
+	.faq {
+		padding-bottom: 30px;
+		.section-title {
+			margin-bottom: 30px;
+		}
+	}
+	.accordion-body {
+		padding: 20px;
+	}
+	.blog-single {
+		.meta-information {
+			padding: 12px 25px;
+		}
+		.detail-inner {
+			padding: 25px;
+			padding-top: 10px;
+		}
+		.post-title {
+			line-height: 26px;
+			a {
+				font-size: 18px;
+			}
+		}
+		.meta-info li {
+			margin-bottom: 5px;
+			margin-right: 10px;
+		}
+	}
+	blockquote {
+		padding: 45px 25px 30px;
+		h4 {
+			font-size: 14px;
+		}
+		.icon i {
+			margin-bottom: 15px;
+		}
+	}
+	.post-bottom-area {
+		display: block;
+		.post-social-media {
+			margin-top: 20px;
+		}
+	}
+	.item-details {
+		.product-info {
+			.title {
+				font-size: 18px;
+			}
+			.price {
+				font-size: 20px;
+				span {
+					font-size: 20px;
+				}
+			}
+			.wish-button {
+				margin-top: 12px;
+			}
+			.social-share {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				margin-top: 10px;
+				ul {
+					float: none;
+				}
+			}
+		}
+		.product-images .images {
+			Grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	.cart-list-title {
+		text-align: center;
+		p {
+			padding: 2px 0;
+		}
+	}
+	.cart-single-list {
+		text-align: center;
+		.remove-item {
+			margin-top: 5px;
+		}
+		a img {
+			width: 50%;
+			margin-bottom: 10px;
+		}
+	}
+	.shopping-cart {
+		.total-amount {
+			.coupon {
+				width: 100%;
+				padding: 30px;
+				margin-top: 30px;
+				input {
+					width: 100%;
+				}
+				.button {
+					display: block;
+				}
+				button {
+					margin: 0;
+					margin-top: 10px;
+					width: 100%;
+				}
+			}
+			.right {
+				padding: 30px;
+				margin-top: 30px;
+			}
+		}
+		.count-input {
+			padding: 10px 65px;
+		}
+		p {
+			padding: 3px 0;
+		}
+		select.form-control:not([size]):not([multiple]) {
+			width: 100%;
+		}
+	}
+	.checkout-steps-form-style-1 {
+		.single-payment-option {
+			width: 100%;
+		}
+		.single-form .form-input {
+			margin-bottom: 16px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		.steps-form-btn .btn {
+			width: 100%;
+			margin: 0;
+			margin-bottom: 10px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.account-login {
+		.login-form {
+			padding: 30px;
+			.social-login .btn {
+				margin: 6px 0;
+			}
+		}
+		.alt-option {
+			margin: 20px 0;
+		}
+	}
+	.register-form {
+		padding: 30px;
+		.button {
+			margin-top: 10px;
+		}
+	}
+	.contact-form-head {
+		.form-main {
+			padding: 30px;
+		}
+		.contact-inner-title h2 {
+			font-size: 20px;
+			line-height: 30px;
+		}
+	}
+	.footer {
+		.footer-top {
+			.inner-content {
+				padding: 40px 0;
+				text-align: center;
+			}
+			.footer-newsletter {
+				padding: 0 20px;
+				.title {
+					margin-bottom: 20px;
+					display: block;
+					font-size: 18px;
+					width: 100%;
+					span {
+						margin-top: 10px;
+					}
+				}
+				.newsletter-form {
+					float: none;
+					margin-top: 20px;
+					input {
+						width: 100%;
+						text-align: center;
+					}
+					.button {
+						margin: 0;
+						margin-top: 10px;
+						top: 0;
+						width: 100%;
+						.btn {
+							width: 100%;
+						}
+					}
+				}
+			}
+			.footer-logo a img {
+				width: 180px;
+			}
+		}
+		.footer-middle {
+			padding-top: 10px;
+			padding-bottom: 50px;
+		}
+		.single-footer {
+			margin-top: 30px;
+			text-align: center;
+			h3::before {
+				left: 50%;
+				margin-left: -20px;
+			}
+		}
+		.footer-bottom {
+			.payment-gateway span {
+				display: block;
+				margin: 0;
+				margin-bottom: 10px;
+			}
+			.socila li span {
+				display: none;
+			}
+		}
+	}
+	.shipping-info li {
+		width: 100%;
+	}
+	.home-product-list .custom-responsive-margin {
+		margin-bottom: 40px;
+	}
+	.about-us .content-right h2 {
+		font-size: 22px;
+		line-height: 35px;
+	}
+	.accordion-item .accordion-button {
+		padding: 15px 20px;
+		padding-right: 40px;
+		.title {
+			font-size: 14px;
+		}
+	}
+	.blog-section .section-title {
+		margin-bottom: 20px;
+	}
+	.post-comments .comments-list li {
+		padding-left: 0;
+		padding: 25px;
+		.comment-img {
+			position: relative;
+			top: 0;
+			left: 0;
+			margin-bottom: 12px;
+		}
+		&.children {
+			margin: 0;
+		}
+		.comment-desc .desc-top .reply-link {
+			position: relative;
+			display: block;
+			margin-top: 15px;
+		}
+	}
+	.product-details-info .reviews .single-review {
+		padding-left: 60px;
+		img {
+			height: 40px;
+			width: 40px;
+		}
+		.review-info {
+			padding: 20px;
+			h4 {
+				font-size: 14px;
+			}
+		}
+		.review-info::before {
+			top: 5px;
+		}
+		.review-info::after {
+			top: 5px;
+		}
+	}
+	.product-grids .product-grid-topbar {
+		.nav {
+			float: none;
+			text-align: left;
+			margin-top: 20px;
+		}
+		.product-sorting .total-show-product {
+			display: block;
+			margin-top: 15px;
+		}
+	}
+	.contact-us .contact-info .single-info-head {
+		margin-top: 20px;
+	}
+	.map-section .mapouter {
+		height: 300px;
+		.gmap_canvas {
+			height: 300px;
+			iframe {
+				height: 300px;
+			}
+		}
+	}
+	.error-area .error-content {
+		h1 {
+			font-size: 45px;
+			line-height: 30px;
+		}
+		h2 {
+			font-size: 18px;
+		}
+	}
+	.maill-success .success-content h2 {
+		font-size: 15px;
+	}
+}

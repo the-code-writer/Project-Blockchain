@@ -1,0 +1,40 @@
+blockquote {
+	position: relative;
+	color: $white;
+	font-weight: 400;
+	clear: both;
+	z-index: 1;
+	margin: 40px 0;
+	text-align: left;
+	padding: 40px;
+	background-color: $color_persian_blue_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	overflow: hidden;
+	h4 {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		color: $white;
+	}
+	span {
+		font-size: 13px;
+		display: block;
+		margin-top: 20px;
+	}
+	.shape {
+		position: absolute;
+		right: -90px;
+		top: -91px;
+		z-index: -1;
+		-webkit-transform: rotate(45deg);
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: rotate(45deg);
+	}
+	.icon i {
+		font-size: 40px;
+		color: $white;
+		display: block;
+		margin-bottom: 20px;
+	}
+}

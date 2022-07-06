@@ -1,0 +1,190 @@
+.contact-us {
+	position: relative;
+	background-color: $color_catskill_white_approx;
+	padding-bottom: 0;
+	.contact-head {
+		background: $white;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 7px;
+		overflow: hidden;
+		-webkit-box-shadow: 0 1rem 3rem $color_shark_15_approx !important;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 1rem 3rem $color_shark_15_approx !important;
+		position: relative;
+		z-index: 5;
+	}
+	.title {
+		margin-bottom: 30px;
+	}
+	.contant-inner-title {
+		margin-bottom: 45px;
+		h4 {
+			font-size: 22px;
+			font-weight: 600;
+			margin-bottom: 5px;
+			color: $color_black_pearl_approx;
+			text-transform: capitalize;
+		}
+		p {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 23px;
+			margin-top: 10px;
+			display: block;
+		}
+	}
+	.single-head {
+		padding: 50px;
+		height: 100%;
+		background: $white;
+		position: relative;
+		z-index: 5;
+		overflow: hidden;
+		border-left: 1px solid $color_gallery_approx;
+	}
+	.single-info {
+		text-align: left;
+		margin-bottom: 16px;
+		padding-left: 40px;
+		position: relative;
+		i {
+			color: $color_persian_blue_approx;
+			font-size: 18px;
+			display: inline-block;
+			margin-right: 20px;
+			position: absolute;
+			left: 0;
+			top: 2px;
+		}
+		ul {
+			display: inline-block;
+			li {
+				font-weight: 500;
+				display: inline-block;
+				font-size: 13px;
+				&:last-child {
+					margin-bottom: 0;
+				}
+				a {
+					font-weight: 500;
+					color: $color_oslo_gray_approx;
+					display: inline-block;
+					font-size: 13px;
+					&:hover {
+						color: $color_persian_blue_approx;
+					}
+				}
+			}
+		}
+		.title {
+			margin-bottom: 10px;
+			font-weight: 500;
+			color: $white;
+			font-size: 18px;
+			span {
+				display: block;
+				font-size: 14px;
+				margin-top: 8px;
+				font-weight: 500;
+			}
+		}
+	}
+	.contact-social {
+		display: block;
+		margin-top: 65px;
+		h5 {
+			color: $color_black_pearl_approx;
+			font-weight: 600;
+			font-size: 18px;
+		}
+		ul {
+			display: inline-block;
+			position: relative;
+			left: -9px;
+			margin-top: 15px;
+			margin-left: 10px;
+			li {
+				display: inline-block;
+				margin-right: 6px;
+				&:last-child {
+					margin-right: 0;
+				}
+				a {
+					font-size: 14px;
+					color: $color_black_pearl_approx;
+					height: 40px;
+					width: 40px;
+					text-align: center;
+					display: block;
+					line-height: 40px;
+					background: $color_athens_gray_approx;
+					border: none;
+					//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+					border-radius: 4px;
+					position: relative;
+					z-index: 3;
+					&:hover {
+						color: $white;
+						background-color: $color_persian_blue_approx;
+					}
+				}
+			}
+		}
+	}
+	.form-main {
+		padding: 50px 35px 50px 50px;
+	}
+	.form {
+		.form-group {
+			margin-bottom: 15px;
+			display: block;
+			input {
+				height: 55px;
+				line-height: 55px;
+				width: 100%;
+				border: 1px solid $color_white_lilac_approx;
+				padding: 0 20px;
+				color: $color_mine_shaft_approx;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 0;
+				font-weight: 400;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 5px;
+			}
+			textarea {
+				height: 180px;
+				width: 100%;
+				border: 1px solid $color_white_lilac_approx;
+				padding: 15px 20px;
+				color: $color_mine_shaft_approx;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 0;
+				resize: none;
+				font-weight: 400;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 5px;
+			}
+		}
+		.button {
+			margin: 0;
+			.btn {
+				height: 50px;
+				border: none;
+			}
+		}
+	}
+}
+.map-section {
+	background-color: $color_catskill_white_approx;
+	margin-top: 50px;
+	padding-bottom: 100px;
+	.map-container {
+		-webkit-box-shadow: 0 1rem 3rem $color_shark_15_approx !important;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 1rem 3rem $color_shark_15_approx !important;
+		padding: 20px;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 7px;
+		background-color: $white;
+	}
+}

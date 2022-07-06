@@ -1,0 +1,11 @@
+html {
+	scroll-behavior: smooth;
+}
+body {
+	font-family: $primary_font, $primary_font_fallback;
+	font-weight: normal;
+	font-style: normal;
+	color: $color_oslo_gray_approx;
+	overflow-x: hidden;
+	font-size: 14px;
+}

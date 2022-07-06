@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Union Chat for JavaScript</title>
+
+    <!--CSS-->
+    <style type="text/css">
+        #chatPane {
+            border: inset 2px;
+            height: 100px;
+            width: 400px;
+            overflow: auto;
+            padding: 5px;
+            margin-bottom: 5px
+        }
+    </style>
+
+    <!--Load the Orbiter JavaScript library (non-minified version). Use during development.-->
+    <script type="text/javascript" src="./assets/js/Orbiter_2.1.2.19_Release.js?test"></script>
+
+    <!--Chat code-->
+    <script type="text/javascript">
+
+
+
+        //==============================================================================
+        // VARIABLES
+        //==============================================================================
+
+        var vaida;
+        var chatRoom;
+
+        var host = "localhost";
+        var port = 9100;
+        var userID = 9100;
+        var isSecure = true;
+
+        function init() {
+
+            initOrbiter(host, port, isSecure, userID);
+
+        }
+
+        //==============================================================================
+        // INITIALIZATION
+        //==============================================================================
+        function initOrbiter(host, port, isSecure, userID) {
+            // Create the Orbiter instance, used, to connect to and communicate with Union,
+            // then enable automatic reconnection (one attempt every 15 seconds)
+            vaida = new net.user1.orbiter.Orbiter();
+            vaida.getConnectionMonitor().setAutoReconnectFrequency(15000);
+            vaida.getLog().setLevel(net.user1.logger.Logger.DEBUG);
+
+            // If required JavaScript capabilities are missing, abort
+            if (!vaida.getSystem().isJavaScriptCompatible()) {
+                displayChatMessage("Your browser is not supported.");
+                return;
+            }
+
+            // Register for Orbiter's connection events
+            vaida.addEventListener(net.user1.orbiter.OrbiterEvent.READY, readyListener, this);
+            vaida.addEventListener(net.user1.orbiter.OrbiterEvent.CLOSE, closeListener, this);
+
+            displayChatMessage("Connecting to V.A.I.D.A...");
+
+            console.log("Connecting to V.A.I.D.A. :: host, port, isSecure, userID :: ", host, port, isSecure, userID);
+
+            // Connect to Union Server
+            vaida.connect(host, port, isSecure, userID);
+
+        }
+
+        //==============================================================================
+        // ORBITER EVENT LISTENERS
+        //==============================================================================
+        // Triggered when the connection is ready
+        function readyListener(e) {
+            displayChatMessage("Connected.");
+            displayChatMessage("Joining chat room...");
+
+            // Create the chat room on the server
+            chatRoom = vaida.getRoomManager().createRoom("chatRoom");
+            chatRoom.addEventListener(net.user1.orbiter.RoomEvent.JOIN, joinRoomListener);
+            chatRoom.addEventListener(net.user1.orbiter.RoomEvent.ADD_OCCUPANT, addOccupantListener);
+            chatRoom.addEventListener(net.user1.orbiter.RoomEvent.REMOVE_OCCUPANT, removeOccupantListener);
+
+            // Listen for chat messages
+            chatRoom.addMessageListener("CHAT_MESSAGE", chatMessageListener);
+
+            // Join the chat room
+            chatRoom.join();
+        }
+
+        // Triggered when the connection is closed
+        function closeListener(e) {
+            displayChatMessage("Orbiter connection closed.");
+        }
+
+        //==============================================================================
+        // CHAT ROOM EVENT LISTENERS
+        //==============================================================================
+        // Triggered when the room is joined
+        function joinRoomListener(e) {
+            displayChatMessage("Chat ready!");
+            displayChatMessage("Number of people now chatting: " + chatRoom.getNumOccupants());
+        }
+
+        // Triggered when another client joins the chat room
+        function addOccupantListener(e) {
+            if (chatRoom.getSyncState() != net.user1.orbiter.SynchronizationState.SYNCHRONIZING) {
+                displayChatMessage("User" + e.getClientID() + " joined the chat."
+                    + " People chatting: " + chatRoom.getNumOccupants());
+            }
+        }
+
+        // Triggered when another client leaves the chat room
+        function removeOccupantListener(e) {
+            displayChatMessage("User" + e.getClientID() + " left the chat."
+                + " People chatting: " + chatRoom.getNumOccupants());
+        }
+
+        //==============================================================================
+        // CHAT SENDING AND RECEIVING
+        //==============================================================================
+        // Sends a chat message to everyone in the chat room
+        function sendMessage() {
+            var outgoing = document.getElementById("outgoing");
+            if (outgoing.value.length > 0) {
+                chatRoom.sendMessage("CHAT_MESSAGE", "true", null, outgoing.value);
+                outgoing.value = "";
+                // Focus text field again after submission (required for IE8 only)
+                setTimeout(function () {
+                    outgoing.focus();
+                }, 10);
+            }
+        }
+
+        // Triggered when a chat message is received
+        function chatMessageListener(fromClient, message) {
+            displayChatMessage("User" + fromClient.getClientID() + ": " + message);
+        }
+
+        // Displays a single chat message
+        function displayChatMessage(message) {
+            // Make the new chat message element
+            var msg = document.createElement("span");
+            msg.appendChild(document.createTextNode(message));
+            msg.appendChild(document.createElement("br"));
+
+            // Append the new message to the chat
+            var chatPane = document.getElementById("chatPane");
+            chatPane.appendChild(msg);
+
+            // Trim the chat to 500 messages
+            if (chatPane.childNodes.length > 500) {
+                chatPane.removeChild(chatPane.firstChild);
+            }
+            chatPane.scrollTop = chatPane.scrollHeight;
+        }
+
+
+
+    </script>
+</head>
+
+<body onload="init()">
+<!--Contains the incoming chat messages-->
+<div id="chatPane"></div>
+
+<!--The outgoing chat form-->
+<div>
+    <input type="text" id="outgoing" style="width:340px" onkeydown="if (event.keyCode == 13) sendMessage()"/>
+    <input type="submit" value="Send" style="width:60px" onclick="sendMessage()"/>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1919 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://socket.io/docs/client-initialization/
+Subject: Initialization | Socket.IO
+Date: Mon, 28 Sep 2020 15:55:32 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--T5eXwQ8aJ3YuKSgHcqF70bPasVjTiXuMlycv4mjj3D----"
+
+
+------MultipartBoundary--T5eXwQ8aJ3YuKSgHcqF70bPasVjTiXuMlycv4mjj3D----
+Content-Type: text/html
+Content-ID: <frame-76817F48DE2F1244C5845BFF9EC990AA@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://socket.io/docs/client-initialization/
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"tex=
+t/html; charset=3DUTF-8"><meta name=3D"generator" content=3D"Hexo 3.9.0">
+ =20
+ =20
+<!-- Google Analytics -->
+
+<!-- End Google Analytics -->
+
+
+ =20
+  <title>Initialization | Socket.IO</title>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1, maximum-scale=3D1">
+  <meta name=3D"description" content=3D"Once you have installed the Socket.=
+IO client library, you can now init the client. The complete list of option=
+s can be found here. In the examples below, the io object comes either from=
+:  the &amp;lt;scri">
+<meta property=3D"og:type" content=3D"website">
+<meta property=3D"og:title" content=3D"Initialization">
+<meta property=3D"og:url" content=3D"https://socket.io/docs/client-initiali=
+zation/index.html">
+<meta property=3D"og:site_name" content=3D"Socket.IO">
+<meta property=3D"og:description" content=3D"Once you have installed the So=
+cket.IO client library, you can now init the client. The complete list of o=
+ptions can be found here. In the examples below, the io object comes either=
+ from:  the &amp;lt;scri">
+<meta property=3D"og:locale" content=3D"default">
+<meta property=3D"og:updated_time" content=3D"2020-07-31T22:42:05.105Z">
+<meta name=3D"twitter:card" content=3D"summary">
+<meta name=3D"twitter:title" content=3D"Initialization">
+<meta name=3D"twitter:description" content=3D"Once you have installed the S=
+ocket.IO client library, you can now init the client. The complete list of =
+options can be found here. In the examples below, the io object comes eithe=
+r from:  the &amp;lt;scri">
+ =20
+ =20
+    <link rel=3D"icon" href=3D"https://socket.io/images/favicon.png">
+ =20
+ =20
+    <link href=3D"https://fonts.googleapis.com/css?family=3DSource+Code+Pro=
+" rel=3D"stylesheet" type=3D"text/css">
+ =20
+
+  <link rel=3D"stylesheet" href=3D"https://socket.io/css/style.css">
+
+  <link href=3D"https://fonts.googleapis.com/css?family=3DOpen+Sans:300ital=
+ic,400italic,600italic,700italic,400,300,600,700" rel=3D"stylesheet" type=
+=3D"text/css">
+
+  <link rel=3D"stylesheet" href=3D"https://cdn.jsdelivr.net/npm/docsearch.j=
+s@2/dist/cdn/docsearch.min.css">
+</head>
+<body style=3D"">
+
+  <div id=3D"container">
+    <div id=3D"wrap">
+      <header id=3D"header">
+  <a id=3D"logo" href=3D"https://socket.io/"></a>
+  <nav class=3D"main-nav">
+    <ul class=3D"nav-items">
+      <li>
+        <span class=3D"algolia-autocomplete" style=3D"position: relative; d=
+isplay: inline-block; direction: ltr;"><input id=3D"docsearch-input" type=
+=3D"text" placeholder=3D"Search..." class=3D"ds-input" autocomplete=3D"off"=
+ spellcheck=3D"false" role=3D"combobox" aria-autocomplete=3D"list" aria-exp=
+anded=3D"false" aria-label=3D"search input" aria-owns=3D"algolia-autocomple=
+te-listbox-0" dir=3D"auto" style=3D"position: relative; vertical-align: top=
+;"><pre aria-hidden=3D"true" style=3D"position: absolute; visibility: hidde=
+n; white-space: pre; font-family: &quot;Open Sans&quot;, sans-serif; font-s=
+ize: 12px; font-style: normal; font-variant: normal; font-weight: 400; word=
+-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: au=
+to; text-transform: none;"></pre><span class=3D"ds-dropdown-menu" role=3D"l=
+istbox" id=3D"algolia-autocomplete-listbox-0" style=3D"position: absolute; =
+top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class=
+=3D"ds-dataset-1"></div></span></span>
+      </li>
+      <li>
+        <div class=3D"dropdown">
+          <span class=3D"dropdown-toggle nav-item">Learn</span>
+          <ul class=3D"dropdown-content">
+            <li>
+              <a href=3D"https://socket.io/get-started/chat/" class=3D"nav-=
+link">Get started</a>
+            </li>
+            <li>
+              <a href=3D"https://socket.io/docs/" class=3D"nav-link">Docume=
+ntation</a>
+            </li>
+            <li>
+              <a href=3D"https://socket.io/demos/chat/" class=3D"nav-link">=
+Demos</a>
+            </li>
+            <li class=3D"anchor"></li>
+            <li>
+              <a href=3D"https://socket.io/docs/server-api/" class=3D"nav-l=
+ink">Server API</a>
+            </li>
+            <li>
+              <a href=3D"https://socket.io/docs/client-api/" class=3D"nav-l=
+ink">Client API</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class=3D"dropdown">
+          <span class=3D"dropdown-toggle nav-item">Resources</span>
+          <ul class=3D"dropdown-content">
+            <li>
+              <span class=3D"nav-links-header">Getting help</span>
+              <ul>
+                <li>
+                  <a href=3D"https://socketio-slackin.herokuapp.com/" targe=
+t=3D"_blank" class=3D"nav-link">Slack</a>
+                </li>
+                <li>
+                  <a href=3D"https://stackoverflow.com/questions/tagged/soc=
+ket.io" target=3D"_blank" class=3D"nav-link">Stack Overflow</a>
+                </li>
+              </ul>
+            </li>
+            <li class=3D"anchor"></li>
+            <li>
+              <span class=3D"nav-links-header">News</span>
+              <ul>
+                <li>
+                  <a href=3D"https://socket.io/blog/" class=3D"nav-link">Bl=
+og</a>
+                </li>
+                <li>
+                  <a href=3D"https://twitter.com/SocketIO" target=3D"_blank=
+" class=3D"nav-link">Twitter</a>
+                </li>
+              </ul>
+            </li>
+            <li class=3D"anchor"></li>
+            <li>
+              <span class=3D"nav-links-header">Links</span>
+              <ul>
+                <li>
+                  <a href=3D"https://github.com/socketio/socket.io" target=
+=3D"_blank" class=3D"nav-link">GitHub</a>
+                </li>
+                <li>
+                  <a href=3D"https://cdnjs.com/libraries/socket.io" target=
+=3D"_blank" class=3D"nav-link">CDN</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href=3D"https://opencollective.com/socketio" target=3D"_blank" c=
+lass=3D"nav-item">Support Socket.IO</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+     =20
+      <aside id=3D"sidebar">
+ =20
+    <ol class=3D"items">
+     =20
+
+     =20
+       =20
+         =20
+            <li><h3>Documentation</h3></li>
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/" class=3D"sidebar-link">Intr=
+oduction</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/emit-cheatsheet/" class=3D"si=
+debar-link">Emit cheatsheet</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/logging-and-debugging/" class=
+=3D"sidebar-link">Logging and debugging</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+            <li><h3>Server</h3></li>
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/server-installation/" class=
+=3D"sidebar-link">Installation</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/server-initialization/" class=
+=3D"sidebar-link">Initialization</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/namespaces/" class=3D"sidebar=
+-link">Namespaces</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/rooms/" class=3D"sidebar-link=
+">Rooms</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/using-multiple-nodes/" class=
+=3D"sidebar-link">Using multiple nodes</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+            <li><h3>Client</h3></li>
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/client-installation/" class=
+=3D"sidebar-link">Installation</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/client-initialization/" class=
+=3D"sidebar-link selected">Initialization</a>
+            <ol class=3D"toc"><li class=3D"toc-item toc-level-2"><a class=
+=3D"toc-link" href=3D"https://socket.io/docs/client-initialization/#From-th=
+e-same-domain"><span class=3D"toc-text">From the same domain</span></a></li=
+><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=3D"https://s=
+ocket.io/docs/client-initialization/#From-a-different-domain"><span class=
+=3D"toc-text">From a different domain</span></a></li><li class=3D"toc-item =
+toc-level-2"><a class=3D"toc-link" href=3D"https://socket.io/docs/client-in=
+itialization/#Custom-namespace"><span class=3D"toc-text">Custom namespace</=
+span></a></li><li class=3D"toc-item toc-level-2"><a class=3D"toc-link" href=
+=3D"https://socket.io/docs/client-initialization/#Notable-options"><span cl=
+ass=3D"toc-text">Notable options</span></a></li></ol>
+          </li>
+       =20
+     =20
+       =20
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/client-connection-lifecycle/"=
+ class=3D"sidebar-link">Connection lifecycle</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+            <li><h3>Internals</h3></li>
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/internals/" class=3D"sidebar-=
+link">Internals overview</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+            <li><h3>Migrations</h3></li>
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/migrating-from-0-9/" class=3D=
+"sidebar-link">Migrating from 0.9</a>
+          </li>
+       =20
+     =20
+       =20
+         =20
+            <li><h3>Miscellaneous</h3></li>
+         =20
+       =20
+
+       =20
+          <li>
+            <a href=3D"https://socket.io/docs/faq/" class=3D"sidebar-link">=
+FAQ</a>
+          </li>
+       =20
+     =20
+    </ol>
+ =20
+
+</aside>
+
+     =20
+      <div id=3D"carbonads"><span><span class=3D"carbon-wrap"><a href=3D"ht=
+tps://srv.carbonads.net/ads/click/x/GTND42JEC67D52QMCV74YKQNCTYIK27YFTSDCZ3=
+JCYYD42JMCVSI6K7KC6BD4K7JCTYDC53ECASDT2QWCWSD623YHEYIKK3JCKYDPKJECTNCYBZ52K=
+?segment=3Dplacement:socketio;" class=3D"carbon-img" target=3D"_blank" rel=
+=3D"noopener sponsored"><img src=3D"https://cdn4.buysellads.net/uu/1/69037/=
+1596210833-20200722_CaronAds_03-_2_.jpg" alt=3D"ads via Carbon" border=3D"0=
+" style=3D"max-width: 130px;"></a><a href=3D"https://srv.carbonads.net/ads/=
+click/x/GTND42JEC67D52QMCV74YKQNCTYIK27YFTSDCZ3JCYYD42JMCVSI6K7KC6BD4K7JCTY=
+DC53ECASDT2QWCWSD623YHEYIKK3JCKYDPKJECTNCYBZ52K?segment=3Dplacement:socketi=
+o;" class=3D"carbon-text" target=3D"_blank" rel=3D"noopener sponsored">Buil=
+d Modern Messaging Experiences in Minutes. Try Now!</a></span><a href=3D"ht=
+tp://carbonads.net/?utm_source=3Dsocketio&amp;utm_medium=3Dad_via_link&amp;=
+utm_campaign=3Din_unit&amp;utm_term=3Dcarbon" class=3D"carbon-poweredby" ta=
+rget=3D"_blank" rel=3D"noopener sponsored">ads via Carbon</a></span></div>
+     =20
+
+<article id=3D"page-" class=3D"article">
+  <p>Once you have <a href=3D"https://socket.io/docs/client-installation/">=
+installed</a> the Socket.IO client library, you can now init the client. Th=
+e complete list of options can be found <a href=3D"https://socket.io/docs/c=
+lient-api/#new-Manager-url-options">here</a>.</p>
+<p>In the examples below, the <code>io</code> object comes either from:</p>
+<ul>
+<li>the <code>&lt;script&gt;</code> import</li>
+</ul>
+<figure class=3D"highlight html"><table><tbody><tr><td class=3D"code"><pre>=
+<span class=3D"line"><span class=3D"tag">&lt;<span class=3D"name">script</s=
+pan> <span class=3D"attr">src</span>=3D<span class=3D"string">"/socket.io/s=
+ocket.io.js"</span>&gt;</span><span class=3D"tag">&lt;/<span class=3D"name"=
+>script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figur=
+e>
+<ul>
+<li>NPM</li>
+</ul>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"comment">// ES6 import</span></span><br><=
+span class=3D"line"><span class=3D"keyword">import</span> io <span class=3D=
+"keyword">from</span> <span class=3D"string">'socket.io-client'</span>;</sp=
+an><br><span class=3D"line"><span class=3D"comment">// CommonJS</span></spa=
+n><br><span class=3D"line"><span class=3D"keyword">const</span> io =3D <spa=
+n class=3D"built_in">require</span>(<span class=3D"string">'socket.io-clien=
+t'</span>);</span><br></pre></td></tr></tbody></table></figure>
+<h2 id=3D"From-the-same-domain"><a href=3D"https://socket.io/docs/client-in=
+itialization/#From-the-same-domain" class=3D"headerlink" title=3D"From the =
+same domain"></a>From the same domain</h2><p>If your front is served on the=
+ same domain as your server, you can simply use:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io();</s=
+pan><br></pre></td></tr></tbody></table></figure>
+<p>The server URL will be deduced from the <a href=3D"https://developer.moz=
+illa.org/en-US/docs/Web/API/Window/location" target=3D"_blank" rel=3D"noope=
+ner">window.location</a> object.</p>
+<p>Additional options can be passed:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"comment">// default values</span></span><=
+br><span class=3D"line"><span class=3D"keyword">const</span> socket =3D io(=
+{</span><br><span class=3D"line">  path: <span class=3D"string">'/socket.io=
+'</span>,</span><br><span class=3D"line">  reconnection: <span class=3D"lit=
+eral">true</span>,</span><br><span class=3D"line">  reconnectionAttempts: <=
+span class=3D"literal">Infinity</span>,</span><br><span class=3D"line">  re=
+connectionDelay: <span class=3D"number">1000</span>,</span><br><span class=
+=3D"line">  reconnectionDelayMax: <span class=3D"number">5000</span>,</span=
+><br><span class=3D"line">  randomizationFactor: <span class=3D"number">0.5=
+</span>,</span><br><span class=3D"line">  timeout: <span class=3D"number">2=
+0000</span>,</span><br><span class=3D"line">  autoConnect: <span class=3D"l=
+iteral">true</span>,</span><br><span class=3D"line">  query: {},</span><br>=
+<span class=3D"line">  <span class=3D"comment">// options of the Engine.IO =
+client</span></span><br><span class=3D"line">  upgrade: <span class=3D"lite=
+ral">true</span>,</span><br><span class=3D"line">  forceJSONP: <span class=
+=3D"literal">false</span>,</span><br><span class=3D"line">  jsonp: <span cl=
+ass=3D"literal">true</span>,</span><br><span class=3D"line">  forceBase64: =
+<span class=3D"literal">false</span>,</span><br><span class=3D"line">  enab=
+lesXDR: <span class=3D"literal">false</span>,</span><br><span class=3D"line=
+">  timestampRequests: <span class=3D"literal">true</span>,</span><br><span=
+ class=3D"line">  timestampParam: <span class=3D"string">'t'</span>,</span>=
+<br><span class=3D"line">  policyPort: <span class=3D"number">843</span>,</=
+span><br><span class=3D"line">  transports: [<span class=3D"string">'pollin=
+g'</span>, <span class=3D"string">'websocket'</span>],</span><br><span clas=
+s=3D"line">  transportOptions: {},</span><br><span class=3D"line">  remembe=
+rUpgrade: <span class=3D"literal">false</span>,</span><br><span class=3D"li=
+ne">  onlyBinaryUpgrades: <span class=3D"literal">false</span>,</span><br><=
+span class=3D"line">  requestTimeout: <span class=3D"number">0</span>,</spa=
+n><br><span class=3D"line">  protocols: [],</span><br><span class=3D"line">=
+  <span class=3D"comment">// options for Node.js</span></span><br><span cla=
+ss=3D"line">  agent: <span class=3D"literal">false</span>,</span><br><span =
+class=3D"line">  pfx: <span class=3D"literal">null</span>,</span><br><span =
+class=3D"line">  key: <span class=3D"literal">null</span>,</span><br><span =
+class=3D"line">  passphrase: <span class=3D"literal">null</span>,</span><br=
+><span class=3D"line">  cert: <span class=3D"literal">null</span>,</span><b=
+r><span class=3D"line">  ca: <span class=3D"literal">null</span>,</span><br=
+><span class=3D"line">  ciphers: [],</span><br><span class=3D"line">  rejec=
+tUnauthorized: <span class=3D"literal">true</span>,</span><br><span class=
+=3D"line">  perMessageDeflate: <span class=3D"literal">true</span>,</span><=
+br><span class=3D"line">  forceNode: <span class=3D"literal">false</span>,<=
+/span><br><span class=3D"line">  localAddress: <span class=3D"literal">null=
+</span>,</span><br><span class=3D"line">  <span class=3D"comment">// option=
+s for Node.js / React Native</span></span><br><span class=3D"line">  extraH=
+eaders: {},</span><br><span class=3D"line">});</span><br></pre></td></tr></=
+tbody></table></figure>
+<h2 id=3D"From-a-different-domain"><a href=3D"https://socket.io/docs/client=
+-initialization/#From-a-different-domain" class=3D"headerlink" title=3D"Fro=
+m a different domain"></a>From a different domain</h2><p>In case your front=
+ is not served from the same domain as your server, you have to pass the UR=
+L of your server.</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io(<span=
+ class=3D"string">'https://server-domain.com'</span>);</span><br></pre></td=
+></tr></tbody></table></figure>
+<h2 id=3D"Custom-namespace"><a href=3D"https://socket.io/docs/client-initia=
+lization/#Custom-namespace" class=3D"headerlink" title=3D"Custom namespace"=
+></a>Custom namespace</h2><p>In the examples above, the client will connect=
+ to the default namespace. Using only the default namespace should be suffi=
+cient for most use cases, but you can specify the namespace with:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"comment">// same origin version</span></s=
+pan><br><span class=3D"line"><span class=3D"keyword">const</span> socket =
+=3D io(<span class=3D"string">'/admin'</span>);</span><br><span class=3D"li=
+ne"><span class=3D"comment">// cross origin version</span></span><br><span =
+class=3D"line"><span class=3D"keyword">const</span> socket =3D io(<span cla=
+ss=3D"string">'https://server-domain.com/admin'</span>);</span><br></pre></=
+td></tr></tbody></table></figure>
+<p>You can find more details about namespaces <a href=3D"https://socket.io/=
+docs/namespaces/">here</a>.</p>
+<h2 id=3D"Notable-options"><a href=3D"https://socket.io/docs/client-initial=
+ization/#Notable-options" class=3D"headerlink" title=3D"Notable options"></=
+a>Notable options</h2><h3 id=3D"transports-option"><a href=3D"https://socke=
+t.io/docs/client-initialization/#transports-option" class=3D"headerlink" ti=
+tle=3D"transports option"></a><code>transports</code> option</h3><p>By defa=
+ult, the client will try to establish a WebSocket connection, and fall back=
+ to XHR/JSONP polling.</p>
+<p>If you are sure the WebSocket connection will succeed, you can disable t=
+he polling transport:</p>
+<figure class=3D"highlight js"><table><tbody><tr><td class=3D"code"><pre><s=
+pan class=3D"line"><span class=3D"keyword">const</span> socket =3D io({</sp=
+an><br><span class=3D"line">  transports: [<span class=3D"string">'websocke=
+t'</span>]</span><br><span class=3D"line">});</span><br></pre></td></tr></t=
+body></table></figure>
+<p>In that case, due to the nature of the WebSocket connection, you can hav=
+e several server instances without sticky sessions. More information <a hre=
+f=3D"https://socket.io/docs/using-multiple-nodes/">here</a>.</p>
+
+
+ =20
+  <footer class=3D"article-footer">
+    Caught a mistake? Edit this page on <a href=3D"https://github.com/socke=
+tio/socket.io-website/blob/master/source/docs/client-initialization.md" tar=
+get=3D"_blank" class=3D"link">GitHub</a>
+  </footer>
+ =20
+</article>
+
+    </div>
+    <nav id=3D"mobile-nav">
+ =20
+</nav>
+   =20
+
+
+
+<!-- Algolia DocSearch -->
+
+
+
+
+
+  </div>
+
+</body></html>
+------MultipartBoundary--T5eXwQ8aJ3YuKSgHcqF70bPasVjTiXuMlycv4mjj3D----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css?family=Source+Code+Pro
+
+@charset "utf-8";
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlMOvWjMY.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1=
+C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlOevWjMY.woff2") format("woff2"); unicode-range: U+400-45F, U+490-49=
+1, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlPuvWjMY.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlMuvWjMY.woff2") format("woff2"); unicode-range: U+102-103, U+110-11=
+1, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlM-vWjMY.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U=
++1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A=
+7FF; }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weigh=
+t: 400; src: local("Source Code Pro Regular"), local("SourceCodePro-Regular=
+"), url("https://fonts.gstatic.com/s/sourcecodepro/v13/HI_SiYsKILxRpg3hIP6s=
+J7fM7PqlPevW.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-1=
+53, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+=
+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+------MultipartBoundary--T5eXwQ8aJ3YuKSgHcqF70bPasVjTiXuMlycv4mjj3D----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://socket.io/css/style.css
+
+@charset "utf-8";
+
+html { line-height: 1.15; text-size-adjust: 100%; }
+
+body { margin: 0px; }
+
+h1 { font-size: 2em; margin: 0.67em 0px; }
+
+hr { box-sizing: content-box; height: 0px; overflow: visible; }
+
+pre { font-family: monospace, monospace; font-size: 1em; }
+
+a { background-color: transparent; }
+
+abbr[title] { border-bottom: none; text-decoration: underline dotted; }
+
+b, strong { font-weight: bolder; }
+
+code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }
+
+small { font-size: 80%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-ali=
+gn: baseline; }
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+img { border-style: none; }
+
+button, input, optgroup, select, textarea { font-family: inherit; font-size=
+: 100%; line-height: 1.15; margin: 0px; }
+
+button, input { overflow: visible; }
+
+button, select { text-transform: none; }
+
+button, [type=3D"button"], [type=3D"reset"], [type=3D"submit"] { appearance=
+: button; }
+
+fieldset { padding: 0.35em 0.75em 0.625em; }
+
+legend { box-sizing: border-box; color: inherit; display: table; max-width:=
+ 100%; padding: 0px; white-space: normal; }
+
+progress { vertical-align: baseline; }
+
+textarea { overflow: auto; }
+
+[type=3D"checkbox"], [type=3D"radio"] { box-sizing: border-box; padding: 0p=
+x; }
+
+[type=3D"number"]::-webkit-inner-spin-button, [type=3D"number"]::-webkit-ou=
+ter-spin-button { height: auto; }
+
+[type=3D"search"] { appearance: textfield; outline-offset: -2px; }
+
+[type=3D"search"]::-webkit-search-decoration { appearance: none; }
+
+::-webkit-file-upload-button { appearance: button; font: inherit; }
+
+details { display: block; }
+
+summary { display: list-item; }
+
+template { display: none; }
+
+[hidden] { display: none; }
+
+#header { padding: 10px; z-index: 10; position: relative; background-color:=
+ rgb(255, 255, 255); }
+
+@media screen and (min-width: 900px) {
+  #header { position: fixed; left: 0px; right: 0px; padding: 10px 40px; bac=
+kground-color: rgba(255, 255, 255, 0.9); }
+}
+
+#header #logo { background-image: url("images/logo.svg"); background-size: =
+cover; display: block; width: 136px; height: 40px; margin: 0px auto; }
+
+@media screen and (min-width: 900px) {
+  #header #logo { margin: 0px; display: inline-block; }
+}
+
+#header #docsearch-input { border: 1px solid rgb(227, 227, 227); border-rad=
+ius: 15px; padding: 0px 10px 0px 30px; outline: none; height: 30px; font-si=
+ze: 1.2rem; margin-top: 5px; }
+
+#header .main-nav { float: right; display: none; }
+
+@media screen and (min-width: 900px) {
+  #header .main-nav { display: block; }
+}
+
+#header .nav-items { padding: 0px; margin: 0px; height: 40px; line-height: =
+40px; }
+
+#header .nav-items > li { padding: 0px; margin: 0px 10px; }
+
+#header .nav-item { font-size: 1.4rem; }
+
+#header nav li { display: inline-block; }
+
+#header .nav-link { color: rgb(155, 155, 155); font-size: 1.2rem; }
+
+#header .nav-links-header { font-weight: bold; font-size: 1.2rem; }
+
+#header .dropdown-toggle { cursor: pointer; }
+
+#header .dropdown-content { display: none; position: absolute; background-c=
+olor: rgb(255, 255, 255); padding: 0px 20px 10px; border: 1px solid rgb(238=
+, 238, 238); }
+
+#header .dropdown:hover .dropdown-content { display: block; }
+
+#header .dropdown-content li { display: block; margin-top: 10px; line-heigh=
+t: 20px; }
+
+#header ul { padding-left: 1rem; }
+
+#footer { background: rgb(38, 42, 48); padding: 50px 0px; border-top: 1px s=
+olid rgb(221, 221, 221); color: rgb(153, 153, 153); }
+
+#footer a { color: rgb(37, 143, 184); text-decoration: none; }
+
+#footer a:hover { text-decoration: underline; }
+
+#footer-info { line-height: 1.6em; font-size: 0.85em; }
+
+#sidebar { display: none; width: 200px; position: fixed; top: 0px; left: 0p=
+x; bottom: 0px; overflow: hidden auto; margin-top: 80px; padding: 0px 20px =
+20px; }
+
+@media screen and (min-width: 900px) {
+  #sidebar { display: block; }
+}
+
+#sidebar .items { padding: 0px; }
+
+#sidebar .toc, #sidebar .toc-child { padding-left: 0.6em; }
+
+#sidebar li { list-style-type: none; }
+
+#sidebar li.selected > a { font-weight: bold; }
+
+#sidebar .sidebar-link { color: rgb(155, 155, 155); font-size: 1.4rem; }
+
+#sidebar .sidebar-link.selected { font-weight: bold; }
+
+#sidebar .toc-text { color: rgb(155, 155, 155); font-size: 1.2rem; }
+
+#sidebar .toc-item.toc-level-1 > a { font-weight: bold; }
+
+.article { margin: 40px; padding-top: 60px; }
+
+@media screen and (min-width: 900px) {
+  .article { margin-left: 320px; }
+}
+
+@media screen and (min-width: 1280px) {
+  .article { margin-right: 240px; }
+}
+
+.article .highlight figure { margin: 0px; }
+
+.article code { margin: 0px 2px; color: rgb(102, 102, 102); }
+
+.article .article-footer { margin: 60px 0px 30px; }
+
+.article .article-footer .link { text-decoration: underline; }
+
+.article :target { padding-top: 80px; margin-top: -60px; }
+
+.article li { margin-top: 10px; }
+
+.article a { text-decoration: underline; }
+
+.article img { display: block; margin-left: auto; margin-right: auto; max-w=
+idth: 100%; }
+
+.article table { width: 100%; border-collapse: collapse; }
+
+.article td { border-top: 1px solid rgb(153, 153, 153); padding: 1rem; }
+
+.article pre, .article .highlight { background: rgb(45, 45, 45); margin: 0p=
+x -20px; padding: 15px 20px; border-style: solid; border-color: rgb(221, 22=
+1, 221); border-width: 1px 0px; overflow: auto; color: rgb(204, 204, 204); =
+line-height: 22.4px; }
+
+.article .highlight .gutter pre, .article .gist .gist-file .gist-data .line=
+-numbers { color: rgb(102, 102, 102); font-size: 0.85em; }
+
+.article pre, .article code { font-family: "Source Code Pro", Consolas, Mon=
+aco, Menlo, Consolas, monospace; }
+
+.article code { background: rgb(238, 238, 238); text-shadow: rgb(255, 255, =
+255) 0px 1px; padding: 0px 0.3em; }
+
+.article pre code { background: none; text-shadow: none; padding: 0px; }
+
+.article .highlight pre { border: none; margin: 0px; padding: 0px; }
+
+.article .highlight table { margin: 0px; width: auto; }
+
+.article .highlight td { border: none; padding: 0px; }
+
+.article .highlight figcaption { font-size: 0.85em; color: rgb(153, 153, 15=
+3); line-height: 1em; margin-bottom: 1em; }
+
+.article .highlight figcaption a { float: right; }
+
+.article .highlight .gutter pre { text-align: right; padding-right: 20px; }
+
+.article .highlight .line { height: 22.4px; }
+
+.article .highlight .line.marked { background: rgb(81, 81, 81); }
+
+.article .gist { margin: 0px -20px; border-style: solid; border-color: rgb(=
+221, 221, 221); border-width: 1px 0px; background: rgb(45, 45, 45); padding=
+: 15px 20px 15px 0px; }
+
+.article .gist .gist-file { border: none; font-family: "Source Code Pro", C=
+onsolas, Monaco, Menlo, Consolas, monospace; margin: 0px; }
+
+.article .gist .gist-file .gist-data { background: none; border: none; }
+
+.article .gist .gist-file .gist-data .line-numbers { background: none; bord=
+er: none; padding: 0px 20px 0px 0px; }
+
+.article .gist .gist-file .gist-data .line-data { padding: 0px !important; =
+}
+
+.article .gist .gist-file .highlight { margin: 0px; padding: 0px; border: n=
+one; }
+
+.article .gist .gist-file .gist-meta { background: rgb(45, 45, 45); color: =
+rgb(153, 153, 153); font: 0.85em -apple-system, BlinkMacSystemFont, "Segoe =
+UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helveti=
+ca Neue", sans-serif; text-shadow: 0px 0px; padding: 0px; margin-top: 1em; =
+margin-left: 20px; }
+
+.article .gist .gist-file .gist-meta a { color: rgb(37, 143, 184); font-wei=
+ght: normal; }
+
+.article .gist .gist-file .gist-meta a:hover { text-decoration: underline; =
+}
+
+pre .comment, pre .title { color: rgb(153, 153, 153); }
+
+pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, =
+pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, =
+pre .css .id, pre .css .class, pre .css .pseudo { color: rgb(242, 119, 122)=
+; }
+
+pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, p=
+re .constant { color: rgb(249, 145, 87); }
+
+pre .class, pre .ruby .class .title, pre .css .rules .attribute { color: rg=
+b(153, 204, 153); }
+
+pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, =
+pre .xml .cdata { color: rgb(153, 204, 153); }
+
+pre .css .hexcolor { color: rgb(102, 204, 204); }
+
+pre .function, pre .python .decorator, pre .python .title, pre .ruby .funct=
+ion .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .tit=
+le, pre .coffeescript .title { color: rgb(102, 153, 204); }
+
+pre .keyword, pre .javascript .function { color: rgb(204, 153, 204); }
+
+@media mq-mobile {
+  #mobile-nav { position: absolute; top: 0px; left: 0px; width: 280px; heig=
+ht: 100%; background: rgb(25, 25, 25); border-right: 1px solid rgb(255, 255=
+, 255); }
+}
+
+@media mq-mobile {
+  .mobile-nav-link { display: block; color: rgb(153, 153, 153); text-decora=
+tion: none; padding: 15px 20px; font-weight: bold; }
+  .mobile-nav-link:hover { color: rgb(255, 255, 255); }
+}
+
+#sponsors .sponsor { display: inline-block; width: 100%; height: 100px; lin=
+e-height: 100px; margin-top: 1.5rem; margin-bottom: 1.5rem; text-align: cen=
+ter; }
+
+@media screen and (min-width: 900px) {
+  #sponsors .sponsor { width: 32%; }
+}
+
+#sponsors .sponsor img { display: inline-block; max-width: 80%; max-height:=
+ 100%; vertical-align: middle; }
+
+#carbonads { width: 130px; display: block; overflow: hidden; line-height: 1=
+.5; position: relative; float: right; margin: 20px; }
+
+@media screen and (min-width: 900px) {
+  #carbonads { margin-top: 60px; }
+}
+
+@media screen and (min-width: 1280px) {
+  #carbonads { float: none; position: fixed; right: 0px; top: 6rem; }
+}
+
+#carbonads a { color: rgb(155, 155, 155); }
+
+#carbonads span { display: block; overflow: hidden; }
+
+#carbonads .carbon-img { display: block; margin: 0px auto 8px; line-height:=
+ 0; }
+
+#carbonads .carbon-text { display: block; color: rgb(155, 155, 155); font-s=
+ize: 1.2rem; margin-bottom: 20px; }
+
+#carbonads .carbon-poweredby { display: block; text-transform: uppercase; l=
+etter-spacing: 1px; font-size: 1rem; line-height: 1; }
+
+.post .metadata { margin-top: 60px; margin-bottom: 60px; }
+
+.post .metadata .metadata-title { text-align: center; font-size: 40px; font=
+-weight: lighter; line-height: 1.2; margin-bottom: 4px; }
+
+.post .metadata .metadata-author { text-align: center; font-weight: lighter=
+; background: rgb(255, 255, 255); color: rgb(119, 119, 119); margin-top: 0p=
+x; }
+
+.post .links { margin-top: 40px; }
+
+html { font-size: 62.5%; }
+
+html, body, #container { height: 100%; }
+
+#wrap { height: 100%; width: 100%; position: absolute; top: 0px; left: 0px;=
+ }
+
+body, button, input, select, textarea { color: rgb(85, 85, 85); font-family=
+: "Open Sans", sans-serif; font-size: 1.6rem; line-height: 1.6; }
+
+a { text-decoration: none; color: rgb(85, 85, 85); }
+------MultipartBoundary--T5eXwQ8aJ3YuKSgHcqF70bPasVjTiXuMlycv4mjj3D----
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://socket.io/css/images/logo.svg
+
+<?xml version=3D"1.0" encoding=3D"UTF-8" standalone=3D"no"?>
+<svg width=3D"143px" height=3D"43px" viewBox=3D"0 0 143 43" version=3D"1.1"=
+ xmlns=3D"http://www.w3.org/2000/svg" xmlns:xlink=3D"http://www.w3.org/1999=
+/xlink" xmlns:sketch=3D"http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.2 (7799) - http://www.bohemiancoding.com/ske=
+tch -->
+    <title>logo full</title>
+    <description>Created with Sketch.</description>
+    <defs></defs>
+    <g id=3D"Page-1" stroke=3D"none" stroke-width=3D"1" fill=3D"none" fill-=
+rule=3D"evenodd" sketch:type=3D"MSPage">
+        <g id=3D"logo" sketch:type=3D"MSLayerGroup">
+            <path d=3D"M0,0 L43,0 L43,43 L0,43 L0,0 L0,0 Z" id=3D"Shape" fi=
+ll=3D"#FFFFFF" sketch:type=3D"MSShapeGroup"></path>
+            <path d=3D"M16.2,1.24 C21.62,-0.15 27.61,0.66 32.39,3.61 C38.41=
+,7.21 42.34,14.02 42.44,21.03 C42.66,28.11 38.97,35.13 33.04,38.98 C26.44,4=
+3.42 17.31,43.59 10.57,39.37 C3.7,35.27 -0.31,27 0.72,19.06 C1.55,10.67 8.0=
+3,3.27 16.2,1.24 L16.2,1.24 Z" id=3D"Shape" fill=3D"#010101" sketch:type=3D=
+"MSShapeGroup"></path>
+            <path d=3D"M15.37,4.67 C25.61,0.57 38.17,8.14 39.23,19.12 C40.8=
+8,29 32.68,39.04 22.67,39.33 C13.15,40.28 3.95,32.21 3.68,22.65 C2.97,14.91=
+ 8.07,7.23 15.37,4.67 L15.37,4.67 Z" id=3D"Shape" fill=3D"#FFFFFF" sketch:t=
+ype=3D"MSShapeGroup"></path>
+            <path d=3D"M16.4,20.44 C20.99,16.69 25.48,12.81 30.17,9.17 C27.=
+71,12.95 25.18,16.68 22.72,20.46 C20.61,20.47 18.5,20.47 16.4,20.44 L16.4,2=
+0.44 Z" id=3D"Shape" fill=3D"#010101" sketch:type=3D"MSShapeGroup"></path>
+            <path d=3D"M20.28,22.53 C22.4,22.53 24.51,22.53 26.62,22.56 C22=
+,26.29 17.53,30.2 12.83,33.83 C15.29,30.05 17.82,26.31 20.28,22.53 L20.28,2=
+2.53 Z" id=3D"Shape" fill=3D"#010101" sketch:type=3D"MSShapeGroup"></path>
+        </g>
+        <path d=3D"M59.864,28.424 C60.728,28.904 62,29.24 63.416,29.24 C66.=
+512,29.24 68.168,27.704 68.168,25.592 C68.144,23.864 67.16,22.784 65.048,22=
+.016 C63.56,21.488 63.008,21.128 63.008,20.384 C63.008,19.664 63.584,19.16 =
+64.64,19.16 C65.672,19.16 66.608,19.544 67.112,19.832 L67.688,17.744 C67.01=
+6,17.384 65.888,17.048 64.592,17.048 C61.88,17.048 60.176,18.656 60.176,20.=
+72 C60.152,22.088 61.112,23.336 63.392,24.128 C64.832,24.632 65.312,25.04 6=
+5.312,25.832 C65.312,26.6 64.736,27.128 63.44,27.128 C62.384,27.128 61.112,=
+26.696 60.44,26.288 L59.864,28.424 Z M74.896,17.048 C71.368,17.048 68.848,1=
+9.4 68.848,23.24 C68.848,26.984 71.392,29.264 74.704,29.264 C77.68,29.264 8=
+0.704,27.344 80.704,23.048 C80.704,19.496 78.376,17.048 74.896,17.048 Z M74=
+.824,19.208 C76.84,19.208 77.656,21.296 77.656,23.12 C77.656,25.472 76.48,2=
+7.128 74.8,27.128 C73,27.128 71.896,25.424 71.896,23.168 C71.896,21.224 72.=
+736,19.208 74.824,19.208 Z M90.312,26.456 C89.736,26.696 89.016,26.912 87.9=
+84,26.912 C85.968,26.912 84.408,25.544 84.408,23.144 C84.384,21.008 85.728,=
+19.352 87.984,19.352 C89.04,19.352 89.736,19.592 90.216,19.808 L90.744,17.6=
+ C90.072,17.288 88.968,17.048 87.888,17.048 C83.784,17.048 81.384,19.784 81=
+.384,23.288 C81.384,26.912 83.76,29.24 87.408,29.24 C88.872,29.24 90.096,28=
+.928 90.72,28.64 L90.312,26.456 Z M94.856,11.96 L91.904,11.96 L91.904,29 L9=
+4.856,29 L94.856,25.016 L95.864,23.84 L99.224,29 L102.848,29 L97.904,22.088=
+ L102.224,17.312 L98.672,17.312 L95.84,21.08 C95.528,21.488 95.192,21.992 9=
+4.904,22.448 L94.856,22.448 L94.856,11.96 Z M112.864,23.984 C112.912,23.72 =
+112.96,23.288 112.96,22.736 C112.96,20.168 111.712,17.048 107.92,17.048 C10=
+4.176,17.048 102.208,20.096 102.208,23.336 C102.208,26.912 104.44,29.24 108=
+.232,29.24 C109.912,29.24 111.304,28.928 112.312,28.52 L111.88,26.48 C110.9=
+92,26.816 110.008,27.008 108.64,27.008 C106.768,27.008 105.112,26.096 105.0=
+4,23.984 L112.864,23.984 Z M105.04,21.92 C105.16,20.72 105.928,19.064 107.7=
+52,19.064 C109.72,19.064 110.2,20.84 110.176,21.92 L105.04,21.92 Z M114.84,=
+14.672 L114.84,17.312 L113.16,17.312 L113.16,19.52 L114.84,19.52 L114.84,25=
+.016 C114.84,26.552 115.128,27.608 115.752,28.28 C116.304,28.88 117.216,29.=
+24 118.296,29.24 C119.232,29.24 120,29.12 120.432,28.952 L120.384,26.696 C1=
+20.12,26.768 119.736,26.84 119.232,26.84 C118.104,26.84 117.72,26.096 117.7=
+2,24.68 L117.72,19.52 L120.528,19.52 L120.528,17.312 L117.72,17.312 L117.72=
+,13.976 L114.84,14.672 Z M123.08,29.264 C124.184,29.264 124.904,28.448 124.=
+904,27.368 C124.904,26.24 124.16,25.472 123.08,25.472 C122.024,25.472 121.2=
+56,26.264 121.256,27.368 C121.256,28.448 122,29.264 123.08,29.264 Z M129.25=
+6,29 L129.256,17.312 L126.28,17.312 L126.28,29 L129.256,29 Z M127.768,12.44=
+ C126.784,12.44 126.112,13.136 126.112,14.048 C126.112,14.936 126.76,15.632=
+ 127.744,15.632 C128.776,15.632 129.424,14.936 129.424,14.048 C129.4,13.136=
+ 128.776,12.44 127.768,12.44 Z M136.728,17.048 C133.2,17.048 130.68,19.4 13=
+0.68,23.24 C130.68,26.984 133.224,29.264 136.536,29.264 C139.512,29.264 142=
+.536,27.344 142.536,23.048 C142.536,19.496 140.208,17.048 136.728,17.048 Z =
+M136.656,19.208 C138.672,19.208 139.488,21.296 139.488,23.12 C139.488,25.47=
+2 138.312,27.128 136.632,27.128 C134.832,27.128 133.728,25.424 133.728,23.1=
+68 C133.728,21.224 134.568,19.208 136.656,19.208 Z" id=3D"socket.io" fill=
+=3D"#000000" sketch:type=3D"MSShapeGroup"></path>
+    </g>
+</svg>
+------MultipartBoundary--T5eXwQ8aJ3YuKSgHcqF70bPasVjTiXuMlycv4mjj3D----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700
+
+@charset "utf-8";
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hmIqOjj=
+g.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U=
++2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hvIqOjj=
+g.woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, =
+U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hnIqOjj=
+g.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hoIqOjj=
+g.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hkIqOjj=
+g.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, =
+U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hlIqOjj=
+g.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+=
+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 300=
+; src: local("Open Sans Light Italic"), local("OpenSans-LightItalic"), url(=
+"https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWyV9hrIqM.w=
+off2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC,=
+ U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, =
+U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Udc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A=
+640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0ddc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Vdc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0adc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Wdc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A=
+0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Xdc1UAw.woff2") forma=
+t("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20=
+AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 400=
+; src: local("Open Sans Italic"), local("OpenSans-Italic"), url("https://fo=
+nts.gstatic.com/s/opensans/v18/mem6YaGs126MiZpBA-UFUK0Zdc0.woff2") format("=
+woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, =
+U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,=
+ U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+mIqOjjg.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+2=
+0B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+vIqOjjg.woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0=
+-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+nIqOjjg.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+oIqOjjg.woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+kIqOjjg.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128=
+-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+lIqOjjg.woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1E=
+FF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 600=
+; src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic")=
+, url("https://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKXGUdh=
+rIqM.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2B=
+B-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+=
+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhmIqOjjg.=
+woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2=
+DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhvIqOjjg.=
+woff2") format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+=
+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhnIqOjjg.=
+woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhoIqOjjg.=
+woff2") format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhkIqOjjg.=
+woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+=
+168-169, U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhlIqOjjg.=
+woff2") format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+20=
+20, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: 700=
+; src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("h=
+ttps://fonts.gstatic.com/s/opensans/v18/memnYaGs126MiZpBA-UFUKWiUNhrIqM.wof=
+f2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U=
++2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+=
+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OX-hpOqc.woff2") format=
+("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A6=
+40-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OVuhpOqc.woff2") format=
+("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXuhpOqc.woff2") format=
+("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OUehpOqc.woff2") format=
+("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXehpOqc.woff2") format=
+("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0=
+-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXOhpOqc.woff2") format=
+("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20A=
+B, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 300=
+; src: local("Open Sans Light"), local("OpenSans-Light"), url("https://font=
+s.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OUuhp.woff2") format("w=
+off2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U=
++2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, =
+U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWJ0bbck.woff2") format=
+("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A6=
+40-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFUZ0bbck.woff2") format=
+("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWZ0bbck.woff2") format=
+("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFVp0bbck.woff2") format=
+("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWp0bbck.woff2") format=
+("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0=
+-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFW50bbck.woff2") format=
+("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20A=
+B, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 400=
+; src: local("Open Sans Regular"), local("OpenSans-Regular"), url("https://=
+fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFVZ0b.woff2") format("w=
+off2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U=
++2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, =
+U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOX-hpOqc.woff2") =
+format("woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF=
+, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOVuhpOqc.woff2") =
+format("woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXuhpOqc.woff2") =
+format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOUehpOqc.woff2") =
+format("woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXehpOqc.woff2") =
+format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169,=
+ U+1A0-1A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXOhpOqc.woff2") =
+format("woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20=
+A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 600=
+; src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("https:=
+//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOUuhp.woff2") for=
+mat("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+=
+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+=
+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOX-hpOqc.woff2") format("=
+woff2"); unicode-range: U+460-52F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640=
+-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOVuhpOqc.woff2") format("=
+woff2"); unicode-range: U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOXuhpOqc.woff2") format("=
+woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOUehpOqc.woff2") format("=
+woff2"); unicode-range: U+370-3FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOXehpOqc.woff2") format("=
+woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1=
+A1, U+1AF-1B0, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOXOhpOqc.woff2") format("=
+woff2"); unicode-range: U+100-24F, U+259, U+1E00-1EFF, U+2020, U+20A0-20AB,=
+ U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: 700=
+; src: local("Open Sans Bold"), local("OpenSans-Bold"), url("https://fonts.=
+gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN7rgOUuhp.woff2") format("wof=
+f2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2=
+DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+=
+FEFF, U+FFFD; }
+------MultipartBoundary--T5eXwQ8aJ3YuKSgHcqF70bPasVjTiXuMlycv4mjj3D----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css
+
+@charset "utf-8";
+
+.searchbox { display: inline-block; position: relative; width: 200px; white=
+-space: nowrap; box-sizing: border-box; height: 32px !important; visibility=
+: visible !important; }
+
+.searchbox .algolia-autocomplete { display: block; width: 100%; height: 100=
+%; }
+
+.searchbox__wrapper { width: 100%; height: 100%; z-index: 999; position: re=
+lative; }
+
+.searchbox__input { display: inline-block; box-sizing: border-box; transiti=
+on: box-shadow 0.4s ease 0s, background 0.4s ease 0s; border: 0px; border-r=
+adius: 16px; box-shadow: rgb(204, 204, 204) 0px 0px 0px 1px inset; padding:=
+ 0px 26px 0px 32px; width: 100%; height: 100%; vertical-align: middle; whit=
+e-space: normal; font-size: 12px; appearance: none; background: rgb(255, 25=
+5, 255) !important; }
+
+.searchbox__input::-webkit-search-cancel-button, .searchbox__input::-webkit=
+-search-decoration, .searchbox__input::-webkit-search-results-button, .sear=
+chbox__input::-webkit-search-results-decoration { display: none; }
+
+.searchbox__input:hover { box-shadow: rgb(179, 179, 179) 0px 0px 0px 1px in=
+set; }
+
+.searchbox__input:active, .searchbox__input:focus { outline: 0px; box-shado=
+w: rgb(170, 170, 170) 0px 0px 0px 1px inset; background: rgb(255, 255, 255)=
+; }
+
+.searchbox__input::-webkit-input-placeholder { color: rgb(170, 170, 170); }
+
+.searchbox__input::placeholder { color: rgb(170, 170, 170); }
+
+.searchbox__submit { position: absolute; top: 0px; margin: 0px; border: 0px=
+; border-radius: 16px 0px 0px 16px; background-color: rgba(69, 142, 225, 0)=
+; padding: 0px; width: 32px; height: 100%; vertical-align: middle; text-ali=
+gn: center; font-size: inherit; user-select: none; right: inherit; left: 0p=
+x; }
+
+.searchbox__submit::before { display: inline-block; margin-right: -4px; hei=
+ght: 100%; vertical-align: middle; content: ""; }
+
+.searchbox__submit:active, .searchbox__submit:hover { cursor: pointer; }
+
+.searchbox__submit:focus { outline: 0px; }
+
+.searchbox__submit svg { width: 14px; height: 14px; vertical-align: middle;=
+ fill: rgb(109, 126, 150); }
+
+.searchbox__reset { display: block; position: absolute; top: 8px; right: 8p=
+x; margin: 0px; border: 0px; background: none; cursor: pointer; padding: 0p=
+x; font-size: inherit; user-select: none; fill: rgba(0, 0, 0, 0.5); }
+
+.searchbox__reset.hide { display: none; }
+
+.searchbox__reset:focus { outline: 0px; }
+
+.searchbox__reset svg { display: block; margin: 4px; width: 8px; height: 8p=
+x; }
+
+.searchbox__input:valid ~ .searchbox__reset { display: block; animation-nam=
+e: sbx-reset-in; animation-duration: 0.15s; }
+
+@-webkit-keyframes sbx-reset-in {=20
+  0% { transform: translate3d(-20%, 0px, 0px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+@keyframes sbx-reset-in {=20
+  0% { transform: translate3d(-20%, 0px, 0px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+.algolia-autocomplete.algolia-autocomplete-right .ds-dropdown-menu { right:=
+ 0px !important; left: inherit !important; }
+
+.algolia-autocomplete.algolia-autocomplete-right .ds-dropdown-menu::before =
+{ right: 48px; }
+
+.algolia-autocomplete.algolia-autocomplete-left .ds-dropdown-menu { left: 0=
+px !important; right: inherit !important; }
+
+.algolia-autocomplete.algolia-autocomplete-left .ds-dropdown-menu::before {=
+ left: 48px; }
+
+.algolia-autocomplete .ds-dropdown-menu { top: -6px; border-radius: 4px; ma=
+rgin: 6px 0px 0px; padding: 0px; text-align: left; height: auto; position: =
+relative; background: transparent; border: none; z-index: 999; max-width: 6=
+00px; min-width: 500px; box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px 0px, rgb=
+a(0, 0, 0, 0.1) 0px 2px 3px 0px; }
+
+.algolia-autocomplete .ds-dropdown-menu::before { display: block; position:=
+ absolute; content: ""; width: 14px; height: 14px; background: rgb(255, 255=
+, 255); z-index: 1000; top: -7px; border-top: 1px solid rgb(217, 217, 217);=
+ border-right: 1px solid rgb(217, 217, 217); transform: rotate(-45deg); bor=
+der-radius: 2px; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions { position: relativ=
+e; z-index: 1000; margin-top: 8px; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions a:hover { text-deco=
+ration: none; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion { cursor: pointer; }
+
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-d=
+ocsearch-suggestion.suggestion-layout-simple, .algolia-autocomplete .ds-dro=
+pdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.sugg=
+estion-layout-simple) .algolia-docsearch-suggestion--content { background-c=
+olor: rgba(69, 142, 225, 0.05); }
+
+.algolia-autocomplete .ds-dropdown-menu [class^=3D"ds-dataset-"] { position=
+: relative; border: 1px solid rgb(217, 217, 217); background: rgb(255, 255,=
+ 255); border-radius: 4px; overflow: auto; padding: 0px 8px 8px; }
+
+.algolia-autocomplete .ds-dropdown-menu * { box-sizing: border-box; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion { display: block; posit=
+ion: relative; padding: 0px 8px; background: rgb(255, 255, 255); color: rgb=
+(2, 6, 12); overflow: hidden; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight { color: rgb=
+(23, 77, 140); background: rgba(143, 187, 237, 0.1); padding: 0.1em 0.05em;=
+ }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header .algol=
+ia-docsearch-suggestion--category-header-lvl0 .algolia-docsearch-suggestion=
+--highlight, .algolia-autocomplete .algolia-docsearch-suggestion--category-=
+header .algolia-docsearch-suggestion--category-header-lvl1 .algolia-docsear=
+ch-suggestion--highlight, .algolia-autocomplete .algolia-docsearch-suggesti=
+on--text .algolia-docsearch-suggestion--highlight { padding: 0px 0px 1px; b=
+ackground: inherit; box-shadow: rgba(69, 142, 225, 0.8) 0px -2px 0px 0px in=
+set; color: inherit; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--content { display: blo=
+ck; float: right; width: 70%; position: relative; padding: 5.33333px 0px 5.=
+33333px 10.6667px; cursor: pointer; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--content::before { cont=
+ent: ""; position: absolute; display: block; top: 0px; height: 100%; width:=
+ 1px; background: rgb(221, 221, 221); left: -1px; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header { posi=
+tion: relative; border-bottom: 1px solid rgb(221, 221, 221); display: none;=
+ margin-top: 8px; padding: 4px 0px; font-size: 1em; color: rgb(51, 54, 61);=
+ }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--wrapper { width: 100%;=
+ float: left; padding: 8px 0px 0px; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column { f=
+loat: left; width: 30%; text-align: right; position: relative; padding: 5.3=
+3333px 10.6667px; color: rgb(164, 167, 174); font-size: 0.9em; overflow-wra=
+p: break-word; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column::be=
+fore { content: ""; position: absolute; display: block; top: 0px; height: 1=
+00%; width: 1px; background: rgb(221, 221, 221); right: 0px; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-inline { d=
+isplay: none; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--title { margin-bottom:=
+ 4px; color: rgb(2, 6, 12); font-size: 0.9em; font-weight: 700; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--text { display: block;=
+ line-height: 1.2em; font-size: 0.85em; color: rgb(99, 103, 109); }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--no-results { width: 10=
+0%; padding: 8px 0px; text-align: center; font-size: 1.2em; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion--no-results::before { d=
+isplay: none; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion code { padding: 1px 5px=
+; font-size: 90%; border: none; color: rgb(34, 34, 34); background-color: r=
+gb(235, 235, 235); border-radius: 3px; font-family: Menlo, Monaco, Consolas=
+, "Courier New", monospace; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion code .algolia-docsearch=
+-suggestion--highlight { background: none; }
+
+.algolia-autocomplete .algolia-docsearch-suggestion.algolia-docsearch-sugge=
+stion__main .algolia-docsearch-suggestion--category-header, .algolia-autoco=
+mplete .algolia-docsearch-suggestion.algolia-docsearch-suggestion__secondar=
+y { display: block; }
+
+@media (min-width: 768px) {
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column { display: block; }
+}
+
+@media (max-width: 768px) {
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column { display: inline-block; width: auto; float: l=
+eft; padding: 0px; color: rgb(2, 6, 12); font-size: 0.9em; font-weight: 700=
+; text-align: left; opacity: 0.5; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column::before { display: none; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--subcategory-column::after { content: "|"; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--content { display: inline-block; width: auto; text-align: left; f=
+loat: left; padding: 0px; }
+  .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-su=
+ggestion--content::before { display: none; }
+}
+
+.algolia-autocomplete .suggestion-layout-simple.algolia-docsearch-suggestio=
+n { border-bottom: 1px solid rgb(238, 238, 238); padding: 8px; margin: 0px;=
+ }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--content { width: 100%; padding: 0px; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--content::before { display: none; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--category-header { margin: 0px; padding: 0px; display: block; width: 100=
+%; border: none; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--category-header-lvl0, .algolia-autocomplete .suggestion-layout-simple .=
+algolia-docsearch-suggestion--category-header-lvl1 { opacity: 0.6; font-siz=
+e: 0.85em; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--category-header-lvl1::before { background-image: url("data:image/svg+xm=
+l;utf8,<svg width=3D\"10\" height=3D\"10\" viewBox=3D\"0 0 20 38\" xmlns=3D=
+\"http://www.w3.org/2000/svg\"><path d=3D\"M1.49 4.31l14 16.126.002-2.624-1=
+4 16.074-1.314 1.51 3.017 2.626 1.313-1.508 14-16.075 1.142-1.313-1.14-1.31=
+3-14-16.125L3.2.18.18 2.8l1.31 1.51z\" fill-rule=3D\"evenodd\" fill=3D\"%23=
+1D3657\" /></svg>"); content: ""; width: 10px; height: 10px; display: inlin=
+e-block; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--wrapper { width: 100%; float: left; margin: 0px; padding: 0px; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--duplicate-content, .algolia-autocomplete .suggestion-layout-simple .alg=
+olia-docsearch-suggestion--subcategory-inline { display: none !important; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--title { margin: 0px; color: rgb(69, 142, 225); font-size: 0.9em; font-w=
+eight: 400; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--title::before { content: "#"; font-weight: 700; color: rgb(69, 142, 225=
+); display: inline-block; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--text { margin: 4px 0px 0px; display: block; line-height: 1.4em; padding=
+: 5.33333px 8px; background: rgb(248, 248, 248); font-size: 0.85em; opacity=
+: 0.8; }
+
+.algolia-autocomplete .suggestion-layout-simple .algolia-docsearch-suggesti=
+on--text .algolia-docsearch-suggestion--highlight { color: rgb(63, 65, 69);=
+ font-weight: 700; box-shadow: none; }
+
+.algolia-autocomplete .algolia-docsearch-footer { width: 134px; height: 20p=
+x; z-index: 2000; margin-top: 10.6667px; float: right; font-size: 0px; line=
+-height: 0; }
+
+.algolia-autocomplete .algolia-docsearch-footer--logo { background-image: u=
+rl("data:image/svg+xml;charset=3Dutf-8,%3Csvg width=3D'168' height=3D'24' x=
+mlns=3D'http://www.w3.org/2000/svg'%3E%3Cg fill=3D'none' fill-rule=3D'eveno=
+dd'%3E%3Cpath d=3D'M78.988.938h16.594a2.968 2.968 0 0 1 2.966 2.966V20.5a2.=
+967 2.967 0 0 1-2.966 2.964H78.988a2.967 2.967 0 0 1-2.966-2.964V3.897A2.96=
+1 2.961 0 0 1 78.988.938zm41.937 17.866c-4.386.02-4.386-3.54-4.386-4.106l-.=
+007-13.336 2.675-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-10.846-2.18=
+c.821 0 1.43-.047 1.855-.129v-2.719a6.334 6.334 0 0 0-1.574-.199 5.7 5.7 0 =
+0 0-.897.069 2.699 2.699 0 0 0-.814.24c-.24.116-.439.28-.582.491-.15.212-.2=
+19.335-.219.656 0 .628.219.991.616 1.23s.938.362 1.615.362zm-.233-9.7c.883 =
+0 1.629.109 2.231.328.602.218 1.088.525 1.444.915.363.396.609.922.76 1.483.=
+157.56.232 1.175.232 1.85v6.874a32.5 32.5 0 0 1-1.868.314c-.834.123-1.772.1=
+85-2.813.185-.69 0-1.327-.069-1.895-.198a4.001 4.001 0 0 1-1.471-.636 3.085=
+ 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.803 0-.656.13-1.073.384=
+-1.525a3.24 3.24 0 0 1 1.047-1.106c.445-.287.95-.492 1.532-.615a8.8 8.8 0 0=
+ 1 1.82-.185 8.404 8.404 0 0 1 1.972.24v-.438c0-.307-.035-.6-.11-.874a1.88 =
+1.88 0 0 0-.384-.73 1.784 1.784 0 0 0-.724-.493 3.164 3.164 0 0 0-1.143-.20=
+5c-.616 0-1.177.075-1.69.164a7.735 7.735 0 0 0-1.26.307l-.321-2.192c.335-.1=
+17.834-.233 1.478-.349a10.98 10.98 0 0 1 2.073-.178zm52.842 9.626c.822 0 1.=
+43-.048 1.854-.13V13.7a6.347 6.347 0 0 0-1.574-.199c-.294 0-.595.021-.896.0=
+69a2.7 2.7 0 0 0-.814.24 1.46 1.46 0 0 0-.582.491c-.15.212-.218.335-.218.65=
+6 0 .628.218.991.615 1.23.404.245.938.362 1.615.362zm-.226-9.694c.883 0 1.6=
+29.108 2.231.327.602.219 1.088.526 1.444.915.355.39.609.923.759 1.483a6.8 6=
+.8 0 0 1 .233 1.852v6.873c-.41.088-1.034.19-1.868.314-.834.123-1.772.184-2.=
+813.184-.69 0-1.327-.068-1.895-.198a4.001 4.001 0 0 1-1.471-.635 3.085 3.08=
+5 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.804 0-.656.13-1.073.384-1.52=
+4.26-.45.608-.82 1.047-1.107.445-.286.95-.491 1.532-.614a8.803 8.803 0 0 1 =
+2.751-.13c.329.034.671.096 1.04.185v-.437a3.3 3.3 0 0 0-.109-.875 1.873 1.8=
+73 0 0 0-.384-.731 1.784 1.784 0 0 0-.724-.492 3.165 3.165 0 0 0-1.143-.205=
+c-.616 0-1.177.075-1.69.164a7.75 7.75 0 0 0-1.26.307l-.321-2.193c.335-.116.=
+834-.232 1.478-.348a11.633 11.633 0 0 1 2.073-.177zm-8.034-1.271a1.626 1.62=
+6 0 0 1-1.628-1.62c0-.895.725-1.62 1.628-1.62.904 0 1.63.725 1.63 1.62 0 .8=
+95-.733 1.62-1.63 1.62zm1.348 13.22h-2.689V7.27l2.69-.423v11.956zm-4.714 0c=
+-4.386.02-4.386-3.54-4.386-4.107l-.008-13.336 2.676-.424v13.254c0 .322 0 2.=
+358 1.718 2.364v2.248zm-8.698-5.903c0-1.156-.253-2.119-.746-2.788-.493-.677=
+-1.183-1.01-2.067-1.01-.882 0-1.574.333-2.065 1.01-.493.676-.733 1.632-.733=
+ 2.788 0 1.168.246 1.953.74 2.63.492.683 1.183 1.018 2.066 1.018.882 0 1.57=
+4-.342 2.067-1.019.492-.683.738-1.46.738-2.63zm2.737-.007c0 .902-.13 1.584-=
+.397 2.33a5.52 5.52 0 0 1-1.128 1.906 4.986 4.986 0 0 1-1.752 1.223c-.685.2=
+86-1.739.45-2.265.45-.528-.006-1.574-.157-2.252-.45a5.096 5.096 0 0 1-1.744=
+-1.223c-.487-.527-.863-1.162-1.137-1.906a6.345 6.345 0 0 1-.41-2.33c0-.902.=
+123-1.77.397-2.508a5.554 5.554 0 0 1 1.15-1.892 5.133 5.133 0 0 1 1.75-1.21=
+6c.679-.287 1.425-.423 2.232-.423.808 0 1.553.142 2.237.423a4.88 4.88 0 0 1=
+ 1.753 1.216 5.644 5.644 0 0 1 1.135 1.892c.287.738.431 1.606.431 2.508zm-2=
+0.138 0c0 1.12.246 2.363.738 2.882.493.52 1.13.78 1.91.78.424 0 .828-.062 1=
+.204-.178.377-.116.677-.253.917-.417V9.33a10.476 10.476 0 0 0-1.766-.226c-.=
+971-.028-1.71.37-2.23 1.004-.513.636-.773 1.75-.773 2.788zm7.438 5.274c0 1.=
+824-.466 3.156-1.404 4.004-.936.846-2.367 1.27-4.296 1.27-.705 0-2.17-.137-=
+3.34-.396l.431-2.118c.98.205 2.272.26 2.95.26 1.074 0 1.84-.219 2.299-.656.=
+459-.437.684-1.086.684-1.948v-.437a8.07 8.07 0 0 1-1.047.397c-.43.13-.93.19=
+8-1.492.198-.739 0-1.41-.116-2.018-.349a4.206 4.206 0 0 1-1.567-1.025c-.431=
+-.45-.774-1.017-1.013-1.694-.24-.677-.363-1.885-.363-2.773 0-.834.13-1.88.3=
+84-2.577.26-.696.629-1.298 1.129-1.796.493-.498 1.095-.881 1.8-1.162a6.605 =
+6.605 0 0 1 2.428-.457c.87 0 1.67.109 2.45.24.78.129 1.444.265 1.985.415V18=
+.17z' fill=3D'%235468FF'/%3E%3Cpath d=3D'M6.972 6.677v1.627c-.712-.446-1.52=
+-.67-2.425-.67-.585 0-1.045.13-1.38.391a1.24 1.24 0 0 0-.502 1.03c0 .425.16=
+4.765.494 1.02.33.256.835.532 1.516.83.447.192.795.356 1.045.495.25.138.537=
+.332.862.582.324.25.563.548.718.894.154.345.23.741.23 1.188 0 .947-.334 1.6=
+91-1.004 2.234-.67.542-1.537.814-2.601.814-1.18 0-2.16-.229-2.936-.686v-1.7=
+08c.84.628 1.814.942 2.92.942.585 0 1.048-.136 1.388-.407.34-.271.51-.646.5=
+1-1.125 0-.287-.1-.55-.302-.79-.203-.24-.42-.42-.655-.542-.234-.123-.585-.2=
+9-1.053-.503a61.27 61.27 0 0 1-.582-.271 13.67 13.67 0 0 1-.55-.287 4.275 4=
+.275 0 0 1-.567-.351 6.92 6.92 0 0 1-.455-.4c-.18-.17-.31-.34-.39-.51-.08-.=
+17-.155-.37-.224-.598a2.553 2.553 0 0 1-.104-.742c0-.915.333-1.638.998-2.17=
+.664-.532 1.523-.798 2.576-.798.968 0 1.793.17 2.473.51zm7.468 5.696v-.287c=
+-.022-.607-.187-1.088-.495-1.444-.309-.357-.75-.535-1.324-.535-.532 0-.99.1=
+94-1.373.583-.382.388-.622.949-.717 1.683h3.909zm1.005 2.792v1.404c-.596.34=
+-1.383.51-2.362.51-1.255 0-2.255-.377-3-1.132-.744-.755-1.116-1.744-1.116-2=
+.968 0-1.297.34-2.316 1.021-3.055.68-.74 1.548-1.11 2.6-1.11 1.033 0 1.852.=
+323 2.458.966.606.644.91 1.572.91 2.784 0 .33-.033.676-.096 1.038h-5.314c.1=
+07.702.405 1.239.894 1.611.49.372 1.106.558 1.85.558.862 0 1.58-.202 2.155-=
+.606zm6.605-1.77h-1.212c-.596 0-1.045.116-1.349.35-.303.234-.454.532-.454.8=
+94 0 .372.117.664.35.877.235.213.575.32 1.022.32.51 0 .912-.142 1.204-.424.=
+293-.281.44-.651.44-1.108v-.91zm-4.068-2.554V9.325c.627-.361 1.457-.542 2.4=
+89-.542 2.116 0 3.175 1.026 3.175 3.08V17h-1.548v-.957c-.415.68-1.143 1.02-=
+2.186 1.02-.766 0-1.38-.22-1.843-.661-.462-.442-.694-1.003-.694-1.684 0-.77=
+6.293-1.38.878-1.81.585-.431 1.404-.647 2.457-.647h1.34V11.8c0-.554-.133-.9=
+71-.399-1.253-.266-.282-.707-.423-1.324-.423a4.07 4.07 0 0 0-2.345.718zm9.3=
+33-1.93v1.42c.394-1 1.101-1.5 2.123-1.5.148 0 .313.016.494.048v1.531a1.885 =
+1.885 0 0 0-.75-.143c-.542 0-.989.24-1.34.718-.351.479-.527 1.048-.527 1.70=
+7V17h-1.563V8.91h1.563zm5.01 4.084c.022.82.272 1.492.75 2.019.479.526 1.15.=
+79 2.01.79.639 0 1.235-.176 1.788-.527v1.404c-.521.319-1.186.479-1.995.479-=
+1.265 0-2.276-.4-3.031-1.197-.755-.798-1.133-1.792-1.133-2.984 0-1.16.38-2.=
+151 1.14-2.975.761-.825 1.79-1.237 3.088-1.237.702 0 1.346.149 1.93.447v1.4=
+36a3.242 3.242 0 0 0-1.77-.495c-.84 0-1.513.266-2.019.798-.505.532-.758 1.2=
+13-.758 2.042zM40.24 5.72v4.579c.458-1 1.293-1.5 2.505-1.5.787 0 1.42.245 1=
+.899.734.479.49.718 1.17.718 2.042V17h-1.564v-5.106c0-.553-.14-.98-.422-1.2=
+84-.282-.303-.652-.455-1.11-.455-.531 0-1.002.202-1.411.606-.41.405-.615 1.=
+022-.615 1.851V17h-1.563V5.72h1.563zm14.966 10.02c.596 0 1.096-.253 1.5-.75=
+8.404-.506.606-1.157.606-1.955 0-.915-.202-1.62-.606-2.114-.404-.495-.92-.7=
+42-1.548-.742-.553 0-1.05.224-1.491.67-.442.447-.662 1.133-.662 2.058 0 .95=
+8.212 1.67.638 2.138.425.469.946.703 1.563.703zM53.004 5.72v4.42c.574-.894 =
+1.388-1.341 2.44-1.341 1.022 0 1.857.383 2.506 1.149.649.766.973 1.781.973 =
+3.047 0 1.138-.309 2.109-.925 2.912-.617.803-1.463 1.205-2.537 1.205-1.075 =
+0-1.894-.447-2.457-1.34V17h-1.58V5.72h1.58zm9.908 11.104l-3.223-7.913h1.739=
+l1.005 2.632 1.26 3.415c.096-.32.48-1.458 1.15-3.415l.909-2.632h1.66l-2.92 =
+7.866c-.777 2.074-1.963 3.11-3.559 3.11a2.92 2.92 0 0 1-.734-.079v-1.34c.17=
+.042.351.064.543.064 1.032 0 1.755-.57 2.17-1.708z' fill=3D'%235D6494'/%3E%=
+3Cpath d=3D'M89.632 5.967v-.772a.978.978 0 0 0-.978-.977h-2.28a.978.978 0 0=
+ 0-.978.977v.793c0 .088.082.15.171.13a7.127 7.127 0 0 1 1.984-.28c.65 0 1.2=
+95.088 1.917.259.082.02.164-.04.164-.13m-6.248 1.01l-.39-.389a.977.977 0 0 =
+0-1.382 0l-.465.465a.973.973 0 0 0 0 1.38l.383.383c.062.061.15.047.205-.014=
+.226-.307.472-.601.746-.874.281-.28.568-.526.883-.751.068-.042.075-.137.02-=
+.2m4.16 2.453v3.341c0 .096.104.165.192.117l2.97-1.537c.068-.034.089-.117.05=
+5-.184a3.695 3.695 0 0 0-3.08-1.866c-.068 0-.136.054-.136.13m0 8.048a4.489 =
+4.489 0 0 1-4.49-4.482 4.488 4.488 0 0 1 4.49-4.482 4.488 4.488 0 0 1 4.489=
+ 4.482 4.484 4.484 0 0 1-4.49 4.482m0-10.85a6.363 6.363 0 1 0 0 12.729 6.37=
+ 6.37 0 0 0 6.372-6.368 6.358 6.358 0 0 0-6.371-6.36' fill=3D'%23FFF'/%3E%3=
+C/g%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 50% =
+center; background-size: 100%; overflow: hidden; text-indent: -9000px; widt=
+h: 100%; height: 100%; display: block; padding: 0px !important; }
+------MultipartBoundary--T5eXwQ8aJ3YuKSgHcqF70bPasVjTiXuMlycv4mjj3D----
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: https://cdn4.buysellads.net/uu/1/69037/1596210833-20200722_CaronAds_03-_2_.jpg
+
+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
+MgnsPk91+94P4LGeIP/Z
+
+------MultipartBoundary--T5eXwQ8aJ3YuKSgHcqF70bPasVjTiXuMlycv4mjj3D------

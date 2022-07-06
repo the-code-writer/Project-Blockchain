@@ -1,0 +1,7 @@
+a {
+	@extend %extend_1;
+	&:focus {
+		text-decoration: none;
+		outline: none;
+	}
+}

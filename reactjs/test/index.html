@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src='../public/dist/bignumber.min.js'></script>
+  <script src="../public/dist/ethers-5.1.umd.min.js" type="text/javascript"></script>
+  <script src="../src/DovellousBlockchain.js" type="module"></script>
+  <script type="module">
+
+    import {DovellousBlockchain} from "../src/DovellousBlockchain.js";
+
+    window.addEventListener("ON_DOVELLOUS_SNIPPETS_READY", async function (eventParams) {
+
+      if (eventParams.detail && eventParams.detail.length > 1) {
+
+        if ("BlockchainSnippets" in eventParams.detail[0]) {
+
+            window.blockchain = eventParams.detail[0].BlockchainSnippets;
+            window.blockchainEventData = eventParams.detail[1];
+            const metamaskAccount = await window.blockchain.ethereum.connectMetamask();
+
+            console.log(":: METAMASK ::", metamaskAccount);
+            console.log(":: DOVELLOUS ::", dovellous);
+
+        }
+
+      }
+
+    });
+
+    window.addEventListener("ON_DOVELLOUS_WALLET_READY", async function (eventParams) {
+
+      const address = await eventParams.detail.signer.getAddress();
+
+      console.log(" :: ON_DOVELLOUS_WALLET_READY ::", eventParams.detail.wallet, address);
+
+    });
+
+    ( function () {
+
+      const params = {
+        contracts: {
+          name: "MetaverseBankIO",
+          passphrase: "",
+          privateKey: ""
+        }
+      };
+
+      DovellousBlockchain(params);
+
+      console.log("...started!")
+
+    })();
+
+  </script>
+  <title>MetaverseBankIO</title>
+</head>
+<body>
+</body>
+</html>

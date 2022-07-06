@@ -1,0 +1,160 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1050;
+	display: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	outline: 0;
+	.login-modal-main {
+		background-color: $white;
+		padding: 50px;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 6px;
+		overflow: hidden;
+		.heading {
+			h3 {
+				color: $color_black_pearl_approx;
+				font-size: 26px;
+				font-weight: 700;
+				position: relative;
+				margin-bottom: 15px;
+				padding-bottom: 15px;
+				line-height: 32px;
+			}
+			h3::before {
+				position: absolute;
+				content: "";
+				left: 0;
+				bottom: 0;
+				height: 2px;
+				width: 50px;
+				background-color: $color_persian_blue_approx;
+			}
+		}
+		.social-login {
+			margin-top: 30px;
+			ul li {
+				margin-bottom: 10px;
+				&:last-child {
+					margin-bottom: 0;
+				}
+				a {
+					text-align: center;
+					position: relative;
+					background-color: $color_persian_blue_approx;
+					padding: 13px 30px;
+					color: $white;
+					width: 100%;
+					//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+					border-radius: 5px;
+					font-size: 14px;
+					text-transform: capitalize;
+					font-weight: 600;
+					z-index: 2;
+					&:hover::before {
+						opacity: 0.2;
+						visibility: visible;
+					}
+					i {
+						position: absolute;
+						left: 30px;
+						top: 14px;
+						font-size: 20px;
+					}
+				}
+				a::before {
+					position: absolute;
+					content: "";
+					left: 0;
+					top: 0;
+					height: 100%;
+					width: 100%;
+					background-color: $black;
+					opacity: 0;
+					visibility: hidden;
+					-webkit-transition: all 0.4s ease;
+					//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+					transition: all 0.4s ease;
+					z-index: -1;
+				}
+				.linkedin {
+					background-color: $color_deep_cerulean_approx;
+				}
+				.google {
+					background-color: $color_punch_approx;
+				}
+				.facebook {
+					background-color: $color_azure_approx;
+				}
+			}
+		}
+		.or-devider {
+			text-align: center;
+			position: relative;
+			z-index: 1;
+			span {
+				display: inline-block;
+				background: $white;
+				padding: 15px 25px;
+			}
+		}
+		.or-devider::before {
+			content: "";
+			height: 1px;
+			width: 100%;
+			top: 50%;
+			left: 0;
+			margin-top: 1.5px;
+			position: absolute;
+			background: $color_gallery_approx;
+			z-index: -1;
+		}
+		.form-group {
+			margin-bottom: 20px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			.label {
+				font-size: 15px;
+				font-weight: 500;
+				color: $color_black_pearl_approx;
+				display: block;
+				margin-bottom: 8px;
+			}
+			.form-control {
+				height: 50px;
+				border: 1px solid $color_gallery_approx;
+				padding: 0 30px;
+				color: $color_black_pearl_approx;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 5px;
+				font-size: 15px;
+			}
+			.pass {
+				padding-right: 50px;
+			}
+		}
+		.button {
+			width: 100%;
+			.btn {
+				width: 100%;
+			}
+		}
+		.create-new-account {
+			color: $color_black_pearl_approx;
+			font-size: 15px;
+			a {
+				color: $color_persian_blue_approx;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	&.show .modal-dialog {
+		pointer-events: visible;
+	}
+}

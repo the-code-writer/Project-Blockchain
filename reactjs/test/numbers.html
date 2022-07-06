@@ -1,0 +1,378 @@
+<html>
+<script src='https://cdn.jsdelivr.net/npm/bignumber.js@9.0.2/bignumber.min.js'></script>
+<script>
+
+  function str2num(s)
+  {
+    s = s.toString()
+      .trim()
+      .replace(/(\d)(\s+)(?=\d)/gm, "$1+")
+      .replace(/[^-()\d/*+.]/g, '');
+    var ineg = s.indexOf("-");
+    var isOp = /[+*\/]/.test(s);
+    if (!isOp && ineg < 1) return s;
+    if (s == '') return 0;
+    return Function('"use strict";return (' + s + ')')();
+  }
+
+  function getBigNumber( val ){
+    let res;
+    hex = hex.replace("0x", "");
+    hex = hex.replace("0X", "");
+    try
+    {
+      x = new BigNumber(hex, 16);
+    }
+    catch (err)
+    {
+      x = false;
+    } finally {
+      return res;
+    }
+  }
+
+
+  function pad(n, width, z)
+  {
+    z = z || '0';
+    n = n + '';
+    return n.length >= width ? n : new Array(width - n.length + 1)
+      .join(z) + n;
+  }
+
+
+  function digitgroup(x, n, d)
+  {
+    if (x == "N/A") return x;
+    var x0 = x.split(".")[0];
+    var x1 = x.split(".")[1];
+    var y = "";
+    var x0head = "";
+    var re = new RegExp("(.{" + n + "})", "g");
+    if (x0 != "" && x0 != undefined)
+    {
+      if (x0[0] == "-")
+      {
+        y = "-";
+        x0 = x0.substring(1, x0.length);
+      }
+      x0head = x0.substring(0, x0.length % n);
+      y += x0head;
+      x0 = x0.substring(x0.length % n, x0.length);
+      //x0 = x0.replace(/(.{4})/g,"$1 ");
+      x0 = x0.replace(re, "$1 ");
+      x0 = x0.substring(0, x0.length - 1);
+      if (x0head != "" && x0 != "") y += d;
+      y += x0;
+    }
+    if (x1 != "" && x1 != undefined)
+    {
+      y += ".";
+      //y += x1.replace(/(.{4})/g,"$1 ");
+      y += x1.replace(re, "$1 ");
+    }
+    return y;
+  }
+
+
+  function decimal2base(dec, y, b)
+  {
+    return;
+    var _cal2dec = "";
+    var row;
+    var y2 = null;
+    var tbl = "cal2tbl";
+    var len = tbl.tBodies[0].rows.length;
+    if (len)
+    {
+      for (var i = 0; i < len; i++)
+        tbl.tBodies[0].deleteRow(0);
+    }
+    if (dec < 0) dec = -dec;
+    dec = dec.toString();
+    y = y.toString()
+      .replace(/\s/g, '');
+    var nd = y.indexOf(".");
+    var ndigits = y.length - nd - 1;
+    if (ndigits > 8) ndigits = 8;
+    var txt = "";
+    if (nd >= 0)
+    {
+      txt =
+        "To avoid the decimal separator, multiply the decimal number with the base raised to the power of decimals in result:<br>";
+      txt += dec + "&times;" + b + "<sup>" + ndigits + "</sup> = ";
+      dec = dec * Math.pow(b, ndigits);
+      dec = Math.round(dec);
+      txt += dec;
+    }
+    _cal2dec = txt;
+    for (var n = dec, k = 0; n >= 1; k++)
+    {
+      row = "<tr>";
+      row += "<td>(" + n + ")/" + b + "</td>";
+      row += "<td>" + Math.floor(n / b) + "</td>";
+      row += "<td>" + (n % b)
+        .toFixed() + "</td>";
+      row += "<td>" + k + "</td>";
+      row += "</tr>";
+      n = Math.floor(n / b);
+      _cal2tbl = _cal2tbl+row;
+      r.innerHTML = row;
+    }
+    txt = "";
+    if (nd >= 0)
+    {
+      y2 = y.toString();
+      var n = y2.length - y2.indexOf(".") - ndigits - 1;
+      y2 = y2.substring(0, y2.length - n)
+        .replace(".", "");
+      txt = "= (" + y2 + ")<sub>" + b + "</sub> / " + b + "<sup>" + ndigits +
+        "</sup>";
+    }
+    console.log(txt);
+    if (nd >= 0) y = y.substring(0, y2.length + 1);
+    txt = "= (" + y + ")<sub>" + b + "</sub>";
+    console.log(txt);
+  }
+
+
+  function fromDEC( number_string, groupDigits )
+  {
+    var dec = str2num( number_string );
+
+    try
+    {
+      var x = new BigNumber(dec, 10);
+    }
+    catch (err)
+    {
+      return;
+    }
+    var y = x.toString(16)
+      .toUpperCase();
+    var y5 = x.toString(2);
+    var y2;
+    var t1 = new BigNumber("-8000000000000000", 16);
+    var t2 = new BigNumber("7FFFFFFFFFFFFFFF", 16);
+    var t3 = new BigNumber("10000000000000000", 16);
+    if (x.isInteger() && x.gte(-32768) && x.lte(32767))
+    {
+      y2 = new BigNumber(x, 10);
+      if (x.lte(0)) y2 = x.plus("10000", 16);
+      y2 = pad(y2.toString(16)
+        .toUpperCase(), 4);
+    }
+    else if (x.isInteger() && x.gte(-2147483648) && x.lte(2147483647))
+    {
+      y2 = new BigNumber(x, 10);
+      if (x.lte(0)) y2 = x.plus("100000000", 16);
+      y2 = pad(y2.toString(16)
+        .toUpperCase(), 8);
+    }
+    else if (x.isInteger() && x.gte(t1) && x.lte(t2))
+    {
+      y2 = new BigNumber(x, 10);
+      if (x.lte(0)) y2 = x.plus(t3);
+      y2 = pad(y2.toString(16)
+        .toUpperCase(), 16);
+    }
+    else
+    {
+      y2 = "N/A";
+    }
+    if (groupDigits)
+    {
+      y = digitgroup(y, 4, " ");
+      y2 = digitgroup(y2, 4, " ");
+      y5 = digitgroup(y5, 8, " ");
+    }
+    decimal2base(dec, y, 16);
+    return {
+      hex: y,
+      hexSigned: y2,
+      binary: y5,
+      decimal: number_string
+    }
+  }
+
+
+  function fromHEX( hex )
+  {
+
+    hex = hex.replace("0x", "");
+    hex = hex.replace("0X", "");
+
+    let _decimals, _decimals_2, _decimals_calc, _binary;
+
+    const x = getBigNumber( hex );
+
+    if(!x){
+      return;
+    }
+
+    var xx = x.toString(10);
+    _decimals = xx;
+    _binary = x.toString(2);
+    if (x.isInteger() && x.gte(0))
+    {
+      if (hex.length == 2 && x.gte("80", 16)) { x = x.minus("100", 16); }
+      if (hex.length == 4 && x.gte("8000", 16)) { x = x.minus("10000", 16); }
+      if (hex.length == 8 && x.gte("80000000", 16)) { x = x.minus("100000000",
+        16); }
+      var t1 = new BigNumber("8000000000000000", 16);
+      var t2 = new BigNumber("10000000000000000", 16);
+      if (hex.length == 16 && x.gte(t1)) { x = x.minus(t2); }
+      if (hex.length == 2 || hex.length == 4 || hex.length == 8 || hex
+        .length == 16)
+        _decimals_2 = x.toString(10);
+      else
+        _decimals_2 = "N/A";
+    }
+    else
+      _decimals_2 = "N/A";
+    hex = hex.toUpperCase();
+    var txt = "(" + hex + ")\u2081\u2086 = ";
+    var d, e, minus = false;
+    var len = hex.length;
+    if (hex[0] == "-") { txt += "-[";
+      hex = hex.substr(1);
+      len--;
+      minus = true; }
+    var idot = hex.indexOf(".");
+    if (idot >= 0) { hex = hex.substring(0, idot) + hex.substring(idot + 1,
+      len);
+      len--; }
+    else idot = len;
+    etbl = ["\u2070", "\u00B9", "\u00B2", "\u00B3", "\u2074", "\u2075",
+      "\u2076", "\u2077", "\u2078", "\u2079"];
+    for (var i = 0; i < len; i++)
+    {
+      d = hex.charCodeAt(i);
+      if (d < 58) d -= 48;
+      else if (d > 64) d -= 55;
+      //e = len-i-1;
+      e = idot - i - 1;
+      e = e.toString();
+      txt += "(" + d + " \u00D7 16";
+      for (var k = 0; k < e.length; k++)
+        if (e[k] == "-")
+          txt += "\u207B";
+        else
+          txt += etbl[e[k]];
+      txt += ")";
+      if (i < len - 1) txt += " + ";
+    }
+    if (minus) txt += "]";
+    txt += " = (" + xx + ")\u2081\u2080";
+    _decimals_calc = txt;
+    return {
+      decimals: _decimals,
+      decimals_2: _decimals_2,
+      decimals_calc: _decimals_calc,
+      binary: _binary
+    }
+  }
+
+
+  function fromHEX2BIN( hex, groupDigits )
+  {
+
+    hex = hex.replace("0x", "");
+    hex = hex.replace("0X", "");
+
+    const x = getBigNumber( hex );
+
+    if(!x){
+      return;
+    }
+
+    var _calc = "";
+    var _binary = x.toString(2);
+    var _decimals = x.toString(10);
+    var mod = _binary.length % 4;
+    if (mod) _binary = "000".substring(0, 4 - mod) + _binary;
+    var y0 = _binary;
+    if (groupDigits)
+    {
+      _binary = digitgroup(_binary, 8, " ");
+      _decimals = digitgroup(_decimals, 3, " ");
+    }
+    yelem.value = _binary;
+    y2elem.value = _decimals;
+    _calc = "Convert each hex digit to 4 binary digits (see conversion table below):\n";
+    _calc += hex + "\n= ";
+    if (hex.length > 1)
+      _calc += digitgroup(hex, 1, " ") + "\n= ";
+    if (y0.length > 4)
+      _calc += digitgroup(y0, 4, " ") + "\n= ";
+    _calc += y0;
+
+    return {
+      decimals: _decimals,
+      decimals_2: _decimals_2,
+      calc: _calc,
+      binary: _binary
+    }
+  }
+
+  function fromDEC2HEX( dec, groupDigits )
+  {
+
+    try
+    {
+      var x = new BigNumber(dec, 10);
+    }
+    catch (err)
+    {
+      return;
+    }
+    var y = x.toString(16)
+      .toUpperCase();
+    var y5 = x.toString(2);
+    var y2;
+    var t1 = new BigNumber("-8000000000000000", 16);
+    var t2 = new BigNumber("7FFFFFFFFFFFFFFF", 16);
+    var t3 = new BigNumber("10000000000000000", 16);
+    if (x.isInteger() && x.gte(-32768) && x.lte(32767))
+    {
+      y2 = new BigNumber(x, 10);
+      if (x.lte(0)) y2 = x.plus("10000", 16);
+      y2 = pad(y2.toString(16)
+        .toUpperCase(), 4);
+    }
+    else if (x.isInteger() && x.gte(-2147483648) && x.lte(2147483647))
+    {
+      y2 = new BigNumber(x, 10);
+      if (x.lte(0)) y2 = x.plus("100000000", 16);
+      y2 = pad(y2.toString(16)
+        .toUpperCase(), 8);
+    }
+    else if (x.isInteger() && x.gte(t1) && x.lte(t2))
+    {
+      y2 = new BigNumber(x, 10);
+      if (x.lte(0)) y2 = x.plus(t3);
+      y2 = pad(y2.toString(16)
+        .toUpperCase(), 16);
+    }
+    else
+    {
+      y2 = "N/A";
+    }
+    if (groupDigits)
+    {
+      y = digitgroup(y, 4, " ");
+      y2 = digitgroup(y2, 4, " ");
+      y5 = digitgroup(y5, 8, " ");
+    }
+
+    return {
+      hex: y,
+      hex_2: y2,
+      binary: y5
+    }
+  }
+
+</script>
+</html>
+
+

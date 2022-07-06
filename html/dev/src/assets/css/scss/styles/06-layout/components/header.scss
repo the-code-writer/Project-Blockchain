@@ -1,0 +1,227 @@
+.header {
+	position: relative;
+	.button {
+		display: inherit !important;
+		margin-left: 60px;
+		.login {
+			display: inherit;
+			margin-right: 30px;
+			padding: 0;
+			height: 45px;
+			line-height: 45px;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 4px;
+			color: $color_persian_blue_approx;
+			font-weight: 500;
+			font-size: 14px;
+			i {
+				display: inherit;
+				margin-right: 5px;
+				font-size: 14px;
+				line-height: 45px;
+				margin-right: 8px;
+			}
+			&:hover {
+				color: $color_black_pearl_approx;
+				border-color: transparent;
+			}
+		}
+		.btn {
+			color: $white;
+			padding: 0 !important;
+			display: inline-block;
+			overflow: hidden;
+			position: relative;
+			z-index: 2;
+			background: $color_persian_blue_approx;
+			border: none;
+			font-size: 14px;
+			font-weight: 500;
+			-webkit-box-shadow: none;
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: none;
+			padding: 0 10px;
+			height: 45px;
+			line-height: 42px;
+			width: 130px;
+			&:hover {
+				color: $white;
+				background-color: $color_black_pearl_approx;
+				border-color: transparent;
+				-webkit-transform: none;
+				//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+				transform: none;
+			}
+		}
+	}
+	&.index2 {
+		.sticky {
+			.nav-item {
+				a {
+					color: $color_black_pearl_approx !important;
+					&:hover {
+						color: $color_persian_blue_approx !important;
+					}
+					&.active {
+						color: $color_persian_blue_approx !important;
+					}
+				}
+				a::before {
+					background-color: $color_persian_blue_approx;
+				}
+			}
+			.logo {
+				.logo1 {
+					opacity: 1;
+					visibility: visible;
+				}
+				.logo2 {
+					opacity: 0;
+					visibility: hidden;
+				}
+			}
+		}
+		.logo {
+			position: relative;
+			margin: 0;
+			padding: 0;
+			top: -16px;
+			img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				-webkit-transition: all 0.4s ease;
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: all 0.4s ease;
+			}
+			.logo1 {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+		.navbar-nav {
+			.nav-item {
+				a {
+					color: $white;
+				}
+				a::before {
+					background-color: $white;
+				}
+			}
+			li .sub-menu {
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 3px;
+			}
+			.sub-menu li a {
+				color: $color_black_pearl_approx;
+				&:hover {
+					color: $white !important;
+				}
+			}
+		}
+		.navbar-area.sticky .navbar-nav li .sub-menu li a.active {
+			color: $white !important;
+		}
+		.button .btn:hover {
+			background-color: $white;
+			color: $color_persian_blue_approx;
+		}
+	}
+	&.index4 {
+		.navbar-area {
+			position: absolute;
+		}
+		.sticky {
+			position: fixed;
+			top: 0;
+		}
+	}
+	&.style4 .navbar-area {
+		background-color: $white;
+		border: none;
+	}
+	.navbar-nav li {
+		.sub-menu {
+			background: $white;
+			width: 220px;
+			text-align: left;
+			position: absolute;
+			top: 100%;
+			z-index: 999;
+			opacity: 0;
+			visibility: hidden;
+			padding: 15px;
+			left: 0;
+			margin: 0;
+			-webkit-box-shadow: 1px 4px 12px $color_mine_shaft_25_approx;
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: 0 13px 20px $color_martini_6_approx;
+			-webkit-transition: all 0.3s ease 0s;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all 0.3s ease 0s;
+			z-index: 9999999;
+			-webkit-transform-origin: 0 0 0;
+			//Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+			transform-origin: 0 0 0;
+			-webkit-transform: scaleY(0.2);
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: scaleY(0.2);
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 0 0 3px 3px;
+			li {
+				float: none;
+				margin: 0;
+				display: block;
+				margin-bottom: 6px;
+				a {
+					padding: 10px 15px;
+					color: $color_dove_gray_approx;
+					display: block;
+					font-size: 14px;
+					font-weight: normal;
+					text-transform: capitalize;
+					background: transparent;
+					//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+					border-radius: 3px;
+					font-weight: 400;
+					&.active {
+						background-color: $color_persian_blue_approx !important;
+						color: $white !important;
+					}
+					&:before {
+						display: none;
+					}
+					&:hover:before {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+				&:last-child {
+					margin-bottom: 0;
+					border: none;
+					a {
+						border-bottom: 0;
+					}
+				}
+				&:hover a {
+					color: $white;
+					background: $color_persian_blue_approx;
+				}
+				.sub-menu li:hover .sub-menu {
+					opacity: 1;
+					visibility: visible;
+					-webkit-transform: scaleY(1);
+					//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+					transform: scaleY(1);
+				}
+			}
+		}
+		&:hover .sub-menu {
+			opacity: 1;
+			visibility: visible;
+			-webkit-transform: scaleY(1);
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: scaleY(1);
+		}
+	}
+}

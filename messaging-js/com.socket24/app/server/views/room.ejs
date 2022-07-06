@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        const ROOM_ID = "<%= roomID %>"
+    </script>
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <script defer src="/dev/js/peerjs.min.js"></script>
+    <script src="/dev/js/socket.io.js" defer></script>
+    <script src="/dev/js/peerjs.client.js" defer></script>
+    <title>Document</title>
+    <style>
+        #video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 300px);
+            grid-auto-rows: 300px;
+            border: 1px solid red;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+
+
+
+</head>
+<body>
+<div id="video-grid" ></div>
+</body>
+</html>

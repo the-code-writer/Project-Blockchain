@@ -1,0 +1,187 @@
+.post-comments {
+	background-color: $white;
+	padding: 40px;
+	margin-top: 40px;
+	border: 1px solid $color_gallery_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	.comments-list li {
+		padding-left: 130px;
+		position: relative;
+		font-size: 14px;
+		.comment-img {
+			position: absolute;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			img {
+				max-width: 100px;
+				max-height: 100px;
+			}
+		}
+		.comment-desc {
+			.desc-top {
+				margin-bottom: 20px;
+				position: relative;
+				display: block;
+				h6 {
+					font-size: 18px;
+					margin-bottom: 8px;
+					font-weight: 500;
+					.saved {
+						color: $color_persian_blue_approx;
+						font-size: 14px;
+						margin-left: 10px;
+					}
+				}
+				.reply-link {
+					position: absolute;
+					right: 0;
+					top: 50%;
+					-webkit-transform: translateY(-50%);
+					//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+					transform: translateY(-50%);
+					padding: 10px 22px;
+					display: inline-block;
+					font-size: 12px;
+					font-weight: 500;
+					z-index: 2;
+					//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+					border-radius: 3px;
+					border: 1px solid $color_gallery_approx;
+					color: $color_persian_blue_approx;
+					&:hover {
+						background-color: $color_persian_blue_approx;
+						color: $white;
+						border-color: transparent;
+					}
+					i {
+						margin-right: 5px;
+					}
+				}
+				span.date {
+					font-size: 14px;
+					font-weight: 400;
+				}
+			}
+			p {
+				font-weight: 400;
+				margin-bottom: 0;
+				font-size: 14px;
+			}
+		}
+		&.children {
+			margin-left: 130px;
+		}
+		&:not(:first-child) {
+			padding-top: 30px;
+			margin-top: 30px;
+			border-top: 1px dashed $color_gallery_approx;
+		}
+	}
+}
+.comment-title {
+	font-size: 22px !important;
+	font-weight: 500 !important;
+	margin-bottom: 40px !important;
+	position: relative;
+	z-index: 1;
+	text-transform: capitalize;
+	span {
+		background-color: $white;
+		padding-right: 15px;
+	}
+}
+.comment-title::before {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	height: 1px;
+	width: 100%;
+	background-color: $color_gallery_approx;
+	content: '';
+	z-index: -1;
+}
+.comment-reply-title {
+	font-size: 22px !important;
+	font-weight: 500 !important;
+	margin-bottom: 40px !important;
+	position: relative;
+	z-index: 1;
+	text-transform: capitalize;
+	span {
+		background-color: $white;
+		padding-right: 15px;
+	}
+}
+.comment-reply-title::before {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	height: 1px;
+	width: 100%;
+	background-color: $color_gallery_approx;
+	content: '';
+	z-index: -1;
+}
+.comment-form {
+	background-color: $white;
+	padding: 40px;
+	margin-top: 40px;
+	border: 1px solid $color_gallery_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	form .form-box {
+		position: relative;
+		.icon {
+			position: absolute;
+			top: 17px;
+			right: 25px;
+			font-size: 16px;
+		}
+		.form-control-custom {
+			border: none;
+			background: $white;
+			color: $color_black_pearl_approx;
+			padding: 0 25px;
+			font-weight: 500;
+			height: 55px;
+			border: 1px solid $color_gallery_approx;
+			margin-bottom: 25px;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 0;
+			font-size: 14px;
+			font-weight: 400;
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 5px;
+			&:-ms-input-placeholder {
+				font-size: 14px;
+				color: $color_mine_shaft_approx;
+				font-weight: 500;
+				padding: 25px;
+			}
+		}
+		.form-control-custom::-webkit-input-placeholder {
+			font-size: 14px;
+			color: $color_mine_shaft_approx;
+			font-weight: 500;
+			padding: 25px;
+		}
+		.form-control-custom::-ms-input-placeholder {
+			font-size: 14px;
+			color: $color_mine_shaft_approx;
+			font-weight: 500;
+			padding: 25px;
+		}
+		.form-control-custom::placeholder {
+			font-size: 14px;
+			color: $color_mine_shaft_approx;
+			font-weight: 500;
+			padding: 25px;
+		}
+		textarea.form-control-custom {
+			height: 200px;
+			padding: 25px;
+		}
+	}
+}

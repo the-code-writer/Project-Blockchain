@@ -1,0 +1,58 @@
+button:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+.btn {
+	&:focus {
+		text-decoration: none;
+		outline: none;
+	}
+	&.focus {
+		text-decoration: none;
+		outline: none;
+	}
+	&:not(:disabled):not(.disabled) {
+		&.active {
+			text-decoration: none;
+			outline: none;
+		}
+		&:active {
+			text-decoration: none;
+			outline: none;
+		}
+	}
+}
+
+.button {
+	.btn {
+		display: inline-block;
+		text-transform: capitalize;
+		font-size: 14px;
+		font-weight: 500;
+		padding: 15px 30px;
+		background-color: $color_persian_blue_approx;
+		color: $white;
+		border: none;
+		-webkit-transition: 0.5s;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: 0.5s;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 4px;
+		&:hover {
+			background-color: $color_black_pearl_approx;
+			color: $white;
+			-webkit-box-shadow: 0 1rem 3rem $color_shark_15_approx !important;
+			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: 0 1rem 3rem $color_shark_15_approx !important;
+		}
+	}
+	.btn-alt {
+		background-color: $color_black_pearl_approx;
+		color: $white;
+		&:hover {
+			background-color: $color_persian_blue_approx;
+			color: $white;
+		}
+	}
+}
